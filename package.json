@@ -22,5 +22,15 @@
   "bugs": {
     "url": "https://github.com/AlaMurkan-FIFA-Boyz-2017-Dremz2Lyf/Game-Manager-V2/issues"
   },
-  "homepage": "https://github.com/AlaMurkan-FIFA-Boyz-2017-Dremz2Lyf/Game-Manager-V2#readme"
+  "homepage": "https://github.com/AlaMurkan-FIFA-Boyz-2017-Dremz2Lyf/Game-Manager-V2#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.12.2",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "path": "^0.12.7"
+  }
 }
