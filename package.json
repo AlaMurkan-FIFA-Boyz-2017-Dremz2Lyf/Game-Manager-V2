@@ -4,7 +4,7 @@
   "description": "Version 2 of the popular and groundbreaking FIFA app 'Game Manager'",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./test/run.sh"
   },
   "repository": {
     "type": "git",
