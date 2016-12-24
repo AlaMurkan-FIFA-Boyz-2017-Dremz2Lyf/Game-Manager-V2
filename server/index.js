@@ -12,12 +12,13 @@ app.use(bodyParser.json());
 
 
 if (process.env.NODE_ENV !== 'test') {
+  
   const port = process.env.PORT || 4040;
 
   const server = app.listen(port, ()=> {
     console.log(`Listening on port ${port}`);
-
   });
+
 } else {
   module.exports = routes;
 }
