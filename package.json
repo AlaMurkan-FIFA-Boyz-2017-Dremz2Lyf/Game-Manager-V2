@@ -4,6 +4,7 @@
   "description": "Version 2 of the popular and groundbreaking FIFA app 'Game Manager'",
   "main": "index.js",
   "scripts": {
+    "start": "node ./server/index.js",
     "test": "./test/run.sh"
   },
   "repository": {
@@ -24,11 +25,16 @@
   },
   "homepage": "https://github.com/AlaMurkan-FIFA-Boyz-2017-Dremz2Lyf/Game-Manager-V2#readme",
   "devDependencies": {
+    "axios-mock-adapter": "^1.7.1",
+    "bluebird": "^3.4.7",
     "chai": "^3.5.0",
     "eslint": "^3.12.2",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "supertest": "^2.0.1",
+    "supertest-as-promised": "^4.0.2"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "path": "^0.12.7"

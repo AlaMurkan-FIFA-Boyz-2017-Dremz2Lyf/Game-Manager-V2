@@ -1,22 +1,19 @@
 require(TEST_HELPER); // <--- This must be at the top of every test file.
-
-var helpers = require(__server + '/serverHelpers.js');
+var helpers = require(__server + '/utilities.js');
 var request = require('supertest-as-promised');
 var routes = require(__server + '/index.js');
-var config = require('../../knexfile.js');
-var env = 'test';
 
+// NOTE: This will be used after knex is configured and the database is set up
+// var config = require('../../knexfile.js');
 
 describe('The Server', function() {
 
-  var knex = require('knex')(config[env]);
+  // var knex = require('knex')(config[env]);
 
   var app = TestHelper.createApp();
   app.use('/', routes);
   app.testReady();
-  // Notice how these are generator functions (indicated by the the *)
-  // See test/test-helper.js for details of why this works.
-  // I (Scott) have no clue, but it seems to be working right now.......
+
 
   describe('Helper functions', function() {
 
@@ -24,15 +21,15 @@ describe('The Server', function() {
 
   describe('Routes', function() {
 
-    beforeEach(function(done) {
-      knex.migrate.rollback().then(res => {
-        knex.migrate.latest().then(res => {
-          return knex.seed.run().then(res => {
-            done();
-          });
-        });
-      });
-    });
+    // beforeEach(function(done) {
+    //   knex.migrate.rollback().then(res => {
+    //     knex.migrate.latest().then(res => {
+    //       return knex.seed.run().then(res => {
+    //         done();
+    //       });
+    //     });
+    //   });
+    // });
 
     describe('/api/games', function() {
 
