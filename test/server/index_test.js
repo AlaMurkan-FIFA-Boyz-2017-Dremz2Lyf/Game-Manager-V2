@@ -1,21 +1,23 @@
 require(TEST_HELPER); // <--- This must be at the top of every test file.
-var helpers = require(__server + '/utilities.js');
-var request = require('supertest-as-promised');
-var routes = require(__server + '/index.js');
+const helpers = require(__server + '/utilities.js');
+const request = require('supertest-as-promised');
+const routes = require(__server + '/index.js');
+
 
 // NOTE: This will be used after knex is configured and the database is set up
-// var config = require('../../knexfile.js');
+// const config = require('../../knexfile.js');
 
 describe('The Server', function() {
 
-  // var knex = require('knex')(config[env]);
+  // const knex = require('knex')(config[env]);
 
-  var app = TestHelper.createApp();
+  let app = TestHelper.createApp();
+
   app.use('/', routes);
   app.testReady();
 
 
-  describe('Helper functions', function() {
+  describe('Utilities', function() {
 
   });
 
@@ -30,56 +32,113 @@ describe('The Server', function() {
     //     });
     //   });
     // });
+    describe('root', () => {
+      it_('Should serve the static files on calls to the route', function * () {
 
-    describe('/api/games', function() {
-
-      it_('Should be a route in the server', function * () {
-        console.log('NOTE: The get all games route will be made when we want to make a player stats page');
         yield request(app)
-        .get('/api/games')
-        .expect(200);
+        .get('/')
+        .expect(200)
+        .expect((res) => {
+          expect(res.text).to.be.an('string');
+          expect(TestHelper.checkForHtml(res.text)).to.equal('<html>');
+        });
+      });
+    });
+
+    describe('/games', function() {
+      describe('GET', () => {
+
+        it_('should respond with a status of 200', function * () {
+
+          yield request(app)
+          .get('/games')
+          .expect(200);
+        });
       });
 
-      it_('Should respond with an array of objects when queried with a tournament_id', function * () {
+      describe('POST', () => {
 
-        yield request(app)
-        .get('/api/games?tournament_id=1')
-        .expect(200)
-        .expect(function(response) {
-          expect(response.body).to.be.an('array');
-          expect(response.body[0]).to.be.an('object');
+        it_('should respond with a status of 200', function * () {
+
+          yield request(app)
+          .post('/games')
+          .expect(201);
+        });
+      });
+
+      describe('PUT', () => {
+
+        it_('should respond with a status of 200', function * () {
+
+          yield request(app)
+          .put('/games')
+          .expect(202);
         });
       });
 
     });
 
-    describe('/api/games/table', function() {
+    describe('/tournaments', function() {
+      describe('GET', () => {
 
-      it_('Should be a route in the server', function * () {
+        it_('should respond with a status of 200', function * () {
 
-        yield request(app)
-        .get('/api/games/table')
-        .expect(200);
-      });
-
-      it_('Should respond with an array of objects when queried with a tournament_id', function * () {
-
-        yield request(app)
-        .get('/api/games/table?tournament_id=1')
-        .expect(200)
-        .expect(function(response) {
-          expect(response.body).to.be.an('array');
-          expect(response.body[0]).to.be.an('object');
+          yield request(app)
+          .get('/tournaments')
+          .expect(200);
         });
       });
 
-      it_('The objects in the return array should be properly formatted', function * () {
+      describe('POST', () => {
 
-        yield request(app)
-        .get('/api/games/table')
-        .expect(200)
-        .expect(function(response) {
-          expect(response.body[0]).to.have.all.keys('playerId', 'gp', 'won', 'loss', 'draw', 'gd', 'points');
+        it_('should respond with a status of 200', function * () {
+
+          yield request(app)
+          .post('/tournaments')
+          .expect(201);
+        });
+      });
+
+      describe('PUT', () => {
+
+        it_('should respond with a status of 200', function * () {
+
+          yield request(app)
+          .put('/tournaments')
+          .expect(202);
+        });
+      });
+
+    });
+
+    describe('/players', function() {
+      describe('GET', () => {
+
+        it_('should respond with a status of 200', function * () {
+
+          yield request(app)
+          .get('/players')
+          .expect(200);
+        });
+      });
+
+      describe('POST', () => {
+
+        it_('should respond with a status of 200', function * () {
+
+          yield request(app)
+          .post('/players')
+          .expect(201);
+        });
+      });
+
+      describe('PUT', () => {
+
+        it_('should respond with a status of 200', function * () {
+
+          yield request(app)
+          .put('/players')
+          .expect(202);
         });
       });
 

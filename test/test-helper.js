@@ -94,6 +94,7 @@ TestHelper.createApp = function (loader) {
   return app;
 };
 
+TestHelper.checkForHtml = (text) => text.slice(0, 6);
 
 //
 // Mocha "helpers" to support coroutines tests

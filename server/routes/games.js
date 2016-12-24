@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.name = 'games';
 
+router.get('/', (req, res) => {
+  res.send('okay');
 });
 
 router.post('/', (req, res) => {

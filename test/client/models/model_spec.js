@@ -11,11 +11,11 @@ let mock = new MockAdapter(axios);
 
 mock.onGet('/test').reply((config) => {
   if (!config.params) {
-    return [200, Mock_Data.test.existing];
+    return [200, mockData.test.existing];
   } else if (config.params.id === 1) {
-    return [200, Mock_Data.test.existing[0]];
+    return [200, mockData.test.existing[0]];
   } else if (config.params.id === 3) {
-    return [200, Mock_Data.test.existing[2]];
+    return [200, mockData.test.existing[2]];
   }
 })
 .onPost('/test').reply(201, 'Created')
@@ -52,7 +52,7 @@ describe('axios model', function() {
     it('should respond with all the data for the defined model', function(done) {
 
       testModel.all().then(res => {
-        expect(res).to.deep.equal(Mock_Data.test.existing);
+        expect(res).to.deep.equal(mockData.test.existing);
         done();
       }).catch(err => {
         throw err;
@@ -92,9 +92,9 @@ describe('axios model', function() {
       expect(typeof testModel.findById).to.equal('function');
     });
 
-    it('should respond with 200 when called with an attributes object', function(done) {
+    it('should respond with 200 when called with an attributes object', (done) => {
 
-      return testModel.findById({id: 1}).then(res => {
+      testModel.findById({id: 1}).then(res => {
         expect(res.status).to.equal(200);
         expect(res.data).to.have.property('id');
         expect(res.data).to.have.property('laborum');
@@ -114,7 +114,7 @@ describe('axios model', function() {
     });
 
     it('should respond with 202 and the item id', function() {
-      return testModel.updateOne(Mock_Data.test.updated).then(res => {
+      return testModel.updateOne(mockData.test.updated).then(res => {
 
         let body = res.data;
 
