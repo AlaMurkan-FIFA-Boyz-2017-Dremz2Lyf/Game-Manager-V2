@@ -15,6 +15,7 @@ global.__client = path.join(__dirname, '../client');
 var chai = require('chai');
 // Option 1: Make the `expect` function available in every test file
 global.expect = chai.expect;
+
 // Option 2: Make everything should-able
 // global.should = chai.should()
 
@@ -56,13 +57,13 @@ mockData.playerObjs = [
 
 // set a tournaments key on the mock database
 mockData.tournaments = [
-  {tournament_name: 'Super Tourney!', winner_id: null}
+  {name: 'Super Tourney!', winner: null}
 ];
 // set a games key on the mock database
 mockData.games = [
-  {player1_id: 1, player2_id: 2, player1_score: null, player2_score: null, player1_shots: null, player2_shots: null, player1_possession: null, player2_possession: null, player1_shotsOnGoal: null, player2_shotsOnGoal: null, tournament_id: 1, status: 'created'},
-  {player1_id: 1, player2_id: 3, player1_score: null, player2_score: null, player1_shots: null, player2_shots: null, player1_possession: null, player2_possession: null, player1_shotsOnGoal: null, player2_shotsOnGoal: null, tournament_id: 1, status: 'created'},
-  {player1_id: 2, player2_id: 3, player1_score: null, player2_score: null, player1_shots: null, player2_shots: null, player1_possession: null, player2_possession: null, player1_shotsOnGoal: null, player2_shotsOnGoal: null, tournament_id: 1, status: 'created'}
+  {p1: 1, p2: 2, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Possession: null, p2Possession: null, p1ShotsOnGoal: null, p2ShotsOnGoal: null, tournamentId: 1, status: 'created'},
+  {p1: 1, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Possession: null, p2Possession: null, p1ShotsOnGoal: null, p2ShotsOnGoal: null, tournamentId: 1, status: 'created'},
+  {p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Possession: null, p2Possession: null, p1ShotsOnGoal: null, p2ShotsOnGoal: null, tournamentId: 1, status: 'created'}
 ];
 
 
