@@ -30,8 +30,38 @@ describe('The Server', function() {
         expect(_.createGame).to.be.a('function');
       });
 
-      it('should error if the first argument is not an array with length of 2', () => {
-        expect(_.createGame.bind(this, {fail: 'data'}, 4)).to.throw(TypeError, /must be an Array with two playerIds/);
+      it('should error if the arguments are not numbers', () => {
+        expect(_.createGame.bind(this, {}, 4)).to.throw(TypeError, /createGame accepts two numbers/);
+      });
+
+      it('should return a game object when called with two playerIds', () => {
+        let newGame = _.createGame(1, 2);
+
+        expect(newGame).to.have.all.keys('p1', 'p2', 'createdAt');
+        expect(newGame.p1).to.be.a('number');
+      });
+    });
+
+    describe('createGames', () => {
+
+      it('should be a function', () => {
+        expect(_.createGames).to.be.a('function');
+      });
+
+      it('should error if the first argument is not an array', () => {
+        expect(_.createGames.bind(this, {invalid: 'invalid'}, 8)).to.throw(TypeError, /must be an array/);
+      });
+
+      it('should error if the second argument is not a number', () => {
+        expect(_.createGames.bind(this, [1, 2, 3], '4')).to.throw(TypeError, /must be a number/);
+      });
+
+      it('should return an array of game objects to be inserted into the database', () => {
+        let newGames = _.createGames([1, 2, 3, 4], 2);
+
+        expect(newGames).to.be.a('array');
+        expect(newGames[0]).to.be.a('object');
+        expect(newGames[0]).to.have.any.keys('p1', 'p2', 'tournamentId', 'createdAt');
       });
     });
 
@@ -63,47 +93,87 @@ describe('The Server', function() {
 
     describe('/games', function() {
 
-      describe('GET', () => {
-
-        it_('should respond with an Array of game objects', function * () {
-
-          yield request(app)
-          .get('/games')
-          .expect(200)
-          .expect(res => {
-            expect(res.body).to.be.an('array');
-            expect(res.body[0]).to.be.an('object');
-            expect(res.body[0]).to.have.any.keys('p1', 'p2', 'tournamentId');
-          });
-        });
-      });
+      // describe('GET', () => {
+      //
+      //   it_('should respond with an Array of game objects', function * () {
+      //
+      //     yield request(app)
+      //     .get('/games')
+      //     .expect(200)
+      //     .expect(res => {
+      //       expect(res.body).to.be.an('array');
+      //       expect(res.body[0]).to.be.an('object');
+      //       expect(res.body[0]).to.have.any.keys('p1', 'p2', 'tournamentId');
+      //     });
+      //   });
+      // });
 
       describe('POST', () => {
-
-        it_('should respond with; tournamentId, the number of games, and date created', function * () {
-          let newGames =
-
+        let singleGame = {
+          players: [1, 2]
+        };
+        let tournament = {
+          players: [1, 2, 3],
+          tournamentId: 4
+        };
+        it_('should respond with the number of games created', function * () {
 
           yield request(app)
           .post('/games')
-          .send()
+          .send(tournament)
           .expect((res) => {
             expect(res.status).to.equal(201);
-            expect(res.createdAt).to.be.a.string;
-            expect(res.body).to.have.all.keys('tournamentId', 'gamesCreated');
+            expect(res.body).to.have.all.keys('gamesCreated');
           });
         });
-      });
 
-      describe('PUT', () => {
+        it_('should receive an array of player Ids and insert the new games into the database', function * () {
 
-        it_('should respond with a status of 202', function * () {
+          let newTourney = _.createGames(tournament.players, tournament.tournamentId);
 
           yield request(app)
-          .put('/games')
-          .expect(202);
+          .post('/games')
+          .send(tournament)
+          .expect(201)
+          .then(res => {
+            return request(app)
+            .get('/games')
+            .expect(res => {
+
+              expect(res.body).to.be.an('array');
+              expect(res.body[0]).to.be.an('object');
+
+              // expect(res.body).to.include();
+            });
+          });
         });
+
+        // it_('should call createGame if there is no tournamentId in the request body', function * () {
+        //
+        //   yield request(app)
+        //   .post('/games')
+        //   .send(singleGame)
+        //   .expect('this is totally going to fail until').to.equal('I can get sinon set up to spy this function')
+        //   .expect(res => {
+        //     expect(res.status).to.equal(201);
+        //   });
+        // });
+        //
+        // it_('should call createGames if there is a tournamentId in the request body', function * () {
+        //   expect('this is totally going to fail until').to.equal('I can get sinon set up to spy this function');
+        // });
+
       });
+
+      // describe('PUT', () => {
+      //
+      //   it_('should respond with a status of 202', function * () {
+      //
+      //     yield request(app)
+      //     .put('/games')
+      //     .expect(202);
+      //   });
+      // });
 
     });
   //
