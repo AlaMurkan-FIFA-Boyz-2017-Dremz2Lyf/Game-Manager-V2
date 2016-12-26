@@ -28,9 +28,6 @@ router.post('/', (req, res) => {
     gamesCreated: 0
   };
 
-  console.log('players', players);
-  console.log('tournamentId', tournamentId);
-
   if (players.length < 3) {
     let game = _.createGame(players[0], players[1]);
 
@@ -40,7 +37,9 @@ router.post('/', (req, res) => {
   } else {
     let games = _.createGames(players, tournamentId);
 
-    mockData.games.push(games);
+    mockData.games = mockData.games.concat(games);
+
+    response.gamesCreated = games.length;
   }
 
   res.status(201).send(response);

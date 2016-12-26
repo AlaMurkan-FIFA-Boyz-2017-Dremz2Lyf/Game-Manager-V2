@@ -93,20 +93,22 @@ describe('The Server', function() {
 
     describe('/games', function() {
 
-      // describe('GET', () => {
-      //
-      //   it_('should respond with an Array of game objects', function * () {
-      //
-      //     yield request(app)
-      //     .get('/games')
-      //     .expect(200)
-      //     .expect(res => {
-      //       expect(res.body).to.be.an('array');
-      //       expect(res.body[0]).to.be.an('object');
-      //       expect(res.body[0]).to.have.any.keys('p1', 'p2', 'tournamentId');
-      //     });
-      //   });
-      // });
+      describe('GET', () => {
+
+        it_('should respond with an Array of game objects', function * () {
+
+          yield request(app)
+          .get('/games')
+          .expect(200)
+          .expect(res => {
+            expect(res.body).to.be.an('array');
+            expect(res.body[0]).to.be.an('object');
+            expect(res.body[0]).to.have.any.keys('p1', 'p2', 'tournamentId');
+            expect(res.body[0]).to.deep.equal(mockData.games[0]);
+          });
+        });
+
+      });
 
       describe('POST', () => {
         let singleGame = {
@@ -116,34 +118,25 @@ describe('The Server', function() {
           players: [1, 2, 3],
           tournamentId: 4
         };
-        it_('should respond with the number of games created', function * () {
 
-          yield request(app)
-          .post('/games')
-          .send(tournament)
-          .expect((res) => {
-            expect(res.status).to.equal(201);
-            expect(res.body).to.have.all.keys('gamesCreated');
-          });
-        });
-
-        it_('should receive an array of player Ids and insert the new games into the database', function * () {
+        it_('should receive an array of player Ids and respond with the number of games after posting them in the database', function * () {
 
           let newTourney = _.createGames(tournament.players, tournament.tournamentId);
+
+          let gamesCopy = mockData.games.concat(newTourney);
 
           yield request(app)
           .post('/games')
           .send(tournament)
           .expect(201)
+          .expect(res => {
+            expect(res.body).to.have.all.keys('gamesCreated');
+          })
           .then(res => {
             return request(app)
             .get('/games')
             .expect(res => {
-
-              expect(res.body).to.be.an('array');
-              expect(res.body[0]).to.be.an('object');
-
-              // expect(res.body).to.include();
+              expect(res.body).to.deep.equal(gamesCopy);
             });
           });
         });
