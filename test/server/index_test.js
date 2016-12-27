@@ -123,6 +123,12 @@ describe('The Server', function() {
 
           let newTourney = _.createGames(tournament.players, tournament.tournamentId);
 
+          let lastId = mockData.games.length;
+
+          newTourney.forEach(game => {
+            game.id = ++lastId;
+          });
+
           let gamesCopy = mockData.games.concat(newTourney);
 
           yield request(app)
