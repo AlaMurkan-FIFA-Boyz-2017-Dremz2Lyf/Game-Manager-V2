@@ -95,7 +95,7 @@ describe('The Server', function() {
 
       describe('GET', () => {
 
-        it_('should respond with an Array of game objects', function * () {
+        it_('should respond with all the games when no id or type param is passed', function * () {
 
           yield request(app)
           .get('/games')
@@ -105,6 +105,18 @@ describe('The Server', function() {
             expect(res.body[0]).to.be.an('object');
             expect(res.body[0]).to.have.any.keys('p1', 'p2', 'tournamentId');
             expect(res.body[0]).to.deep.equal(mockData.games[0]);
+          });
+        });
+
+        it_('should return a single game when an id and type param of game is passed', function * () {
+
+          yield request(app)
+          .get('/games?id=1&type=game')
+          .expect(res => {
+            expect(res.body.length).to.equal(1);
+            expect(res.body).to.be.an('array');
+            expect(res.body[0]).to.be.an('object');
+            expect(res.body[0]).to.have.any.keys('id', 'p1', 'p2', 'p1Score', 'p2Score');
           });
         });
 
@@ -167,6 +179,7 @@ describe('The Server', function() {
       // describe('PUT', () => {
       //
       //   it_('should respond with a status of 202', function * () {
+      //     let finishedGame = mockData.games[2];
       //
       //     yield request(app)
       //     .put('/games')
