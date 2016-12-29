@@ -3,6 +3,7 @@ const helpers = require(__server + '/utilities.js');
 const request = require('supertest-as-promised');
 const routes = require(__server + '/index.js');
 const _ = require(__server + '/utilities.js');
+const sinon = require('sinon');
 
 
 // NOTE: This will be used after knex is configured and the database is set up
@@ -159,20 +160,39 @@ describe('The Server', function() {
           });
         });
 
-        // it_('should call createGame if there is no tournamentId in the request body', function * () {
-        //
-        //   yield request(app)
-        //   .post('/games')
-        //   .send(singleGame)
-        //   .expect('this is totally going to fail until').to.equal('I can get sinon set up to spy this function')
-        //   .expect(res => {
-        //     expect(res.status).to.equal(201);
-        //   });
-        // });
-        //
-        // it_('should call createGames if there is a tournamentId in the request body', function * () {
-        //   expect('this is totally going to fail until').to.equal('I can get sinon set up to spy this function');
-        // });
+        it_('should call createGame if there is no tournamentId in the request body', function * () {
+          let createGame = sinon.spy(_, 'createGame');
+          let createGames = sinon.spy(_, 'createGames');
+
+          yield request(app)
+          .post('/games')
+          .send(singleGame)
+          .expect(res => {
+            expect(_.createGame.callCount).to.equal(1);
+            expect(_.createGames.callCount).to.equal(0);
+            expect(res.status).to.equal(201);
+          });
+
+          createGame.restore();
+          createGames.restore();
+        });
+
+        it_('should call createGames if there is a tournamentId in the request body', function * () {
+          let createGame = sinon.spy(_, 'createGame');
+          let createGames = sinon.spy(_, 'createGames');
+
+          yield request(app)
+          .post('/games')
+          .send(tournament)
+          .expect(res => {
+            expect(_.createGame.callCount).to.equal(3);
+            expect(_.createGames.callCount).to.equal(1);
+            expect(res.status).to.equal(201);
+          });
+
+          createGame.restore();
+          createGames.restore();
+        });
 
       });
 
