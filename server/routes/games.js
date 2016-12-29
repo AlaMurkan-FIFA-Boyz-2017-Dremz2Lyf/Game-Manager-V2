@@ -64,6 +64,12 @@ router.post('/', (req, res) => {
 
 router.put('/', (req, res) => {
 
+  let index = req.body.id - 1;
+
+  gameTable[index] = req.body;
+
+  let response = {id: req.body.id};
+  res.status(202).send(response);
 });
 
 module.exports = router;

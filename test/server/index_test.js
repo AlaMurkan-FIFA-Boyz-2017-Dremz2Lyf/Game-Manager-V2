@@ -196,16 +196,31 @@ describe('The Server', function() {
 
       });
 
-      // describe('PUT', () => {
-      //
-      //   it_('should respond with a status of 202', function * () {
-      //     let finishedGame = mockData.games[2];
-      //
-      //     yield request(app)
-      //     .put('/games')
-      //     .expect(202);
-      //   });
-      // });
+      describe('PUT', () => {
+
+        it_('should respond with a status of 202, and the id of the updated game', function * () {
+          let finishedGame = Object.assign({}, mockData.games[2]);
+          finishedGame.p1Score = 3;
+          finishedGame.p2Score = 2;
+
+          yield request(app)
+          .put('/games')
+          .send(finishedGame)
+          .expect(202)
+          .expect(res => {
+            expect(res.accepted).to.equal(true);
+            expect(res.body.id).to.equal(finishedGame.id);
+          })
+          .then(res =>
+            request(app)
+            .get('/games')
+            .expect(200)
+            .expect(res => {
+              expect(res.body[2]).to.deep.equal(finishedGame);
+            })
+          );
+        });
+      });
 
     });
   //
