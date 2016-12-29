@@ -4,6 +4,7 @@
   "description": "Version 2 of the popular and groundbreaking FIFA app 'Game Manager'",
   "main": "index.js",
   "scripts": {
+    "start:dev": "nodemon ./server/index.js",
     "start": "node ./server/index.js",
     "test": "./test/run.sh"
   },
@@ -30,13 +31,17 @@
     "chai": "^3.5.0",
     "eslint": "^3.12.2",
     "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
     "supertest": "^2.0.1",
-    "supertest-as-promised": "^4.0.2"
+    "supertest-as-promised": "^4.0.2",
+    "sinon": "^1.17.6"
   },
   "dependencies": {
     "axios": "^0.15.3",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "path": "^0.12.7"
+    "knex": "^0.12.6",
+    "path": "^0.12.7",
+    "pg": "^6.1.2"
   }
 }

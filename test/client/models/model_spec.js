@@ -24,7 +24,7 @@ mock.onGet('/test').reply((config) => {
 });
 
 
-describe('axios model', function() {
+describe('Axios Model', function() {
 
   it('should have a create method', function() {
     expect(typeof driver.create).to.equal('function');
