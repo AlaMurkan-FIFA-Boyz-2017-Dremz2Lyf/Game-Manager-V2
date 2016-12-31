@@ -13,6 +13,9 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'v2_test'
+    },
+    seeds: {
+      directory: './test/seeds'
     }
   },
 

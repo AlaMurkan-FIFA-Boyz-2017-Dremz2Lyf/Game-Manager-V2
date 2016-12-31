@@ -1,7 +1,7 @@
 require(TEST_HELPER);
 
 let games = mockData.games.map(game => {
-  return {player1_id: game.player1_id, player2_id: game.player2_id, tournament_id: game.tournament_id};
+  return {p1: game.p1, p2: game.p2, tournamentId: game.tournamentId};
 });
 
 exports.seed = function(knex, Promise) {
