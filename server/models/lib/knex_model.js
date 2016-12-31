@@ -36,7 +36,7 @@ exports.create = function (modelName, options = {}) {
     },
 
     create: function (attrs) {
-      attrs.created_at = new Date();
+      attrs.createdAt = new Date();
       return db(tableName).insert(attrs).returning(idColumn)
         .then(function (rows) {
           return Object.assign({ [idColumn]: rows[0] }, attrs);

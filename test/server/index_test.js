@@ -258,35 +258,48 @@ describe('The Server', function() {
     describe('/players', function() {
       describe('GET', () => {
 
-        it_('should respond with a status of 200', function * () {
+        it_('should respond with a status of 200, and all players when no "id" is passed as a param', function * () {
 
           yield request(app)
           .get('/players')
-          .expect(200);
+          .expect(200)
+          .expect(res => {
+            expect(res.body.length).to.equal(3);
+            expect(res.body[0]).to.have.all.keys('id', 'username', 'createdAt');
+            expect(res.body[0].username).to.equal('Alice');
+          });
         });
       });
 
       describe('POST', () => {
 
-        it_('should respond with a status of 201', function * () {
+        it_('should respond with a status of 201, and the newly created player', function * () {
+          let newPlayer = {username: 'Agustin'};
 
           yield request(app)
           .post('/players')
-          .expect(201);
+          .send(newPlayer)
+          .expect(201)
+          .expect(res => {
+            expect(res.body).to.have.all.keys('id', 'username', 'createdAt');
+          });
         });
-      });
 
-      describe('PUT', () => {
+        it_('should fail if the username is already taken', function * () {
+          let takenName = {username: 'Alice'};
 
-        it_('should respond with a status of 202', function * () {
+          let error = 'Key (username)=(Alice) already exists.';
 
           yield request(app)
-          .put('/players')
-          .expect(202);
+          .post('/players')
+          .send(takenName)
+          .expect(404) // <----- NOTE: totally not the correct error code, but I don't have internet right now
+          .expect(res => {
+            expect(res.body.detail).to.equal(error);
+          });
         });
-      });
 
+      });
     });
   });
-
 });
