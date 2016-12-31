@@ -16,9 +16,6 @@ let gameTable = [
 router.name = 'games';
 
 router.get('/', (req, res) => {
-  games.all().then(rows => {
-    console.log('games rows:', rows);
-  });
   // Sending fake data until the database is up.
   if (req.query.type === 'game') {
     res.send([gameTable[req.query.id - 1]]);
