@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const _ = require('../utilities.js');
+const games = require('../models/games');
 
 // NOTE: All this ' is a placeholder for a database.
 
@@ -15,7 +16,9 @@ let gameTable = [
 router.name = 'games';
 
 router.get('/', (req, res) => {
-
+  games.all().then(rows => {
+    console.log('games rows:', rows);
+  });
   // Sending fake data until the database is up.
   if (req.query.type === 'game') {
     res.send([gameTable[req.query.id - 1]]);

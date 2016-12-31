@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
     }),
     knex.schema.createTable('tournaments', function(table) {
       table.increments('id').primary();
-      table.string('tournamentName').unique().notNullable();
+      table.string('name').unique().notNullable();
       table.integer('winnerId').references('id').inTable('players');
     }),
     knex.schema.createTable('games', function(table) {

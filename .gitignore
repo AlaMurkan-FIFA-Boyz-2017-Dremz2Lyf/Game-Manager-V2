@@ -10,3 +10,7 @@ bundle.js
 ######Merge Files#######
 
 *.orig
+
+
+*******NPM debug log**********
+npm-debug.log
