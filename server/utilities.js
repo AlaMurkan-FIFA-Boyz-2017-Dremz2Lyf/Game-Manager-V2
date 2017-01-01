@@ -19,9 +19,9 @@ exports.createGame = (p1, p2) => {
 /*
   createGames is a function that accepts two arguments
     - players: a list of all the players to be created <Array>
-    - tournamentId: a number representing the tournament the games will be affiliated with. <Number>
+    - tournament: a number representing the tournament the games will be affiliated with. <Number>
 */
-exports.createGames = (players, tournamentId) => {
+exports.createGames = (players, tournament) => {
 
   // Handle validation for the first argument here.
   if (!Array.isArray(players)) {
@@ -29,7 +29,7 @@ exports.createGames = (players, tournamentId) => {
   }
 
   // Handle validation for the second argument next.
-  if (typeof tournamentId !== 'number') {
+  if (typeof tournament !== 'number') {
     throw new TypeError('createGames\' second argument must be a number', 'utilities.js', 24);
   }
 
@@ -53,8 +53,8 @@ exports.createGames = (players, tournamentId) => {
       } else {
         let game = this.createGame(p1, p2);
 
-        // Set a tournamentId on the game and push it into the games array.
-        game.tournamentId = tournamentId;
+        // Set a tournament on the game and push it into the games array.
+        game.tournament = tournament;
         games.push(game);
       }
     });

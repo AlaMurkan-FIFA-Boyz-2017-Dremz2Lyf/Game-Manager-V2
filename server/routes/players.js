@@ -5,7 +5,7 @@ const players = require('../models/players.js');
 router.get('/', (req, res) => {
   if (req.query.id) {
     players.find(req.query.id).then(player => {
-      res.send(player);
+      res.send([player]);
     }).catch(err => {
       res.send(404);
     });
