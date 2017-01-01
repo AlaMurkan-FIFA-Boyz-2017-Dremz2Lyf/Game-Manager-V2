@@ -57,7 +57,11 @@ mockData.playerObjs = [
 
 // set a tournaments key on the mock database
 mockData.tournaments = [
-  {id: 1, name: 'Super Tourney!', winner: null}
+  {id: 1, name: 'Super Tourney!', winner: null},
+  {id: 2, name: 'new', winner: null},
+  {id: 3, name: 'next', winner: null},
+  {id: 4, name: 'hot', winner: null},
+  {id: 5, name: 'fun', winner: null}
 ];
 // set a games key on the mock database
 mockData.games = [

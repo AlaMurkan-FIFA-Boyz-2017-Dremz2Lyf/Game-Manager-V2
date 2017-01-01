@@ -5,12 +5,14 @@ exports.up = function(knex, Promise) {
       table.increments('id').primary();
       table.string('username').unique().notNullable();
       table.string('createdAt').unsigned();
+      table.string('updatedAt').unsigned();
     }),
     knex.schema.createTable('tournaments', function(table) {
       table.increments('id').primary();
       table.string('name').unique().notNullable();
       table.integer('winnerId').references('id').inTable('players');
       table.string('createdAt').unsigned();
+      table.string('updatedAt').unsigned();
     }),
     knex.schema.createTable('games', function(table) {
       table.increments('id').primary();
@@ -27,6 +29,7 @@ exports.up = function(knex, Promise) {
       table.integer('tournamentId').references('id').inTable('tournaments');
       table.string('status').defaultTo('created');
       table.string('createdAt').unsigned();
+      table.string('updatedAt').unsigned();
     })
   ]);
 };
