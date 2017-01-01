@@ -58,7 +58,7 @@ describe('The Server', function() {
 
         expect(newGames).to.be.a('array');
         expect(newGames[0]).to.be.a('object');
-        expect(newGames[0]).to.have.any.keys('p1', 'p2', 'tournamentId', 'createdAt');
+        expect(newGames[0]).to.have.any.keys('p1', 'p2', 'tournament', 'createdAt');
       });
     });
 
@@ -100,7 +100,7 @@ describe('The Server', function() {
           .expect(res => {
             expect(res.body).to.be.an('array');
             expect(res.body[0]).to.be.an('object');
-            expect(res.body[0]).to.have.any.keys('p1', 'p2', 'tournamentId');
+            expect(res.body[0]).to.have.any.keys('p1', 'p2', 'tournament');
             expect(res.body[0]).to.deep.equal(mockData.games[0]);
           });
         });
@@ -125,12 +125,12 @@ describe('The Server', function() {
         };
         let tournament = {
           players: [1, 2, 3],
-          tournamentId: 4
+          tournament: 4
         };
 
         it_('should receive an array of player Ids and respond with the number of games after posting them in the database', function * () {
 
-          let newTourney = _.createGames(tournament.players, tournament.tournamentId);
+          let newTourney = _.createGames(tournament.players, tournament.tournament);
 
           let lastId = mockData.games.length;
 
@@ -156,7 +156,7 @@ describe('The Server', function() {
           });
         });
 
-        it_('should call createGame if there is no tournamentId in the request body', function * () {
+        it_('should call createGame if there is no tournament in the request body', function * () {
           let createGame = sinon.spy(_, 'createGame');
           let createGames = sinon.spy(_, 'createGames');
 
@@ -173,7 +173,7 @@ describe('The Server', function() {
           createGames.restore();
         });
 
-        it_('should call createGames if there is a tournamentId in the request body', function * () {
+        it_('should call createGames if there is a tournament in the request body', function * () {
           let createGame = sinon.spy(_, 'createGame');
           let createGames = sinon.spy(_, 'createGames');
 

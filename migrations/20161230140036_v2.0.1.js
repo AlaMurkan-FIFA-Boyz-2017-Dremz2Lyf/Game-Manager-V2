@@ -10,7 +10,7 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('tournaments', function(table) {
       table.increments('id').primary();
       table.string('name').unique().notNullable();
-      table.integer('winnerId').references('id').inTable('players');
+      table.integer('winner').references('id').inTable('players');
       table.string('createdAt').unsigned();
       table.string('updatedAt').unsigned();
     }),
@@ -26,7 +26,7 @@ exports.up = function(knex, Promise) {
       table.integer('p2Poss').unsigned();
       table.integer('p1OnGoal').unsigned();
       table.integer('p2OnGoal').unsigned();
-      table.integer('tournamentId').references('id').inTable('tournaments');
+      table.integer('tournament').references('id').inTable('tournaments');
       table.string('status').defaultTo('created');
       table.string('createdAt').unsigned();
       table.string('updatedAt').unsigned();
