@@ -11,13 +11,11 @@ describe('"/players" API', function() {
   app.use('/', routes);
   app.testReady();
 
-  beforeEach(function(done) {
-    db.migrate.rollback().then(res => {
-      db.migrate.latest().then(res => {
-        return db.seed.run().then(res => {
-          done();
-        });
-      });
+  beforeEach(function() {
+    return db.migrate.rollback().then(res => {
+      return db.migrate.latest();
+    }).then(res => {
+      return db.seed.run();
     });
   });
 

@@ -3,29 +3,39 @@ const router = express.Router();
 const _ = require('../utilities.js');
 const games = require('../models/games');
 
-// NOTE: All this ' is a placeholder for a database.
-
-let gameTable = [
-  {id: 1, p1: 1, p2: 2, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: '2016-12-25T19:31:48'},
-  {id: 2, p1: 1, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: '2016-12-25T19:31:48'},
-  {id: 3, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: '2016-12-25T19:31:48'}
-];
-
-/*********************************************/
-
 router.name = 'games';
 
+/*
+  The GET route for games accepts a few params/queries to determine what is sent as the response
+    - 'id': A number to be used as either the game id or the tournament id for fetching games. <Number>
+    - 'type': either 'game', or 'tournament'. Determines how to use the id passed <String>
+*/
 router.get('/', (req, res) => {
-  // Sending fake data until the database is up.
+
   if (req.query.type === 'game') {
-    res.send([gameTable[req.query.id - 1]]);
+    let gameId = req.query.id;
+
+    games.find(gameId).then(game => {
+      res.send([game]);
+    }).catch(err => {
+      res.status(500).send('Something went wrong fetching the game by id', err);
+    });
   } else if (req.query.type === 'tournament') {
-    let response = gameTable.filter(game => game.tournament === req.query.id);
+    let tournamentId = req.query.id;
+
+    games.findBy({tournament: tournamentId}).then(games => {
+      res.send(games);
+    }).catch(err => {
+      res.status(500).send('Something went wrong fetching the games by tournament id', err);
+    });
     res.send(response);
   } else {
-    res.send(gameTable);
+    games.all().then(games => {
+      res.send(games);
+    }).catch(err => {
+      res.status(500).send(err);
+    });
   }
-
 });
 
 router.post('/', (req, res) => {
@@ -33,43 +43,28 @@ router.post('/', (req, res) => {
   let players = req.body.players;
   let tournament = req.body.tournament;
 
-  let response = {
-    gamesCreated: 0
-  };
-
-  // placeholders for the 'interaction with the Database'
-  // ********************************
-  if (players.length < 3) {
-    let game = _.createGame(players[0], players[1]);
-
-    game.id = gameTable.length;
-
-    response.gamesCreated = 1;
-
-    gameTable.push(game);
-  } else {
+  if (players.length > 2) {
     let newGames = _.createGames(players, tournament);
 
-    gameTable = gameTable.concat(newGames);
-
-    gameTable.forEach((game, index) => {
-      game.id = game.id || index + 1;
+    games.create(newGames).then(savedGames => {
+      res.status(201).send(savedGames);
+    }).catch(err => {
+      res.status(500).send('Error in saving the games to database', err);
     });
-
-    response.gamesCreated = gameTable.length;
+  } else {
+    res.status(400).send('Games must have at least two players');
   }
-// **********************************
-  res.status(201).send(response);
 });
 
 router.put('/', (req, res) => {
 
-  let index = req.body.id - 1;
+  let game = req.body;
 
-  gameTable[index] = req.body;
-
-  let response = {id: req.body.id};
-  res.status(202).send(response);
+  games.updateOne(game).then(updatedGame => {
+    res.status(202).send(updatedGame);
+  }).catch(err => {
+    res.status(500).send('Error in updateding the game in the database', err);
+  });
 });
 
 module.exports = router;

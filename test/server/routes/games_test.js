@@ -12,13 +12,11 @@ describe('"/games" API', function() {
   app.use('/', routes);
   app.testReady();
 
-  beforeEach(function(done) {
-    db.migrate.rollback().then(res => {
-      db.migrate.latest().then(res => {
-        return db.seed.run().then(res => {
-          done();
-        });
-      });
+  beforeEach(function() {
+    return db.migrate.rollback().then(res => {
+      return db.migrate.latest();
+    }).then(res => {
+      return db.seed.run();
     });
   });
 
@@ -51,23 +49,16 @@ describe('"/games" API', function() {
   });
 
   describe('POST', () => {
-    let singleGame = {
-      players: [1, 2]
-    };
     let tournament = {
       players: [1, 2, 3],
       tournament: 4
     };
 
-    it_('should receive an array of player Ids and respond with the number of games after posting them in the database', function * () {
+    it_('should receive an array of player Ids, save new games in the database, and respond with the games created', function * () {
 
       let newTourney = _.createGames(tournament.players, tournament.tournament);
 
       let lastId = mockData.games.length;
-
-      newTourney.forEach(game => {
-        game.id = ++lastId;
-      });
 
       let gamesCopy = mockData.games.concat(newTourney);
 
@@ -76,10 +67,11 @@ describe('"/games" API', function() {
       .send(tournament)
       .expect(201)
       .expect(res => {
-        expect(res.body).to.have.all.keys('gamesCreated');
+        expect(res.body).to.be.a('object');
+        expect(res.body[0]).to.deep.equal(newTourney[0]);
       })
-      .then(res => {
-        return request(app)
+      .then(function * (res) {
+        yield request(app)
         .get('/games')
         .expect(res => {
           expect(res.body).to.deep.equal(gamesCopy);
@@ -87,38 +79,33 @@ describe('"/games" API', function() {
       });
     });
 
-    it_('should call createGame if there is no tournament in the request body', function * () {
-      let createGame = sinon.spy(_, 'createGame');
-      let createGames = sinon.spy(_, 'createGames');
-
-      yield request(app)
-      .post('/games')
-      .send(singleGame)
-      .expect(res => {
-        expect(_.createGame.callCount).to.equal(1);
-        expect(_.createGames.callCount).to.equal(0);
-        expect(res.status).to.equal(201);
-      });
-
-      createGame.restore();
-      createGames.restore();
-    });
-
     it_('should call createGames if there is a tournament in the request body', function * () {
-      let createGame = sinon.spy(_, 'createGame');
       let createGames = sinon.spy(_, 'createGames');
 
       yield request(app)
       .post('/games')
       .send(tournament)
       .expect(res => {
-        expect(_.createGame.callCount).to.equal(3);
         expect(_.createGames.callCount).to.equal(1);
         expect(res.status).to.equal(201);
       });
 
-      createGame.restore();
       createGames.restore();
+    });
+
+    it_('should respond with 400 if only one player id is sent', function * () {
+      let solo = {
+        players: [1],
+        tournament: 5
+      };
+
+      yield request(app)
+      .post('/games')
+      .send(solo)
+      .expect(400)
+      .expect(res => {
+        expect(res.error.text).to.equal('Games must have at least two players');
+      });
     });
 
   });
@@ -143,7 +130,8 @@ describe('"/games" API', function() {
         .get('/games')
         .expect(200)
         .expect(res => {
-          expect(res.body[2]).to.deep.equal(finishedGame);
+          expect(res.body[2].p2Score).to.equal(2);
+          expect(res.body[2].p1Score).to.equal(3);
         })
       );
     });

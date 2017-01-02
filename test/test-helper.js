@@ -20,10 +20,22 @@ global.expect = chai.expect;
 // global.should = chai.should()
 
 
+
+//
+// Helper Functions
+//
+// This is the object you can attach any helper functions used across
+// several test files.
+global.TestHelper = {};
 // This is the object to create the mock database.
-  // It should contain keys representing tables in the db.
-  // Those keys should point to arrays holding objects or 'rows' back from the DB
+// It should contain keys representing tables in the db.
+// Those keys should point to arrays holding objects or 'rows' back from the DB
 global.mockData = {};
+
+// Create a fake date to standardize createdAt and updatedAt values through tests
+TestHelper.createdAt = '2016-12-25T19:31:48';
+TestHelper.updatedAt = '2016-12-26T19:31:48';
+
 
 mockData.test = {
   existing: [
@@ -50,33 +62,27 @@ mockData.test = {
 
 // set a players key on the mock database
 mockData.playerObjs = [
-  {id: 1, username: 'Alice'},
-  {id: 2, username: 'Gilbert'},
-  {id: 3, username: 'Bob'}
+  {id: 1, username: 'Alice', createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 2, username: 'Gilbert', createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 3, username: 'Bob', createdAt: '2016-12-25T19:31:48', updatedAt: null}
 ];
 
 // set a tournaments key on the mock database
 mockData.tournaments = [
-  {id: 1, name: 'Super Tourney!', winner: null},
-  {id: 2, name: 'new', winner: null},
-  {id: 3, name: 'next', winner: null},
-  {id: 4, name: 'hot', winner: null},
-  {id: 5, name: 'fun', winner: null}
+  {id: 1, name: 'Super Tourney!', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 2, name: 'new', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 3, name: 'next', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 4, name: 'hot', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 5, name: 'fun', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null}
 ];
 // set a games key on the mock database
 mockData.games = [
-  {id: 1, p1: 1, p2: 2, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: '2016-12-25T19:31:48'},
-  {id: 2, p1: 1, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: '2016-12-25T19:31:48'},
-  {id: 3, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: '2016-12-25T19:31:48'}
+  {id: 1, p1: 1, p2: 2, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: TestHelper.createdAt, updatedAt: null},
+  {id: 2, p1: 1, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: TestHelper.createdAt, updatedAt: null},
+  {id: 3, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: TestHelper.createdAt, updatedAt: null}
 ];
 
 
-//
-// Helper Functions
-//
-// This is the object you can attach any helper functions used across
-// several test files.
-global.TestHelper = {};
 
 //
 //

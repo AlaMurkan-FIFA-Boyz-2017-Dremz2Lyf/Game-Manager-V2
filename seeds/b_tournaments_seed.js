@@ -1,7 +1,7 @@
 require(TEST_HELPER);
 
 let tourneyNames = mockData.tournaments.map(tourney => {
-  return {name: tourney.name};
+  return {name: tourney.name, createdAt: TestHelper.createdAt};
 });
 
 exports.seed = function(knex, Promise) {
