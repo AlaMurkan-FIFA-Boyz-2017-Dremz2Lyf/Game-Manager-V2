@@ -1,22 +1,4 @@
 /*
-  createGame is a function that accepts two numbers.
-  - These numbers represent playerIds <Number>
-*/
-exports.createGame = (p1, p2) => {
-
-  // Throw an error if the arguments are not numbers
-  if (typeof p1 !== 'number' || typeof p2 !== 'number') {
-    throw new TypeError('createGame accepts two numbers represeting the playerIds for the game to be made', 'utilities.js', 5);
-  }
-
-  // add a createdAt date.
-  let createdAt = new Date().toISOString().substring(0, 19);
-
-  // return the game
-  return {p1: p1, p2: p2, createdAt: createdAt};
-};
-
-/*
   createGames is a function that accepts two arguments
     - players: a list of all the players to be created <Array>
     - tournament: a number representing the tournament the games will be affiliated with. <Number>
@@ -51,7 +33,7 @@ exports.createGames = (players, tournament) => {
       if (typeof p2 !== 'number' || typeof p1 !== 'number') {
         throw new TypeError('Items in the array passed to createGames should be numbers', 'utilities.js', 24);
       } else {
-        let game = this.createGame(p1, p2);
+        let game = {p1: p1, p2: p2};
 
         // Set a tournament on the game and push it into the games array.
         game.tournament = tournament;

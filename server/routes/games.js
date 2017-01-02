@@ -43,15 +43,7 @@ router.post('/', (req, res) => {
   let players = req.body.players;
   let tournament = req.body.tournament;
 
-  if (players.length === 2) {
-    let newGame = _.createGame(players[0], players[1]);
-
-    games.create(newGame).then(savedGame => {
-      res.status(201).send([savedGame]);
-    }).catch(err => {
-      res.status(500).send('Error in saving game to database', err);
-    });
-  } else if (players.length > 2) {
+  if (players.length > 2) {
     let newGames = _.createGames(players, tournament);
 
     games.create(newGames).then(savedGames => {
@@ -59,21 +51,9 @@ router.post('/', (req, res) => {
     }).catch(err => {
       res.status(500).send('Error in saving the games to database', err);
     });
+  } else {
+    res.status(400).send('Games must have at least two players');
   }
-//     let newGames = _.createGames(players, tournament);
-//
-//     gameTable = gameTable.concat(newGames);
-//
-//     gameTable.forEach((game, index) => {
-//       game.id = game.id || index + 1;
-//     });
-//
-//     response.gamesCreated = gameTable.length;
-//   }
-// // **********************************
-
-
-  // res.status(201).send(response);
 });
 
 router.put('/', (req, res) => {

@@ -49,9 +49,6 @@ describe('"/games" API', function() {
   });
 
   describe('POST', () => {
-    let singleGame = {
-      players: [1, 2]
-    };
     let tournament = {
       players: [1, 2, 3],
       tournament: 4
@@ -63,10 +60,6 @@ describe('"/games" API', function() {
 
       let lastId = mockData.games.length;
 
-      newTourney.forEach(game => {
-        game.id = ++lastId;
-      });
-
       let gamesCopy = mockData.games.concat(newTourney);
 
       yield request(app)
@@ -75,7 +68,7 @@ describe('"/games" API', function() {
       .expect(201)
       .expect(res => {
         expect(res.body).to.be.a('object');
-        expect(res.body[0]).to.equal(newTourney[0]);
+        expect(res.body[0]).to.deep.equal(newTourney[0]);
       })
       .then(function * (res) {
         yield request(app)
@@ -86,38 +79,33 @@ describe('"/games" API', function() {
       });
     });
 
-    it_('should call createGame if there is no tournament in the request body', function * () {
-      let createGame = sinon.spy(_, 'createGame');
-      let createGames = sinon.spy(_, 'createGames');
-
-      yield request(app)
-      .post('/games')
-      .send(singleGame)
-      .expect(res => {
-        expect(_.createGame.callCount).to.equal(1);
-        expect(_.createGames.callCount).to.equal(0);
-        expect(res.status).to.equal(201);
-      });
-
-      createGame.restore();
-      createGames.restore();
-    });
-
     it_('should call createGames if there is a tournament in the request body', function * () {
-      let createGame = sinon.spy(_, 'createGame');
       let createGames = sinon.spy(_, 'createGames');
 
       yield request(app)
       .post('/games')
       .send(tournament)
       .expect(res => {
-        expect(_.createGame.callCount).to.equal(3);
         expect(_.createGames.callCount).to.equal(1);
         expect(res.status).to.equal(201);
       });
 
-      createGame.restore();
       createGames.restore();
+    });
+
+    it_('should respond with 400 if only one player id is sent', function * () {
+      let solo = {
+        players: [1],
+        tournament: 5
+      };
+
+      yield request(app)
+      .post('/games')
+      .send(solo)
+      .expect(400)
+      .expect(res => {
+        expect(res.error.text).to.equal('Games must have at least two players');
+      });
     });
 
   });

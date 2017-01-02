@@ -7,24 +7,6 @@ describe('Utilities', function() {
     expect(_).to.be.an('object');
   });
 
-  describe('createGame', () => {
-
-    it('should be a function', () => {
-      expect(_.createGame).to.be.a('function');
-    });
-
-    it('should error if the arguments are not numbers', () => {
-      expect(_.createGame.bind(this, {}, 4)).to.throw(TypeError, /createGame accepts two numbers/);
-    });
-
-    it('should return a game object when called with two playerIds', () => {
-      let newGame = _.createGame(1, 2);
-
-      expect(newGame).to.have.all.keys('p1', 'p2', 'createdAt');
-      expect(newGame.p1).to.be.a('number');
-    });
-  });
-
   describe('createGames', () => {
 
     it('should be a function', () => {
