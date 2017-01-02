@@ -57,7 +57,7 @@ describe('"/games" API', function() {
       tournament: 4
     };
 
-    it_('should receive an array of player Ids and respond with the number of games after posting them in the database', function * () {
+    it_('should receive an array of player Ids, save new games in the database, and respond with the games created', function * () {
 
       let newTourney = _.createGames(tournament.players, tournament.tournament);
 
@@ -74,10 +74,11 @@ describe('"/games" API', function() {
       .send(tournament)
       .expect(201)
       .expect(res => {
-        expect(res.body).to.have.all.keys('gamesCreated');
+        expect(res.body).to.be.a('object');
+        expect(res.body[0]).to.equal(newTourney[0]);
       })
-      .then(res => {
-        return request(app)
+      .then(function * (res) {
+        yield request(app)
         .get('/games')
         .expect(res => {
           expect(res.body).to.deep.equal(gamesCopy);
