@@ -1,7 +1,7 @@
 require(TEST_HELPER);
 
 let playerNames = mockData.playerObjs.slice().map(player => {
-  return {username: player.username};
+  return {username: player.username, createdAt: TestHelper.createdAt};
 } );
 
 exports.seed = function(knex, Promise) {
