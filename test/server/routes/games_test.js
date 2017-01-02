@@ -130,7 +130,8 @@ describe('"/games" API', function() {
         .get('/games')
         .expect(200)
         .expect(res => {
-          expect(res.body[2]).to.deep.equal(finishedGame);
+          expect(res.body[2].p2Score).to.equal(2);
+          expect(res.body[2].p1Score).to.equal(3);
         })
       );
     });

@@ -57,13 +57,14 @@ router.post('/', (req, res) => {
 });
 
 router.put('/', (req, res) => {
-  //
-  // let index = req.body.id - 1;
-  //
-  // gameTable[index] = req.body;
-  //
-  // let response = {id: req.body.id};
-  // res.status(202).send(response);
+
+  let game = req.body;
+
+  games.updateOne(game).then(updatedGame => {
+    res.status(202).send(updatedGame);
+  }).catch(err => {
+    res.status(500).send('Error in updateding the game in the database', err);
+  });
 });
 
 module.exports = router;
