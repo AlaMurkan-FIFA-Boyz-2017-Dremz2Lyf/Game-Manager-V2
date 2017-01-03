@@ -90,6 +90,7 @@ describe('"/tournaments" route', function() {
         expect(res.body).to.be.an('object');
         expect(res.body.id).to.equal(3);
         expect(res.body.name).to.equal('next');
+        expect(res.body.winner).to.equal(2);
       });
     });
 

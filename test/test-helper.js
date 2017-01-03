@@ -61,7 +61,7 @@ mockData.test = {
 
 
 // set a players key on the mock database
-mockData.playerObjs = [
+mockData.players = [
   {id: 1, username: 'Alice', createdAt: '2016-12-25T19:31:48', updatedAt: null},
   {id: 2, username: 'Gilbert', createdAt: '2016-12-25T19:31:48', updatedAt: null},
   {id: 3, username: 'Bob', createdAt: '2016-12-25T19:31:48', updatedAt: null}

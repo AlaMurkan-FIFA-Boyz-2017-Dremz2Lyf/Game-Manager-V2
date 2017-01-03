@@ -1,6 +1,6 @@
 require(TEST_HELPER);
 
-let playerNames = mockData.playerObjs.slice().map(player => {
+let playerNames = mockData.players.slice().map(player => {
   return {username: player.username, createdAt: TestHelper.createdAt};
 } );
 

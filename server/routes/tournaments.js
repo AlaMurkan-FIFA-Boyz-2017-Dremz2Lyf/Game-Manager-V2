@@ -5,7 +5,7 @@ const tournaments = require('../models/tournaments.js');
 router.get('/', (req, res) => {
   if (req.query.id) {
     tournaments.find(req.query.id).then(tournament => {
-      res.send([tournament]);
+      res.send(tournament);
     }).catch(err => {
       res.status(404).send(err);
     });

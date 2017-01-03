@@ -16,19 +16,18 @@ router.get('/', (req, res) => {
     let gameId = req.query.id;
 
     games.find(gameId).then(game => {
-      res.send([game]);
+      res.send(game);
     }).catch(err => {
       res.status(500).send('Something went wrong fetching the game by id', err);
     });
   } else if (req.query.type === 'tournament') {
-    let tournamentId = req.query.id;
+    let id = req.query.id;
 
-    games.findBy({tournament: tournamentId}).then(games => {
+    games.findBy({tournament: id}).then(games => {
       res.send(games);
     }).catch(err => {
       res.status(500).send('Something went wrong fetching the games by tournament id', err);
     });
-    res.send(response);
   } else {
     games.all().then(games => {
       res.send(games);
