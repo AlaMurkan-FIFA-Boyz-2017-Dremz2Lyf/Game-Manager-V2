@@ -21,7 +21,7 @@ describe('"/games" API', function() {
   });
 
   describe('GET', () => {
-    it_('should respond with all the games when no id or type param is passed', function * () {
+    it_('should respond with all the games when no "id" or "type" param is passed', function * () {
 
       yield request(app)
       .get('/games')
@@ -34,7 +34,7 @@ describe('"/games" API', function() {
       });
     });
 
-    it_('should return a single game when an id and type param of game is passed', function * () {
+    it_('should return a single game when an "id" and "type" param of "game" is passed', function * () {
 
       yield request(app)
       .get('/games?id=1&type=game')
@@ -43,6 +43,16 @@ describe('"/games" API', function() {
         expect(res.body).to.be.an('array');
         expect(res.body[0]).to.be.an('object');
         expect(res.body[0]).to.have.any.keys('id', 'p1', 'p2', 'p1Score', 'p2Score');
+      });
+    });
+
+    it_('should return all the games for a tournament if "type" of "tournament" is passed', function * () {
+
+      yield request(app)
+      .get('/games?id=1&type=tournament')
+      .expect(200)
+      .expect(res => {
+        expect(res.body.every(games => games.tournament === 1)).to.equal(true);
       });
     });
 
@@ -112,7 +122,7 @@ describe('"/games" API', function() {
 
   describe('PUT', () => {
 
-    it_('should respond with a status of 202, and the id of the updated game', function * () {
+    it_('should update the game in the database and respond with 202, and the updated game', function * () {
       let finishedGame = Object.assign({}, mockData.games[2]);
       finishedGame.p1Score = 3;
       finishedGame.p2Score = 2;

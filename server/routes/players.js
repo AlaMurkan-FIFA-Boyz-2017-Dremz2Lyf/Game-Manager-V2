@@ -22,16 +22,22 @@ router.post('/', (req, res) => {
   players.create(req.body).then(player => {
     res.status(201).send(player);
   }).catch(err => {
-    res.status(404).send(err);
+    res.status(409).send(err);
   });
 });
 
-router.put('/', (req, res) => {
 
-});
-
-router.delete('/', (req, res) => {
-
-});
+// NOTE: These Methods will be implimented as needed, and as a solution to the delete problem is found.
+// router.put('/', (req, res) => {
+//
+// });
+//
+// router.delete('/', (req, res) => {
+//   if (req.query.id) {
+//     players.delete(req.query.id).then(res => {
+//       res.send(200);
+//     });
+//   }
+// });
 
 module.exports = router;

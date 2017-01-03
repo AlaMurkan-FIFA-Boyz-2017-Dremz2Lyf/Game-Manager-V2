@@ -46,7 +46,7 @@ exports.create = function (modelName, options = {}) {
     findBy: function (attrs) {
       return db(tableName).select('*').where(attrs)
         .then(function(rows) {
-          return (rows.length === 0) ? Promise.reject(new Model.NotFound) : rows[0];
+          return (rows.length === 0) ? Promise.reject(new Model.NotFound) : rows;
         });
     },
 
