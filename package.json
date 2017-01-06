@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "nodemon ./server/index.js",
     "start": "node ./server/index.js",
-    "build:dev": "webpack-dev-server --config webpack.config.dev.js --color --progress",
+    "build:dev": "webpack-dev-server --config webpack.config.js --color --progress",
     "test": "./test/run.sh"
   },
   "repository": {
