@@ -9,6 +9,7 @@ const MockAdapter = require('axios-mock-adapter');
 // This lets us test our axios requests easily.
 let mock = new MockAdapter(axios);
 
+// setup our test routes and methods
 mock.onGet('/test').reply((config) => {
   if (!config.params) {
     return [200, mockData.test.existing];
