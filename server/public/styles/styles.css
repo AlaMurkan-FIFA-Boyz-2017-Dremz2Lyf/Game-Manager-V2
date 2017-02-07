@@ -1,0 +1,24 @@
+.jumbotron {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #1E2329;
+  background: #FAD817;
+  margin-bottom: 10px;
+}
+
+blockquote {
+  border-left: none;
+}
+
+.progress {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.continue {
+  float: right;
+}
+
+.tournament-form {
+  margin: 0px;
+}

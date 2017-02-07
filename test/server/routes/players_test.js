@@ -5,7 +5,7 @@ const _ = require(__server + '/utilities.js');
 const sinon = require('sinon');
 const db = require(__server + '/db.js');
 
-describe('"/players" API', function() {
+describe('API "/players"', function() {
 
   let app = TestHelper.createApp();
   app.use('/', routes);
@@ -114,7 +114,7 @@ describe('"/players" API', function() {
 
   /*
     NOTE:
-    Deleting players will be tricky due to PostgreSQL. Cannot delete a player without removing the foreign key from every game they are in... which is something to be worked on later :P 
+    Deleting players will be tricky due to PostgreSQL. Cannot delete a player without removing the foreign key from every game they are in... which is something to be worked on later :P
   */
   // describe('DELETE', () => {
   //   it_('should accept an "id", delete the player from the database, and respond with 200', function * () {
