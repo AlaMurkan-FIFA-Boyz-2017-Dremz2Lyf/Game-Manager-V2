@@ -1,6 +1,5 @@
-require(TEST_HELPER); // <--- This must be at the top of every test file.
 
-const driver = require(__client + '/axios_model/lib/axios_model.js');
+const driver = require('../../client/axios_model/lib/axios_model.js');
 
 // NOTE: Axios is required here to pass it to the mock adapter function.
 const axios = require('axios');
