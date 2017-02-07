@@ -6,7 +6,7 @@ const sinon = require('sinon');
 const db = require(__server + '/db.js');
 
 
-describe('"/games" API', function() {
+describe('API "/games"', function() {
 
   let app = TestHelper.createApp();
   app.use('/', routes);
