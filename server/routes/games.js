@@ -3,8 +3,6 @@ const router = express.Router();
 const _ = require('../utilities.js');
 const games = require('../models/games');
 
-router.name = 'games';
-
 /*
   The GET route for games accepts a few params/queries to determine what is sent as the response
     - 'id': A number to be used as either the game id or the tournament id for fetching games. <Number>
