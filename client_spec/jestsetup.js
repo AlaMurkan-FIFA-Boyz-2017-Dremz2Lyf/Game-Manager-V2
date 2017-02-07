@@ -1,9 +1,12 @@
 //create global enzyme functions for us in all test files
 import { shallow, render, mount } from 'enzyme';
+const path = require('path');
 
 global.shallow = shallow;
 global.render = render;
 global.mount = mount;
+
+global.__client = path.join(__dirname, '../client');
 
 //Mock Data for our axios mocks
 global.mockData = {};

@@ -1,5 +1,4 @@
-
-const driver = require('../../client/axios_model/lib/axios_model.js');
+const driver = require(__client + '/axios_model/lib/axios_model.js');
 
 // NOTE: Axios is required here to pass it to the mock adapter function.
 const axios = require('axios');
@@ -27,7 +26,7 @@ mock.onGet('/test').reply((config) => {
 describe('Axios Model', function() {
 
   it('should have a create method', function() {
-    expect(typeof driver.create).to.equal('function');
+    expect(typeof driver.create).toBe('function');
   });
 
   let route = '/test';
@@ -35,24 +34,26 @@ describe('Axios Model', function() {
   let testModel = driver.create(route);
 
   it('should create a new front end model', function() {
-    expect(testModel).to.have.property('route');
-    expect(testModel.route).to.equal(route);
+
+    expect(testModel.route).toBeDefined();
+    expect(testModel.route).toBe(route);
   });
 
   it('should only accept a route as a string', function() {
 
-    expect(driver.create.bind(driver, 4)).to.throw(TypeError, /must be a string/);
+    expect(driver.create.bind(driver, 4)).toThrowError(TypeError);
+    expect(driver.create.bind(driver, 4)).toThrowError(/must be a string/);
   });
 
   describe('all method', function() {
     it('should have an "all" method', function () {
-      expect(typeof testModel.all).to.equal('function');
+      expect(typeof testModel.all).toBe('function');
     });
 
     it('should respond with all the data for the defined model', function(done) {
 
       testModel.all().then(res => {
-        expect(res).to.deep.equal(mockData.test.existing);
+        expect(res).toMatchObject(mockData.test.existing);
         done();
       }).catch(err => {
         throw err;
@@ -64,7 +65,7 @@ describe('Axios Model', function() {
 
   describe('create method', function() {
     it('should have an "create" method', function () {
-      expect(typeof testModel.create).to.equal('function');
+      expect(typeof testModel.create).toBe('function');
     });
 
     it('should respond with 201 and "Created" when called', function(done) {
@@ -76,8 +77,8 @@ describe('Axios Model', function() {
       };
 
       testModel.create(attrs).then(res => {
-        expect(res.status).to.equal(201);
-        expect(res.data).to.equal('Created');
+        expect(res.status).toBe(201);
+        expect(res.data).toBe('Created');
         done();
       }).catch(err => {
         throw err;
@@ -89,15 +90,14 @@ describe('Axios Model', function() {
 
   describe('findById method', function() {
     it('should have an "findById" method', function () {
-      expect(typeof testModel.findById).to.equal('function');
+      expect(typeof testModel.findById).toBe('function');
     });
 
     it('should respond with 200 when called with an attributes object', (done) => {
 
       testModel.findById({id: 1}).then(res => {
-        expect(res.status).to.equal(200);
-        expect(res.data).to.have.property('id');
-        expect(res.data).to.have.property('laborum');
+        expect(res.status).toBe(200);
+        expect(res.data.id).toBe(1);
         done();
       }).catch(err => {
         throw err;
@@ -110,7 +110,7 @@ describe('Axios Model', function() {
   describe('updateOne method', function() {
 
     it('should have a "updateOne" method', function() {
-      expect(typeof testModel.updateOne).to.equal('function');
+      expect(typeof testModel.updateOne).toBe('function');
     });
 
     it('should respond with 202 and the item id', function() {
@@ -118,9 +118,8 @@ describe('Axios Model', function() {
 
         let body = res.data;
 
-        expect(res.status).to.equal(202);
-        expect(body).to.have.property('id');
-        expect(body.id).to.equal(1);
+        expect(res.status).toBe(202);
+        expect(body.id).toBe(1);
       });
     });
   });
