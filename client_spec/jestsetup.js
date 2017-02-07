@@ -7,6 +7,9 @@ global.render = render;
 global.mount = mount;
 
 global.__client = path.join(__dirname, '../client');
+global.__components = path.join(__dirname, '../client/components');
+global.__reducers = path.join(__dirname, '../client/reducers');
+global.__actions = path.join(__dirname, '../client/actions');
 
 //Mock Data for our axios mocks
 global.mockData = {};
