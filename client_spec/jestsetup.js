@@ -1,5 +1,6 @@
 //create global enzyme functions for us in all test files
 import { shallow, render, mount } from 'enzyme';
+
 const path = require('path');
 
 global.shallow = shallow;
@@ -63,13 +64,6 @@ mockData.games = [
   {id: 2, p1: 1, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: mockData.createdAt, updatedAt: null},
   {id: 3, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: mockData.createdAt, updatedAt: null}
 ];
-
-
-
-//
-//
-
-
 
 
 //Skip createElement warnings but fail tests on other warnings
