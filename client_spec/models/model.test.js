@@ -15,6 +15,8 @@ mock.onGet('/test').reply((config) => {
     return [200, mockData.test.existing[0]];
   } else if (config.params.id === 3) {
     return [200, mockData.test.existing[2]];
+  } else if (Array.isArray(config.params.id)) {
+    return [200, mockData.test.existing.slice(0, 2)];
   }
 })
 .onPost('/test').reply(201, 'Created')
@@ -93,9 +95,9 @@ describe('Axios Model', function() {
       expect(typeof testModel.findById).toBe('function');
     });
 
-    it('should respond with 200 when called with an attributes object', (done) => {
+    it('should respond with 200 when called with an ID', (done) => {
 
-      testModel.findById({id: 1}).then(res => {
+      testModel.findById(1).then(res => {
         expect(res.status).toBe(200);
         expect(res.data.id).toBe(1);
         done();
@@ -103,6 +105,27 @@ describe('Axios Model', function() {
         throw err;
         done();
       });
+    });
+
+    it('should respond with 200 when called with an Array of IDs', (done) => {
+      let { test: { existing } } = mockData;
+      let expected = existing.slice(0, 2);
+
+      testModel.findById([1, 2]).then(res => {
+        expect(res.status).toBe(200);
+        expect(res.data).toEqual(expected);
+        done();
+      }).catch(err => {
+        throw err;
+        done();
+      });
+    });
+
+    it('should throw a TypeError when passed the wrong argument', (done) => {
+
+      expect(function() { testModel.findById('something'); }).toThrowError(TypeError);
+      expect(function() { testModel.findById('something'); }).toThrowError(/argument of a single ID <Number> or <String> or an <Array>/);
+      done();
     });
 
   });

@@ -1,12 +1,9 @@
 exports[`Home Component should match snapshot 1`] = `
 <div
   className="home">
-  Foo
-  <h2>
-    Something
-  </h2>
-  <ul>
-    <li />
-  </ul>
+  <PageHeader
+    bsClass="page-header">
+    Game Manager
+  </PageHeader>
 </div>
 `;
