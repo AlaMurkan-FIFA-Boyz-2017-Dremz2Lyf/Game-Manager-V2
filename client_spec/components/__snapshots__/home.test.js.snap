@@ -5,5 +5,24 @@ exports[`Home Component should match snapshot 1`] = `
     bsClass="page-header">
     Game Manager
   </PageHeader>
+  <Grid
+    bsClass="container"
+    componentClass="div"
+    fluid={false}>
+    <Row
+      bsClass="row"
+      componentClass="div">
+      <Col
+        bsClass="col"
+        componentClass="div"
+        md={6}
+        xs={12}>
+        <Tournaments />
+      </Col>
+      <Col
+        bsClass="col"
+        componentClass="div" />
+    </Row>
+  </Grid>
 </div>
 `;

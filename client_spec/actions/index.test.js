@@ -1,9 +1,21 @@
-const actions = require(__actions + '/index');
+import * as actions from '../../client/actions';
+import { SELECT_TAB } from '../../client/actions/types';
 
 describe('Actions', () => {
-  it('should be an object', () => {
 
-    expect(typeof actions).toBe('object');
+  describe('"selectTab" action', () => {
+
+    test('should have selectTab action', () => {
+      expect(actions.selectTab).toBeDefined();
+    });
+
+    test('should return an action with type of "SELECT_TAB"', () => {
+      let action = actions.selectTab('onGoing');
+
+      expect(action.type).toBe(SELECT_TAB);
+      expect(action.payload).toBe('onGoing');
+    });
   });
+
 
 });

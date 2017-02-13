@@ -1,5 +1,14 @@
+// Dependancies
 import React, { Component } from 'react';
-import { PageHeader } from 'react-bootstrap';
+import {
+  PageHeader,
+  Grid,
+  Row,
+  Col
+} from 'react-bootstrap';
+
+// Custom components
+import Tournaments from './tournaments';
 
 class Home extends Component {
 
@@ -7,7 +16,16 @@ class Home extends Component {
     return (
       <div className="home">
         <PageHeader>Game Manager</PageHeader>
-        <div>do tha thing</div>
+        <Grid>
+          <Row>
+            <Col xs={12} md={6}>
+              <Tournaments />
+            </Col>
+            <Col>
+              
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }
