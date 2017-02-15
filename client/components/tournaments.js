@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Panel, Nav, NavItem } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
 class Tournaments extends Component {
 
@@ -24,4 +25,12 @@ class Tournaments extends Component {
   }
 }
 
-export default Tournaments;
+const mapStateToProps = (state) => {
+  return {
+    activeKey: state.tournaments.activeKey,
+    onGoing: state.tournaments.onGoing,
+    finished: state.tournaments.finished
+  };
+};
+
+export default connect(mapStateToProps, null)(Tournaments);

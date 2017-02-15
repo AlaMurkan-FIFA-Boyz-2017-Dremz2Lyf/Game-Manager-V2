@@ -37,12 +37,4 @@ describe('Home Component', () => {
     expect(col).toBe(2);
   });
 
-  test('should render a tournaments component', () => {
-    wrapper = shallow(<Home/>);
-
-    let count = wrapper.find('Tournaments').length;
-
-    expect(count).toBe(1);
-  });
-
 });
