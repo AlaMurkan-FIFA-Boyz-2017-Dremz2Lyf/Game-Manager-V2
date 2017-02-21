@@ -33,6 +33,9 @@ exports[`Tournaments Component should match snapshot 1`] = `
         Create
       </NavItem>
     </Nav>
+    <ListGroup
+      bsClass="list-group"
+      fill={true} />
   </Panel>
 </div>
 `;

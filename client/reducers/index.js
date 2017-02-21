@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import tournamentsReducer from './tournaments_reducer';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  tournaments: tournamentsReducer
 });
 
 export default rootReducer;

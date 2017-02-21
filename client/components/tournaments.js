@@ -1,36 +1,75 @@
+// Dependancies
 import React, { Component } from 'react';
-import { Panel, Nav, NavItem } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-class Tournaments extends Component {
+//Pre-built components from react bootstrap
+import {
+  Panel,
+  Nav,
+  NavItem,
+  ListGroup,
+  ListGroupItem,
+  Grid,
+  Row,
+  Col
+} from 'react-bootstrap';
+
+// Components
+import { Tournament } from './tournament';
+
+export class Tournaments extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      activeKey: 'onGoing'
+    };
+  }
 
   handleSelect(eventKey) {
-    console.log(eventKey);
+    this.setState({
+      activeKey: eventKey
+    });
+  }
 
+  renderList() {
+    let { activeKey } = this.state;
+    let { tournaments = {} } = this.props;
+    let show = activeKey === 'finished' ? true : false;
+
+    return Object.keys(tournaments).filter(id =>
+      !!tournaments[id].winner === show
+    ).map(id => (
+        <ListGroupItem key={id}>
+          <Tournament tournament={tournaments[id]}/>
+        </ListGroupItem>
+      )
+    );
   }
 
   render() {
-    let activeKey = 'onGoing';
+    let { activeKey } = this.state;
+
     return (
       <div className="tournaments">
         <Panel>
-          <Nav bsStyle="tabs" activeKey={activeKey} onSelect={this.handleSelect}>
+          <Nav bsStyle="tabs" activeKey={activeKey} onSelect={this.handleSelect.bind(this)}>
             <NavItem eventKey="finished">Finished</NavItem>
             <NavItem eventKey="onGoing">OnGoing</NavItem>
             <NavItem eventKey="create">Create</NavItem>
           </Nav>
+          <ListGroup fill>
+            {this.renderList()}
+          </ListGroup>
         </Panel>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    activeKey: state.tournaments.activeKey,
-    onGoing: state.tournaments.onGoing,
-    finished: state.tournaments.finished
-  };
+const mapStateToProps = ({tournaments}) => {
+
+  return {tournaments};
 };
 
-export default connect(mapStateToProps, null)(Tournaments);
+export default connect(mapStateToProps)(Tournaments);
