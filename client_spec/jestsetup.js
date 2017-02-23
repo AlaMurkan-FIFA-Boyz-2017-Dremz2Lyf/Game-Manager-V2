@@ -89,23 +89,7 @@ const MockAdapter = require('axios-mock-adapter');
 // This lets us test our axios requests easily.
 let mock = new MockAdapter(axios);
 
-// setup our test routes and methods
-mock.onGet('/test').reply((config) => {
-  if (!config.params) {
-    return [200, mockData.test.existing];
-  } else if (config.params.id === 1) {
-    return [200, mockData.test.existing[0]];
-  } else if (config.params.id === 3) {
-    return [200, mockData.test.existing[2]];
-  } else if (Array.isArray(config.params.id)) {
-    return [200, mockData.test.existing.slice(0, 2)];
-  }
-})
-.onPost('/test').reply(201, 'Created')
-.onPut('/test').reply((config) => {
-  return [202, {id: 1}];
-});
-
+// setup our routes and methods
 mock.onGet('/games').reply((config) => config.id ? (
     config.id === 4 ? [200, [mockData.newGame]] : [200, [mockData.updated]]) : ([200, mockData.games])
   )

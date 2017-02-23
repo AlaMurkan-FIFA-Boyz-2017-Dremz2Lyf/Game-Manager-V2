@@ -37,5 +37,14 @@ exports[`Tournaments Component should match snapshot 1`] = `
       bsClass="list-group"
       fill={true} />
   </Panel>
+  <Button
+    active={false}
+    block={false}
+    bsClass="btn"
+    bsStyle="default"
+    disabled={false}
+    onClick={[Function]}>
+    Yeah
+  </Button>
 </div>
 `;
