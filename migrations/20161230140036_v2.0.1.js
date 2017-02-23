@@ -10,7 +10,7 @@ exports.up = function(knex, Promise) {
       table.integer('goalsFor').defaultTo(0);
       table.integer('goalsAgainst').defaultTo(0);
       table.integer('shots').defaultTo(0);
-      table.integer('onTarget').defaultTo(0);
+      table.integer('onGoal').defaultTo(0);
       table.integer('reds').defaultTo(0);
       table.integer('yellows').defaultTo(0);
       table.boolean('isTeam').defaultTo(false);
@@ -21,8 +21,8 @@ exports.up = function(knex, Promise) {
       table.increments('id').primary();
       table.string('name').unique().notNullable();
       table.integer('winner').references('id').inTable('players');
-      table.string('createdAt').unsigned();
-      table.string('updatedAt').unsigned();
+      table.timestamp('createdAt').defaultTo(knex.fn.now());
+      table.timestamp('updatedAt').defaultTo(knex.fn.now());
     }),
     knex.schema.createTable('games', function(table) {
       table.increments('id').primary();
@@ -38,8 +38,8 @@ exports.up = function(knex, Promise) {
       table.integer('p2OnGoal').unsigned();
       table.integer('tournament').references('id').inTable('tournaments');
       table.string('status').defaultTo('created');
-      table.string('createdAt').unsigned();
-      table.string('updatedAt').unsigned();
+      table.timestamp('createdAt').defaultTo(knex.fn.now());
+      table.timestamp('updatedAt').defaultTo(knex.fn.now());
     })
   ]);
 };
