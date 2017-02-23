@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import promise from 'redux-promise';
+import thunk from 'redux-thunk';
 
 // Components
 import Home from './components/home';
@@ -13,7 +13,7 @@ import rootReducer from './reducers/index.js';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(rootReducer, undefined, composeEnhancers(
-  applyMiddleware(promise)
+  applyMiddleware(thunk)
 ));
 
 ReactDOM.render(

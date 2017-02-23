@@ -30,6 +30,9 @@ module.exports = {
   ],
   devtool: 'inline-source-maps',
   devServer: {
+    proxy: {
+      '/': 'http://localhost:4040'
+    },
     hot: true,
     historyApiFallback: true,
     contentBase: './public'

@@ -1,5 +1,6 @@
-export const TOURNAMENTS_ERROR = 'TOURNAMENTS_ERROR';
-export const REQUEST_TOURNAMENTS = 'REQUEST_TOURNAMENTS';
-export const RECEIVE_TOURNAMENTS = 'RECEIVE_TOURNAMENTS';
-export const POST_TOURNAMENTS = 'POST_TOURNAMENTS';
-export const FETCH_TOURNAMENTS = 'FETCH_TOURNAMENTS';
+export const SET_ERRORED = 'SET_ERRORED';
+export const SET_LOADING = 'SET_LOADING';
+export const RECEIVE = 'RECEIVE';
+export const FETCH = 'FETCH';
+export const CREATE = 'CREATE';
+export const POST = 'POST';

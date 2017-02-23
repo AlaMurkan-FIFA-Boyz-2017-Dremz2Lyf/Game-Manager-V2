@@ -70,6 +70,8 @@ mockData.games = [
   {id: 3, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: mockData.createdAt, updatedAt: null}
 ];
 
+mockData.newGame = {id: 4, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 2, status: 'created', createdAt: mockData.createdAt, updatedAt: null};
+
 
 //Skip createElement warnings but fail tests on other warnings
 console.error = message => {
@@ -78,6 +80,7 @@ console.error = message => {
   }
 };
 
+mockData.updated;
 
 // NOTE: Axios is required here to pass it to the mock adapter function.
 const axios = require('axios');
@@ -103,8 +106,21 @@ mock.onGet('/test').reply((config) => {
   return [202, {id: 1}];
 });
 
-mock.onGet('/games').reply(config => {
-  if (!config.params) {
-    
-  }
-});
+mock.onGet('/games').reply((config) => config.id ? (
+    config.id === 4 ? [200, [mockData.newGame]] : [200, [mockData.updated]]) : ([200, mockData.games])
+  )
+  .onPost('/games').reply(() => [202, {id: 4}])
+  .onPut('/games').reply((config) => {
+    mockData.updated = JSON.parse(config.data);
+    return [201, {id: 1}];
+  });
+
+mock.onGet('/tournaments').reply(() => [200, mockData.tournaments])
+  .onPost('/tournaments').reply(() => [201, 'Created'])
+  .onPut('/tournaments').reply(() => [202, {id: 1}]);
+
+mock.onGet('/players').reply(() => [200, mockData.players])
+  .onPost('/players').reply(() => [201, 'Created'])
+  .onPut('/players').reply(() => [202, {id: 1}]);
+
+mock.onGet('/totally not a valid endpoint').reply(() => [404, 'shits fucked']);

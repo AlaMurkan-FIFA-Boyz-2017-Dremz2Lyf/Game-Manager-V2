@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import tournamentsReducer from './tournaments_reducer';
+import data from './data_reducer';
+import isError from './isError';
+import isLoading from './isLoading';
 
 const rootReducer = combineReducers({
-  tournaments: tournamentsReducer
+  data,
+  isError,
+  isLoading
 });
 
 export default rootReducer;

@@ -1,55 +1,84 @@
 // Dependancies
-import configureStore from 'redux-mock-store';
+import { createStore } from 'redux';
+
 
 // Reducers
 import rootReducer from '../../client/reducers/index';
-import tournamentsReducer from '../../client/reducers/tournaments_reducer';
+import data from '../../client/reducers/data_reducer';
+import isError from '../../client/reducers/isError';
+import isLoading from '../../client/reducers/isLoading';
 
-// actions
+// Actions
 import {
-  tournamentsError,
-  requestTournaments
-} from '../../client/actions/tournaments_actions';
-
-const middlewares = [];
-const mockStore = configureStore(middlewares);
-
+  setErrored,
+  setLoading,
+  receive
+} from '../../client/actions/index';
 
 
 describe('Reducers', () => {
-  let store;
+  let store = createStore(rootReducer);
+
   describe('root reducer', () => {
 
     test('should return the initialState', () => {
-      store = mockStore(rootReducer);
-      expect(store.getState().tournaments).toEqual(tournamentsReducer(undefined, {}));
+
+      expect(store.getState().data).toEqual(data(undefined, {}));
     });
 
   });
 
-  describe('Tournaments reducer', () => {
-    let initialState;
+  // describe('Error reducer', () => {
+  //
+  //   test('should handle errors for the correct data set', () => {
+  //     let errorAction = setErrored('tournaments', true);
+  //     let fixedError = setErrored('tournaments', false);
+  //     let newError = setErrored('players', true);
+  //
+  //     store.dispatch(errorAction);
+  //     expect(store.getState().isError).toEqual(isError(undefined, errorAction));
+  //
+  //     store.dispatch(fixedError);
+  //     store.dispatch(newError);
+  //     expect(store.getState().isError).toEqual(isError(undefined, newError));
+  //     store.dispatch(setErrored('players', false));
+  //   });
+  //
+  // });
+
+  describe('Loading reducer', () => {
+
+    it('should handle loading events properly', () => {
+      let loadTournaments = setLoading('tournaments', true);
+      let gotTournaments = setLoading('tournaments', false);
+      let loadPlayers = setLoading('players', true);
+
+      store.dispatch(loadTournaments);
+      expect(store.getState().isLoading).toEqual(isLoading(undefined, loadTournaments));
+
+      store.dispatch(gotTournaments);
+      store.dispatch(loadPlayers);
+      expect(store.getState().isLoading).toEqual(isLoading(undefined, loadPlayers));
+      store.dispatch(setLoading('players', false));
+    });
+
+  });
+
+  describe('Data reducer', () => {
 
     test('should return the initialState', () => {
-      initialState = {
-        waiting: false,
-        error: false
-      };
 
-      expect(tournamentsReducer(undefined, {})).toEqual(initialState);
+      expect(data(undefined, {})).toEqual({games: {}, players: {}, tournaments: {}});
     });
 
-    test('should handle actions properly', () => {
-      let error = tournamentsError('post');
-      store = mockStore(rootReducer);
+    test('should return normalized state', () => {
 
-      store.dispatch(error);
-      expect(store.getState().tournaments).toEqual(tournamentsReducer(undefined, error));
-      let request = requestTournaments();
-      store.dispatch(request);
-      expect(store.getState().tournaments).toEqual(tournamentsReducer(undefined, request));
+      let action = receive('games', mockData.games);
+      store.dispatch(action);
+      expect(store.getState().data).toEqual(data(undefined, action));
+      expect(store.getState().isError).toEqual(isError(undefined, action));
+      expect(store.getState().isLoading).toEqual(isLoading(undefined, action));
     });
-
   });
 
 });

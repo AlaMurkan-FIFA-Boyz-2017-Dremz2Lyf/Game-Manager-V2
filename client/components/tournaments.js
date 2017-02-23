@@ -1,6 +1,9 @@
 // Dependancies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { fetch } from '../actions/index';
 
 //Pre-built components from react bootstrap
 import {
@@ -11,7 +14,8 @@ import {
   ListGroupItem,
   Grid,
   Row,
-  Col
+  Col,
+  Button
 } from 'react-bootstrap';
 
 // Components
@@ -25,11 +29,18 @@ export class Tournaments extends Component {
       activeKey: 'onGoing'
     };
   }
+  componentDidMount() {
+    // this.props.fetch('tournaments');
+  }
 
   handleSelect(eventKey) {
     this.setState({
       activeKey: eventKey
     });
+  }
+
+  messWithData() {
+    this.props.fetch('tournaments');
   }
 
   renderList() {
@@ -62,14 +73,17 @@ export class Tournaments extends Component {
             {this.renderList()}
           </ListGroup>
         </Panel>
+        <Button onClick={this.messWithData.bind(this)}>Yeah</Button>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({tournaments}) => {
+const mapStateToProps = ({data}) => {
 
-  return {tournaments};
+  return {
+    tournaments: data.tournaments
+  };
 };
 
-export default connect(mapStateToProps)(Tournaments);
+export default connect(mapStateToProps, { fetch })(Tournaments);

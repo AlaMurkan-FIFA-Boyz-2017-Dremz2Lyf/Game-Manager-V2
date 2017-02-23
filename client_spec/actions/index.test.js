@@ -1,79 +1,123 @@
-import {
-  tournamentsError,
-  requestTournaments,
-  receiveTournaments
-} from '../../client/actions/tournaments_actions';
+//Dependancies
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
+// Actions
 import {
-  TOURNAMENTS_ERROR,
-  POST_TOURNAMENTS,
-  FETCH_TOURNAMENTS,
-  REQUEST_TOURNAMENTS,
-  RECEIVE_TOURNAMENTS
+  setErrored,
+  setLoading,
+  fetch,
+  create,
+  receive,
+  update
+ } from '../../client/actions/index';
+
+// Action types
+import {
+  SET_ERRORED,
+  SET_LOADING,
+  FETCH,
+  RECEIVE
 } from '../../client/actions/types';
 
+// Bring in our normalize utilities for equality testing.
+import { normalize } from '../../client/utilities';
+
+// setup our mock store with thunk middleware to test actions dispatch other actions.
+const middlewares = [ thunk ];
+const mockStore = configureStore(middlewares);
+let store;
 
 describe('Actions', () => {
 
-  describe('Tournaments action types', () => {
-    test('error', () => {
-      expect(TOURNAMENTS_ERROR).toBe('TOURNAMENTS_ERROR');
+  beforeEach(() => {
+    store = mockStore({
+      data: {},
+      isLoading: {},
+      isError: {}
     });
-    test('POST', () => {
-      expect(POST_TOURNAMENTS).toBe('POST_TOURNAMENTS');
-    });
-    test('FETCH', () => {
-      expect(FETCH_TOURNAMENTS).toBe('FETCH_TOURNAMENTS');
-    });
-    test('REQUEST', () => {
-      expect(REQUEST_TOURNAMENTS).toBe('REQUEST_TOURNAMENTS');
-    });
-    test('RECEIVE', () => {
-      expect(RECEIVE_TOURNAMENTS).toBe('RECEIVE_TOURNAMENTS');
-    });
-
   });
 
-  describe('Tournaments actions', () => {
+  afterEach(() => {
+    store.clearActions();
+  });
 
-    test('error', () => {
-      let action = tournamentsError('post');
-      let expected = {
-        type: TOURNAMENTS_ERROR,
-        source: 'post'
-      };
-      expect(action).toEqual(expected);
+  // describe('Error handling', () => {
+  //   test('should error when hitting a bad endpoint', () => {
+  //     let action = fetch('totally not a valid endpoint');
+  //     let expected = [
+  //       setLoading('totally not a valid endpoint', true),
+  //       setErrored('totally not a valid endpoint', {})
+  //     ];
+  //
+  //     store.dispatch(action);
+  //     expect(store.getActions()).toEqual([expected]);
+  //   });
+  // });
+
+  describe('Data actions', () => {
+
+    test('fetch', () => {
+
+      let expected = [
+        setLoading('games', true),
+        receive('games', mockData.games),
+        setLoading('games', false)
+      ];
+      return store.dispatch(fetch('games', {tournamentId: 1})).then(() => {
+        expect(store.getActions()).toEqual(expected);
+      });
     });
 
-/*
-  Probably don't need to test actions, just test the reducers.
-  Which becomes apparent when working with the async stuff. These are tested easier with the reducer tests
-*/
-    // test('POST', () => {
-    //
-    //   expect().toEqual();
+    test('receive', () => {
+      let action = receive('tournaments', mockData.tournaments.slice());
+      let expected = {
+        type: RECEIVE,
+        payload: {
+          stateKey: 'tournaments',
+          data: normalize(mockData.tournaments.slice())
+        }
+      };
+
+      store.dispatch(action);
+      expect(store.getActions()).toEqual([expected]);
+    });
+
+    // test('receive should throw an error if the data passed to it is not an array', () => {
+    //   expect(() => { receive('tournaments', {}); }).toThrow(/data argument should be an array/);
     // });
-    //
-    // test('FETCH', () => {
-    //   expect().toEqual();
-    // });
 
-    test('REQUEST', () => {
-      let action = requestTournaments();
-      let expected = {
-        type: REQUEST_TOURNAMENTS
-      };
-      expect(action).toEqual(expected);
+    test('create', () => {
+      let newGame = {p1: 2, p2: 3};
+
+      let expected = [
+        setLoading('games', true),
+        setLoading('games', true),
+        receive('games', [mockData.newGame]),
+        setLoading('games', false)
+      ];
+      return store.dispatch(create('games', newGame)).then(() => {
+        expect(store.getActions()).toEqual(expected);
+      });
     });
 
-    test('RECEIVE', () => {
-      let action = receiveTournaments(mockData.tournaments.slice());
-      let expected = {
-        type: RECEIVE_TOURNAMENTS,
-        tournaments: mockData.tournaments.slice()
-      };
-      expect(action).toEqual(expected);
+    test('update', () => {
+      let updatedGame = mockData.games.slice(0, 1);
+      updatedGame.p1Score = 3;
+      updatedGame.p1Score = 2;
+
+      let expected = [
+        setLoading('games', true),
+        setLoading('games', true),
+        receive('games', [updatedGame].slice()),
+        setLoading('games', false)
+      ];
+
+      return store.dispatch(update('games', updatedGame)).then(() => {
+        expect(JSON.stringify(store.getActions())).toEqual(JSON.stringify(expected));
+      });
     });
+
   });
 
 });
