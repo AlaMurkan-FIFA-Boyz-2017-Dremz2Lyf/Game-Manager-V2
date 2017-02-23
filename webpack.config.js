@@ -2,29 +2,39 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'eval',
-  devServer: {
-    inline: true,
-    historyApiFallback: true,
-    contentBase: './server/public'
-  },
   entry: [
-    'webpack-dev-server/client?http://localhost:3000',
+    'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './client/index'
+    './client/app.js'
   ],
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/static/'
+    path: path.join(__dirname, 'public'),
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  module: {
+    rules: [
+      {
+        use: ['react-hot-loader', 'babel-loader'],
+        test: /\.js$/,
+        exclude: /node_modules/
+      },
+      {
+        use: ['style-loader', 'css-loader'],
+        test: /\.css/
+      }
+    ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
-  module: {
-    loaders: [
-      { test: /\.js$/, loader: 'react-hot-loader' },
-      { test: /\.js$/, loader: 'babel-loader', query: { presets: ['es2015']}}
-    ]
+  devtool: 'inline-source-maps',
+  devServer: {
+    proxy: {
+      '/': 'http://localhost:4040'
+    },
+    hot: true,
+    historyApiFallback: true,
+    contentBase: './public'
   }
 };

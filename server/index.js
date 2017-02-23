@@ -11,8 +11,11 @@ const games = require('./routes/games');
 const players = require('./routes/players');
 const tournaments = require('./routes/tournaments');
 
+// Normalized path for our public/static files
+const PUBLIC = path.normalize(__dirname + '/../public');
 
-routes.use(express.static(path.join(__dirname, 'public')));
+// And give them to our middleware with express.static
+routes.use(express.static(PUBLIC));
 
 routes.use(bodyParser.json());
 

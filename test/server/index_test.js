@@ -1,5 +1,5 @@
 require(TEST_HELPER); // <--- This must be at the top of every test file.
-const request = require('supertest-as-promised');
+const request = require('supertest');
 const routes = require(__server + '/index.js');
 const _ = require(__server + '/utilities.js');
 const sinon = require('sinon');
