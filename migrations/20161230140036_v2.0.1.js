@@ -4,8 +4,18 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('players', function(table) {
       table.increments('id').primary();
       table.string('username').unique().notNullable();
-      table.string('createdAt').unsigned();
-      table.string('updatedAt').unsigned();
+      table.integer('wins').defaultTo(0);
+      table.integer('losses').defaultTo(0);
+      table.integer('draws').defaultTo(0);
+      table.integer('goalsFor').defaultTo(0);
+      table.integer('goalsAgainst').defaultTo(0);
+      table.integer('shots').defaultTo(0);
+      table.integer('onTarget').defaultTo(0);
+      table.integer('reds').defaultTo(0);
+      table.integer('yellows').defaultTo(0);
+      table.boolean('isTeam').defaultTo(false);
+      table.timestamp('createdAt').defaultTo(knex.fn.now());
+      table.timestamp('updatedAt').defaultTo(knex.fn.now());
     }),
     knex.schema.createTable('tournaments', function(table) {
       table.increments('id').primary();
