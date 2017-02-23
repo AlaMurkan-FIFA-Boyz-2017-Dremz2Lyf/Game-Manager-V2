@@ -13,6 +13,7 @@ exports.up = function(knex, Promise) {
       table.integer('onGoal').defaultTo(0);
       table.integer('reds').defaultTo(0);
       table.integer('yellows').defaultTo(0);
+      table.integer('possession').unsigned();
       table.boolean('isTeam').defaultTo(false);
       table.timestamp('createdAt').defaultTo(knex.fn.now());
       table.timestamp('updatedAt').defaultTo(knex.fn.now());
@@ -21,6 +22,8 @@ exports.up = function(knex, Promise) {
       table.increments('id').primary();
       table.string('name').unique().notNullable();
       table.integer('winner').references('id').inTable('players');
+      table.integer('gamesPlayed').unsigned();
+      table.integer('totalGames').unsigned();
       table.timestamp('createdAt').defaultTo(knex.fn.now());
       table.timestamp('updatedAt').defaultTo(knex.fn.now());
     }),
@@ -36,6 +39,10 @@ exports.up = function(knex, Promise) {
       table.integer('p2Poss').unsigned();
       table.integer('p1OnGoal').unsigned();
       table.integer('p2OnGoal').unsigned();
+      table.integer('p1Reds').unsigned();
+      table.integer('p1Yellows').unsigned();
+      table.integer('p2Reds').unsigned();
+      table.integer('p2Yellows').unsigned();
       table.integer('tournament').references('id').inTable('tournaments');
       table.string('status').defaultTo('created');
       table.timestamp('createdAt').defaultTo(knex.fn.now());
