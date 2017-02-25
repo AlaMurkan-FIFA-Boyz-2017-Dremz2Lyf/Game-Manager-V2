@@ -72,7 +72,6 @@ exports.create = function (modelName, options = {}) {
         - the new row with the new 'id' and passed attrs <Object>
     */
     create: function (attrs) {
-      attrs.createdAt = new Date();
       return db(tableName).insert(attrs).returning(idColumn)
         .then(function (rows) {
           return Object.assign({ [idColumn]: rows[0] }, attrs);

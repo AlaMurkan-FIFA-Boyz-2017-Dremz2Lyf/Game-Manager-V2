@@ -56,7 +56,7 @@ describe('API "/tournaments"', function() {
       .expect(201)
       .expect(res => {
         expect(res.body).to.be.a('object');
-        expect(res.body).to.have.all.keys('id', 'name', 'createdAt');
+        expect(res.body).to.have.all.keys('id', 'name');
         expect(res.body.name).to.equal('ultraTourney!');
       });
     });

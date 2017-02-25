@@ -30,4 +30,23 @@ describe('Utilities', function() {
     });
   });
 
+  describe('formatName', () => {
+
+    it('should be a function', () => {
+      expect(_.formatName).to.be.a('function');
+    });
+
+    it('should accept a string, Error on incorrect types', () => {
+      expect(() => _.formatName('person')).to.not.throw(TypeError, /must be a string/);
+      expect(() => _.formatName([])).to.throw(TypeError, /must be a string/);
+    });
+
+    it('should output the correctly formated string', () => {
+      let formatted = _.formatName('lola');
+      expect(formatted).to.equal('Lola');
+      expect(formatted).to.not.equal('lOLA');
+    });
+
+  });
+
 });

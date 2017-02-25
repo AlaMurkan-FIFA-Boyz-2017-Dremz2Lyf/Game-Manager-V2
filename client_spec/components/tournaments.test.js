@@ -1,25 +1,25 @@
 // Dependancies
 import React from 'react';
+import { Provider } from 'react-redux';
 
 // Components
-import { Tournaments } from '../../client/components/tournaments.js';
+import Connected, { Tournaments } from '../../client/components/tournaments.js';
 
-let mockReducer = function(payload) {
-  var newState = {};
+// Grab our store and our action to prePopulate
+import { store } from '../../client/store';
 
-  payload.forEach(tourney => {
-    newState[tourney.id] = tourney;
-  });
-  return newState;
-};
-let fakeProps = mockReducer(mockData.tournaments);
+// let fakeProps = normalize(mockData.tournaments);
 
 describe('Tournaments Component', () => {
   let shallowRender = shallow(<Tournaments/>);
   let panel = shallowRender.find('Panel');
   let nav = shallowRender.find('Panel Nav');
   let navItems = shallowRender.find('NavItem');
-  let list = mount(<Tournaments tournaments={fakeProps} />);
+  // let list = mount(
+  //   <Provider store={store}>
+  //     <Connected />
+  //   </Provider>
+  // );
 
   test('should match snapshot', () => {
 
@@ -79,10 +79,6 @@ describe('Tournaments Component', () => {
     test('should default to a list', () => {
 
       expect(panel.find('ListGroup')).toHaveLength(1);
-    });
-
-    test('should render a list based on props', () => {
-      expect(list.find('ListGroupItem')).toHaveLength(5);
     });
 
   });

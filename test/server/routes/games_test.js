@@ -28,9 +28,9 @@ describe('API "/games"', function() {
       .expect(200)
       .expect(res => {
         expect(res.body).to.be.an('array');
+        expect(res.body.length).to.equal(3);
         expect(res.body[0]).to.be.an('object');
         expect(res.body[0]).to.have.any.keys('p1', 'p2', 'tournament');
-        expect(res.body[0]).to.deep.equal(mockData.games[0]);
       });
     });
 
