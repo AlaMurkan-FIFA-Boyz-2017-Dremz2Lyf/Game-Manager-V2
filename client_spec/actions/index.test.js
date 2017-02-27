@@ -83,9 +83,9 @@ describe('Actions', () => {
       expect(store.getActions()).toEqual([expected]);
     });
 
-    // test('receive should throw an error if the data passed to it is not an array', () => {
-    //   expect(() => { receive('tournaments', {}); }).toThrow(/data argument should be an array/);
-    // });
+    test('receive should throw an error if the data passed to it is not an array', () => {
+      expect(() => { receive('tournaments', {}); }).toThrow(/data argument should be an array/);
+    });
 
     test('create', () => {
       let newGame = {p1: 2, p2: 3};

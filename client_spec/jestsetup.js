@@ -50,27 +50,32 @@ mockData.test = {
 
 // set a players key on the mock database
 mockData.players = [
-  {id: 1, username: 'Alice', createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 2, username: 'Gilbert', createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 3, username: 'Bob', createdAt: '2016-12-25T19:31:48', updatedAt: null}
+  {id: 1, username: 'Alice', wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, possession: 0, isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 2, username: 'Gilbert', wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, possession: 0, isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 3, username: 'Bob', wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, possession: 0, isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null}
 ];
 
 // set a tournaments key on the mock database
 mockData.tournaments = [
-  {id: 1, name: 'Super Tourney!', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 2, name: 'new', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 3, name: 'next', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 4, name: 'hot', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 5, name: 'fun', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null}
+  {id: 1, gamesPlayed: 0, totalGames: 3, name: 'Super Tourney!', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 2, gamesPlayed: 0, totalGames: 1, name: 'new', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 3, gamesPlayed: 5, totalGames: 5, name: 'next', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 4, gamesPlayed: 1, totalGames: 7, name: 'hot', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 5, gamesPlayed: 2, totalGames: 6, name: 'fun', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null}
 ];
 // set a games key on the mock database
 mockData.games = [
-  {id: 1, p1: 1, p2: 2, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: mockData.createdAt, updatedAt: null},
-  {id: 2, p1: 1, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: mockData.createdAt, updatedAt: null},
-  {id: 3, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', createdAt: mockData.createdAt, updatedAt: null}
+  {id: 1, p1: 1, p2: 2, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null,
+    p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0, createdAt: mockData.createdAt, updatedAt: null},
+  {id: 2, p1: 1, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null,
+    p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0, createdAt: mockData.createdAt, updatedAt: null},
+  {id: 3, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null,
+    p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0, createdAt: mockData.createdAt, updatedAt: null}
 ];
 
-mockData.newGame = {id: 4, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 2, status: 'created', createdAt: mockData.createdAt, updatedAt: null};
+mockData.newGame = {
+  id: 4, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, 
+  p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 2, status: 'created', p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0, createdAt: mockData.createdAt, updatedAt: null};
 
 
 //Skip createElement warnings but fail tests on other warnings

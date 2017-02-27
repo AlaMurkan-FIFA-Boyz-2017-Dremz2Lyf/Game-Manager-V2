@@ -1,0 +1,44 @@
+exports[`CreateTournament should match the snapshot 1`] = `
+<div>
+  <form>
+    <div>
+      <label>
+        Tournament Name
+      </label>
+      <div>
+        <input
+          name="name"
+          placeholder="Tournament Name"
+          type="text" />
+      </div>
+    </div>
+    <div>
+      <label>
+        Add Players!
+      </label>
+      <div>
+        <input
+          name="playerSearch"
+          onChange={[Function]}
+          type="text" />
+      </div>
+    </div>
+  </form>
+  <Row
+    bsClass="row"
+    componentClass="div">
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={6}>
+      <ul />
+    </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={6}>
+      <ul />
+    </Col>
+  </Row>
+</div>
+`;

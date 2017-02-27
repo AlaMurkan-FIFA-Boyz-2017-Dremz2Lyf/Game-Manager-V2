@@ -23,12 +23,14 @@ describe('API "/players"', function() {
 
     it_('should respond with 200, and all players when no "id" is passed as a param/query', function * () {
 
+      let expected = Object.keys(mockData.players[0]);
+
       yield request(app)
       .get('/players')
       .expect(200)
       .expect(res => {
         expect(res.body.length).to.equal(3);
-        expect(res.body[0]).to.have.all.keys('id', 'username', 'createdAt', 'updatedAt');
+        expect(res.body[0]).to.have.all.keys(expected);
         expect(res.body[0].username).to.equal('Alice');
       });
     });
@@ -40,7 +42,7 @@ describe('API "/players"', function() {
       .expect(200)
       .expect(res => {
         expect(res.body.length).to.equal(1);
-        expect(res.body[0]).to.have.all.keys('id', 'username', 'createdAt');
+        expect(res.body[0]).to.have.all.keys('id', 'username');
         expect(res.body[0].username).to.equal('Gilbert');
       });
     });
@@ -49,14 +51,15 @@ describe('API "/players"', function() {
   describe('POST', () => {
 
     it_('should respond with 201, and the newly created player', function * () {
-      let newPlayer = {username: 'Agustin'};
+      let newPlayer = {username: 'agustin'};
 
       yield request(app)
       .post('/players')
       .send(newPlayer)
       .expect(201)
       .expect(res => {
-        expect(res.body).to.have.all.keys('id', 'username', 'createdAt');
+        expect(res.body).to.have.all.keys('id', 'username');
+        expect(res.body.username).to.equal('Agustin');
       });
     });
 

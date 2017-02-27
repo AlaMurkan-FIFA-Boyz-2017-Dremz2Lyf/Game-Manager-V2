@@ -22,7 +22,7 @@ class Home extends Component {
               <Tournaments />
             </Col>
             <Col>
-              
+
             </Col>
           </Row>
         </Grid>

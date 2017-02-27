@@ -20,6 +20,7 @@ import {
 
 // Components
 import { Tournament } from './tournament';
+import CreateTournament from './create_tournament';
 
 export class Tournaments extends Component {
   constructor() {
@@ -29,8 +30,10 @@ export class Tournaments extends Component {
       activeKey: 'onGoing'
     };
   }
+
   componentDidMount() {
-    // this.props.fetch('tournaments');
+    this.props.fetch('tournaments');
+    this.props.fetch('players');
   }
 
   handleSelect(eventKey) {
@@ -39,23 +42,45 @@ export class Tournaments extends Component {
     });
   }
 
-  messWithData() {
-    this.props.fetch('tournaments');
-  }
-
   renderList() {
     let { activeKey } = this.state;
     let { tournaments = {} } = this.props;
+
     let show = activeKey === 'finished' ? true : false;
 
-    return Object.keys(tournaments).filter(id =>
-      !!tournaments[id].winner === show
-    ).map(id => (
-        <ListGroupItem key={id}>
-          <Tournament tournament={tournaments[id]}/>
-        </ListGroupItem>
-      )
-    );
+    let filtered = Object.keys(tournaments).reduce((organized, id) => {
+      if (tournaments[id].winner === null) {
+        organized.onGoing.push(
+          <Tournament key={id} tournament={tournaments[id]}/>
+        );
+      } else {
+        organized.finished.push(
+          <Tournament key={id} tournament={tournaments[id]}/>
+        );
+      }
+      return organized;
+    }, {
+      finished: [],
+      onGoing: []
+    });
+
+    switch (activeKey) {
+    case 'create':
+      return <CreateTournament />;
+    case 'onGoing':
+      return (
+        <ListGroup>
+          {filtered.onGoing}
+        </ListGroup>
+      );
+    case 'finished':
+      return (
+        <ListGroup>
+          {filtered.finished}
+        </ListGroup>
+      );
+    }
+
   }
 
   render() {
@@ -69,11 +94,8 @@ export class Tournaments extends Component {
             <NavItem eventKey="onGoing">OnGoing</NavItem>
             <NavItem eventKey="create">Create</NavItem>
           </Nav>
-          <ListGroup fill>
-            {this.renderList()}
-          </ListGroup>
+          {this.renderList()}
         </Panel>
-        <Button onClick={this.messWithData.bind(this)}>Yeah</Button>
       </div>
     );
   }

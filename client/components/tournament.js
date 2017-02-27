@@ -1,8 +1,8 @@
 import React from 'react';
-import { ProgressBar, Col, Row } from 'react-bootstrap';
+import { ProgressBar, Col, Row, ListGroupItem } from 'react-bootstrap';
 
 export const Tournament = ({tournament = {}}) => (
-  <div className="tournament">
+  <ListGroupItem className="tournament">
     <Row>
       <Col xs={7} className="name">
         <div>{tournament.name}</div>
@@ -16,5 +16,5 @@ export const Tournament = ({tournament = {}}) => (
         <ProgressBar active now={50}></ProgressBar>
       </Col>
     </Row>
-  </div>
+  </ListGroupItem>
 );

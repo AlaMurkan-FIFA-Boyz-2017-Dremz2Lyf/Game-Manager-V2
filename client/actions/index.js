@@ -64,9 +64,10 @@ export const create = (stateKey, data, params = {}) => {
   return dispatch => {
     dispatch(setLoading(stateKey, true));
 
-    return post.then(response => response.data.id).then(id =>
-      dispatch(fetch(stateKey, {id}))
-    ).catch(error => { throw error; });
+    return post.then(response => response.data.id).then(id => {
+      dispatch(fetch(stateKey, {id}));
+      return id;
+    }).catch(error => { throw error; });
   };
 };
 

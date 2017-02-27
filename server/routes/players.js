@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const players = require('../models/players.js');
+const _ = require('../utilities.js');
 
 router.get('/', (req, res) => {
   if (req.query.id) {
@@ -19,6 +20,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  req.body.username = _.formatName(req.body.username);
   players.create(req.body).then(player => {
     res.status(201).send(player);
   }).catch(err => {

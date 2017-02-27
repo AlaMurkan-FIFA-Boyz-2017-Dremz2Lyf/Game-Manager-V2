@@ -22,3 +22,7 @@ blockquote {
 .tournament-form {
   margin: 0px;
 }
+
+.doubles {
+  float: left;
+}
