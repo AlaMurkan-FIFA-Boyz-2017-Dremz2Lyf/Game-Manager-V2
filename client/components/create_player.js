@@ -27,7 +27,11 @@ export class CreatePlayer extends Component {
   }
 
   handleSubmit(values) {
-    this.props.create('players', values);
+    this.props.create('players', values).then(() => {
+      this.setState({
+        showModal: false
+      });
+    });
   }
 
   render() {
@@ -35,7 +39,7 @@ export class CreatePlayer extends Component {
     return (
       <div>
         <ListGroupItem onClick={this.open.bind(this)}>
-          Couldn't find them? Click here to add a new player
+          Couldn't find who you were looking for? Click here to add a new player
         </ListGroupItem>
         <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
           <Modal.Header>

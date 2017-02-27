@@ -9,13 +9,17 @@ import {
   FormControl,
   FormGroup,
   ControlLabel,
-  InputGroup
+  InputGroup,
+  DropdownButton,
+  MenuItem,
+  Button
 } from 'react-bootstrap';
 
 import PlayerListItem from './player_list_item';
 import CreatePlayer from './create_player.js';
 import PlayerForm from './player_form';
 
+import { create } from '../actions/index';
 
 export class CreateTournament extends Component {
   constructor() {
@@ -23,8 +27,8 @@ export class CreateTournament extends Component {
 
     this.state = {
       playerSearch: '',
-      tName: '',
-      rounds: 2,
+      name: '',
+      rounds: 'rounds',
       added: {}
     };
   }
@@ -35,9 +39,9 @@ export class CreateTournament extends Component {
     });
   }
 
-  tNameHandler(e) {
+  nameHandler(e) {
     this.setState({
-      tName: e.target.value
+      name: e.target.value
     });
   }
 
@@ -45,12 +49,18 @@ export class CreateTournament extends Component {
     let { players } = this.props;
     let { playerSearch } = this.state;
 
-    return Object.keys(players).reduce((playerList, id) => {
-      if (players[id].username.toLowerCase().indexOf(playerSearch.toLowerCase()) !== -1) {
-        playerList.push(<PlayerListItem key={id} player={players[id]} move={this.addPlayers.bind(this)}/> );
-      }
-      return playerList;
-    }, []);
+    return Object.keys(players)
+      .sort((a, b) => {
+        let { username: usernameA } = players[a];
+        let { username: usernameB } = players[b];
+        return usernameA > usernameB ? 1 : usernameA < usernameB ? -1 : 0;
+      })
+      .reduce((playerList, id) => {
+        if (players[id].username.toLowerCase().indexOf(playerSearch.toLowerCase()) !== -1) {
+          playerList.push(<PlayerListItem key={id} player={players[id]} move={this.addPlayers.bind(this)}/> );
+        }
+        return playerList;
+      }, []);
 
   }
 
@@ -87,28 +97,74 @@ export class CreateTournament extends Component {
     return Object.keys(added).map(id => <PlayerListItem key={id} player={added[id]} move={this.removePlayers.bind(this)}/>);
   }
 
+  handleRounds(num) {
+    this.setState({
+      rounds: num
+    });
+  }
+
+  renderOptions(number) {
+
+    return [<MenuItem onClick={this.handleRounds.bind(this, 1)} key={1}>{1}</MenuItem>].concat([...Array(number).keys()].slice(1)
+      .filter(num => num % 2 === 0 )
+      .map(num => (<MenuItem onClick={this.handleRounds.bind(this, num)} key={num}>{num}</MenuItem>)));
+  }
+
+  // handles the submit of the tournament, creates it with a post to the database.
+  handleSubmit(e) {
+    e.preventDefault();
+    let { rounds, added, name } = this.state;
+    this.props.create('tournaments', { name, rounds, added });
+  }
+
+
+  // This is a slightly hacky work around to get the players back into props
+  componentWillUnmount() {
+    let { added } = this.state;
+    let id;
+    for (id in added) {
+      this.props.players[id] = added[id];
+    }
+  }
+
   render() {
 
     return (
       <div>
-        <form>
+        <Row>
+          <Col xs={12}>
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <FormGroup>
+              <ControlLabel>Tournament Name</ControlLabel>
+                <InputGroup>
+
+                <InputGroup.Button type='submit'>
+                  <Button >Go!</Button>
+                </InputGroup.Button>
+                <FormControl
+                  name='name'
+                  type='text'
+                  placeholder='Tournament Name'
+                  onChange={this.nameHandler.bind(this)}
+                  value={this.state.name}
+                />
+                <DropdownButton
+                  componentClass={InputGroup.Button}
+                  title={this.state.rounds}
+                  id='tournament_rounds'
+                >
+                  {this.renderOptions(13)}
+                </DropdownButton>
+                </InputGroup>
+              </FormGroup>
+            </form>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+          <ControlLabel>Add Players!</ControlLabel>
           <div>
-            <label>Tournament Name</label>
-            <div>
-              <input
-                name='tName'
-                type='text'
-                placeholder='Tournament Name'
-                onChange={this.tNameHandler.bind(this)}
-                value={this.state.tName}
-              />
-            </div>
-          </div>
-        </form>
-        <div>
-          <label>Add Players!</label>
-          <div>
-            <input
+            <FormControl
               onChange={this.handleSearch.bind(this)}
               value={this.state.playerSearch}
               name='playerSearch'
@@ -116,7 +172,8 @@ export class CreateTournament extends Component {
               placeholder='Who do you want to play with?'
             />
           </div>
-        </div>
+          </Col>
+        </Row>
         <Row>
           <Col xs={6}>
             <ListGroup>
@@ -141,4 +198,4 @@ const mapStateToProps = ({data}) => {
   };
 };
 
-export default connect(mapStateToProps)(CreateTournament);
+export default connect(mapStateToProps, { create })(CreateTournament);

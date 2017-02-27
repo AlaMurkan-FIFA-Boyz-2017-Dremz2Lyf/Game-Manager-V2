@@ -47,17 +47,29 @@ describe('API "/tournaments"', function() {
   });
 
   describe('POST', () => {
+    let spy;
+    it_('should respond with a status of 201, and call createGames', function * () {
+      spy = sinon.spy(_, 'createGames');
 
-    it_('should respond with a status of 201', function * () {
+      let tournament = {
+        name: 'ultraTourney!',
+        added: {
+          1: {},
+          2: {},
+          3: {}
+        }
+      };
 
       yield request(app)
       .post('/tournaments')
-      .send({name: 'ultraTourney!'})
+      .send(tournament)
       .expect(201)
       .expect(res => {
+        expect(spy.called).to.equal(true);
         expect(res.body).to.be.a('object');
         expect(res.body).to.have.all.keys('id', 'name');
         expect(res.body.name).to.equal('ultraTourney!');
+        spy.restore();
       });
     });
 
@@ -75,7 +87,7 @@ describe('API "/tournaments"', function() {
     });
 
   });
-  //
+
   describe('PUT', () => {
 
     it_('should accept an updated tournament. Respond with 202 and the updated properties', function * () {

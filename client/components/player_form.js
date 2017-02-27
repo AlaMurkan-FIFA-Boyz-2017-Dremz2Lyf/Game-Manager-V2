@@ -28,7 +28,7 @@ const renderField = ({ input, label, type, meta: { valid, pristine } }) => (
 
 const popover = (
   <Popover id='popover-trigger-hover-focus'>
-    Select this to Make a team.
+    Select this to make a doubles team.
   </Popover>
 );
 
@@ -56,6 +56,7 @@ class PlayerForm extends Component {
             <OverlayTrigger trigger={['hover', 'focus']} placement='bottom' overlay={popover}>
             <InputGroup.Addon>
               <Field
+                autoComplete='false'
                 label='Doubles Team?'
                 name='isTeam'
                 component='input'
