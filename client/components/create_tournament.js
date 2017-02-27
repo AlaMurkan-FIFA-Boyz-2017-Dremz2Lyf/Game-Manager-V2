@@ -114,6 +114,7 @@ export class CreateTournament extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let { rounds, added, name } = this.state;
+    rounds = rounds === 'rounds' ? 1 : rounds;
     this.props.create('tournaments', { name, rounds, added });
   }
 
@@ -138,8 +139,8 @@ export class CreateTournament extends Component {
               <ControlLabel>Tournament Name</ControlLabel>
                 <InputGroup>
 
-                <InputGroup.Button type='submit'>
-                  <Button >Go!</Button>
+                <InputGroup.Button>
+                  <Button type='submit'>Go!</Button>
                 </InputGroup.Button>
                 <FormControl
                   name='name'

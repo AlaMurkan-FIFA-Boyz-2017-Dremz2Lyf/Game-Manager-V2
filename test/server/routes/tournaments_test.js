@@ -12,6 +12,7 @@ describe('API "/tournaments"', function() {
   app.use('/', routes);
   app.testReady();
 
+
   beforeEach(function() {
     return db.migrate.rollback().then(res => {
       return db.migrate.latest();
@@ -28,7 +29,7 @@ describe('API "/tournaments"', function() {
       .get('/tournaments')
       .expect(200)
       .expect(res => {
-        expect(res.body.length).to.equal(5);
+        expect(res.body.length).to.equal(2);
         expect(res.body).to.be.an('array');
         expect(res.body[0]).to.be.an('object');
       });
@@ -41,15 +42,15 @@ describe('API "/tournaments"', function() {
       .expect(200)
       .expect(res => {
         expect(res.body.length).to.equal(1);
-        expect(res.body[0].name).to.equal('new');
+        expect(res.body[0].name).to.equal('2 Rounds');
       });
     });
   });
 
   describe('POST', () => {
-    let spy;
+
     it_('should respond with a status of 201, and call createGames', function * () {
-      spy = sinon.spy(_, 'createGames');
+      let spiedCreate = sinon.spy(_, 'createGames');
 
       let tournament = {
         name: 'ultraTourney!',
@@ -65,11 +66,11 @@ describe('API "/tournaments"', function() {
       .send(tournament)
       .expect(201)
       .expect(res => {
-        expect(spy.called).to.equal(true);
+        expect(spiedCreate.called).to.equal(true);
         expect(res.body).to.be.a('object');
-        expect(res.body).to.have.all.keys('id', 'name');
-        expect(res.body.name).to.equal('ultraTourney!');
-        spy.restore();
+        expect(res.body).to.have.all.keys('id', 'totalGames', 'updatedAt');
+        expect(res.body.id).to.equal(3);
+        _.createGames.restore;
       });
     });
 
@@ -91,7 +92,7 @@ describe('API "/tournaments"', function() {
   describe('PUT', () => {
 
     it_('should accept an updated tournament. Respond with 202 and the updated properties', function * () {
-      let updatedTournament = mockData.tournaments.slice(2, 3)[0];
+      let updatedTournament = Object.assign({}, mockData.tournaments[0]);
       updatedTournament.winner = 2;
 
       yield request(app)
@@ -100,14 +101,14 @@ describe('API "/tournaments"', function() {
       .expect(202)
       .expect(res => {
         expect(res.body).to.be.an('object');
-        expect(res.body.id).to.equal(3);
-        expect(res.body.name).to.equal('next');
+        expect(res.body.id).to.equal(1);
+        expect(res.body.name).to.equal('Super Tourney!');
         expect(res.body.winner).to.equal(2);
       });
     });
 
     it_('should error if there is no "id" given for the update', function * () {
-      let noId = mockData.tournaments.slice(2, 3)[0];
+      let noId = Object.assign({}, mockData.tournaments[0]);
       delete noId.id;
 
       yield request(app)

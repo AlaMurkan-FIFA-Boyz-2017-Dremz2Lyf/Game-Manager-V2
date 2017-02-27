@@ -89,7 +89,6 @@ exports.create = function (modelName, options = {}) {
       if (! attrs[idColumn]) {
         return Promise.reject(new Model.InvalidArgument(`${idColumn}_is_required`));
       }
-
       attrs.updatedAt = new Date();
       return db(tableName).update(attrs).where({ [idColumn]: attrs[idColumn] })
         .then(function(affectedCount) {

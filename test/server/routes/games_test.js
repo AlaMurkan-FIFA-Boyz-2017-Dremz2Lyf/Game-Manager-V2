@@ -28,7 +28,7 @@ describe('API "/games"', function() {
       .expect(200)
       .expect(res => {
         expect(res.body).to.be.an('array');
-        expect(res.body.length).to.equal(3);
+        expect(res.body.length).to.equal(9);
         expect(res.body[0]).to.be.an('object');
         expect(res.body[0]).to.have.any.keys('p1', 'p2', 'tournament');
       });
@@ -58,10 +58,12 @@ describe('API "/games"', function() {
 
   });
 
+
+// This is somewhat deprecated now as games are not currently being created unless they are tied to a tournament. In that case the /tournaments route handles the creating of games.
   describe('POST', () => {
     let tournament = {
       players: [1, 2, 3],
-      tournament: 4
+      tournament: 1
     };
 
     it_('should receive an array of player Ids, save new games in the database, and respond with the games created', function * () {
@@ -98,9 +100,9 @@ describe('API "/games"', function() {
       .expect(res => {
         expect(_.createGames.callCount).to.equal(1);
         expect(res.status).to.equal(201);
+        _.createGames.restore();
       });
 
-      createGames.restore();
     });
 
     it_('should respond with 400 if only one player id is sent', function * () {
@@ -123,6 +125,7 @@ describe('API "/games"', function() {
   describe('PUT', () => {
 
     it_('should update the game in the database and respond with 202, and the updated game', function * () {
+
       let finishedGame = Object.assign({}, mockData.games[2]);
       finishedGame.p1Score = 3;
       finishedGame.p2Score = 2;
@@ -140,8 +143,9 @@ describe('API "/games"', function() {
         .get('/games')
         .expect(200)
         .expect(res => {
-          expect(res.body[2].p2Score).to.equal(2);
-          expect(res.body[2].p1Score).to.equal(3);
+          let theGame = res.body.filter(game => game.id === 3)[0];
+          expect(theGame.p2Score).to.equal(2);
+          expect(theGame.p1Score).to.equal(3);
         })
       );
     });

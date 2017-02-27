@@ -22,7 +22,7 @@ exports.up = function(knex, Promise) {
       table.increments('id').primary();
       table.string('name').unique().notNullable();
       table.integer('winner').references('id').inTable('players');
-      table.integer('gamesPlayed').unsigned();
+      table.integer('gamesPlayed').defaultTo(0);
       table.integer('totalGames').unsigned();
       table.timestamp('createdAt').defaultTo(knex.fn.now());
       table.timestamp('updatedAt').defaultTo(knex.fn.now());

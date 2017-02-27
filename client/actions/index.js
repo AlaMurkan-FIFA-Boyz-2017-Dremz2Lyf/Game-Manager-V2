@@ -67,7 +67,7 @@ export const create = (stateKey, data, params = {}) => {
     return post.then(response => response.data.id).then(id => {
       dispatch(fetch(stateKey, {id}));
       return id;
-    }).catch(error => { console.log('this', error); throw error; });
+    }).catch(error => { throw error; });
   };
 };
 

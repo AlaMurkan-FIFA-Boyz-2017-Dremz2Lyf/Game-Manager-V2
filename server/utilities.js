@@ -60,7 +60,7 @@ exports.formatName = (string) => {
 
 
 // ApplyRounds takes the build games array and creates duplicates for the number of rounds asked.
-exports.applyRounds = (gamesArray, rounds) => {
+exports.applyRounds = (gamesArray, rounds = 1) => {
   // combined starts as the input array of games
   let combined = gamesArray;
 
