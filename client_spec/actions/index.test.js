@@ -42,18 +42,17 @@ describe('Actions', () => {
     store.clearActions();
   });
 
-  // describe('Error handling', () => {
-  //   test('should error when hitting a bad endpoint', () => {
-  //     let action = fetch('totally not a valid endpoint');
-  //     let expected = [
-  //       setLoading('totally not a valid endpoint', true),
-  //       setErrored('totally not a valid endpoint', {})
-  //     ];
-  //
-  //     store.dispatch(action);
-  //     expect(store.getActions()).toEqual([expected]);
-  //   });
-  // });
+  describe('Error handling', () => {
+    test('receive should throw an error if the data passed to it is not an array', () => {
+      let error = new TypeError('Second argument passed to "receive" action should be an array', 'actions/index.js', 31);
+      let expected = [
+        setErrored('tournaments', error)
+      ];
+
+      store.dispatch(receive('tournaments', {}));
+      expect(store.getActions()).toEqual(expected);
+    });
+  });
 
   describe('Data actions', () => {
 
@@ -83,9 +82,6 @@ describe('Actions', () => {
       expect(store.getActions()).toEqual([expected]);
     });
 
-    test('receive should throw an error if the data passed to it is not an array', () => {
-      expect(() => { receive('tournaments', {}); }).toThrow(/data argument should be an array/);
-    });
 
     test('create', () => {
       let newGame = {p1: 2, p2: 3};
@@ -96,8 +92,10 @@ describe('Actions', () => {
         receive('games', [mockData.newGame]),
         setLoading('games', false)
       ];
+
       return store.dispatch(create('games', newGame)).then(() => {
-        expect(store.getActions()).toEqual(expected);
+
+        return expect(store.getActions()).toEqual(expected);
       });
     });
 

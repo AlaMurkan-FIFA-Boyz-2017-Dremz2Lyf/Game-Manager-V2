@@ -46,7 +46,7 @@ export class CreateTournament extends Component {
   }
 
   showPlayers() {
-    let { players } = this.props;
+    let { players = {} } = this.props;
     let { playerSearch } = this.state;
 
     return Object.keys(players)

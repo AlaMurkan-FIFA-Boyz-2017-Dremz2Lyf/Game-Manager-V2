@@ -17,7 +17,11 @@ import {
 
 
 describe('Reducers', () => {
-  let store = createStore(rootReducer);
+  let store;
+
+  beforeEach(() => {
+    store = createStore(rootReducer);
+  });
 
   describe('root reducer', () => {
 
@@ -28,23 +32,19 @@ describe('Reducers', () => {
 
   });
 
-  // describe('Error reducer', () => {
-  //
-  //   test('should handle errors for the correct data set', () => {
-  //     let errorAction = setErrored('tournaments', true);
-  //     let fixedError = setErrored('tournaments', false);
-  //     let newError = setErrored('players', true);
-  //
-  //     store.dispatch(errorAction);
-  //     expect(store.getState().isError).toEqual(isError(undefined, errorAction));
-  //
-  //     store.dispatch(fixedError);
-  //     store.dispatch(newError);
-  //     expect(store.getState().isError).toEqual(isError(undefined, newError));
-  //     store.dispatch(setErrored('players', false));
-  //   });
-  //
-  // });
+  describe('Error reducer', () => {
+
+    test('should handle errors for the correct data set', () => {
+      let error = new TypeError('Second argument passed to "receive" action should be an array', 'actions/index.js', 31);
+      let errorAction = setErrored('tournaments', error);
+
+      let reducerResult = isError(undefined, errorAction);
+      store.dispatch(errorAction);
+
+      return expect(store.getState().isError).toEqual(reducerResult);
+    });
+
+  });
 
   describe('Loading reducer', () => {
 

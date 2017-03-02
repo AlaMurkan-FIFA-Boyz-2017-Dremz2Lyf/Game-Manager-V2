@@ -7,16 +7,14 @@ import { SET_ERRORED, SET_LOADING, RECEIVE, FETCH } from './types';
 // Utilities
 import { normalize } from '../utilities';
 
-export const setErrored = (stateKey, data) => {
+export const setErrored = (stateKey, data) => ({
+  type: SET_ERRORED,
+  payload: {
+    data,
+    stateKey
+  }
+});
 
-  return {
-    type: SET_ERRORED,
-    payload: {
-      data,
-      stateKey
-    }
-  };
-};
 
 export const setLoading = (stateKey, data) => {
   return {
@@ -30,8 +28,10 @@ export const setLoading = (stateKey, data) => {
 
 export const receive = (stateKey, data) => {
   if (!Array.isArray(data)) {
-    throw new TypeError('data argument should be an array', 'actions/index.js', 31);
+    let error = new TypeError('Second argument passed to "receive" action should be an array', 'actions/index.js', 31);
+    return dispatch => dispatch(setErrored(stateKey, error));
   }
+
   return {
     type: RECEIVE,
     payload: {
@@ -42,7 +42,6 @@ export const receive = (stateKey, data) => {
 };
 
 export const fetch = (stateKey, params = {}) => {
-
   let request = axios.get(`/${stateKey}`, params);
 
   return dispatch => {
@@ -64,10 +63,12 @@ export const create = (stateKey, data, params = {}) => {
   return dispatch => {
     dispatch(setLoading(stateKey, true));
 
-    return post.then(response => response.data.id).then(id => {
-      dispatch(fetch(stateKey, {id}));
-      return id;
-    }).catch(error => { throw error; });
+    return post.then(response => response.data.id).then(id =>
+      dispatch(fetch(stateKey, {id}))
+    ).catch(error => {
+      dispatch(setErrored(stateKey, error));
+      throw error;
+    });
   };
 };
 
