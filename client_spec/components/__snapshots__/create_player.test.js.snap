@@ -1,0 +1,60 @@
+exports[`CreatePlayer Component should match the snapshot 1`] = `
+<div>
+  <ListGroupItem
+    bsClass="list-group-item"
+    listItem={false}
+    onClick={[Function]}>
+    Couldn\'t find who you were looking for? Click here to add a new player
+  </ListGroupItem>
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop={true}
+    bsClass="modal"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "modals": Array [],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    show={false}>
+    <ModalHeader
+      aria-label="Close"
+      bsClass="modal-header"
+      closeButton={false}>
+      <ModalTitle
+        bsClass="modal-title"
+        componentClass="h4">
+        Make a new Player
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div">
+      <ReduxForm
+        onSubmit={[Function]} />
+    </ModalBody>
+    <ModalFooter
+      bsClass="modal-footer"
+      componentClass="div">
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        onClick={[Function]}>
+        Cancel
+      </Button>
+    </ModalFooter>
+  </Modal>
+</div>
+`;

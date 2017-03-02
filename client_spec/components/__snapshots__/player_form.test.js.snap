@@ -1,0 +1,815 @@
+exports[`PlayerForm should match the snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(Symbol.observable): [Function],
+    }
+  }>
+  <ReduxForm>
+    <Connect(Form(Connect(PlayerForm)))
+      destroyOnUnmount={true}
+      enableReinitialize={false}
+      forceUnregisterOnUnmount={false}
+      form="playerForm"
+      getFormState={[Function]}
+      keepDirtyOnReinitialize={false}
+      persistentSubmitErrors={false}
+      pure={true}
+      shouldAsyncValidate={[Function]}
+      shouldValidate={[Function]}
+      touchOnBlur={true}
+      touchOnChange={false}>
+      <Form(Connect(PlayerForm))
+        anyTouched={false}
+        array={
+          Object {
+            "insert": [Function],
+            "move": [Function],
+            "pop": [Function],
+            "push": [Function],
+            "remove": [Function],
+            "removeAll": [Function],
+            "shift": [Function],
+            "splice": [Function],
+            "swap": [Function],
+            "unshift": [Function],
+          }
+        }
+        arrayInsert={[Function]}
+        arrayMove={[Function]}
+        arrayPop={[Function]}
+        arrayPush={[Function]}
+        arrayRemove={[Function]}
+        arrayRemoveAll={[Function]}
+        arrayShift={[Function]}
+        arraySplice={[Function]}
+        arraySwap={[Function]}
+        arrayUnshift={[Function]}
+        asyncValidating={false}
+        autofill={[Function]}
+        blur={[Function]}
+        change={[Function]}
+        clearAsyncError={[Function]}
+        clearSubmit={[Function]}
+        destroy={[Function]}
+        destroyOnUnmount={true}
+        dirty={false}
+        dispatch={[Function]}
+        enableReinitialize={false}
+        focus={[Function]}
+        forceUnregisterOnUnmount={false}
+        form="playerForm"
+        getFormState={[Function]}
+        initialize={[Function]}
+        initialized={false}
+        invalid={true}
+        keepDirtyOnReinitialize={false}
+        persistentSubmitErrors={false}
+        pristine={true}
+        pure={true}
+        registerField={[Function]}
+        registeredFields={
+          Object {
+            "isTeam": Object {
+              "count": 1,
+              "name": "isTeam",
+              "type": "Field",
+            },
+            "username": Object {
+              "count": 1,
+              "name": "username",
+              "type": "Field",
+            },
+          }
+        }
+        reset={[Function]}
+        setSubmitFailed={[Function]}
+        setSubmitSucceeded={[Function]}
+        shouldAsyncValidate={[Function]}
+        shouldValidate={[Function]}
+        startAsyncValidation={[Function]}
+        startSubmit={[Function]}
+        stopAsyncValidation={[Function]}
+        stopSubmit={[Function]}
+        submit={[Function]}
+        submitFailed={false}
+        submitSucceeded={false}
+        submitting={false}
+        syncErrors={
+          Object {
+            "username": "What? are you no one? A faceless man?",
+          }
+        }
+        syncWarnings={Object {}}
+        touch={[Function]}
+        touchOnBlur={true}
+        touchOnChange={false}
+        unregisterField={[Function]}
+        untouch={[Function]}
+        updateSyncErrors={[Function]}
+        updateSyncWarnings={[Function]}
+        valid={false}
+        validExceptSubmit={false}
+        values={Object {}}>
+        <Connect(PlayerForm)
+          anyTouched={false}
+          array={
+            Object {
+              "insert": [Function],
+              "move": [Function],
+              "pop": [Function],
+              "push": [Function],
+              "remove": [Function],
+              "removeAll": [Function],
+              "shift": [Function],
+              "splice": [Function],
+              "swap": [Function],
+              "unshift": [Function],
+            }
+          }
+          asyncValidate={[Function]}
+          asyncValidating={false}
+          autofill={[Function]}
+          blur={[Function]}
+          change={[Function]}
+          clearAsyncError={[Function]}
+          clearSubmit={[Function]}
+          destroy={[Function]}
+          dirty={false}
+          dispatch={[Function]}
+          form="playerForm"
+          handleSubmit={[Function]}
+          initialize={[Function]}
+          initialized={false}
+          invalid={true}
+          pristine={true}
+          pure={true}
+          reset={[Function]}
+          submit={[Function]}
+          submitFailed={false}
+          submitSucceeded={false}
+          submitting={false}
+          touch={[Function]}
+          untouch={[Function]}
+          valid={false}>
+          <PlayerForm
+            allPlayers={Object {}}
+            anyTouched={false}
+            array={
+              Object {
+                "insert": [Function],
+                "move": [Function],
+                "pop": [Function],
+                "push": [Function],
+                "remove": [Function],
+                "removeAll": [Function],
+                "shift": [Function],
+                "splice": [Function],
+                "swap": [Function],
+                "unshift": [Function],
+              }
+            }
+            asyncValidate={[Function]}
+            asyncValidating={false}
+            autofill={[Function]}
+            blur={[Function]}
+            change={[Function]}
+            clearAsyncError={[Function]}
+            clearSubmit={[Function]}
+            destroy={[Function]}
+            dirty={false}
+            dispatch={[Function]}
+            form="playerForm"
+            handleSubmit={[Function]}
+            initialize={[Function]}
+            initialized={false}
+            invalid={true}
+            isPristine={true}
+            isValid={false}
+            pristine={true}
+            pure={true}
+            reset={[Function]}
+            submit={[Function]}
+            submitFailed={false}
+            submitSucceeded={false}
+            submitting={false}
+            syncErrors={
+              Object {
+                "username": "What? are you no one? A faceless man?",
+              }
+            }
+            touch={[Function]}
+            untouch={[Function]}
+            valid={false}>
+            <form
+              onSubmit={[Function]}>
+              <div>
+                <ControlLabel
+                  bsClass="control-label"
+                  srOnly={false}>
+                  <label
+                    className="control-label">
+                    Username
+                  </label>
+                </ControlLabel>
+                <InputGroup
+                  bsClass="input-group">
+                  <span
+                    className="input-group">
+                    <OverlayTrigger
+                      defaultOverlayShown={false}
+                      overlay={
+                        <Popover
+                          bsClass="popover"
+                          id="popover-trigger-hover-focus"
+                          placement="right">
+                          Select this to make a doubles team.
+                        </Popover>
+                      }
+                      placement="bottom"
+                      trigger={
+                        Array [
+                          "hover",
+                          "focus",
+                        ]
+                      }>
+                      <InputGroupAddon
+                        aria-describedby="popover-trigger-hover-focus"
+                        bsClass="input-group-addon"
+                        onBlur={[Function]}
+                        onClick={null}
+                        onFocus={[Function]}
+                        onMouseOut={[Function]}
+                        onMouseOver={[Function]}>
+                        <span
+                          aria-describedby="popover-trigger-hover-focus"
+                          className="input-group-addon"
+                          onBlur={[Function]}
+                          onClick={null}
+                          onFocus={[Function]}
+                          onMouseOut={[Function]}
+                          onMouseOver={[Function]}>
+                          <Field
+                            autoComplete="false"
+                            component="input"
+                            label="Doubles Team?"
+                            name="isTeam"
+                            type="checkbox">
+                            <Connect(ConnectedField)
+                              _reduxForm={
+                                Object {
+                                  "anyTouched": false,
+                                  "array": Object {
+                                    "insert": [Function],
+                                    "move": [Function],
+                                    "pop": [Function],
+                                    "push": [Function],
+                                    "remove": [Function],
+                                    "removeAll": [Function],
+                                    "shift": [Function],
+                                    "splice": [Function],
+                                    "swap": [Function],
+                                    "unshift": [Function],
+                                  },
+                                  "arrayInsert": [Function],
+                                  "arrayMove": [Function],
+                                  "arrayPop": [Function],
+                                  "arrayPush": [Function],
+                                  "arrayRemove": [Function],
+                                  "arrayRemoveAll": [Function],
+                                  "arrayShift": [Function],
+                                  "arraySplice": [Function],
+                                  "arraySwap": [Function],
+                                  "arrayUnshift": [Function],
+                                  "asyncErrors": undefined,
+                                  "asyncValidate": [Function],
+                                  "asyncValidating": false,
+                                  "autofill": [Function],
+                                  "blur": [Function],
+                                  "change": [Function],
+                                  "clearAsyncError": [Function],
+                                  "clearSubmit": [Function],
+                                  "destroy": [Function],
+                                  "destroyOnUnmount": true,
+                                  "dirty": false,
+                                  "dispatch": [Function],
+                                  "enableReinitialize": false,
+                                  "error": undefined,
+                                  "focus": [Function],
+                                  "forceUnregisterOnUnmount": false,
+                                  "form": "playerForm",
+                                  "getFormState": [Function],
+                                  "getValues": [Function],
+                                  "initialValues": undefined,
+                                  "initialize": [Function],
+                                  "initialized": false,
+                                  "invalid": false,
+                                  "keepDirtyOnReinitialize": false,
+                                  "persistentSubmitErrors": false,
+                                  "pristine": true,
+                                  "pure": true,
+                                  "register": [Function],
+                                  "registerField": [Function],
+                                  "registerInnerOnSubmit": [Function],
+                                  "registeredFields": undefined,
+                                  "reset": [Function],
+                                  "sectionPrefix": undefined,
+                                  "setSubmitFailed": [Function],
+                                  "setSubmitSucceeded": [Function],
+                                  "shouldAsyncValidate": [Function],
+                                  "shouldValidate": [Function],
+                                  "startAsyncValidation": [Function],
+                                  "startSubmit": [Function],
+                                  "stopAsyncValidation": [Function],
+                                  "stopSubmit": [Function],
+                                  "submit": [Function],
+                                  "submitFailed": false,
+                                  "submitSucceeded": false,
+                                  "submitting": false,
+                                  "syncErrors": Object {},
+                                  "syncWarnings": Object {},
+                                  "touch": [Function],
+                                  "touchOnBlur": true,
+                                  "touchOnChange": false,
+                                  "triggerSubmit": undefined,
+                                  "unregister": [Function],
+                                  "unregisterField": [Function],
+                                  "untouch": [Function],
+                                  "updateSyncErrors": [Function],
+                                  "updateSyncWarnings": [Function],
+                                  "valid": true,
+                                  "validExceptSubmit": true,
+                                  "values": Object {},
+                                  "warning": undefined,
+                                }
+                              }
+                              autoComplete="false"
+                              component="input"
+                              label="Doubles Team?"
+                              name="isTeam"
+                              normalize={[Function]}
+                              type="checkbox">
+                              <ConnectedField
+                                _reduxForm={
+                                  Object {
+                                    "anyTouched": false,
+                                    "array": Object {
+                                      "insert": [Function],
+                                      "move": [Function],
+                                      "pop": [Function],
+                                      "push": [Function],
+                                      "remove": [Function],
+                                      "removeAll": [Function],
+                                      "shift": [Function],
+                                      "splice": [Function],
+                                      "swap": [Function],
+                                      "unshift": [Function],
+                                    },
+                                    "arrayInsert": [Function],
+                                    "arrayMove": [Function],
+                                    "arrayPop": [Function],
+                                    "arrayPush": [Function],
+                                    "arrayRemove": [Function],
+                                    "arrayRemoveAll": [Function],
+                                    "arrayShift": [Function],
+                                    "arraySplice": [Function],
+                                    "arraySwap": [Function],
+                                    "arrayUnshift": [Function],
+                                    "asyncErrors": undefined,
+                                    "asyncValidate": [Function],
+                                    "asyncValidating": false,
+                                    "autofill": [Function],
+                                    "blur": [Function],
+                                    "change": [Function],
+                                    "clearAsyncError": [Function],
+                                    "clearSubmit": [Function],
+                                    "destroy": [Function],
+                                    "destroyOnUnmount": true,
+                                    "dirty": false,
+                                    "dispatch": [Function],
+                                    "enableReinitialize": false,
+                                    "error": undefined,
+                                    "focus": [Function],
+                                    "forceUnregisterOnUnmount": false,
+                                    "form": "playerForm",
+                                    "getFormState": [Function],
+                                    "getValues": [Function],
+                                    "initialValues": undefined,
+                                    "initialize": [Function],
+                                    "initialized": false,
+                                    "invalid": false,
+                                    "keepDirtyOnReinitialize": false,
+                                    "persistentSubmitErrors": false,
+                                    "pristine": true,
+                                    "pure": true,
+                                    "register": [Function],
+                                    "registerField": [Function],
+                                    "registerInnerOnSubmit": [Function],
+                                    "registeredFields": undefined,
+                                    "reset": [Function],
+                                    "sectionPrefix": undefined,
+                                    "setSubmitFailed": [Function],
+                                    "setSubmitSucceeded": [Function],
+                                    "shouldAsyncValidate": [Function],
+                                    "shouldValidate": [Function],
+                                    "startAsyncValidation": [Function],
+                                    "startSubmit": [Function],
+                                    "stopAsyncValidation": [Function],
+                                    "stopSubmit": [Function],
+                                    "submit": [Function],
+                                    "submitFailed": false,
+                                    "submitSucceeded": false,
+                                    "submitting": false,
+                                    "syncErrors": Object {},
+                                    "syncWarnings": Object {},
+                                    "touch": [Function],
+                                    "touchOnBlur": true,
+                                    "touchOnChange": false,
+                                    "triggerSubmit": undefined,
+                                    "unregister": [Function],
+                                    "unregisterField": [Function],
+                                    "untouch": [Function],
+                                    "updateSyncErrors": [Function],
+                                    "updateSyncWarnings": [Function],
+                                    "valid": true,
+                                    "validExceptSubmit": true,
+                                    "values": Object {},
+                                    "warning": undefined,
+                                  }
+                                }
+                                asyncValidating={false}
+                                autoComplete="false"
+                                component="input"
+                                dirty={false}
+                                dispatch={[Function]}
+                                label="Doubles Team?"
+                                name="isTeam"
+                                normalize={[Function]}
+                                pristine={true}
+                                type="checkbox">
+                                <input
+                                  autoComplete="false"
+                                  checked={false}
+                                  label="Doubles Team?"
+                                  name="isTeam"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onDragStart={[Function]}
+                                  onDrop={[Function]}
+                                  onFocus={[Function]}
+                                  type="checkbox"
+                                  value="" />
+                              </ConnectedField>
+                            </Connect(ConnectedField)>
+                          </Field>
+                        </span>
+                      </InputGroupAddon>
+                    </OverlayTrigger>
+                    <Field
+                      component={[Function]}
+                      label="Username"
+                      name="username"
+                      type="text"
+                      validate={
+                        Array [
+                          [Function],
+                          [Function],
+                        ]
+                      }>
+                      <Connect(ConnectedField)
+                        _reduxForm={
+                          Object {
+                            "anyTouched": false,
+                            "array": Object {
+                              "insert": [Function],
+                              "move": [Function],
+                              "pop": [Function],
+                              "push": [Function],
+                              "remove": [Function],
+                              "removeAll": [Function],
+                              "shift": [Function],
+                              "splice": [Function],
+                              "swap": [Function],
+                              "unshift": [Function],
+                            },
+                            "arrayInsert": [Function],
+                            "arrayMove": [Function],
+                            "arrayPop": [Function],
+                            "arrayPush": [Function],
+                            "arrayRemove": [Function],
+                            "arrayRemoveAll": [Function],
+                            "arrayShift": [Function],
+                            "arraySplice": [Function],
+                            "arraySwap": [Function],
+                            "arrayUnshift": [Function],
+                            "asyncErrors": undefined,
+                            "asyncValidate": [Function],
+                            "asyncValidating": false,
+                            "autofill": [Function],
+                            "blur": [Function],
+                            "change": [Function],
+                            "clearAsyncError": [Function],
+                            "clearSubmit": [Function],
+                            "destroy": [Function],
+                            "destroyOnUnmount": true,
+                            "dirty": false,
+                            "dispatch": [Function],
+                            "enableReinitialize": false,
+                            "error": undefined,
+                            "focus": [Function],
+                            "forceUnregisterOnUnmount": false,
+                            "form": "playerForm",
+                            "getFormState": [Function],
+                            "getValues": [Function],
+                            "initialValues": undefined,
+                            "initialize": [Function],
+                            "initialized": false,
+                            "invalid": true,
+                            "keepDirtyOnReinitialize": false,
+                            "persistentSubmitErrors": false,
+                            "pristine": true,
+                            "pure": true,
+                            "register": [Function],
+                            "registerField": [Function],
+                            "registerInnerOnSubmit": [Function],
+                            "registeredFields": Object {
+                              "isTeam": Object {
+                                "count": 1,
+                                "name": "isTeam",
+                                "type": "Field",
+                              },
+                              "username": Object {
+                                "count": 1,
+                                "name": "username",
+                                "type": "Field",
+                              },
+                            },
+                            "reset": [Function],
+                            "sectionPrefix": undefined,
+                            "setSubmitFailed": [Function],
+                            "setSubmitSucceeded": [Function],
+                            "shouldAsyncValidate": [Function],
+                            "shouldValidate": [Function],
+                            "startAsyncValidation": [Function],
+                            "startSubmit": [Function],
+                            "stopAsyncValidation": [Function],
+                            "stopSubmit": [Function],
+                            "submit": [Function],
+                            "submitFailed": false,
+                            "submitSucceeded": false,
+                            "submitting": false,
+                            "syncErrors": Object {
+                              "username": "What? are you no one? A faceless man?",
+                            },
+                            "syncWarnings": Object {},
+                            "touch": [Function],
+                            "touchOnBlur": true,
+                            "touchOnChange": false,
+                            "triggerSubmit": undefined,
+                            "unregister": [Function],
+                            "unregisterField": [Function],
+                            "untouch": [Function],
+                            "updateSyncErrors": [Function],
+                            "updateSyncWarnings": [Function],
+                            "valid": false,
+                            "validExceptSubmit": false,
+                            "values": Object {},
+                            "warning": undefined,
+                          }
+                        }
+                        component={[Function]}
+                        label="Username"
+                        name="username"
+                        normalize={[Function]}
+                        type="text"
+                        validate={
+                          Array [
+                            [Function],
+                            [Function],
+                          ]
+                        }>
+                        <ConnectedField
+                          _reduxForm={
+                            Object {
+                              "anyTouched": false,
+                              "array": Object {
+                                "insert": [Function],
+                                "move": [Function],
+                                "pop": [Function],
+                                "push": [Function],
+                                "remove": [Function],
+                                "removeAll": [Function],
+                                "shift": [Function],
+                                "splice": [Function],
+                                "swap": [Function],
+                                "unshift": [Function],
+                              },
+                              "arrayInsert": [Function],
+                              "arrayMove": [Function],
+                              "arrayPop": [Function],
+                              "arrayPush": [Function],
+                              "arrayRemove": [Function],
+                              "arrayRemoveAll": [Function],
+                              "arrayShift": [Function],
+                              "arraySplice": [Function],
+                              "arraySwap": [Function],
+                              "arrayUnshift": [Function],
+                              "asyncErrors": undefined,
+                              "asyncValidate": [Function],
+                              "asyncValidating": false,
+                              "autofill": [Function],
+                              "blur": [Function],
+                              "change": [Function],
+                              "clearAsyncError": [Function],
+                              "clearSubmit": [Function],
+                              "destroy": [Function],
+                              "destroyOnUnmount": true,
+                              "dirty": false,
+                              "dispatch": [Function],
+                              "enableReinitialize": false,
+                              "error": undefined,
+                              "focus": [Function],
+                              "forceUnregisterOnUnmount": false,
+                              "form": "playerForm",
+                              "getFormState": [Function],
+                              "getValues": [Function],
+                              "initialValues": undefined,
+                              "initialize": [Function],
+                              "initialized": false,
+                              "invalid": true,
+                              "keepDirtyOnReinitialize": false,
+                              "persistentSubmitErrors": false,
+                              "pristine": true,
+                              "pure": true,
+                              "register": [Function],
+                              "registerField": [Function],
+                              "registerInnerOnSubmit": [Function],
+                              "registeredFields": Object {
+                                "isTeam": Object {
+                                  "count": 1,
+                                  "name": "isTeam",
+                                  "type": "Field",
+                                },
+                                "username": Object {
+                                  "count": 1,
+                                  "name": "username",
+                                  "type": "Field",
+                                },
+                              },
+                              "reset": [Function],
+                              "sectionPrefix": undefined,
+                              "setSubmitFailed": [Function],
+                              "setSubmitSucceeded": [Function],
+                              "shouldAsyncValidate": [Function],
+                              "shouldValidate": [Function],
+                              "startAsyncValidation": [Function],
+                              "startSubmit": [Function],
+                              "stopAsyncValidation": [Function],
+                              "stopSubmit": [Function],
+                              "submit": [Function],
+                              "submitFailed": false,
+                              "submitSucceeded": false,
+                              "submitting": false,
+                              "syncErrors": Object {
+                                "username": "What? are you no one? A faceless man?",
+                              },
+                              "syncWarnings": Object {},
+                              "touch": [Function],
+                              "touchOnBlur": true,
+                              "touchOnChange": false,
+                              "triggerSubmit": undefined,
+                              "unregister": [Function],
+                              "unregisterField": [Function],
+                              "untouch": [Function],
+                              "updateSyncErrors": [Function],
+                              "updateSyncWarnings": [Function],
+                              "valid": false,
+                              "validExceptSubmit": false,
+                              "values": Object {},
+                              "warning": undefined,
+                            }
+                          }
+                          asyncValidating={false}
+                          component={[Function]}
+                          dirty={false}
+                          dispatch={[Function]}
+                          label="Username"
+                          name="username"
+                          normalize={[Function]}
+                          pristine={true}
+                          syncError="What? are you no one? A faceless man?"
+                          type="text"
+                          validate={
+                            Array [
+                              [Function],
+                              [Function],
+                            ]
+                          }>
+                          <renderField
+                            input={
+                              Object {
+                                "name": "username",
+                                "onBlur": [Function],
+                                "onChange": [Function],
+                                "onDragStart": [Function],
+                                "onDrop": [Function],
+                                "onFocus": [Function],
+                                "value": "",
+                              }
+                            }
+                            label="Username"
+                            meta={
+                              Object {
+                                "active": false,
+                                "asyncValidating": false,
+                                "autofilled": false,
+                                "dirty": false,
+                                "dispatch": [Function],
+                                "error": "What? are you no one? A faceless man?",
+                                "form": "playerForm",
+                                "invalid": true,
+                                "pristine": true,
+                                "submitFailed": false,
+                                "submitting": false,
+                                "touched": false,
+                                "valid": false,
+                                "visited": false,
+                                "warning": undefined,
+                              }
+                            }
+                            type="text">
+                            <FormGroup
+                              bsClass="form-group"
+                              validationState={null}>
+                              <div
+                                className="form-group">
+                                <FormControl
+                                  bsClass="form-control"
+                                  componentClass="input"
+                                  name="username"
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onDragStart={[Function]}
+                                  onDrop={[Function]}
+                                  onFocus={[Function]}
+                                  placeholder="Username"
+                                  type="text"
+                                  value="">
+                                  <input
+                                    className="form-control"
+                                    name="username"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onDragStart={[Function]}
+                                    onDrop={[Function]}
+                                    onFocus={[Function]}
+                                    placeholder="Username"
+                                    type="text"
+                                    value="" />
+                                </FormControl>
+                              </div>
+                            </FormGroup>
+                          </renderField>
+                        </ConnectedField>
+                      </Connect(ConnectedField)>
+                    </Field>
+                    <InputGroupButton
+                      bsClass="input-group-btn">
+                      <span
+                        className="input-group-btn">
+                        <Button
+                          active={false}
+                          block={false}
+                          bsClass="btn"
+                          bsStyle="default"
+                          disabled={false}
+                          type="submit">
+                          <button
+                            className="btn btn-default"
+                            disabled={false}
+                            type="submit">
+                            Add
+                          </button>
+                        </Button>
+                      </span>
+                    </InputGroupButton>
+                  </span>
+                </InputGroup>
+                <HelpBlock
+                  bsClass="help-block">
+                  <span
+                    className="help-block" />
+                </HelpBlock>
+              </div>
+            </form>
+          </PlayerForm>
+        </Connect(PlayerForm)>
+      </Form(Connect(PlayerForm))>
+    </Connect(Form(Connect(PlayerForm)))>
+  </ReduxForm>
+</Provider>
+`;

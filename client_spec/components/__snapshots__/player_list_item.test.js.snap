@@ -1,0 +1,15 @@
+exports[`PlayerListItem should match the snapshot 1`] = `
+<ListGroupItem
+  bsClass="list-group-item"
+  listItem={false}
+  onClick={[Function]}>
+  <div
+    className="player-name">
+    Alice
+  </div>
+  <div>
+    Record: 
+    0-0-0
+  </div>
+</ListGroupItem>
+`;

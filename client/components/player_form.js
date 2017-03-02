@@ -32,7 +32,7 @@ const popover = (
   </Popover>
 );
 
-class PlayerForm extends Component {
+export class PlayerForm extends Component {
 
   notTaken(value) {
     let { allPlayers } = this.props;
@@ -84,11 +84,15 @@ class PlayerForm extends Component {
 
 
 
-const mapStateToProps = state => ({
-  syncErrors: getFormSyncErrors('playerForm')(state),
-  isValid: isValid('playerForm')(state),
-  isPristine: isPristine('playerForm')(state)
-});
+const mapStateToProps = state => {
+  let { data: { players }} = state;
+  return {
+    allPlayers: players,
+    syncErrors: getFormSyncErrors('playerForm')(state),
+    isValid: isValid('playerForm')(state),
+    isPristine: isPristine('playerForm')(state)
+  };
+};
 
 
 const connected = connect(

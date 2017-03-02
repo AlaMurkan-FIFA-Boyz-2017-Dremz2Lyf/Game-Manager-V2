@@ -179,7 +179,7 @@ export class CreateTournament extends Component {
           <Col xs={6}>
             <ListGroup>
               {this.showPlayers()}
-              <CreatePlayer existingPlayers={{...this.props.players, ...this.state.added}}/>
+              <CreatePlayer />
             </ListGroup>
           </Col>
           <Col xs={6}>

@@ -137,8 +137,7 @@ exports[`CreateTournament should match the snapshot 1`] = `
       xs={6}>
       <ListGroup
         bsClass="list-group">
-        <Connect(CreatePlayer)
-          existingPlayers={Object {}} />
+        <Connect(CreatePlayer) />
       </ListGroup>
     </Col>
     <Col
