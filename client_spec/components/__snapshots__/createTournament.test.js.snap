@@ -1,29 +1,133 @@
 exports[`CreateTournament should match the snapshot 1`] = `
 <div>
-  <form>
-    <div>
-      <label>
-        Tournament Name
-      </label>
-      <div>
-        <input
-          name="name"
-          placeholder="Tournament Name"
-          type="text" />
-      </div>
-    </div>
-    <div>
-      <label>
+  <Row
+    bsClass="row"
+    componentClass="div">
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}>
+      <form
+        onSubmit={[Function]}>
+        <FormGroup
+          bsClass="form-group">
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}>
+            Tournament Name
+          </ControlLabel>
+          <InputGroup
+            bsClass="input-group">
+            <InputGroupButton
+              bsClass="input-group-btn">
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                disabled={false}
+                type="submit">
+                Go!
+              </Button>
+            </InputGroupButton>
+            <FormControl
+              bsClass="form-control"
+              componentClass="input"
+              name="name"
+              onChange={[Function]}
+              placeholder="Tournament Name"
+              type="text"
+              value="" />
+            <DropdownButton
+              componentClass={[Function]}
+              id="tournament_rounds"
+              title="rounds">
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                1
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                2
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                4
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                6
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                8
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                10
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                12
+              </MenuItem>
+            </DropdownButton>
+          </InputGroup>
+        </FormGroup>
+      </form>
+    </Col>
+  </Row>
+  <Row
+    bsClass="row"
+    componentClass="div">
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}>
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}>
         Add Players!
-      </label>
+      </ControlLabel>
       <div>
-        <input
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
           name="playerSearch"
           onChange={[Function]}
-          type="text" />
+          placeholder="Who do you want to play with?"
+          type="text"
+          value="" />
       </div>
-    </div>
-  </form>
+    </Col>
+  </Row>
   <Row
     bsClass="row"
     componentClass="div">
@@ -31,13 +135,18 @@ exports[`CreateTournament should match the snapshot 1`] = `
       bsClass="col"
       componentClass="div"
       xs={6}>
-      <ul />
+      <ListGroup
+        bsClass="list-group">
+        <Connect(CreatePlayer)
+          existingPlayers={Object {}} />
+      </ListGroup>
     </Col>
     <Col
       bsClass="col"
       componentClass="div"
       xs={6}>
-      <ul />
+      <ListGroup
+        bsClass="list-group" />
     </Col>
   </Row>
 </div>

@@ -34,7 +34,7 @@ exports[`Tournament component should match the snapshot 1`] = `
         isChild={false}
         max={100}
         min={0}
-        now={50}
+        now={NaN}
         srOnly={false}
         striped={false} />
     </Col>
