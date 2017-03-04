@@ -27,10 +27,9 @@ export class CreatePlayer extends Component {
   }
 
   handleSubmit(values) {
-    this.props.create('players', values).then(() => {
-      this.setState({
-        showModal: false
-      });
+    this.props.create('players', values);
+    this.setState({
+      showModal: false
     });
   }
 
@@ -46,7 +45,7 @@ export class CreatePlayer extends Component {
             <Modal.Title>Make a new Player</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <PlayerForm onSubmit={this.handleSubmit.bind(this)} allPlayers={this.props.existingPlayers}/>
+            <PlayerForm onSubmit={this.handleSubmit.bind(this)} />
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close.bind(this)}>Cancel</Button>

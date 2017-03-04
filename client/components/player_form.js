@@ -17,22 +17,22 @@ import { 
 
 import { create } from '../actions/index';
 
-const required = value => value ? undefined : 'What? are you no one? A faceless man?';
-const getValidationState = (valid, pristine) => pristine ? null : (valid ? 'success' : 'error' );
+export const required = value => value ? undefined : 'What? are you no one? A faceless man?';
+export const getValidationState = (valid, pristine) => pristine ? null : (valid ? 'success' : 'error' );
 
-const renderField = ({ input, label, type, meta: { valid, pristine } }) => (
+export const renderField = ({ input, label, type, meta: { valid, pristine } }) => (
   <FormGroup validationState={getValidationState(valid, pristine)}>
       <FormControl {...input} placeholder={label} type={type}/>
   </FormGroup>
 );
 
-const popover = (
+export const popover = (
   <Popover id='popover-trigger-hover-focus'>
     Select this to make a doubles team.
   </Popover>
 );
 
-class PlayerForm extends Component {
+export class PlayerForm extends Component {
 
   notTaken(value) {
     let { allPlayers } = this.props;
@@ -44,9 +44,10 @@ class PlayerForm extends Component {
 
 
   render() {
-    const { handleSubmit, pristine, submitting, syncErrors, isValid, isPristine } = this.props;
+    const { handleSubmit, pristine, submitting, syncErrors, valid, isPristine, isValid } = this.props;
 
     const didError = isPristine ? undefined : (isValid ? undefined : syncErrors.username);
+
 
     return (
       <form onSubmit={handleSubmit}>
@@ -72,7 +73,7 @@ class PlayerForm extends Component {
               validate={[required, this.notTaken.bind(this)]}
             />
             <InputGroup.Button>
-              <Button type='submit' disabled={!!didError}>Add</Button>
+              <Button type='submit' disabled={!!didError || isPristine}>Add</Button>
             </InputGroup.Button>
           </InputGroup>
           <HelpBlock>{didError}</HelpBlock>
@@ -84,11 +85,15 @@ class PlayerForm extends Component {
 
 
 
-const mapStateToProps = state => ({
-  syncErrors: getFormSyncErrors('playerForm')(state),
-  isValid: isValid('playerForm')(state),
-  isPristine: isPristine('playerForm')(state)
-});
+const mapStateToProps = state => {
+  let { data: { players }} = state;
+  return {
+    allPlayers: players,
+    syncErrors: getFormSyncErrors('playerForm')(state),
+    isValid: isValid('playerForm')(state),
+    isPristine: isPristine('playerForm')(state)
+  };
+};
 
 
 const connected = connect(
