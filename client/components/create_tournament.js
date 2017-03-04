@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import {
   Row,
   Col,
-  ListGroup,
   ListGroupItem,
   FormControl,
   FormGroup,
@@ -15,7 +14,7 @@ import {
   Button
 } from 'react-bootstrap';
 
-import PlayerListItem from './player_list_item';
+import PlayerList from './player_list';
 import CreatePlayer from './create_player.js';
 import PlayerForm from './player_form';
 
@@ -28,9 +27,15 @@ export class CreateTournament extends Component {
     this.state = {
       playerSearch: '',
       name: '',
-      rounds: 'rounds',
-      added: {}
+      rounds: '1 Round',
+      added: []
     };
+  }
+  // All of the event handlers
+  handleRounds(rounds) {
+    this.setState({
+      rounds: rounds
+    });
   }
 
   handleSearch(e) {
@@ -39,96 +44,54 @@ export class CreateTournament extends Component {
     });
   }
 
-  nameHandler(e) {
+  handlerName(e) {
     this.setState({
       name: e.target.value
     });
   }
 
-  showPlayers() {
+  // handles the submittion of the tournament, and creates it with a post to the database.
+  handleSubmit(e) {
+    e.preventDefault();
+    let { rounds, added, name } = this.state;
+    rounds = rounds.slice(0, 1);
+    this.props.create('tournaments', { name, rounds, added });
+  }
+
+  // added takes boolean dictating if the list renders the players added to the tournament (true) or all the others (false).
+  added(includeAdded) {
     let { players = {} } = this.props;
-    let { playerSearch } = this.state;
-
-    return Object.keys(players)
-      .sort((a, b) => {
-        let { username: usernameA } = players[a];
-        let { username: usernameB } = players[b];
-        return usernameA > usernameB ? 1 : usernameA < usernameB ? -1 : 0;
-      })
-      .reduce((playerList, id) => {
-        if (players[id].username.toLowerCase().indexOf(playerSearch.toLowerCase()) !== -1) {
-          playerList.push(<PlayerListItem key={id} player={players[id]} move={this.addPlayers.bind(this)}/> );
-        }
-        return playerList;
-      }, []);
-
-  }
-
-  addPlayers(id) {
-    let { players } = this.props;
-
-    let player = players[id];
-
-    delete players[id];
-    this.setState({
-      added: {
-        ...this.state.added,
-        [id]: player
-      }
-    });
-  }
-
-  removePlayers(id) {
     let { added } = this.state;
 
-    let player = added[id];
-
-    delete added[id];
-    this.props.players[id] = player;
-    this.setState({
-      added: added
-    });
-
+    return Object.keys(players).filter(id =>
+      added.includes(id) === includeAdded
+    ).map(id => players[id]);
   }
 
-  showAdded() {
+  // move will check the local state to see if the id is in the added Array
+    // if it is, remove it. Otherwise we add it.
+  move(id) {
     let { added } = this.state;
-
-    return Object.keys(added).map(id => <PlayerListItem key={id} player={added[id]} move={this.removePlayers.bind(this)}/>);
-  }
-
-  handleRounds(num) {
+    let newAdded = added.indexOf(id) !== -1 ? (
+      added.filter((addedId) => addedId !== id)
+    ) : (
+      [...added, id]
+    );
     this.setState({
-      rounds: num
+      added: newAdded
     });
   }
 
   renderOptions(number) {
-
-    return [<MenuItem onClick={this.handleRounds.bind(this, 1)} key={1}>{1}</MenuItem>].concat([...Array(number).keys()].slice(1)
+    return [<MenuItem onClick={this.handleRounds.bind(this, '1 Round')} key={1}>1 Round</MenuItem>].concat([...Array(number).keys()].slice(1)
       .filter(num => num % 2 === 0 )
-      .map(num => (<MenuItem onClick={this.handleRounds.bind(this, num)} key={num}>{num}</MenuItem>)));
-  }
-
-  // handles the submit of the tournament, creates it with a post to the database.
-  handleSubmit(e) {
-    e.preventDefault();
-    let { rounds, added, name } = this.state;
-    rounds = rounds === 'rounds' ? 1 : rounds;
-    this.props.create('tournaments', { name, rounds, added });
+      .map(num => (<MenuItem onClick={this.handleRounds.bind(this, `${num} Rounds`)} key={num}>{num} Rounds</MenuItem>)));
   }
 
 
-  // This is a slightly hacky work around to get the players back into props
-  componentWillUnmount() {
-    let { added } = this.state;
-    let id;
-    for (id in added) {
-      this.props.players[id] = added[id];
-    }
-  }
 
   render() {
+    let { rounds, name, playerSearch } = this.state;
 
     return (
       <div>
@@ -146,12 +109,12 @@ export class CreateTournament extends Component {
                   name='name'
                   type='text'
                   placeholder='Tournament Name'
-                  onChange={this.nameHandler.bind(this)}
-                  value={this.state.name}
+                  onChange={this.handlerName.bind(this)}
+                  value={name}
                 />
                 <DropdownButton
                   componentClass={InputGroup.Button}
-                  title={this.state.rounds}
+                  title={rounds}
                   id='tournament_rounds'
                 >
                   {this.renderOptions(13)}
@@ -167,7 +130,7 @@ export class CreateTournament extends Component {
           <div>
             <FormControl
               onChange={this.handleSearch.bind(this)}
-              value={this.state.playerSearch}
+              value={playerSearch}
               name='playerSearch'
               type='text'
               placeholder='Who do you want to play with?'
@@ -177,15 +140,22 @@ export class CreateTournament extends Component {
         </Row>
         <Row>
           <Col xs={6}>
-            <ListGroup>
-              {this.showPlayers()}
-              <CreatePlayer />
-            </ListGroup>
+            <PlayerList
+              name='all-players'
+              players={this.added(false)}
+              move={this.move.bind(this)}
+              searchValue={playerSearch}
+              all={true}
+            />
           </Col>
           <Col xs={6}>
-            <ListGroup>
-              {this.showAdded()}
-            </ListGroup>
+            <PlayerList
+              name='added-players'
+              players={this.added(true)}
+              move={this.move.bind(this)}
+              searchValue={''}
+              all={false}
+            />
           </Col>
         </Row>
       </div>
@@ -193,7 +163,7 @@ export class CreateTournament extends Component {
   }
 }
 
-const mapStateToProps = ({data}) => {
+export const mapStateToProps = ({data}) => {
   return {
     players: data.players
   };

@@ -11,6 +11,11 @@ import Home from './components/home';
 import rootReducer from './reducers/index.js';
 import { store } from './store';
 
+// Found this... Needed for hot module reloading.
+if (module.hot) {
+  module.hot.accept();
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <Home/>

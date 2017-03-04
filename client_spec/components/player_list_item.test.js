@@ -5,7 +5,7 @@ import PlayerListItem from '../../client/components/player_list_item';
 describe('PlayerListItem', () => {
   let moveMock = jest.fn();
   let wrapper = shallow(<PlayerListItem move={moveMock} player={mockData.players[0]}/>);
-  
+
   test('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
@@ -18,7 +18,7 @@ describe('PlayerListItem', () => {
   test('should pass the id to the move function', () => {
     wrapper.find('ListGroupItem').simulate('click');
 
-    expect(moveMock.mock.calls[0]).toEqual([1]);
+    expect(moveMock.mock.calls[0]).toEqual(['1']);
   });
 
 });

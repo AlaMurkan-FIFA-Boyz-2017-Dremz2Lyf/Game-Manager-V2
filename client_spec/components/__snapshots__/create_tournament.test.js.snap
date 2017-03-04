@@ -41,14 +41,14 @@ exports[`CreateTournament should match the snapshot 1`] = `
             <DropdownButton
               componentClass={[Function]}
               id="tournament_rounds"
-              title="rounds">
+              title="1 Round">
               <MenuItem
                 bsClass="dropdown"
                 disabled={false}
                 divider={false}
                 header={false}
                 onClick={[Function]}>
-                1
+                1 Round
               </MenuItem>
               <MenuItem
                 bsClass="dropdown"
@@ -57,6 +57,7 @@ exports[`CreateTournament should match the snapshot 1`] = `
                 header={false}
                 onClick={[Function]}>
                 2
+                 Rounds
               </MenuItem>
               <MenuItem
                 bsClass="dropdown"
@@ -65,6 +66,7 @@ exports[`CreateTournament should match the snapshot 1`] = `
                 header={false}
                 onClick={[Function]}>
                 4
+                 Rounds
               </MenuItem>
               <MenuItem
                 bsClass="dropdown"
@@ -73,6 +75,7 @@ exports[`CreateTournament should match the snapshot 1`] = `
                 header={false}
                 onClick={[Function]}>
                 6
+                 Rounds
               </MenuItem>
               <MenuItem
                 bsClass="dropdown"
@@ -81,6 +84,7 @@ exports[`CreateTournament should match the snapshot 1`] = `
                 header={false}
                 onClick={[Function]}>
                 8
+                 Rounds
               </MenuItem>
               <MenuItem
                 bsClass="dropdown"
@@ -89,6 +93,7 @@ exports[`CreateTournament should match the snapshot 1`] = `
                 header={false}
                 onClick={[Function]}>
                 10
+                 Rounds
               </MenuItem>
               <MenuItem
                 bsClass="dropdown"
@@ -97,6 +102,7 @@ exports[`CreateTournament should match the snapshot 1`] = `
                 header={false}
                 onClick={[Function]}>
                 12
+                 Rounds
               </MenuItem>
             </DropdownButton>
           </InputGroup>
@@ -135,17 +141,77 @@ exports[`CreateTournament should match the snapshot 1`] = `
       bsClass="col"
       componentClass="div"
       xs={6}>
-      <ListGroup
-        bsClass="list-group">
-        <Connect(CreatePlayer) />
-      </ListGroup>
+      <PlayerList
+        all={true}
+        move={[Function]}
+        name="all-players"
+        players={
+          Array [
+            Object {
+              "createdAt": "2016-12-25T19:31:48",
+              "draws": 0,
+              "goalsAgainst": 0,
+              "goalsFor": 0,
+              "id": 1,
+              "isTeam": 0,
+              "losses": 0,
+              "onGoal": 0,
+              "possession": 0,
+              "reds": 0,
+              "shots": 0,
+              "updatedAt": null,
+              "username": "Alice",
+              "wins": 0,
+              "yellows": 0,
+            },
+            Object {
+              "createdAt": "2016-12-25T19:31:48",
+              "draws": 0,
+              "goalsAgainst": 0,
+              "goalsFor": 0,
+              "id": 2,
+              "isTeam": 0,
+              "losses": 0,
+              "onGoal": 0,
+              "possession": 0,
+              "reds": 0,
+              "shots": 0,
+              "updatedAt": null,
+              "username": "Gilbert",
+              "wins": 0,
+              "yellows": 0,
+            },
+            Object {
+              "createdAt": "2016-12-25T19:31:48",
+              "draws": 0,
+              "goalsAgainst": 0,
+              "goalsFor": 0,
+              "id": 3,
+              "isTeam": 0,
+              "losses": 0,
+              "onGoal": 0,
+              "possession": 0,
+              "reds": 0,
+              "shots": 0,
+              "updatedAt": null,
+              "username": "Bob",
+              "wins": 0,
+              "yellows": 0,
+            },
+          ]
+        }
+        searchValue="" />
     </Col>
     <Col
       bsClass="col"
       componentClass="div"
       xs={6}>
-      <ListGroup
-        bsClass="list-group" />
+      <PlayerList
+        all={false}
+        move={[Function]}
+        name="added-players"
+        players={Array []}
+        searchValue="" />
     </Col>
   </Row>
 </div>

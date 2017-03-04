@@ -74,7 +74,7 @@ mockData.games = [
 ];
 
 mockData.newGame = {
-  id: 4, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null, 
+  id: 4, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null,
   p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 2, status: 'created', p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0, createdAt: mockData.createdAt, updatedAt: null};
 
 
@@ -103,13 +103,5 @@ mock.onGet('/games').reply((config) => config.id ? (
     mockData.updated = JSON.parse(config.data);
     return [201, {id: 1}];
   });
-
-mock.onGet('/tournaments').reply(() => [200, mockData.tournaments])
-  .onPost('/tournaments').reply(() => [201, 'Created'])
-  .onPut('/tournaments').reply(() => [202, {id: 1}]);
-
-mock.onGet('/players').reply(() => [200, mockData.players])
-  .onPost('/players').reply(() => [201, 'Created'])
-  .onPut('/players').reply(() => [202, {id: 1}]);
 
 mock.onGet('/totally not a valid endpoint').reply(() => [404, 'shits fucked']);

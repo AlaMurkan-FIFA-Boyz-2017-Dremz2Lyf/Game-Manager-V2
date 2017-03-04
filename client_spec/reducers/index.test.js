@@ -48,7 +48,7 @@ describe('Reducers', () => {
 
   describe('Loading reducer', () => {
 
-    it('should handle loading events properly', () => {
+    test('should handle loading events properly', () => {
       let loadTournaments = setLoading('tournaments', true);
       let gotTournaments = setLoading('tournaments', false);
       let loadPlayers = setLoading('players', true);
