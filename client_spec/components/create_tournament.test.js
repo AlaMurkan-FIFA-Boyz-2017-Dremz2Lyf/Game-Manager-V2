@@ -15,6 +15,7 @@ describe('CreateTournament', () => {
   });
 
   test('should match the snapshot', () => {
+
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -98,6 +99,11 @@ describe('CreateTournament', () => {
     };
 
     expect(mapStateToProps(state)).toEqual(expected);
+  });
 
+  test('players should default to an empty object', () => {
+    let noProps = shallow(<CreateTournament />);
+
+    expect(noProps).toMatchSnapshot();
   });
 });

@@ -1,3 +1,168 @@
+exports[`CreateTournament players should default to an empty object 1`] = `
+<div>
+  <Row
+    bsClass="row"
+    componentClass="div">
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}>
+      <form
+        onSubmit={[Function]}>
+        <FormGroup
+          bsClass="form-group">
+          <ControlLabel
+            bsClass="control-label"
+            srOnly={false}>
+            Tournament Name
+          </ControlLabel>
+          <InputGroup
+            bsClass="input-group">
+            <InputGroupButton
+              bsClass="input-group-btn">
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                disabled={false}
+                type="submit">
+                Go!
+              </Button>
+            </InputGroupButton>
+            <FormControl
+              bsClass="form-control"
+              componentClass="input"
+              name="name"
+              onChange={[Function]}
+              placeholder="Tournament Name"
+              type="text"
+              value="" />
+            <DropdownButton
+              componentClass={[Function]}
+              id="tournament_rounds"
+              title="1 Round">
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                1 Round
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                2
+                 Rounds
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                4
+                 Rounds
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                6
+                 Rounds
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                8
+                 Rounds
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                10
+                 Rounds
+              </MenuItem>
+              <MenuItem
+                bsClass="dropdown"
+                disabled={false}
+                divider={false}
+                header={false}
+                onClick={[Function]}>
+                12
+                 Rounds
+              </MenuItem>
+            </DropdownButton>
+          </InputGroup>
+        </FormGroup>
+      </form>
+    </Col>
+  </Row>
+  <Row
+    bsClass="row"
+    componentClass="div">
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}>
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}>
+        Add Players!
+      </ControlLabel>
+      <div>
+        <FormControl
+          bsClass="form-control"
+          componentClass="input"
+          name="playerSearch"
+          onChange={[Function]}
+          placeholder="Who do you want to play with?"
+          type="text"
+          value="" />
+      </div>
+    </Col>
+  </Row>
+  <Row
+    bsClass="row"
+    componentClass="div">
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={6}>
+      <PlayerList
+        all={true}
+        move={[Function]}
+        name="all-players"
+        players={Array []}
+        searchValue="" />
+    </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={6}>
+      <PlayerList
+        all={false}
+        move={[Function]}
+        name="added-players"
+        players={Array []}
+        searchValue="" />
+    </Col>
+  </Row>
+</div>
+`;
+
 exports[`CreateTournament should match the snapshot 1`] = `
 <div>
   <Row
