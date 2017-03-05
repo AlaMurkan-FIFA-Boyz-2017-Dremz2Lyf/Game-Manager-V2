@@ -29,12 +29,11 @@ router.post('/', (req, res) => {
   // Here we pull the necessary stuff from the request body
   let { added, rounds = 1, name } = req.body;
 
-
   tournaments.create({name}).then(tournament => (
     tournament
   )).then(tournament => {
 
-    let newGames = _.createGames(Object.keys(added).map(Number), tournament.id, rounds);
+    let newGames = _.createGames(added.map(Number), tournament.id, rounds);
     games.create(newGames).then(games => {
       let totalGames = Object.keys(games).length - 1;
       let { id } = tournament;

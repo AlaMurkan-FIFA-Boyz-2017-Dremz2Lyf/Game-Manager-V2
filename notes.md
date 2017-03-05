@@ -63,20 +63,21 @@ expect(store.getState().todos).toEqual([])`
 
 ## Attempt at dry Actions!
 
-- `FETCH_GAMES` handles the async actions
+- `FETCH` handles the async actions
   - accepts a tournament id for the request
   - dispatch `SET_LOADING` for `games` with `true`
   - sends off the `get` request to the server for games of that tournament
-    - `.then` dispatch `RECEIVE_GAMES` with the games as the payload
+    - `.then` dispatch `RECEIVE` with the games as the payload
     - `.catch` dispatch `SET_ERROR` for `games` with `true`
-- `RECEIVE_GAMES`
+- `RECEIVE`
     - dispatch `SET_LOADING` for `games` with `false`
     - sends payload through to reducer, adding them to state
-- `POST_GAME`
+- `CREATE`
   - sends off the `post` request to the server with the specific game
-    - `.then` dispatch `FETCH_GAMES`
+    - `.then` dispatch `FETCH`
     - `.catch` dispatch `SET_ERROR` for `gamesPost` with `true`
-
+- `UPDATE`
+  -
 
 
 # Store design
@@ -107,15 +108,11 @@ store = {
       ...
     }
   },
-  createForm: reduxForm,
-  newPlayer: reduxForm
+  form: {
+    playerForm
+  }
 }
 
+## Selecting a tournament.
 
-## Track tournament progress
-
-  require's a column for total games, and games played.
-
-  put to `/tournaments` include gamesFinished <Number>
-  post to `/tournaments` needs to wait for the games to be made, to have the total number.
-    then include gameCount <Number>
+  - Click the Button to go to

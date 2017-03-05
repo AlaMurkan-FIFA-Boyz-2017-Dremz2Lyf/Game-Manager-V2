@@ -77,7 +77,7 @@
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "/jestsetup.js/"
+      "/jestsetup.js"
     ],
     "snapshotSerializers": [
       "./node_modules/enzyme-to-json/serializer"
