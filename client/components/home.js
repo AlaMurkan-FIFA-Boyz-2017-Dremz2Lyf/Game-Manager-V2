@@ -1,18 +1,10 @@
-// Dependancies
-import React, { Component } from 'react';
-import {
-  PageHeader,
-  Grid,
-  Row,
-  Col,
-  Tabs,
-  Tab,
-  Panel
-} from 'react-bootstrap';
+import React from 'react';
+import { Panel, Tabs, Tab, Row, Col} from 'react-bootstrap';
 
 // Custom components
 import Tournaments from './tournaments';
 import PlayerList from './player_list';
+
 
 const tabsInstance = (
   <Panel>
@@ -24,27 +16,13 @@ const tabsInstance = (
   </Panel>
 );
 
-class Home extends Component {
-
-  render() {
-    return (
-      <div className="home">
-        <PageHeader>Game Manager</PageHeader>
-        <Grid>
-          <Row>
-            <Col xs={12} md={6}>
-              <Tournaments />
-            </Col>
-            <Col xs={12} md={6}>
-              {tabsInstance}
-            </Col>
-          </Row>
-        </Grid>
-      </div>
-    );
-  }
-}
-
-
-
-export default Home;
+export const Home = (props) => (
+  <Row>
+    <Col xs={12} md={6}>
+      <Tournaments />
+    </Col>
+    <Col xs={12} md={6}>
+      {tabsInstance}
+    </Col>
+  </Row>
+);

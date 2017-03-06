@@ -9,7 +9,7 @@ import Connected, { Tournaments, mapStateToProps } from '../../client/components
 import { store } from '../../client/store';
 
 describe('Tournaments Component', () => {
-  let wrapper = shallow(<Tournaments/>);
+  let wrapper = shallow(<Tournaments tournaments={mockData.tournaments}/>);
   let panel = wrapper.find('Panel');
 
   test('should match snapshot', () => {
@@ -31,11 +31,12 @@ describe('Tournaments Component', () => {
     let mockFetch = jest.fn();
     let mounted = mount(
       <Provider store={store}>
-        <Tournaments fetch={mockFetch} tournaments={{}}/>
+        <Tournaments fetch={mockFetch} tournaments={mockData.tournaments}/>
       </Provider>
     );
 
-    expect(mockFetch).toHaveBeenCalledWith(['players', 'tournaments']);
+    expect(mockFetch.mock.calls[0]).toEqual(['tournaments']);
+    expect(mockFetch.mock.calls[1]).toEqual(['players']);
   });
 
   test('should have a mapStateToProps', () => {
@@ -46,6 +47,21 @@ describe('Tournaments Component', () => {
     };
 
     expect(mapStateToProps(fakeStore)).toEqual({tournaments: {}});
+  });
+
+  test('render list should build a list based on the boolean it was called with', () => {
+    let finished = wrapper.instance().renderList(true);
+    let onGoing = wrapper.instance().renderList(false);
+
+    expect(finished).toHaveLength(1);
+    expect(onGoing).toHaveLength(4);
+  });
+
+  test('should handle no props passed to it', () => {
+    let empty = shallow(<Tournaments/>);
+
+    expect(empty).toMatchSnapshot();
+
   });
 
   describe('Panel Child Component', () => {

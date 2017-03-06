@@ -58,7 +58,7 @@ mockData.players = [
 // set a tournaments key on the mock database
 mockData.tournaments = [
   {id: 1, gamesPlayed: 0, totalGames: 3, name: 'Super Tourney!', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 2, gamesPlayed: 0, totalGames: 1, name: 'new', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 2, gamesPlayed: 1, totalGames: 1, name: 'new', winner: 2, createdAt: '2016-12-25T19:31:48', updatedAt: mockData.updatedAt},
   {id: 3, gamesPlayed: 5, totalGames: 5, name: 'next', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
   {id: 4, gamesPlayed: 1, totalGames: 7, name: 'hot', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
   {id: 5, gamesPlayed: 2, totalGames: 6, name: 'fun', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null}
@@ -70,7 +70,9 @@ mockData.games = [
   {id: 2, p1: 1, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null,
     p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0, createdAt: mockData.createdAt, updatedAt: null},
   {id: 3, p1: 2, p2: 3, p1Score: null, p2Score: null, p1Shots: null, p2Shots: null, p1Poss: null,
-    p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0, createdAt: mockData.createdAt, updatedAt: null}
+    p2Poss: null, p1OnGoal: null, p2OnGoal: null, tournament: 1, status: 'created', p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0, createdAt: mockData.createdAt, updatedAt: null},
+  {id: 4, p1: 2, p2: 3, p1Score: 2, p2Score: 1, p1Shots: 5, p2Shots: 6, p1Poss: 50,
+    p2Poss: 50, p1OnGoal: 1, p2OnGoal: 3, tournament: 2, status: 'finished', p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0, createdAt: mockData.createdAt, updatedAt: mockData.updatedAt}
 ];
 
 mockData.newGame = {

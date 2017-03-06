@@ -2,10 +2,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { Router, browserHistory } from 'react-router';
 
-
-// Components
-import Home from './components/home';
+// Bring in our router
+import routes from './router';
 
 // Grab our root reducer and our store from their files
 import rootReducer from './reducers/index.js';
@@ -18,7 +18,7 @@ if (module.hot) {
 
 ReactDOM.render(
   <Provider store={store}>
-    <Home/>
+    <Router history={browserHistory} routes={routes}/>
   </Provider>,
   document.getElementById('app')
 );

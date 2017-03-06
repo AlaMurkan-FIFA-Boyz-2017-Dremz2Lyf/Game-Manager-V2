@@ -32,7 +32,6 @@ export class Tournaments extends Component {
       }
       return list;
     }, []);
-
   }
 
   render() {
