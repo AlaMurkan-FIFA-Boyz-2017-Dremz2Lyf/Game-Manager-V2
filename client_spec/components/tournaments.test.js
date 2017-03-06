@@ -3,42 +3,49 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 // Components
-import Connected, { Tournaments } from '../../client/components/tournaments.js';
+import Connected, { Tournaments, mapStateToProps } from '../../client/components/tournaments.js';
 
 // Grab our store and our action to prePopulate
 import { store } from '../../client/store';
 
-// let fakeProps = normalize(mockData.tournaments);
-
 describe('Tournaments Component', () => {
-  let shallowRender = shallow(<Tournaments/>);
-  let panel = shallowRender.find('Panel');
-  let nav = shallowRender.find('Panel Nav');
-  let navItems = shallowRender.find('NavItem');
-  // let list = mount(
-  //   <Provider store={store}>
-  //     <Connected />
-  //   </Provider>
-  // );
+  let wrapper = shallow(<Tournaments/>);
+  let panel = wrapper.find('Panel');
 
   test('should match snapshot', () => {
 
-    expect(shallowRender).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   test('should render a tournament element', () => {
 
-    expect(shallowRender.is('.tournaments')).toBe(true);
+    expect(wrapper.is('.tournaments')).toBe(true);
   });
 
-  test('should have local view state', () => {
+  test('should default to onGoing', () => {
 
-    expect(shallowRender.state()).toBeDefined();
+    expect(wrapper.contains(<h4>OnGoing Tournaments</h4>)).toBe(true);
   });
 
-  test('should have correct default state', () => {
+  test('should call componentDidMount', () => {
+    let mockFetch = jest.fn();
+    let mounted = mount(
+      <Provider store={store}>
+        <Tournaments fetch={mockFetch} tournaments={{}}/>
+      </Provider>
+    );
 
-    expect(shallowRender.state('activeKey')).toBe('onGoing');
+    expect(mockFetch).toHaveBeenCalledWith(['players', 'tournaments']);
+  });
+
+  test('should have a mapStateToProps', () => {
+    let fakeStore = {
+      data: {
+        tournaments: {}
+      }
+    };
+
+    expect(mapStateToProps(fakeStore)).toEqual({tournaments: {}});
   });
 
   describe('Panel Child Component', () => {
@@ -50,35 +57,21 @@ describe('Tournaments Component', () => {
       expect(count).toBe(1);
     });
 
-    test('should have a Nav with three NavItem "tabs"', () => {
+    test('should have three Tabs', () => {
 
-      let count = navItems.length;
-
-      expect(shallowRender.find('[bsStyle="tabs"]')).toHaveLength(1);
-      expect(count).toBe(3);
+      expect(wrapper.find('Tab')).toHaveLength(3);
     });
 
-    test('NavItems should have eventKeys of "onGoing", "finished", & "create"', () => {
-      expect(navItems.find('[eventKey="onGoing"]')).toHaveLength(1);
-      expect(navItems.find('[eventKey="finished"]')).toHaveLength(1);
-      expect(navItems.find('[eventKey="create"]')).toHaveLength(1);
+    test('Tabs should have titles of "onGoing", "finished", & "create"', () => {
+      expect(wrapper.find('[title="OnGoing"]')).toHaveLength(1);
+      expect(wrapper.find('[title="Finished"]')).toHaveLength(1);
+      expect(wrapper.find('[title="Create One"]')).toHaveLength(1);
     });
 
-    test('should default to OnGoing as the active tab', () => {
+    test('should render different content for the correct tab', () => {
 
-      expect(nav.find('[activeKey="onGoing"]')).toHaveLength(1);
-    });
-
-    test('should handleSelect for the correct tab', () => {
-
-      nav.simulate('select', 'finished');
-
-      expect(shallowRender.state('activeKey')).toBe('finished');
-    });
-
-    test('should default to a list', () => {
-
-      expect(panel.find('ListGroup')).toHaveLength(1);
+      wrapper.find('Tab').find('[title="Finished"]').simulate('click');
+      expect(wrapper.contains(<h4>Finished Tournaments</h4>)).toBe(true);
     });
 
   });

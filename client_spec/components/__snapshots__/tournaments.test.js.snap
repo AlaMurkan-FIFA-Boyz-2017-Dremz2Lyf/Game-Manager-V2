@@ -5,36 +5,28 @@ exports[`Tournaments Component should match snapshot 1`] = `
     bsClass="panel"
     bsStyle="default"
     defaultExpanded={false}>
-    <Nav
-      activeKey="onGoing"
-      bsClass="nav"
-      bsStyle="tabs"
-      justified={false}
-      onSelect={[Function]}
-      pullLeft={false}
-      pullRight={false}
-      stacked={false}>
-      <NavItem
-        active={false}
-        disabled={false}
-        eventKey="finished">
-        Finished
-      </NavItem>
-      <NavItem
-        active={false}
-        disabled={false}
-        eventKey="onGoing">
-        OnGoing
-      </NavItem>
-      <NavItem
-        active={false}
-        disabled={false}
-        eventKey="create">
-        Create
-      </NavItem>
-    </Nav>
-    <ListGroup
-      bsClass="list-group" />
+    <Uncontrolled(Tabs)
+      defaultActiveKey={2}>
+      <Tab
+        eventKey={1}
+        title="Finished">
+        <h4>
+          Finished Tournaments
+        </h4>
+      </Tab>
+      <Tab
+        eventKey={2}
+        title="OnGoing">
+        <h4>
+          OnGoing Tournaments
+        </h4>
+      </Tab>
+      <Tab
+        eventKey={3}
+        title="Create One">
+        <Connect(CreateTournament) />
+      </Tab>
+    </Uncontrolled(Tabs)>
   </Panel>
 </div>
 `;

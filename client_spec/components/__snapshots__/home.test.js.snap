@@ -21,7 +21,36 @@ exports[`Home Component should match snapshot 1`] = `
       </Col>
       <Col
         bsClass="col"
-        componentClass="div" />
+        componentClass="div"
+        md={6}
+        xs={12}>
+        <Panel
+          bsClass="panel"
+          bsStyle="default"
+          defaultExpanded={false}>
+          <Uncontrolled(Tabs)
+            defaultActiveKey={2}>
+            <Tab
+              eventKey={1}
+              title="Tab 1">
+              Tab 1 content
+            </Tab>
+            <Tab
+              eventKey={2}
+              title="Tab 2">
+              <PlayerList
+                all={true}
+                searchValue="" />
+            </Tab>
+            <Tab
+              disabled={true}
+              eventKey={3}
+              title="Tab 3">
+              Tab 3 content
+            </Tab>
+          </Uncontrolled(Tabs)>
+        </Panel>
+      </Col>
     </Row>
   </Grid>
 </div>

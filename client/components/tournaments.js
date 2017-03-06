@@ -8,14 +8,8 @@ import { fetch } from '../actions/index';
 //Pre-built components from react bootstrap
 import {
   Panel,
-  Nav,
-  NavItem,
-  ListGroup,
-  ListGroupItem,
-  Grid,
-  Row,
-  Col,
-  Button
+  Tabs,
+  Tab
 } from 'react-bootstrap';
 
 // Components
@@ -23,85 +17,49 @@ import { Tournament } from './tournament';
 import CreateTournament from './create_tournament';
 
 export class Tournaments extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      activeKey: 'onGoing'
-    };
-  }
 
   componentDidMount() {
     this.props.fetch('tournaments');
     this.props.fetch('players');
   }
 
-  handleSelect(eventKey) {
-    this.setState({
-      activeKey: eventKey
-    });
-  }
-
-  renderList() {
-    let { activeKey } = this.state;
+  renderList(finished) {
     let { tournaments = {} } = this.props;
 
-    let show = activeKey === 'finished' ? true : false;
-
-    let filtered = Object.keys(tournaments).reduce((organized, id) => {
-      if (tournaments[id].winner === null) {
-        organized.onGoing.push(
-          <Tournament key={id} tournament={tournaments[id]}/>
-        );
-      } else {
-        organized.finished.push(
-          <Tournament key={id} tournament={tournaments[id]}/>
-        );
+    return Object.keys(tournaments).reduce((list, id) => {
+      if (!!tournaments[id].winner === finished) {
+        list.push(<Tournament key={id} tournament={tournaments[id]}/>);
       }
-      return organized;
-    }, {
-      finished: [],
-      onGoing: []
-    });
-
-    switch (activeKey) {
-    case 'create':
-      return <CreateTournament />;
-    case 'onGoing':
-      return (
-        <ListGroup>
-          {filtered.onGoing}
-        </ListGroup>
-      );
-    case 'finished':
-      return (
-        <ListGroup>
-          {filtered.finished}
-        </ListGroup>
-      );
-    }
+      return list;
+    }, []);
 
   }
 
   render() {
-    let { activeKey } = this.state;
 
     return (
       <div className="tournaments">
         <Panel>
-          <Nav bsStyle="tabs" activeKey={activeKey} onSelect={this.handleSelect.bind(this)}>
-            <NavItem eventKey="finished">Finished</NavItem>
-            <NavItem eventKey="onGoing">OnGoing</NavItem>
-            <NavItem eventKey="create">Create</NavItem>
-          </Nav>
-          {this.renderList()}
+          <Tabs defaultActiveKey={2} id='tournaments'>
+            <Tab eventKey={1} title='Finished'>
+              <h4>Finished Tournaments</h4>
+              {this.renderList(true)}
+            </Tab>
+            <Tab eventKey={2} title='OnGoing'>
+              <h4>OnGoing Tournaments</h4>
+              {this.renderList(false)}
+            </Tab>
+            <Tab eventKey={3} title='Create One'>
+              <CreateTournament />
+            </Tab>
+          </Tabs>
         </Panel>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({data}) => {
+export const mapStateToProps = ({data}) => {
 
   return {
     tournaments: data.tournaments

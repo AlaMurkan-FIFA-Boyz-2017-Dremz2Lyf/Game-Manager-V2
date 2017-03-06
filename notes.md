@@ -115,4 +115,15 @@ store = {
 
 ## Selecting a tournament.
 
-  - Click the Button to go to
+When a user clicks on a tournament:
+  - The tournament should be a link to the playTournament component
+  - the request to the server for the games corresponding to that tournament should be made.
+  - playTournament renders the list of games
+
+
+
+## Play Tournament component
+
+  render a game list.
+    renders games
+  render a standings component
