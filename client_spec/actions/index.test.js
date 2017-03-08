@@ -52,21 +52,90 @@ describe('Actions', () => {
       store.dispatch(receive('tournaments', {}));
       expect(store.getActions()).toEqual(expected);
     });
+
+    test('fetch should dispatch an error if the requested was bad', () => {
+
+      let error = {
+        status: 400,
+        data: 'Bad request'
+      };
+
+      let expected = [
+        setLoading('tournaments', true),
+        setErrored('tournaments', error),
+        setLoading('tournaments', false)
+      ];
+
+      return store.dispatch(fetch('tournaments', {rando: 'somethingInvalid'})).then(() => {
+        return expect(store.getActions()).toEqual(expected);
+      });
+    });
+
+    test('create should dispatch an error if the requested was bad', () => {
+
+      let error = {
+        status: 400,
+        data: 'Bad request'
+      };
+
+      let expected = [
+        setLoading('tournaments', true),
+        setErrored('tournaments', error),
+        setLoading('tournaments', false)
+      ];
+
+      return store.dispatch(create('tournaments', 'somethingInvalid')).then(() => {
+        return expect(store.getActions()).toEqual(expected);
+      });
+    });
+
+    test('update should dispatch an error if the requested was bad', () => {
+
+      let error = {
+        status: 400,
+        data: 'Bad request'
+      };
+
+      let expected = [
+        setLoading('tournaments', true),
+        setErrored('tournaments', error),
+        setLoading('tournaments', false)
+      ];
+
+      return store.dispatch(update('tournaments', 'somethingInvalid')).then(() => {
+        return expect(store.getActions()).toEqual(expected);
+      });
+    });
+
   });
 
   describe('Data actions', () => {
 
-    test('fetch', () => {
+    test('fetch with parameters', () => {
+      let expectedGames = mockData.games.filter(game => game.tournament === 1);
+
+      let expected = [
+        setLoading('games', true),
+        receive('games', expectedGames),
+        setLoading('games', false)
+      ];
+      return store.dispatch(fetch('games', {type: 'tournament', id: 1})).then(() => {
+        expect(store.getActions()).toEqual(expected);
+      });
+    });
+
+    test('fetch without parameters', () => {
 
       let expected = [
         setLoading('games', true),
         receive('games', mockData.games),
         setLoading('games', false)
       ];
-      return store.dispatch(fetch('games', {tournamentId: 1})).then(() => {
+      return store.dispatch(fetch('games')).then(() => {
         expect(store.getActions()).toEqual(expected);
       });
     });
+
 
     test('receive', () => {
       let action = receive('tournaments', mockData.tournaments.slice());

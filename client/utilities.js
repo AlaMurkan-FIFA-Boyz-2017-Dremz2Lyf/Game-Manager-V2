@@ -1,6 +1,6 @@
-export const normalize = (requestBody) => {
-
-  return requestBody.reduce((normalized, item) => {
+export const normalize = (responseBody) => {
+  
+  return responseBody.reduce((normalized, item) => {
     normalized[item.id] = item;
     return normalized;
   }, {});

@@ -97,13 +97,32 @@ const MockAdapter = require('axios-mock-adapter');
 let mock = new MockAdapter(axios);
 
 // setup our routes and methods
-mock.onGet('/games').reply((config) => config.id ? (
-    config.id === 4 ? [200, [mockData.newGame]] : [200, [mockData.updated]]) : ([200, mockData.games])
-  )
-  .onPost('/games').reply(() => [202, {id: 4}])
-  .onPut('/games').reply((config) => {
-    mockData.updated = JSON.parse(config.data);
-    return [201, {id: 1}];
-  });
+mock.onGet('/games').reply((config) => {
+  if (config.type && config.type === 'tournament') {
+    return [200, mockData.games.filter(game => game.tournament === config.id)];
+  } else {
+    return config.id ? (
+      config.id === 4 ? [200, [mockData.newGame]] : [200, [mockData.updated]]) : ([200, mockData.games]);
+  }
+})
+.onPost('/games').reply(() => [202, {id: 4}])
+.onPut('/games').reply((config) => {
+  mockData.updated = JSON.parse(config.data);
+  return [201, {id: 1}];
+});
 
-mock.onGet('/totally not a valid endpoint').reply(() => [404, 'shits fucked']);
+mock.onGet('/tournaments').reply((config) => {
+  if (config.rando === 'somethingInvalid') {
+    return [400, 'Bad request'];
+  }
+})
+.onPost('/tournaments').reply((config) => {
+  if (config.data === 'somethingInvalid') {
+    return [400, 'Bad request'];
+  }
+})
+.onPut('/tournaments').reply((config) => {
+  if (config.data === 'somethingInvalid') {
+    return [400, 'Bad request'];
+  }
+});

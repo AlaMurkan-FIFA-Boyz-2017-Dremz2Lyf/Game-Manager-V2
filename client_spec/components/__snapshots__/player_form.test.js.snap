@@ -736,7 +736,7 @@ exports[`PlayerForm should match the snapshot 1`] = `
                               [Function],
                             ]
                           }>
-                          <renderField
+                          <Component
                             input={
                               Object {
                                 "name": "username",
@@ -800,7 +800,7 @@ exports[`PlayerForm should match the snapshot 1`] = `
                                 </FormControl>
                               </div>
                             </FormGroup>
-                          </renderField>
+                          </Component>
                         </ConnectedField>
                       </Connect(ConnectedField)>
                     </Field>

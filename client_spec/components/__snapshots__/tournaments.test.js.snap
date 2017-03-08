@@ -48,7 +48,7 @@ exports[`Tournaments Component should match snapshot 1`] = `
         <h4>
           Finished Tournaments
         </h4>
-        <Tournament
+        <Component
           tournament={
             Object {
               "createdAt": "2016-12-25T19:31:48",
@@ -67,7 +67,7 @@ exports[`Tournaments Component should match snapshot 1`] = `
         <h4>
           OnGoing Tournaments
         </h4>
-        <Tournament
+        <Component
           tournament={
             Object {
               "createdAt": "2016-12-25T19:31:48",
@@ -79,7 +79,7 @@ exports[`Tournaments Component should match snapshot 1`] = `
               "winner": null,
             }
           } />
-        <Tournament
+        <Component
           tournament={
             Object {
               "createdAt": "2016-12-25T19:31:48",
@@ -91,7 +91,7 @@ exports[`Tournaments Component should match snapshot 1`] = `
               "winner": null,
             }
           } />
-        <Tournament
+        <Component
           tournament={
             Object {
               "createdAt": "2016-12-25T19:31:48",
@@ -103,7 +103,7 @@ exports[`Tournaments Component should match snapshot 1`] = `
               "winner": null,
             }
           } />
-        <Tournament
+        <Component
           tournament={
             Object {
               "createdAt": "2016-12-25T19:31:48",

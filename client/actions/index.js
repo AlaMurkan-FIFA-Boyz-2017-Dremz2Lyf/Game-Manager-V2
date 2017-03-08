@@ -7,13 +7,18 @@ import { SET_ERRORED, SET_LOADING, RECEIVE, FETCH } from './types';
 // Utilities
 import { normalize } from '../utilities';
 
-export const setErrored = (stateKey, data) => ({
-  type: SET_ERRORED,
-  payload: {
-    data,
-    stateKey
-  }
-});
+export const setErrored = (stateKey, data) => {
+
+  let error = {status: data.status, message: data.data};
+
+  return {
+    type: SET_ERRORED,
+    payload: {
+      data: error,
+      stateKey
+    }
+  };
+};
 
 
 export const setLoading = (stateKey, data) => {
@@ -47,17 +52,18 @@ export const fetch = (stateKey, params = {}) => {
   return dispatch => {
     dispatch(setLoading(stateKey, true));
 
-    return request.then(response => response.data).then(data =>
-      dispatch(receive(stateKey, data))
-    ).then(dis =>
-      dispatch(setLoading(stateKey, false))
-    ).catch(error => {
-      throw error;
+    return request.then(response => response.data).then(data => {
+      dispatch(receive(stateKey, data));
+    }).catch(error => {
+      let data = error.response;
+      dispatch(setErrored(stateKey, data));
+    }).then(dis => {
+      dispatch(setLoading(stateKey, false));
     });
   };
 };
 
-export const create = (stateKey, data, params = {}) => {
+export const create = (stateKey, data) => {
   let post = axios.post(`/${stateKey}`, data);
 
   return dispatch => {
@@ -66,8 +72,9 @@ export const create = (stateKey, data, params = {}) => {
     return post.then(response => response.data.id).then(id =>
       dispatch(fetch(stateKey, {id}))
     ).catch(error => {
-      dispatch(setErrored(stateKey, error));
-      throw error;
+      let data = error.response;
+      dispatch(setErrored(stateKey, data));
+      dispatch(setLoading(stateKey, false));
     });
   };
 };
@@ -80,6 +87,10 @@ export const update = (stateKey, data, params = {}) => {
 
     return put.then(response => response.data.id).then(id =>
       dispatch(fetch(stateKey, {id}))
-    ).catch(error => { throw error; });
+    ).catch(error => {
+      let data = error.response;
+      dispatch(setErrored(stateKey, data));
+      dispatch(setLoading(stateKey, false));
+    });
   };
 };
