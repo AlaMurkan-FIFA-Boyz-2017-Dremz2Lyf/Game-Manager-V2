@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home } from '../../client/components/home';
+import Home from '../../client/components/home';
 
 
 describe('Home Component', () => {

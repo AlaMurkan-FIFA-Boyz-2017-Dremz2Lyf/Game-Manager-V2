@@ -11,6 +11,11 @@ describe('Utilities', () => {
       expect(Object.keys(output)).toEqual(expect.arrayContaining(['1', '2', '3', '4', '5']).sample);
     });
 
+    test('should return an empty object if passed an empty array', () => {
+      let output = normalize([]);
+      expect(output).toEqual({});
+    });
+
   });
 
   describe('applyPayload', () => {

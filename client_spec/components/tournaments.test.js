@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 // Components
-import Connected, { Tournaments, mapStateToProps } from '../../client/components/tournaments.js';
+import { Tournaments, mapStateToProps } from '../../client/components/tournaments.js';
 
 // Grab our store and our action to prePopulate
 import { store } from '../../client/store';

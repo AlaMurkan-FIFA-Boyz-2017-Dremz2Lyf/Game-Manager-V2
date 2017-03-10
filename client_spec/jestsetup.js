@@ -98,11 +98,11 @@ let mock = new MockAdapter(axios);
 
 // setup our routes and methods
 mock.onGet('/games').reply((config) => {
-  if (config.type && config.type === 'tournament') {
-    return [200, mockData.games.filter(game => game.tournament === config.id)];
+  if (config.params.type && config.params.type === 'tournament') {
+    return [200, mockData.games.filter(game => game.tournament === config.params.id)];
   } else {
-    return config.id ? (
-      config.id === 4 ? [200, [mockData.newGame]] : [200, [mockData.updated]]) : ([200, mockData.games]);
+    return config.params.id ? (
+      config.params.id === 4 ? [200, [mockData.newGame]] : [200, [mockData.updated]]) : ([200, mockData.games]);
   }
 })
 .onPost('/games').reply(() => [202, {id: 4}])
@@ -112,7 +112,7 @@ mock.onGet('/games').reply((config) => {
 });
 
 mock.onGet('/tournaments').reply((config) => {
-  if (config.rando === 'somethingInvalid') {
+  if (config.params.rando === 'somethingInvalid') {
     return [400, 'Bad request'];
   }
 })

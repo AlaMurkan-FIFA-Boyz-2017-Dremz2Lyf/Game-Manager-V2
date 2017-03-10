@@ -53,7 +53,7 @@ describe('Actions', () => {
       expect(store.getActions()).toEqual(expected);
     });
 
-    test('fetch should dispatch an error if the requested was bad', () => {
+    test('fetch should dispatch an error if the request was bad', () => {
 
       let error = {
         status: 400,
@@ -120,7 +120,8 @@ describe('Actions', () => {
         setLoading('games', false)
       ];
       return store.dispatch(fetch('games', {type: 'tournament', id: 1})).then(() => {
-        expect(store.getActions()).toEqual(expected);
+        let actions = store.getActions();
+        expect(actions).toEqual(expected);
       });
     });
 

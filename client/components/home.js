@@ -6,7 +6,7 @@ import Tournaments from './tournaments';
 import PlayerList from './player_list';
 
 
-export const Home = (props) => (
+export default (props) => (
   <Row>
     <Col xs={12} md={6}>
       <Tournaments />

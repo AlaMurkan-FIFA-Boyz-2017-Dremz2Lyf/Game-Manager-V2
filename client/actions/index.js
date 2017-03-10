@@ -46,8 +46,8 @@ export const receive = (stateKey, data) => {
   };
 };
 
-export const fetch = (stateKey, params = {}) => {
-  let request = axios.get(`/${stateKey}`, params);
+export const fetch = (stateKey, data = {}) => {
+  let request = axios.get(`/${stateKey}`, {params: data});
 
   return dispatch => {
     dispatch(setLoading(stateKey, true));
