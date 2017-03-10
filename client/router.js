@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Home } from './components/home';
 import App from './components/app';
-import PlayTournament from './components/play_tournament';
+import { PlayTournament } from './components/play_tournament';
 
 export default (
   <Route path='/' component={App}>

@@ -15,14 +15,18 @@ blockquote {
   margin-top: 5px;
 }
 
-.continue {
-  float: right;
-}
-
 .tournament-form {
   margin: 0px;
 }
 
 .doubles {
   float: left;
+}
+
+a {
+  color: black;
+}
+
+.created-at {
+  float: right;
 }

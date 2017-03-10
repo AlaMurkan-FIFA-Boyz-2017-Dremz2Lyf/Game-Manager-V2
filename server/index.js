@@ -10,6 +10,7 @@ const routes = express.Router();
 const games = require('./routes/games');
 const players = require('./routes/players');
 const tournaments = require('./routes/tournaments');
+const wildcard = require('./routes/wildcard');
 
 // Normalized path for our public/static files
 const PUBLIC = path.normalize(__dirname + '/../public');
@@ -22,6 +23,7 @@ routes.use(bodyParser.json());
 routes.use('/games', games);
 routes.use('/players', players);
 routes.use('/tournaments', tournaments);
+routes.use('*', wildcard);
 
 if (process.env.NODE_ENV !== 'test') {
 
