@@ -1,43 +1,49 @@
 exports[`Tournament component should match the snapshot 1`] = `
-<ListGroupItem
-  bsClass="list-group-item"
-  className="tournament"
-  listItem={false}>
-  <Row
-    bsClass="row"
-    componentClass="div">
-    <Col
-      bsClass="col"
-      className="name"
-      componentClass="div"
-      xs={7}>
-      <div />
-    </Col>
-    <Col
-      bsClass="col"
-      className="date"
-      componentClass="div"
-      xs={5}>
-      <span />
-    </Col>
-  </Row>
-  <Row
-    bsClass="row"
-    componentClass="div">
-    <Col
-      bsClass="col"
-      componentClass="div"
-      xs={12}>
-      <ProgressBar
-        active={true}
-        bsClass="progress-bar"
-        isChild={false}
-        max={100}
-        min={0}
-        now={NaN}
-        srOnly={false}
-        striped={false} />
-    </Col>
-  </Row>
-</ListGroupItem>
+<Link
+  onlyActiveOnIndex={false}
+  style={Object {}}
+  to="play/undefined">
+  <ListGroupItem
+    bsClass="list-group-item"
+    className="tournament"
+    listItem={false}>
+    <Row
+      bsClass="row"
+      componentClass="div">
+      <Col
+        bsClass="col"
+        className="name"
+        componentClass="div"
+        xs={7}>
+        <div />
+      </Col>
+      <Col
+        bsClass="col"
+        className="date"
+        componentClass="div"
+        xs={5}>
+        <span
+          className="created-at" />
+      </Col>
+    </Row>
+    <Row
+      bsClass="row"
+      componentClass="div">
+      <Col
+        bsClass="col"
+        componentClass="div"
+        xs={12}>
+        <ProgressBar
+          active={true}
+          bsClass="progress-bar"
+          isChild={false}
+          max={100}
+          min={0}
+          now={NaN}
+          srOnly={false}
+          striped={false} />
+      </Col>
+    </Row>
+  </ListGroupItem>
+</Link>
 `;

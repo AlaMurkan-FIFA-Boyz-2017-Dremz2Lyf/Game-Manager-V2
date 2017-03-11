@@ -54,11 +54,7 @@ describe('API "/tournaments"', function() {
 
       let tournament = {
         name: 'ultraTourney!',
-        added: {
-          1: {},
-          2: {},
-          3: {}
-        }
+        added: [1, 2, 3]
       };
 
       yield request(app)

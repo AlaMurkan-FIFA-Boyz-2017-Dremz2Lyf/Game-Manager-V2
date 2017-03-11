@@ -24,7 +24,7 @@ PlayerList.propTypes = {
   players: React.PropTypes.array,
   searchValue: React.PropTypes.string.isRequired,
   all: React.PropTypes.bool.isRequired,
-  move: React.PropTypes.func.isRequired
+  move: React.PropTypes.func
 };
 
 export { PlayerList as default };
