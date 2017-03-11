@@ -2,6 +2,7 @@
 
 node_modules/
 
+
 ######Bundle######
 
 bundle.js
@@ -13,12 +14,5 @@ bundle.js
 
 
 *******NPM debug log**********
+
 npm-debug.log
-
-
-############Jest Coverage##########
-coverage/
-
-
-##########Testing Notes#############
-testing notes
