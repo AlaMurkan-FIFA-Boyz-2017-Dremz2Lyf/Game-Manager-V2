@@ -9,6 +9,8 @@ import {
   Button
 } from 'react-bootstrap';
 
+import GameDetails from './game_details';
+
 export class Game extends Component {
   constructor() {
     super();
@@ -35,8 +37,11 @@ export class Game extends Component {
 
     return (
       <ListGroupItem onClick={this.open.bind(this)}>
-        <div>{players[game.p1].username}</div>
-        <div>{players[game.p2].username}</div>
+        <GameDetails
+          game={game}
+          player1={players[game.p1]}
+          player2={players[game.p2]}
+        />
         <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
           <Modal.Header>
             <Modal.Title>Make a new Player</Modal.Title>
