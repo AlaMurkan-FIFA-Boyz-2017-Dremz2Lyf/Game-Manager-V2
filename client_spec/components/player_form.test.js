@@ -22,13 +22,6 @@ describe('PlayerForm', () => {
     expect(required('something')).toBeUndefined();
   });
 
-  it('should handle validation state', () => {
-    expect(getValidationState(true, false)).toBe('success');
-    expect(getValidationState(false, false)).toBe('error');
-    expect(getValidationState(true, true)).toBeNull();
-  });
-
-
   it('should have a popover', () => {
     let popWrapper = shallow(popover);
     expect(popWrapper).toMatchSnapshot();

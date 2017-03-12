@@ -1,5 +1,5 @@
 export const normalize = (responseBody) => {
-  
+
   return responseBody.reduce((normalized, item) => {
     normalized[item.id] = item;
     return normalized;
@@ -16,3 +16,5 @@ export const applyPayload = (state, action) => {
 export const percentPlayed = (gamesPlayed, totalGames) => {
   return Math.floor((gamesPlayed / totalGames) * 100);
 };
+
+export const getValidationState = (valid, pristine) => pristine ? null : (valid ? 'success' : 'error' );

@@ -45,4 +45,12 @@ describe('Utilities', () => {
     });
   });
 
+  describe('getValidationState', () => {
+    it('should handle validation state', () => {
+      expect(getValidationState(true, false)).toBe('success');
+      expect(getValidationState(false, false)).toBe('error');
+      expect(getValidationState(true, true)).toBeNull();
+    });
+  });
+
 });
