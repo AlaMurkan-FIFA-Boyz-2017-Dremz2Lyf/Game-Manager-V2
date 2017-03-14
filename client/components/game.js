@@ -34,6 +34,10 @@ export class Game extends Component {
     });
   }
 
+  handleSubmit(values) {
+    console.log({values});
+  }
+
   render() {
     let { game } = this.props;
     let { players } = this.props;
@@ -51,18 +55,20 @@ export class Game extends Component {
           </Modal.Header>
           <Modal.Body>
             <Row>
-              <Col xs={4}>
+              <Col xs={3}>
               </Col>
-              <Col xs={4}>
+              <Col xs={2}>
                 <h4>{players[game.p1].username}</h4>
               </Col>
-              <Col xs={4}>
+              <Col xs={2}>
                 <h4>{players[game.p2].username}</h4>
+              </Col>
+              <Col xs={5}>
               </Col>
             </Row>
             <Row>
               <Col xs={12}>
-                <GameForm />
+                <GameForm onSubmit={this.handleSubmit.bind(this)}/>
               </Col>
             </Row>
           </Modal.Body>

@@ -92,17 +92,60 @@ exports[`Game Component should match the snapshot 1`] = `
       <ModalTitle
         bsClass="modal-title"
         componentClass="h4">
-        Make a new Player
+        Finish this Game!
       </ModalTitle>
     </ModalHeader>
     <ModalBody
       bsClass="modal-body"
       componentClass="div">
-      get that body
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={4} />
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={4}>
+          <h4>
+            Alice
+          </h4>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={4}>
+          <h4>
+            Bob
+          </h4>
+        </Col>
+      </Row>
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}>
+          <ReduxForm />
+        </Col>
+      </Row>
     </ModalBody>
     <ModalFooter
       bsClass="modal-footer"
       componentClass="div">
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        onClick={[Function]}
+        type="submit">
+        Finish
+      </Button>
       <Button
         active={false}
         block={false}
@@ -211,17 +254,60 @@ exports[`Game Component should open the game modal when clicked 1`] = `
       <ModalTitle
         bsClass="modal-title"
         componentClass="h4">
-        Make a new Player
+        Finish this Game!
       </ModalTitle>
     </ModalHeader>
     <ModalBody
       bsClass="modal-body"
       componentClass="div">
-      get that body
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={4} />
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={4}>
+          <h4>
+            Alice
+          </h4>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={4}>
+          <h4>
+            Bob
+          </h4>
+        </Col>
+      </Row>
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}>
+          <ReduxForm />
+        </Col>
+      </Row>
     </ModalBody>
     <ModalFooter
       bsClass="modal-footer"
       componentClass="div">
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        onClick={[Function]}
+        type="submit">
+        Finish
+      </Button>
       <Button
         active={false}
         block={false}
@@ -330,17 +416,60 @@ exports[`Game Component should open the game modal when clicked 2`] = `
       <ModalTitle
         bsClass="modal-title"
         componentClass="h4">
-        Make a new Player
+        Finish this Game!
       </ModalTitle>
     </ModalHeader>
     <ModalBody
       bsClass="modal-body"
       componentClass="div">
-      get that body
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={4} />
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={4}>
+          <h4>
+            Alice
+          </h4>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={4}>
+          <h4>
+            Bob
+          </h4>
+        </Col>
+      </Row>
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}>
+          <ReduxForm />
+        </Col>
+      </Row>
     </ModalBody>
     <ModalFooter
       bsClass="modal-footer"
       componentClass="div">
+      <Button
+        active={false}
+        block={false}
+        bsClass="btn"
+        bsStyle="default"
+        disabled={false}
+        onClick={[Function]}
+        type="submit">
+        Finish
+      </Button>
       <Button
         active={false}
         block={false}

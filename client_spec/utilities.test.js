@@ -1,4 +1,4 @@
-import { normalize, applyPayload, percentPlayed } from '../client/utilities';
+import { normalize, applyPayload, percentPlayed, getValidationState } from '../client/utilities';
 
 
 describe('Utilities', () => {
