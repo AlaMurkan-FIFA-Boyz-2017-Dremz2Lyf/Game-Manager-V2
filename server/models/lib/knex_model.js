@@ -72,10 +72,7 @@ exports.create = function (modelName, options = {}) {
         - the new row with the new 'id' and passed attrs <Object>
     */
     create: function (attrs) {
-      return db(tableName).insert(attrs).returning(idColumn)
-        .then(function (rows) {
-          return Object.assign({ [idColumn]: rows[0] }, attrs);
-        });
+      return db(tableName).insert(attrs).returning('*').then(rows => rows);
     },
 
     /*
@@ -90,10 +87,10 @@ exports.create = function (modelName, options = {}) {
         return Promise.reject(new Model.InvalidArgument(`${idColumn}_is_required`));
       }
       attrs.updatedAt = new Date();
-      return db(tableName).update(attrs).where({ [idColumn]: attrs[idColumn] })
-        .then(function(affectedCount) {
-          return (affectedCount === 0) ? Promise.reject(new Model.NotFound) : attrs;
-        });
+      return db(tableName).update(attrs).where({ [idColumn]: attrs[idColumn] }).returning('*')
+        .then((updatedRow) =>
+          (updatedRow.length === 0) ? Promise.reject(new Model.NotFound) : updatedRow
+        );
     },
 
     /*

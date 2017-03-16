@@ -32,7 +32,11 @@ describe('Actions', () => {
 
   beforeEach(() => {
     store = mockStore({
-      data: {},
+      data: {
+        players: {},
+        tournaments: {},
+        games: {}
+      },
       isLoading: {},
       isError: {}
     });
@@ -43,15 +47,6 @@ describe('Actions', () => {
   });
 
   describe('Error handling', () => {
-    test('receive should throw an error if the data passed to it is not an array', () => {
-      let error = new TypeError('Second argument passed to "receive" action should be an array', 'actions/index.js', 31);
-      let expected = [
-        setErrored('tournaments', error)
-      ];
-
-      store.dispatch(receive('tournaments', {}));
-      expect(store.getActions()).toEqual(expected);
-    });
 
     test('fetch should dispatch an error if the request was bad', () => {
 
@@ -152,38 +147,49 @@ describe('Actions', () => {
       expect(store.getActions()).toEqual([expected]);
     });
 
+    it('receive should handle objects as well as arrays', () => {
+      let data = normalize(mockData.tournaments.slice());
+      let action = receive('tournaments', data);
+      let expected = {
+        type: RECEIVE,
+        payload: {
+          stateKey: 'tournaments',
+          data: normalize(mockData.tournaments.slice())
+        }
+      };
+
+      store.dispatch(action);
+      expect(store.getActions()).toEqual([expected]);
+    });
 
     test('create', () => {
       let newGame = {p1: 2, p2: 3};
 
       let expected = [
         setLoading('games', true),
-        setLoading('games', true),
-        receive('games', [mockData.newGame]),
+        receive('games', normalize([mockData.newGame])),
         setLoading('games', false)
       ];
 
-      return store.dispatch(create('games', newGame)).then(() => {
-
-        return expect(store.getActions()).toEqual(expected);
-      });
+      return store.dispatch(create('games', newGame)).then(() =>
+        expect(store.getActions()).toEqual(expected)
+      );
     });
 
-    test('update', () => {
+    test('update something here should make it easier to know this is the failing test', () => {
       let updatedGame = mockData.games.slice(0, 1);
-      updatedGame.p1Score = 3;
-      updatedGame.p1Score = 2;
+      updatedGame[0].p1Score = 3;
+      updatedGame[0].p2Score = 2;
 
       let expected = [
         setLoading('games', true),
-        setLoading('games', true),
-        receive('games', [updatedGame].slice()),
+        receive('games', normalize(updatedGame.slice())),
         setLoading('games', false)
       ];
 
-      return store.dispatch(update('games', updatedGame)).then(() => {
-        expect(JSON.stringify(store.getActions())).toEqual(JSON.stringify(expected));
-      });
+      return store.dispatch(update('games', updatedGame)).then(() =>
+        expect(store.getActions()).toEqual(expected)
+      );
     });
 
   });

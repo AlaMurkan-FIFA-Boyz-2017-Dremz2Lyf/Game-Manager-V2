@@ -5,6 +5,7 @@ const games = require('../models/games');
 const _ = require('../utilities');
 
 router.get('/', (req, res) => {
+
   if (req.query.id) {
     tournaments.find(req.query.id).then(tournament => {
       res.send(tournament);
@@ -29,14 +30,19 @@ router.post('/', (req, res) => {
   // Here we pull the necessary stuff from the request body
   let { added, rounds = 1, name } = req.body;
 
-  tournaments.create({name}).then(tournament => (
-    tournament
-  )).then(tournament => {
+  // Create the tournament with the name.
+  tournaments.create({name}).then(tournament => {
 
-    let newGames = _.createGames(added.map(Number), tournament.id, rounds);
+    // use the added <Array>, the rounds, and the tournament id to create the new games
+    let newGames = _.createGames(added.map(Number), tournament[0].id, rounds);
+
+    // save them in the database
     games.create(newGames).then(games => {
-      let totalGames = Object.keys(games).length - 1;
-      let { id } = tournament;
+
+      // Once they are in the database we need to add the total game count to the tournament.
+      let totalGames = games.length - 1;
+
+      let { id } = tournament[0];
       tournaments.save({id, totalGames}).then(tournament => {
         res.status(201).send(tournament);
       }).catch(err => {

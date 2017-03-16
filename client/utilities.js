@@ -7,7 +7,7 @@ export const normalize = (responseBody) => {
 
 };
 
-export const applyPayload = (state, action) => {
+export const applyAll = (state, action) => {
   const { stateKey, data } = action.payload;
 
   return {...state, [stateKey]: data};
@@ -23,6 +23,7 @@ export const required = value => value ? undefined : 'Required';
 
 export const possValidation = (value, allValues) => {
   const { p1Poss, p2Poss } = allValues;
+
   if (!p1Poss && !p2Poss) {
     return undefined;
   } else if (Number(p1Poss) + Number(p2Poss) !== 100) {
@@ -35,7 +36,7 @@ export const helpMessage = (field) => {
   let message;
 
   if (field === 'Score') {
-    message = `${field} is required! I mean.. come on! `;
+    message = `${field} is required! I mean.. come on!`;
   } else {
     message = `${field} will default to 0 if not given.`;
   }

@@ -36,35 +36,32 @@ export const PossessionField = ({input, type, meta: {touched, error, valid}}) =>
   </FormGroup>
 );
 
-export const Possession = ({errors = {}}) => {
-  console.log(errors);
-  return (
-    <Row className='game-field'>
-      <Col xs={3}>
-        <ControlLabel>Possession</ControlLabel>
-      </Col>
-      <Col xs={2}>
-        <Field
-          name='p1Poss'
-          component={PossessionField}
-          type='text'
-          validate={possValidation}
-        />
-      </Col>
-      <Col xs={2}>
-        <Field
-          name='p2Poss'
-          component={PossessionField}
-          type='text'
-          validate={possValidation}
-        />
-      </Col>
-      <Col xs={5}>
-        <HelpBlock>{errors.p1Poss ? errors.p1Poss : errors.p2Poss ? errors.p2Poss : undefined}</HelpBlock>
-      </Col>
-    </Row>
-  );
-};
+export const Possession = ({errors = {}}) => (
+  <Row className='game-field'>
+    <Col xs={3}>
+      <ControlLabel>Possession</ControlLabel>
+    </Col>
+    <Col xs={2}>
+      <Field
+        name='p1Poss'
+        component={PossessionField}
+        type='text'
+        validate={possValidation}
+      />
+    </Col>
+    <Col xs={2}>
+      <Field
+        name='p2Poss'
+        component={PossessionField}
+        type='text'
+        validate={possValidation}
+      />
+    </Col>
+    <Col xs={5}>
+      <HelpBlock>{errors.p1Poss ? errors.p1Poss : errors.p2Poss ? errors.p2Poss : undefined}</HelpBlock>
+    </Col>
+  </Row>
+);
 
 const ConnectedPossession = connect(
   (state) => ({

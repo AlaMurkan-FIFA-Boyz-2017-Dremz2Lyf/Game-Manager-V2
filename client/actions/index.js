@@ -32,15 +32,17 @@ export const setLoading = (stateKey, data) => {
 };
 
 export const receive = (stateKey, data) => {
-  if (!Array.isArray(data)) {
-    let error = new TypeError('Second argument passed to "receive" action should be an array', 'actions/index.js', 31);
-    return dispatch => dispatch(setErrored(stateKey, error));
+  // receive is set up to accept an array or an object.
+    // If it is an array we do the normalization here.
+  if (Array.isArray(data)) {
+    data = normalize(data);
   }
 
+  // and send off our action with the proper payload
   return {
     type: RECEIVE,
     payload: {
-      data: normalize(data),
+      data,
       stateKey
     }
   };
@@ -63,34 +65,64 @@ export const fetch = (stateKey, data = {}) => {
   };
 };
 
+// In an effort to minimize request traffic, the server will respond with the updated or created data object we are currently working with. Instead of fetching all of that corresponding data we need after the post. We will just pass the updated data through to the receive action, by using getState from redux-thunk.
+
 export const create = (stateKey, data) => {
   let post = axios.post(`/${stateKey}`, data);
 
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch(setLoading(stateKey, true));
 
-    return post.then(response => response.data.id).then(id =>
-      dispatch(fetch(stateKey, {id}))
-    ).catch(error => {
+    return post.then(response => normalize(response.data)).then(updated => {
+
+      // Grab the specific subState for the stateKey we are working with during this action
+      let subState = getState().data[stateKey];
+
+      // Take the subState and the updated data and create a new object
+      let updatedSubState = {...subState, ...updated};
+
+      // Pass that updated subState into the receive action
+      return dispatch(receive(stateKey, updatedSubState));
+    }).catch(error => {
+
+      // If there was an error in the put, we grab the response from the server and pass it along to our setErrored action creator.
       let data = error.response;
-      dispatch(setErrored(stateKey, data));
-      dispatch(setLoading(stateKey, false));
-    });
+      return dispatch(setErrored(stateKey, data));
+    }).then(dis =>
+
+      // Once everything is done, we set our loading flag to false.
+      dispatch(setLoading(stateKey, false))
+    );
   };
 };
 
 export const update = (stateKey, data, params = {}) => {
   let put = axios.put(`/${stateKey}`, data);
 
-  return dispatch => {
+  return (dispatch, getState) => {
+    // Set our loading flag for the specific stateKey we are working with
     dispatch(setLoading(stateKey, true));
 
-    return put.then(response => response.data.id).then(id =>
-      dispatch(fetch(stateKey, {id}))
-    ).catch(error => {
+    // Then handle the async request.
+    return put.then(response => normalize(response.data)).then(updated => {
+
+      // Grab the specific subState for the stateKey we are working with during this action
+      let subState = getState().data[stateKey];
+
+      // Take the subState and the updated data and create a new object
+      let updatedSubState = {...subState, ...updated};
+
+      // Pass that updated subState into the receive action
+      return dispatch(receive(stateKey, updatedSubState));
+    }).catch(error => {
+
+      // If there was an error in the put, we grab the response from the server and pass it along to our setErrored action creator.
       let data = error.response;
-      dispatch(setErrored(stateKey, data));
-      dispatch(setLoading(stateKey, false));
-    });
+      return dispatch(setErrored(stateKey, data));
+    }).then(dis =>
+
+      // Once everything is done, we set our loading flag to false.
+      dispatch(setLoading(stateKey, false))
+    );
   };
 };

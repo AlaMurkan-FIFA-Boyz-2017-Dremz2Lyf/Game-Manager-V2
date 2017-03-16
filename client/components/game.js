@@ -35,7 +35,11 @@ export class Game extends Component {
   }
 
   handleSubmit(values) {
-    console.log({values});
+    let { game: { id } } = this.props;
+    this.props.update('games', {id, ...values});
+    this.setState({
+      showModal: false
+    });
   }
 
   render() {

@@ -4,7 +4,7 @@ import {
 } from '../actions/types';
 
 // Utilities functions
-import { applyPayload } from '../utilities';
+import { applyAll } from '../utilities';
 
 const init = {
   tournaments: {},
@@ -15,7 +15,7 @@ const init = {
 export default function(state = init, action) {
   switch (action.type) {
   case RECEIVE:
-    return applyPayload(state, action);
+    return applyAll(state, action);
   default:
     return state;
   }

@@ -104,11 +104,11 @@ exports[`Game Component should match the snapshot 1`] = `
         <Col
           bsClass="col"
           componentClass="div"
-          xs={4} />
+          xs={3} />
         <Col
           bsClass="col"
           componentClass="div"
-          xs={4}>
+          xs={2}>
           <h4>
             Alice
           </h4>
@@ -116,11 +116,15 @@ exports[`Game Component should match the snapshot 1`] = `
         <Col
           bsClass="col"
           componentClass="div"
-          xs={4}>
+          xs={2}>
           <h4>
             Bob
           </h4>
         </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={5} />
       </Row>
       <Row
         bsClass="row"
@@ -129,7 +133,8 @@ exports[`Game Component should match the snapshot 1`] = `
           bsClass="col"
           componentClass="div"
           xs={12}>
-          <ReduxForm />
+          <ReduxForm
+            onSubmit={[Function]} />
         </Col>
       </Row>
     </ModalBody>
@@ -266,11 +271,11 @@ exports[`Game Component should open the game modal when clicked 1`] = `
         <Col
           bsClass="col"
           componentClass="div"
-          xs={4} />
+          xs={3} />
         <Col
           bsClass="col"
           componentClass="div"
-          xs={4}>
+          xs={2}>
           <h4>
             Alice
           </h4>
@@ -278,11 +283,15 @@ exports[`Game Component should open the game modal when clicked 1`] = `
         <Col
           bsClass="col"
           componentClass="div"
-          xs={4}>
+          xs={2}>
           <h4>
             Bob
           </h4>
         </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={5} />
       </Row>
       <Row
         bsClass="row"
@@ -291,7 +300,8 @@ exports[`Game Component should open the game modal when clicked 1`] = `
           bsClass="col"
           componentClass="div"
           xs={12}>
-          <ReduxForm />
+          <ReduxForm
+            onSubmit={[Function]} />
         </Col>
       </Row>
     </ModalBody>
@@ -428,11 +438,11 @@ exports[`Game Component should open the game modal when clicked 2`] = `
         <Col
           bsClass="col"
           componentClass="div"
-          xs={4} />
+          xs={3} />
         <Col
           bsClass="col"
           componentClass="div"
-          xs={4}>
+          xs={2}>
           <h4>
             Alice
           </h4>
@@ -440,11 +450,15 @@ exports[`Game Component should open the game modal when clicked 2`] = `
         <Col
           bsClass="col"
           componentClass="div"
-          xs={4}>
+          xs={2}>
           <h4>
             Bob
           </h4>
         </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={5} />
       </Row>
       <Row
         bsClass="row"
@@ -453,7 +467,8 @@ exports[`Game Component should open the game modal when clicked 2`] = `
           bsClass="col"
           componentClass="div"
           xs={12}>
-          <ReduxForm />
+          <ReduxForm
+            onSubmit={[Function]} />
         </Col>
       </Row>
     </ModalBody>
