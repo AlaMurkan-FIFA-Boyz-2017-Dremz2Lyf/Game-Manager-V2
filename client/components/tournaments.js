@@ -19,7 +19,6 @@ export class Tournaments extends Component {
 
   componentDidMount() {
     this.props.fetch('tournaments');
-    this.props.fetch('players');
   }
 
   renderList(finished) {
