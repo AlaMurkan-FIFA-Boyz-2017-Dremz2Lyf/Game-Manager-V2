@@ -1,0 +1,18 @@
+exports[`Shallow App should match the snapshot 1`] = `
+<div
+  className="home">
+  <Link
+    onlyActiveOnIndex={false}
+    style={Object {}}
+    to="/">
+    <PageHeader
+      bsClass="page-header">
+      Game Manager
+    </PageHeader>
+  </Link>
+  <Grid
+    bsClass="container"
+    componentClass="div"
+    fluid={false} />
+</div>
+`;

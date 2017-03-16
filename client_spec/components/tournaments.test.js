@@ -36,7 +36,6 @@ describe('Tournaments Component', () => {
     );
 
     expect(mockFetch.mock.calls[0]).toEqual(['tournaments']);
-    expect(mockFetch.mock.calls[1]).toEqual(['players']);
   });
 
   test('should have a mapStateToProps', () => {

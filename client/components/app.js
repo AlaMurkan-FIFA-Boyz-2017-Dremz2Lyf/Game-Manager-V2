@@ -1,13 +1,19 @@
 // Dependancies
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import {
   PageHeader,
   Grid
 } from 'react-bootstrap';
 
+import { fetch } from '../actions/index';
 
-class App extends Component {
+export class App extends Component {
+
+  componentDidMount() {
+    this.props.fetch('players');
+  }
 
   render() {
     return (
@@ -23,4 +29,4 @@ class App extends Component {
 
 
 
-export default App;
+export default connect(null, { fetch })(App);
