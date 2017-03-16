@@ -1,31 +1,4 @@
-exports[`PlayerForm should have a popover 1`] = `
-<div
-  className="popover right"
-  id="popover-trigger-hover-focus"
-  role="tooltip"
-  style={
-    Object {
-      "display": "block",
-      "left": undefined,
-      "top": undefined,
-    }
-  }>
-  <div
-    className="arrow"
-    style={
-      Object {
-        "left": undefined,
-        "top": undefined,
-      }
-    } />
-  <div
-    className="popover-content">
-    Select this to make a doubles team.
-  </div>
-</div>
-`;
-
-exports[`PlayerForm should match the snapshot 1`] = `
+exports[`Connected PlayerForm should match the snapshot 1`] = `
 <Provider
   store={
     Object {
@@ -128,7 +101,7 @@ exports[`PlayerForm should match the snapshot 1`] = `
         submitting={false}
         syncErrors={
           Object {
-            "username": "What? are you no one? A faceless man?",
+            "username": "Required",
           }
         }
         syncWarnings={Object {}}
@@ -226,7 +199,7 @@ exports[`PlayerForm should match the snapshot 1`] = `
             submitting={false}
             syncErrors={
               Object {
-                "username": "What? are you no one? A faceless man?",
+                "username": "Required",
               }
             }
             touch={[Function]}
@@ -590,7 +563,7 @@ exports[`PlayerForm should match the snapshot 1`] = `
                             "submitSucceeded": false,
                             "submitting": false,
                             "syncErrors": Object {
-                              "username": "What? are you no one? A faceless man?",
+                              "username": "Required",
                             },
                             "syncWarnings": Object {},
                             "touch": [Function],
@@ -702,7 +675,7 @@ exports[`PlayerForm should match the snapshot 1`] = `
                               "submitSucceeded": false,
                               "submitting": false,
                               "syncErrors": Object {
-                                "username": "What? are you no one? A faceless man?",
+                                "username": "Required",
                               },
                               "syncWarnings": Object {},
                               "touch": [Function],
@@ -728,7 +701,7 @@ exports[`PlayerForm should match the snapshot 1`] = `
                           name="username"
                           normalize={[Function]}
                           pristine={true}
-                          syncError="What? are you no one? A faceless man?"
+                          syncError="Required"
                           type="text"
                           validate={
                             Array [
@@ -756,7 +729,7 @@ exports[`PlayerForm should match the snapshot 1`] = `
                                 "autofilled": false,
                                 "dirty": false,
                                 "dispatch": [Function],
-                                "error": "What? are you no one? A faceless man?",
+                                "error": "Required",
                                 "form": "playerForm",
                                 "invalid": true,
                                 "pristine": true,
@@ -839,4 +812,31 @@ exports[`PlayerForm should match the snapshot 1`] = `
     </Connect(Form(Connect(PlayerForm)))>
   </ReduxForm>
 </Provider>
+`;
+
+exports[`PlayerForm Popover should match the snapshot 1`] = `
+<div
+  className="popover right"
+  id="popover-trigger-hover-focus"
+  role="tooltip"
+  style={
+    Object {
+      "display": "block",
+      "left": undefined,
+      "top": undefined,
+    }
+  }>
+  <div
+    className="arrow"
+    style={
+      Object {
+        "left": undefined,
+        "top": undefined,
+      }
+    } />
+  <div
+    className="popover-content">
+    Select this to make a doubles team.
+  </div>
+</div>
 `;

@@ -58,7 +58,7 @@ export const Possession = ({errors = {}}) => (
       />
     </Col>
     <Col xs={5}>
-      <HelpBlock>{errors.p1Poss ? errors.p1Poss : errors.p2Poss ? errors.p2Poss : undefined}</HelpBlock>
+      <HelpBlock>{errors.p1Poss ? errors.p1Poss : undefined}</HelpBlock>
     </Col>
   </Row>
 );

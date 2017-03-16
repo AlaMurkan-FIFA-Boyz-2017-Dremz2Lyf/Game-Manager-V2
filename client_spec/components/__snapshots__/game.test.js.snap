@@ -134,6 +134,29 @@ exports[`Game Component should match the snapshot 1`] = `
           componentClass="div"
           xs={12}>
           <ReduxForm
+            initialValues={
+              Object {
+                "createdAt": "2016-12-25T19:31:48",
+                "id": 2,
+                "p1": 1,
+                "p1OnGoal": null,
+                "p1Poss": null,
+                "p1Reds": 0,
+                "p1Score": null,
+                "p1Shots": null,
+                "p1Yellows": 0,
+                "p2": 3,
+                "p2OnGoal": null,
+                "p2Poss": null,
+                "p2Reds": 0,
+                "p2Score": null,
+                "p2Shots": null,
+                "p2Yellows": 0,
+                "status": "created",
+                "tournament": 1,
+                "updatedAt": null,
+              }
+            }
             onSubmit={[Function]} />
         </Col>
       </Row>
@@ -141,16 +164,6 @@ exports[`Game Component should match the snapshot 1`] = `
     <ModalFooter
       bsClass="modal-footer"
       componentClass="div">
-      <Button
-        active={false}
-        block={false}
-        bsClass="btn"
-        bsStyle="default"
-        disabled={false}
-        onClick={[Function]}
-        type="submit">
-        Finish
-      </Button>
       <Button
         active={false}
         block={false}
@@ -301,6 +314,29 @@ exports[`Game Component should open the game modal when clicked 1`] = `
           componentClass="div"
           xs={12}>
           <ReduxForm
+            initialValues={
+              Object {
+                "createdAt": "2016-12-25T19:31:48",
+                "id": 2,
+                "p1": 1,
+                "p1OnGoal": null,
+                "p1Poss": null,
+                "p1Reds": 0,
+                "p1Score": null,
+                "p1Shots": null,
+                "p1Yellows": 0,
+                "p2": 3,
+                "p2OnGoal": null,
+                "p2Poss": null,
+                "p2Reds": 0,
+                "p2Score": null,
+                "p2Shots": null,
+                "p2Yellows": 0,
+                "status": "created",
+                "tournament": 1,
+                "updatedAt": null,
+              }
+            }
             onSubmit={[Function]} />
         </Col>
       </Row>
@@ -308,16 +344,6 @@ exports[`Game Component should open the game modal when clicked 1`] = `
     <ModalFooter
       bsClass="modal-footer"
       componentClass="div">
-      <Button
-        active={false}
-        block={false}
-        bsClass="btn"
-        bsStyle="default"
-        disabled={false}
-        onClick={[Function]}
-        type="submit">
-        Finish
-      </Button>
       <Button
         active={false}
         block={false}
@@ -468,6 +494,29 @@ exports[`Game Component should open the game modal when clicked 2`] = `
           componentClass="div"
           xs={12}>
           <ReduxForm
+            initialValues={
+              Object {
+                "createdAt": "2016-12-25T19:31:48",
+                "id": 2,
+                "p1": 1,
+                "p1OnGoal": null,
+                "p1Poss": null,
+                "p1Reds": 0,
+                "p1Score": null,
+                "p1Shots": null,
+                "p1Yellows": 0,
+                "p2": 3,
+                "p2OnGoal": null,
+                "p2Poss": null,
+                "p2Reds": 0,
+                "p2Score": null,
+                "p2Shots": null,
+                "p2Yellows": 0,
+                "status": "created",
+                "tournament": 1,
+                "updatedAt": null,
+              }
+            }
             onSubmit={[Function]} />
         </Col>
       </Row>
@@ -475,16 +524,6 @@ exports[`Game Component should open the game modal when clicked 2`] = `
     <ModalFooter
       bsClass="modal-footer"
       componentClass="div">
-      <Button
-        active={false}
-        block={false}
-        bsClass="btn"
-        bsStyle="default"
-        disabled={false}
-        onClick={[Function]}
-        type="submit">
-        Finish
-      </Button>
       <Button
         active={false}
         block={false}

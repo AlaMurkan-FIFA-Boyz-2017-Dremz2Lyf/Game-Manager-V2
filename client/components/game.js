@@ -72,12 +72,14 @@ export class Game extends Component {
             </Row>
             <Row>
               <Col xs={12}>
-                <GameForm onSubmit={this.handleSubmit.bind(this)}/>
+                <GameForm
+                  onSubmit={this.handleSubmit.bind(this)}
+                  initialValues={game}
+                />
               </Col>
             </Row>
           </Modal.Body>
           <Modal.Footer>
-            <Button type='submit' onClick={this.close.bind(this)}>Finish</Button>
             <Button onClick={this.close.bind(this)}>Cancel</Button>
           </Modal.Footer>
         </Modal>

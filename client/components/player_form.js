@@ -16,9 +16,7 @@ import { 
 } from 'react-bootstrap';
 
 import { create } from '../actions/index';
-import { getValidationState } from '../utilities';
-
-export const required = value => value ? undefined : 'What? are you no one? A faceless man?';
+import { getValidationState, required } from '../utilities';
 
 export const renderField = ({ input, label, type, meta: { valid, pristine } }) => (
   <FormGroup validationState={getValidationState(valid, pristine)}>
