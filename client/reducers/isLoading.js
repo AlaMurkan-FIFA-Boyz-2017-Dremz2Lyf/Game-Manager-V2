@@ -1,5 +1,5 @@
 import { SET_LOADING } from '../actions/types';
-import { applyPayload } from '../utilities';
+import { applyAll } from '../utilities';
 
 const init = {
   tournaments: false,
@@ -10,7 +10,7 @@ const init = {
 export default (state = init, action) => {
   switch (action.type) {
   case SET_LOADING:
-    return applyPayload(state, action);
+    return applyAll(state, action);
   default:
     return state;
   }

@@ -1,5 +1,6 @@
 // Dependancies
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import {
   PageHeader,
   Grid
@@ -11,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="home">
-        <PageHeader>Game Manager</PageHeader>
+        <Link to='/'><PageHeader>Game Manager</PageHeader></Link>
         <Grid>
           {this.props.children}
         </Grid>

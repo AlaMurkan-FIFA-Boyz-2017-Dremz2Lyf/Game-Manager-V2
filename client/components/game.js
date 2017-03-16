@@ -6,8 +6,13 @@ import { update } from '../actions';
 import {
   Modal,
   ListGroupItem,
-  Button
+  Button,
+  Row,
+  Col
 } from 'react-bootstrap';
+
+import GameDetails from './game_details';
+import GameForm from './game_form';
 
 export class Game extends Component {
   constructor() {
@@ -29,20 +34,50 @@ export class Game extends Component {
     });
   }
 
+  handleSubmit(values) {
+    let { game: { id } } = this.props;
+    this.props.update('games', {id, ...values});
+    this.setState({
+      showModal: false
+    });
+  }
+
   render() {
     let { game } = this.props;
     let { players } = this.props;
 
     return (
       <ListGroupItem onClick={this.open.bind(this)}>
-        <div>{players[game.p1].username}</div>
-        <div>{players[game.p2].username}</div>
+        <GameDetails
+          game={game}
+          player1={players[game.p1]}
+          player2={players[game.p2]}
+        />
         <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
           <Modal.Header>
-            <Modal.Title>Make a new Player</Modal.Title>
+            <Modal.Title>Finish this Game!</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            get that body
+            <Row>
+              <Col xs={3}>
+              </Col>
+              <Col xs={2}>
+                <h4>{players[game.p1].username}</h4>
+              </Col>
+              <Col xs={2}>
+                <h4>{players[game.p2].username}</h4>
+              </Col>
+              <Col xs={5}>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12}>
+                <GameForm
+                  onSubmit={this.handleSubmit.bind(this)}
+                  initialValues={game}
+                />
+              </Col>
+            </Row>
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.close.bind(this)}>Cancel</Button>

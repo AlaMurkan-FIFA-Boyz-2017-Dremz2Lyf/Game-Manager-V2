@@ -42,9 +42,8 @@ router.post('/', (req, res) => {
 
   if (players.length > 2) {
     let newGames = _.createGames(players, tournament);
-
-    games.create(newGames).then(savedGames => {
-      res.status(201).send(savedGames);
+    games.create(newGames).then(createdGames => {
+      res.status(201).send(createdGames);
     }).catch(err => {
       res.status(500).send('Error in saving the games to database', err);
     });

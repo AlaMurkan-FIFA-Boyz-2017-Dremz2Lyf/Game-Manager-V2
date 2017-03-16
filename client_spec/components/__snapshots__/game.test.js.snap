@@ -3,12 +3,68 @@ exports[`Game Component should match the snapshot 1`] = `
   bsClass="list-group-item"
   listItem={false}
   onClick={[Function]}>
-  <div>
-    Alice
-  </div>
-  <div>
-    Bob
-  </div>
+  <GameDetails
+    game={
+      Object {
+        "createdAt": "2016-12-25T19:31:48",
+        "id": 2,
+        "p1": 1,
+        "p1OnGoal": null,
+        "p1Poss": null,
+        "p1Reds": 0,
+        "p1Score": null,
+        "p1Shots": null,
+        "p1Yellows": 0,
+        "p2": 3,
+        "p2OnGoal": null,
+        "p2Poss": null,
+        "p2Reds": 0,
+        "p2Score": null,
+        "p2Shots": null,
+        "p2Yellows": 0,
+        "status": "created",
+        "tournament": 1,
+        "updatedAt": null,
+      }
+    }
+    player1={
+      Object {
+        "createdAt": "2016-12-25T19:31:48",
+        "draws": 0,
+        "goalsAgainst": 0,
+        "goalsFor": 0,
+        "id": 1,
+        "isTeam": 0,
+        "losses": 0,
+        "onGoal": 0,
+        "possession": 0,
+        "reds": 0,
+        "shots": 0,
+        "updatedAt": null,
+        "username": "Alice",
+        "wins": 0,
+        "yellows": 0,
+      }
+    }
+    player2={
+      Object {
+        "createdAt": "2016-12-25T19:31:48",
+        "draws": 0,
+        "goalsAgainst": 0,
+        "goalsFor": 0,
+        "id": 3,
+        "isTeam": 0,
+        "losses": 0,
+        "onGoal": 0,
+        "possession": 0,
+        "reds": 0,
+        "shots": 0,
+        "updatedAt": null,
+        "username": "Bob",
+        "wins": 0,
+        "yellows": 0,
+      }
+    } />
   <Modal
     animation={true}
     autoFocus={true}
@@ -36,13 +92,74 @@ exports[`Game Component should match the snapshot 1`] = `
       <ModalTitle
         bsClass="modal-title"
         componentClass="h4">
-        Make a new Player
+        Finish this Game!
       </ModalTitle>
     </ModalHeader>
     <ModalBody
       bsClass="modal-body"
       componentClass="div">
-      get that body
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={3} />
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={2}>
+          <h4>
+            Alice
+          </h4>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={2}>
+          <h4>
+            Bob
+          </h4>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={5} />
+      </Row>
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}>
+          <ReduxForm
+            initialValues={
+              Object {
+                "createdAt": "2016-12-25T19:31:48",
+                "id": 2,
+                "p1": 1,
+                "p1OnGoal": null,
+                "p1Poss": null,
+                "p1Reds": 0,
+                "p1Score": null,
+                "p1Shots": null,
+                "p1Yellows": 0,
+                "p2": 3,
+                "p2OnGoal": null,
+                "p2Poss": null,
+                "p2Reds": 0,
+                "p2Score": null,
+                "p2Shots": null,
+                "p2Yellows": 0,
+                "status": "created",
+                "tournament": 1,
+                "updatedAt": null,
+              }
+            }
+            onSubmit={[Function]} />
+        </Col>
+      </Row>
     </ModalBody>
     <ModalFooter
       bsClass="modal-footer"
@@ -66,12 +183,68 @@ exports[`Game Component should open the game modal when clicked 1`] = `
   bsClass="list-group-item"
   listItem={false}
   onClick={[Function]}>
-  <div>
-    Alice
-  </div>
-  <div>
-    Bob
-  </div>
+  <GameDetails
+    game={
+      Object {
+        "createdAt": "2016-12-25T19:31:48",
+        "id": 2,
+        "p1": 1,
+        "p1OnGoal": null,
+        "p1Poss": null,
+        "p1Reds": 0,
+        "p1Score": null,
+        "p1Shots": null,
+        "p1Yellows": 0,
+        "p2": 3,
+        "p2OnGoal": null,
+        "p2Poss": null,
+        "p2Reds": 0,
+        "p2Score": null,
+        "p2Shots": null,
+        "p2Yellows": 0,
+        "status": "created",
+        "tournament": 1,
+        "updatedAt": null,
+      }
+    }
+    player1={
+      Object {
+        "createdAt": "2016-12-25T19:31:48",
+        "draws": 0,
+        "goalsAgainst": 0,
+        "goalsFor": 0,
+        "id": 1,
+        "isTeam": 0,
+        "losses": 0,
+        "onGoal": 0,
+        "possession": 0,
+        "reds": 0,
+        "shots": 0,
+        "updatedAt": null,
+        "username": "Alice",
+        "wins": 0,
+        "yellows": 0,
+      }
+    }
+    player2={
+      Object {
+        "createdAt": "2016-12-25T19:31:48",
+        "draws": 0,
+        "goalsAgainst": 0,
+        "goalsFor": 0,
+        "id": 3,
+        "isTeam": 0,
+        "losses": 0,
+        "onGoal": 0,
+        "possession": 0,
+        "reds": 0,
+        "shots": 0,
+        "updatedAt": null,
+        "username": "Bob",
+        "wins": 0,
+        "yellows": 0,
+      }
+    } />
   <Modal
     animation={true}
     autoFocus={true}
@@ -99,13 +272,74 @@ exports[`Game Component should open the game modal when clicked 1`] = `
       <ModalTitle
         bsClass="modal-title"
         componentClass="h4">
-        Make a new Player
+        Finish this Game!
       </ModalTitle>
     </ModalHeader>
     <ModalBody
       bsClass="modal-body"
       componentClass="div">
-      get that body
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={3} />
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={2}>
+          <h4>
+            Alice
+          </h4>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={2}>
+          <h4>
+            Bob
+          </h4>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={5} />
+      </Row>
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}>
+          <ReduxForm
+            initialValues={
+              Object {
+                "createdAt": "2016-12-25T19:31:48",
+                "id": 2,
+                "p1": 1,
+                "p1OnGoal": null,
+                "p1Poss": null,
+                "p1Reds": 0,
+                "p1Score": null,
+                "p1Shots": null,
+                "p1Yellows": 0,
+                "p2": 3,
+                "p2OnGoal": null,
+                "p2Poss": null,
+                "p2Reds": 0,
+                "p2Score": null,
+                "p2Shots": null,
+                "p2Yellows": 0,
+                "status": "created",
+                "tournament": 1,
+                "updatedAt": null,
+              }
+            }
+            onSubmit={[Function]} />
+        </Col>
+      </Row>
     </ModalBody>
     <ModalFooter
       bsClass="modal-footer"
@@ -129,12 +363,68 @@ exports[`Game Component should open the game modal when clicked 2`] = `
   bsClass="list-group-item"
   listItem={false}
   onClick={[Function]}>
-  <div>
-    Alice
-  </div>
-  <div>
-    Bob
-  </div>
+  <GameDetails
+    game={
+      Object {
+        "createdAt": "2016-12-25T19:31:48",
+        "id": 2,
+        "p1": 1,
+        "p1OnGoal": null,
+        "p1Poss": null,
+        "p1Reds": 0,
+        "p1Score": null,
+        "p1Shots": null,
+        "p1Yellows": 0,
+        "p2": 3,
+        "p2OnGoal": null,
+        "p2Poss": null,
+        "p2Reds": 0,
+        "p2Score": null,
+        "p2Shots": null,
+        "p2Yellows": 0,
+        "status": "created",
+        "tournament": 1,
+        "updatedAt": null,
+      }
+    }
+    player1={
+      Object {
+        "createdAt": "2016-12-25T19:31:48",
+        "draws": 0,
+        "goalsAgainst": 0,
+        "goalsFor": 0,
+        "id": 1,
+        "isTeam": 0,
+        "losses": 0,
+        "onGoal": 0,
+        "possession": 0,
+        "reds": 0,
+        "shots": 0,
+        "updatedAt": null,
+        "username": "Alice",
+        "wins": 0,
+        "yellows": 0,
+      }
+    }
+    player2={
+      Object {
+        "createdAt": "2016-12-25T19:31:48",
+        "draws": 0,
+        "goalsAgainst": 0,
+        "goalsFor": 0,
+        "id": 3,
+        "isTeam": 0,
+        "losses": 0,
+        "onGoal": 0,
+        "possession": 0,
+        "reds": 0,
+        "shots": 0,
+        "updatedAt": null,
+        "username": "Bob",
+        "wins": 0,
+        "yellows": 0,
+      }
+    } />
   <Modal
     animation={true}
     autoFocus={true}
@@ -162,13 +452,74 @@ exports[`Game Component should open the game modal when clicked 2`] = `
       <ModalTitle
         bsClass="modal-title"
         componentClass="h4">
-        Make a new Player
+        Finish this Game!
       </ModalTitle>
     </ModalHeader>
     <ModalBody
       bsClass="modal-body"
       componentClass="div">
-      get that body
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={3} />
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={2}>
+          <h4>
+            Alice
+          </h4>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={2}>
+          <h4>
+            Bob
+          </h4>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={5} />
+      </Row>
+      <Row
+        bsClass="row"
+        componentClass="div">
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}>
+          <ReduxForm
+            initialValues={
+              Object {
+                "createdAt": "2016-12-25T19:31:48",
+                "id": 2,
+                "p1": 1,
+                "p1OnGoal": null,
+                "p1Poss": null,
+                "p1Reds": 0,
+                "p1Score": null,
+                "p1Shots": null,
+                "p1Yellows": 0,
+                "p2": 3,
+                "p2OnGoal": null,
+                "p2Poss": null,
+                "p2Reds": 0,
+                "p2Score": null,
+                "p2Shots": null,
+                "p2Yellows": 0,
+                "status": "created",
+                "tournament": 1,
+                "updatedAt": null,
+              }
+            }
+            onSubmit={[Function]} />
+        </Col>
+      </Row>
     </ModalBody>
     <ModalFooter
       bsClass="modal-footer"

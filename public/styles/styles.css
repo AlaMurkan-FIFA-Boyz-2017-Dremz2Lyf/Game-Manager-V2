@@ -30,3 +30,36 @@ a {
 .created-at {
   float: right;
 }
+
+.player1-name {
+  float: left;
+}
+
+.player1-score {
+  float: right;
+}
+
+.player2-name {
+  float: right;
+}
+
+.player2-score {
+  float: left;
+}
+
+.vs {
+  text-align: center;
+}
+
+
+h4 {
+  text-align: center;
+}
+
+.game-field {
+  text-align: right;
+}
+
+.advice {
+  text-align: center;
+}

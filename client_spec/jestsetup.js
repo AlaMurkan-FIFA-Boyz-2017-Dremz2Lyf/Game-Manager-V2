@@ -105,10 +105,11 @@ mock.onGet('/games').reply((config) => {
       config.params.id === 4 ? [200, [mockData.newGame]] : [200, [mockData.updated]]) : ([200, mockData.games]);
   }
 })
-.onPost('/games').reply(() => [202, {id: 4}])
+.onPost('/games').reply(() => [202, [mockData.newGame]])
 .onPut('/games').reply((config) => {
   mockData.updated = JSON.parse(config.data);
-  return [201, {id: 1}];
+
+  return [201, mockData.updated];
 });
 
 mock.onGet('/tournaments').reply((config) => {

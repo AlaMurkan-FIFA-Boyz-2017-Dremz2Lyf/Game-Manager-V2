@@ -59,4 +59,22 @@ store = {
 ## Standings Component
 
   Renders
-    - a table based on props in. 
+    - a table based on props in.
+
+
+## Dominance Bar
+
+  Combine data from the game to calculate someone's level of dominance in the game.
+
+  - Total the each combined stat for the game
+  - apply the weight to each stat for each player
+  - Find the percent each person
+  - Talk to tally and figure this out.... haha
+  | stat | weight |
+  |-----------|--------|
+  | possesion |  |
+  | shots on target |  |
+  | goals |  |
+  | reds |  |
+  |  |  |
+  |  |  |
