@@ -35,8 +35,24 @@ export class Game extends Component {
   }
 
   handleSubmit(values) {
-    let { game: { id } } = this.props;
-    this.props.update('games', {id, ...values});
+    // Pull the game, the tournaments, and the update action creator from props.
+    let { game, tournaments, update } = this.props;
+
+    // then grab the id, tournament id and p1Score from the game.
+    let { id, tournament, p1Score} = game;
+
+    // lastly, grab the gamesPlayed from the tournament corresponding to this game.
+    let { gamesPlayed } = tournaments[tournament];
+
+    // Because both scores are required to update a game, we can check if the game has been played with just one of the scores.
+    if (p1Score === null) {
+      // If this is the first time this game is being updated, we increment the game count, and update the tournament.
+      ++gamesPlayed;
+      update('tournaments', {id: tournament, gamesPlayed});
+    }
+
+    // Update the game in the database with the values from the form and a status of finished.
+    update('games', {id, ...values, status: 'finished'});
     this.setState({
       showModal: false
     });
@@ -94,7 +110,8 @@ Game.propTypes = {
 };
 
 export const mapStateToProps = ({ data }) => ({
-  players: data.players
+  players: data.players,
+  tournaments: data.tournaments
 });
 
 export default connect(mapStateToProps, { update })(Game);

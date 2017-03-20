@@ -56,11 +56,8 @@ export class Tournaments extends Component {
   }
 }
 
-export const mapStateToProps = ({data}) => {
-
-  return {
-    tournaments: data.tournaments
-  };
-};
+export const mapStateToProps = ({data}) => ({
+  tournaments: data.tournaments
+});
 
 export default connect(mapStateToProps, { fetch })(Tournaments);

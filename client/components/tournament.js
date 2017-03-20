@@ -12,6 +12,7 @@ import { percentPlayed } from '../utilities';
 
 export const Tournament = ({ tournament = {} }) => {
   let { name, createdAt, gamesPlayed, totalGames, id } = tournament;
+  let played = percentPlayed(gamesPlayed, totalGames);
   return (
     <Link to={`play/${id}`}>
       <ListGroupItem className="tournament">
@@ -25,10 +26,13 @@ export const Tournament = ({ tournament = {} }) => {
         </Row>
         <Row>
           <Col xs={12}>
-            <ProgressBar active now={percentPlayed(gamesPlayed, totalGames)}></ProgressBar>
+            <ProgressBar active now={played} label={`${played}% finished`}></ProgressBar>
           </Col>
         </Row>
       </ListGroupItem>
     </Link>
   );
 };
+
+// This displayName lets Istanbul Know the functional Component's name, and will prevent snapshots breaking between regular tests, and Coverage tests.
+Tournament.displayName = 'Tournament';

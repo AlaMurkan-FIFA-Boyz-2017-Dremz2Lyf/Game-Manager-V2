@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Panel } from 'react-bootstrap';
 
 import { receive } from '../actions';
 
@@ -18,7 +18,10 @@ export class PlayTournament extends Component {
     return (
       <Row>
         <Col xs={12} md={6}>
-          <Games tournament={params.id}/>
+          <Panel>
+            <h4>Click on a game below to play!</h4>
+            <Games tournament={params.id}/>
+          </Panel>
         </Col>
         <Col xs={12} md={6}>
 

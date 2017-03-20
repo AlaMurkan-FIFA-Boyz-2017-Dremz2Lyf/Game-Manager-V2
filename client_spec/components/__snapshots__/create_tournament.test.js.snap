@@ -128,7 +128,7 @@ exports[`CreateTournament players should default to an empty object 1`] = `
           componentClass="input"
           name="playerSearch"
           onChange={[Function]}
-          placeholder="Who do you want to play with?"
+          placeholder="Search here for players to play with."
           type="text"
           value="" />
       </div>
@@ -293,7 +293,7 @@ exports[`CreateTournament should match the snapshot 1`] = `
           componentClass="input"
           name="playerSearch"
           onChange={[Function]}
-          placeholder="Who do you want to play with?"
+          placeholder="Search here for players to play with."
           type="text"
           value="" />
       </div>

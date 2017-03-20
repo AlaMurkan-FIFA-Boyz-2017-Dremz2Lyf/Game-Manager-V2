@@ -7,8 +7,16 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
     componentClass="div"
     md={6}
     xs={12}>
-    <Connect(Games)
-      tournament="1" />
+    <Panel
+      bsClass="panel"
+      bsStyle="default"
+      defaultExpanded={false}>
+      <h4>
+        Click on a game below to play!
+      </h4>
+      <Connect(Games)
+        tournament="1" />
+    </Panel>
   </Col>
   <Col
     bsClass="col"

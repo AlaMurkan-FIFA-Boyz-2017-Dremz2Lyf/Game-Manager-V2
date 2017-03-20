@@ -1,5 +1,5 @@
 
-# Actions
+# Async Actions
 
 - `FETCH` handles the async actions
   - accepts optional `data` object
@@ -19,8 +19,14 @@
     - `.then` dispatch `FETCH` with the id for the stateKey
     - `.catch` dispatch `SET_ERROR` for `stateKey` with the error response
 
-# Store design
+# Actions for currentTable
 
+  - `INIT_TABLE` will send the initial state of the table to the Store
+    - accepts an <Object> of players.
+  - `UPDATE_TABLE` will send a pair of players <Object>
+
+
+# Store design
 
 store = {
   isLoading: {
@@ -60,21 +66,13 @@ store = {
 
   Renders
     - a table based on props in.
+      - For Home component, we pass all players from the store in. The compenent renders that table.
+      - For PlayTournament component, we pass currentTable in.
+        - when the PlayTournament component renders, we build the table based on the games and dispatch that to the store.
 
 
-## Dominance Bar
+# General notes
 
-  Combine data from the game to calculate someone's level of dominance in the game.
-
-  - Total the each combined stat for the game
-  - apply the weight to each stat for each player
-  - Find the percent each person
-  - Talk to tally and figure this out.... haha
-  | stat | weight |
-  |-----------|--------|
-  | possesion |  |
-  | shots on target |  |
-  | goals |  |
-  | reds |  |
-  |  |  |
-  |  |  |
+  - Denormalization has panned out less awesome than I thought it would.
+  - For the Home page Stats Table, The players denormalization should be fine.
+    - Still need to decide on how to handle updates to that. Right now, in theory, it will be easier to update the players in the DB when the tournament finishes. Rather than on every single update of a game, update everything. 

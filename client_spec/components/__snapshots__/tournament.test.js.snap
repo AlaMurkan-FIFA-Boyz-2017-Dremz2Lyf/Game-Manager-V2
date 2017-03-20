@@ -37,6 +37,7 @@ exports[`Tournament component should match the snapshot 1`] = `
           active={true}
           bsClass="progress-bar"
           isChild={false}
+          label="NaN% finished"
           max={100}
           min={0}
           now={NaN}
