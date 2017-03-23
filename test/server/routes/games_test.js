@@ -79,8 +79,10 @@ describe('API "/games"', function() {
       .send(tournament)
       .expect(201)
       .expect(res => {
-        expect(res.body).to.be.a('object');
-        expect(res.body[0]).to.deep.equal(newTourney[0]);
+        expect(res.body).to.be.an('array');
+        expect(res.body[0].id).to.equal(10);
+        expect(res.body[1].id).to.equal(11);
+        expect(res.body[2].id).to.equal(12);
       })
       .then(function * (res) {
         yield request(app)
@@ -136,7 +138,7 @@ describe('API "/games"', function() {
       .expect(202)
       .expect(res => {
         expect(res.accepted).to.equal(true);
-        expect(res.body.id).to.equal(finishedGame.id);
+        expect(res.body[0].id).to.equal(finishedGame.id);
       })
       .then(res =>
         request(app)

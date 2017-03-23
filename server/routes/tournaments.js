@@ -21,10 +21,12 @@ router.get('/', (req, res) => {
   }
 });
 
+
+// NOTE: This is probably not the most RESTful of an api, but is currently the best way I can think of to handle the minimal denormalization required for the Tournaments Progress Bar on the home page.
 router.post('/', (req, res) => {
-  // Check if there was no body posted send an error message if so.
-  if (!req.body) {
-    res.status(400).send({message: 'Whoops! Did you forget to include any info?'});
+  // If there is no name send an error message.
+  if (!req.body.name) {
+    return res.status(400).send({message: 'Tournaments must have a name!'});
   }
 
   // Here we pull the necessary stuff from the request body

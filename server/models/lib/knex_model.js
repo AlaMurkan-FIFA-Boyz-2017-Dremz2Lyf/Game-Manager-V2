@@ -88,7 +88,7 @@ exports.create = function (modelName, options = {}) {
       }
       attrs.updatedAt = new Date();
       return db(tableName).update(attrs).where({ [idColumn]: attrs[idColumn] }).returning('*')
-        .then((updatedRow) =>
+        .then(updatedRow =>
           (updatedRow.length === 0) ? Promise.reject(new Model.NotFound) : updatedRow
         );
     },

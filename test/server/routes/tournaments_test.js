@@ -63,21 +63,20 @@ describe('API "/tournaments"', function() {
       .expect(201)
       .expect(res => {
         expect(spiedCreate.called).to.equal(true);
-        expect(res.body).to.be.a('object');
-        expect(res.body).to.have.all.keys('id', 'totalGames', 'updatedAt');
-        expect(res.body.id).to.equal(3);
+        expect(res.body[0]).to.be.a('object');
+        expect(res.body[0]).to.have.any.keys('id', 'totalGames', 'updatedAt');
+        expect(res.body[0].id).to.equal(3);
         _.createGames.restore;
       });
     });
 
-    it('should 400 when no tournament name is present', function * () {
+    it_('should 400 when no tournament name is present', function * () {
 
       yield request(app)
       .post('/tournaments')
-      .send({user: ''})
+      .send({name: ''})
       .expect(400)
       .expect(res => {
-        expect(res.body).to.be.a('object');
         expect(res.body.message).to.be.a('string');
         expect(res.body.message).to.equal('Tournaments must have a name!');
       });
@@ -95,11 +94,11 @@ describe('API "/tournaments"', function() {
       .put('/tournaments')
       .send(updatedTournament)
       .expect(202)
-      .expect(res => {
-        expect(res.body).to.be.an('object');
-        expect(res.body.id).to.equal(1);
-        expect(res.body.name).to.equal('Super Tourney!');
-        expect(res.body.winner).to.equal(2);
+      .expect(({body}) => {
+        expect(body[0]).to.be.an('object');
+        expect(body[0].id).to.equal(1);
+        expect(body[0].name).to.equal('Super Tourney!');
+        expect(body[0].winner).to.equal(2);
       });
     });
 

@@ -24,6 +24,9 @@ export const gameField = ({input, meta: {touched, error, valid, pristine}}) => (
   </FormGroup>
 );
 
+// displayName for coverage testing
+gameField.displayName = 'gameField';
+
 export const generateOptions = (num) => (
   new Array(21).fill(1).map((item, index) => (
     <option key={index} value={index}>{index}</option>
@@ -35,6 +38,9 @@ export const PossessionField = ({input, type, meta: {touched, error, valid}}) =>
     <FormControl {...input} type={type} placeholder='00'/>
   </FormGroup>
 );
+
+// displayName for coverage testing
+PossessionField.displayName = 'PossessionField';
 
 export const Possession = ({errors = {}}) => (
   <Row className='game-field'>
@@ -62,6 +68,9 @@ export const Possession = ({errors = {}}) => (
     </Col>
   </Row>
 );
+
+// displayName for coverage testing
+Possession.displayName = 'Possession';
 
 const ConnectedPossession = connect(
   (state) => ({
@@ -101,6 +110,9 @@ export const GameForm = (props) => (
     <Button disabled={props.invalid} type='submit'>Finish this game!</Button>
   </form>
 );
+
+// displayName for coverage testing
+GameForm.displayName = 'GameForm';
 
 export default reduxForm({
   form: 'gameForm'

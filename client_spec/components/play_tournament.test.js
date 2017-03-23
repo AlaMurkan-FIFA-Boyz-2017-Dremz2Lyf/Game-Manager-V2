@@ -22,12 +22,12 @@ describe('PlayTournament Component', () => {
     </Provider>
   );
 
-  it('should match the snapshot', () => {
+  test('should match the snapshot', () => {
 
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should clear the games when unmounted', () => {
+  test('should clear the games when unmounted', () => {
     mounted.unmount();
 
     expect(mockReceive).toHaveBeenCalled();

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  ListGroup
+  ListGroup,
+  Panel
 } from 'react-bootstrap';
 
 import Game from './game';
@@ -23,9 +24,12 @@ export class Games extends Component {
 
   render() {
     return (
-      <ListGroup>
-        {this.renderGames()}
-      </ListGroup>
+      <Panel>
+        <h4>Click on a game below to play!</h4>
+        <ListGroup>
+          {this.renderGames()}
+        </ListGroup>
+      </Panel>
     );
   }
 }

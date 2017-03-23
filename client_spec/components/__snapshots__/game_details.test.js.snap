@@ -1,80 +1,39 @@
 exports[`GameDetails should match the snapshot 1`] = `
-<div>
-  <Row
-    bsClass="row"
-    componentClass="div">
-    <Col
-      bsClass="col"
-      componentClass="div"
-      xs={5}>
-      <span
-        className="player1-name">
-        Gilbert
-      </span>
-      <span
-        className="player1-score">
-        2
-      </span>
-    </Col>
-    <Col
-      bsClass="col"
-      className="vs"
-      componentClass="div"
-      xs={2}>
-      vs.
-    </Col>
-    <Col
-      bsClass="col"
-      componentClass="div"
-      xs={5}>
-      <span
-        className="player2-score">
-        1
-      </span>
-      <span
-        className="player2-name">
-        Bob
-      </span>
-    </Col>
-  </Row>
-  <Row
-    bsClass="row"
-    componentClass="div">
-    <Col
-      bsClass="col"
-      componentClass="div"
-      xs={12}>
-      <ProgressBar
-        active={false}
-        bsClass="progress-bar"
-        isChild={false}
-        max={100}
-        min={0}
-        srOnly={false}
-        striped={false}>
-        <ProgressBar
-          active={false}
-          bsClass="progress-bar"
-          bsStyle="warning"
-          isChild={false}
-          label="Gilbert\'s dominance"
-          max={100}
-          min={0}
-          now={0}
-          srOnly={false}
-          striped={false} />
-        <ProgressBar
-          active={false}
-          bsClass="progress-bar"
-          isChild={false}
-          label="Bob\'s dominance"
-          max={100}
-          min={0}
-          now={0}
-          srOnly={false}
-          striped={false} />
-      </ProgressBar>
-    </Col>
-  </Row>
-</div>
+<Row
+  bsClass="row"
+  componentClass="div">
+  <Col
+    bsClass="col"
+    componentClass="div"
+    xs={5}>
+    <span
+      className="player1-name">
+      Gilbert
+    </span>
+    <span
+      className="player1-score">
+      2
+    </span>
+  </Col>
+  <Col
+    bsClass="col"
+    className="vs"
+    componentClass="div"
+    xs={2}>
+    vs.
+  </Col>
+  <Col
+    bsClass="col"
+    componentClass="div"
+    xs={5}>
+    <span
+      className="player2-score">
+      1
+    </span>
+    <span
+      className="player2-name">
+      Bob
+    </span>
+  </Col>
+</Row>
 `;

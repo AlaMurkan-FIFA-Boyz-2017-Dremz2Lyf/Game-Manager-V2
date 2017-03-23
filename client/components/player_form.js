@@ -24,6 +24,9 @@ export const renderField = ({ input, label, type, meta: { valid, pristine } }) =
   </FormGroup>
 );
 
+// displayName for coverage testing
+renderField.displayName = 'renderField';
+
 export const popover = (
   <Popover id='popover-trigger-hover-focus'>
     Select this to make a doubles team.

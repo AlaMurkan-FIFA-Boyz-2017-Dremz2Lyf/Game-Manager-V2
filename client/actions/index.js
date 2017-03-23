@@ -2,14 +2,14 @@
 import axios from 'axios';
 
 // Action Types
-import { SET_ERRORED, SET_LOADING, RECEIVE, FETCH } from './types';
+import { SET_ERRORED, SET_LOADING, RECEIVE } from './types';
 
 // Utilities
 import { normalize } from '../utilities';
 
 export const setErrored = (stateKey, data) => {
-
-  let error = {status: data.status, message: data.data};
+  // NOTE: Still not 100% sure if this is going to work for all errors.... but it might! :D
+  let error = data.status ? {status: data.status, message: data.data} : {message: data.message, source: data.stack};
 
   return {
     type: SET_ERRORED,
@@ -57,7 +57,8 @@ export const fetch = (stateKey, data = {}) => {
     return request.then(response => response.data).then(data => {
       dispatch(receive(stateKey, data));
     }).catch(error => {
-      let data = error.response;
+      // This should handle any response errors, but more than likely not anything else.... D:
+      let data = error.response ? error.response : error;
       dispatch(setErrored(stateKey, data));
     }).then(dis => {
       dispatch(setLoading(stateKey, false));
@@ -96,7 +97,7 @@ export const create = (stateKey, data) => {
   };
 };
 
-export const update = (stateKey, data, params = {}) => {
+export const update = (stateKey, data) => {
   let put = axios.put(`/${stateKey}`, data);
 
   return (dispatch, getState) => {

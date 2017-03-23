@@ -1,82 +1,98 @@
 exports[`Games Component should match the snapshot 1`] = `
-<ListGroup
-  bsClass="list-group">
-  <Connect(Game)
-    game={
-      Object {
-        "createdAt": "2016-12-25T19:31:48",
-        "id": 1,
-        "p1": 1,
-        "p1OnGoal": null,
-        "p1Poss": null,
-        "p1Reds": 0,
-        "p1Score": null,
-        "p1Shots": null,
-        "p1Yellows": 0,
-        "p2": 2,
-        "p2OnGoal": null,
-        "p2Poss": null,
-        "p2Reds": 0,
-        "p2Score": null,
-        "p2Shots": null,
-        "p2Yellows": 0,
-        "status": "created",
-        "tournament": 1,
-        "updatedAt": null,
-      }
-    } />
-  <Connect(Game)
-    game={
-      Object {
-        "createdAt": "2016-12-25T19:31:48",
-        "id": 2,
-        "p1": 1,
-        "p1OnGoal": null,
-        "p1Poss": null,
-        "p1Reds": 0,
-        "p1Score": null,
-        "p1Shots": null,
-        "p1Yellows": 0,
-        "p2": 3,
-        "p2OnGoal": null,
-        "p2Poss": null,
-        "p2Reds": 0,
-        "p2Score": null,
-        "p2Shots": null,
-        "p2Yellows": 0,
-        "status": "created",
-        "tournament": 1,
-        "updatedAt": null,
-      }
-    } />
-  <Connect(Game)
-    game={
-      Object {
-        "createdAt": "2016-12-25T19:31:48",
-        "id": 3,
-        "p1": 2,
-        "p1OnGoal": null,
-        "p1Poss": null,
-        "p1Reds": 0,
-        "p1Score": null,
-        "p1Shots": null,
-        "p1Yellows": 0,
-        "p2": 3,
-        "p2OnGoal": null,
-        "p2Poss": null,
-        "p2Reds": 0,
-        "p2Score": null,
-        "p2Shots": null,
-        "p2Yellows": 0,
-        "status": "created",
-        "tournament": 1,
-        "updatedAt": null,
-      }
-    } />
-</ListGroup>
+<Panel
+  bsClass="panel"
+  bsStyle="default"
+  defaultExpanded={false}>
+  <h4>
+    Click on a game below to play!
+  </h4>
+  <ListGroup
+    bsClass="list-group">
+    <Connect(Game)
+      game={
+        Object {
+          "createdAt": "2016-12-25T19:31:48",
+          "id": 1,
+          "p1": 1,
+          "p1OnGoal": null,
+          "p1Poss": null,
+          "p1Reds": 0,
+          "p1Score": null,
+          "p1Shots": null,
+          "p1Yellows": 0,
+          "p2": 2,
+          "p2OnGoal": null,
+          "p2Poss": null,
+          "p2Reds": 0,
+          "p2Score": null,
+          "p2Shots": null,
+          "p2Yellows": 0,
+          "status": "created",
+          "tournament": 1,
+          "updatedAt": null,
+        }
+      } />
+    <Connect(Game)
+      game={
+        Object {
+          "createdAt": "2016-12-25T19:31:48",
+          "id": 2,
+          "p1": 1,
+          "p1OnGoal": null,
+          "p1Poss": null,
+          "p1Reds": 0,
+          "p1Score": null,
+          "p1Shots": null,
+          "p1Yellows": 0,
+          "p2": 3,
+          "p2OnGoal": null,
+          "p2Poss": null,
+          "p2Reds": 0,
+          "p2Score": null,
+          "p2Shots": null,
+          "p2Yellows": 0,
+          "status": "created",
+          "tournament": 1,
+          "updatedAt": null,
+        }
+      } />
+    <Connect(Game)
+      game={
+        Object {
+          "createdAt": "2016-12-25T19:31:48",
+          "id": 3,
+          "p1": 2,
+          "p1OnGoal": null,
+          "p1Poss": null,
+          "p1Reds": 0,
+          "p1Score": null,
+          "p1Shots": null,
+          "p1Yellows": 0,
+          "p2": 3,
+          "p2OnGoal": null,
+          "p2Poss": null,
+          "p2Reds": 0,
+          "p2Score": null,
+          "p2Shots": null,
+          "p2Yellows": 0,
+          "status": "created",
+          "tournament": 1,
+          "updatedAt": null,
+        }
+      } />
+  </ListGroup>
+</Panel>
 `;
 
 exports[`Games Component should not fail with no props 1`] = `
-<ListGroup
-  bsClass="list-group" />
+<Panel
+  bsClass="panel"
+  bsStyle="default"
+  defaultExpanded={false}>
+  <h4>
+    Click on a game below to play!
+  </h4>
+  <ListGroup
+    bsClass="list-group" />
+</Panel>
 `;

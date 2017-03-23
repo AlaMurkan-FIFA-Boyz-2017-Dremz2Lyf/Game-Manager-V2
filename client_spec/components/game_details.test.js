@@ -12,7 +12,7 @@ describe('GameDetails', () => {
     />
   );
 
-  it('should match the snapshot', () => {
+  test('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 

@@ -5,6 +5,7 @@ import { Row, Col, Panel } from 'react-bootstrap';
 import { receive } from '../actions';
 
 import Games from './games';
+import { StatsTable } from './stats_table';
 
 export class PlayTournament extends Component {
 
@@ -16,17 +17,18 @@ export class PlayTournament extends Component {
     let { params } = this.props;
 
     return (
-      <Row>
-        <Col xs={12} md={6}>
-          <Panel>
-            <h4>Click on a game below to play!</h4>
+      <div>
+        <Row>
+          <Col xs={12}>
+            <StatsTable players={{}} label={'Current Table'}/>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
             <Games tournament={params.id}/>
-          </Panel>
-        </Col>
-        <Col xs={12} md={6}>
-
-        </Col>
-      </Row>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }

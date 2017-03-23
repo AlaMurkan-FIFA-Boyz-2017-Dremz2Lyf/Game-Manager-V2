@@ -147,7 +147,7 @@ describe('Actions', () => {
       expect(store.getActions()).toEqual([expected]);
     });
 
-    it('receive should handle objects as well as arrays', () => {
+    test('receive should handle objects as well as arrays', () => {
       let data = normalize(mockData.tournaments.slice());
       let action = receive('tournaments', data);
       let expected = {
@@ -190,6 +190,14 @@ describe('Actions', () => {
       return store.dispatch(update('games', updatedGame)).then(() =>
         expect(store.getActions()).toEqual(expected)
       );
+    });
+
+  });
+
+  describe('CurrentTable Actions', () => {
+
+    test('description', () => {
+
     });
 
   });
