@@ -9,7 +9,8 @@ import { applyAll } from '../utilities';
 const init = {
   tournaments: {},
   players: {},
-  games: {}
+  games: {},
+  allTime: {}
 };
 
 export default function(state = init, action) {

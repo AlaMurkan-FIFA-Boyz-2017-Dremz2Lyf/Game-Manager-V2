@@ -53,6 +53,7 @@ export const Possession = ({errors = {}}) => (
         component={PossessionField}
         type='text'
         validate={possValidation}
+        normalize={Number}
       />
     </Col>
     <Col xs={2}>
@@ -61,6 +62,7 @@ export const Possession = ({errors = {}}) => (
         component={PossessionField}
         type='text'
         validate={possValidation}
+        normalize={Number}
       />
     </Col>
     <Col xs={5}>
@@ -88,6 +90,7 @@ export const gameFieldRows = (names) => names.map((name) => (
         name={`p1${name}`}
         component={gameField}
         validate={name === 'Score' ? required : null}
+        normalize={Number}
       />
     </Col>
     <Col xs={2}>
@@ -95,6 +98,7 @@ export const gameFieldRows = (names) => names.map((name) => (
         name={`p2${name}`}
         component={gameField}
         validate={name === 'Score' ? required : null}
+        normalize={Number}
       />
     </Col>
     <Col xs={5}>

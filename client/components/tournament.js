@@ -13,6 +13,7 @@ import { percentPlayed } from '../utilities';
 export const Tournament = ({ tournament = {} }) => {
   let { name, createdAt, gamesPlayed, totalGames, id } = tournament;
   let played = percentPlayed(gamesPlayed, totalGames);
+  let message = played > 25 ? `${gamesPlayed} out of ${totalGames} played` : null;
   return (
     <Link to={`play/${id}`}>
       <ListGroupItem className="tournament">
@@ -26,7 +27,7 @@ export const Tournament = ({ tournament = {} }) => {
         </Row>
         <Row>
           <Col xs={12}>
-            <ProgressBar active now={played} label={`${played}% finished`}></ProgressBar>
+            <ProgressBar active now={played} label={message}></ProgressBar>
           </Col>
         </Row>
       </ListGroupItem>

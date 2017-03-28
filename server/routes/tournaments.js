@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
     games.create(newGames).then(games => {
 
       // Once they are in the database we need to add the total game count to the tournament.
-      let totalGames = games.length - 1;
+      let totalGames = games.length;
 
       let { id } = tournament[0];
       tournaments.save({id, totalGames}).then(tournament => {

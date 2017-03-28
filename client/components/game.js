@@ -41,7 +41,7 @@ export class Game extends Component {
     // then grab the id, tournament id and p1Score from the game.
     let { id, tournament, p1Score} = game;
 
-    // lastly, grab the gamesPlayed from the tournament corresponding to this game.
+    // last, grab the gamesPlayed from the tournament corresponding to this game.
     let { gamesPlayed } = tournaments[tournament];
 
     // Because both scores are required to update a game, we can check if the game has been played with just one of the scores.
@@ -52,7 +52,7 @@ export class Game extends Component {
     }
 
     // Update the game in the database with the values from the form and a status of finished.
-    update('games', {id, ...values, status: 'finished'});
+    update('games', {...values, status: 'finished'});
     this.setState({
       showModal: false
     });

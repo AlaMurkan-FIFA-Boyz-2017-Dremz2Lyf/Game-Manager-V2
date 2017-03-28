@@ -9,7 +9,7 @@
     - If included, the data object will be passed as parameters to the Knex request.
   - dispatches `setLoading` for the `stateKey` with `true`
   - sends off the `get` request to the server for `stateKey` of that tournament
-    - `.then` dispatch `receive` with the stateKey's data as the payload
+    - `.then` dispatch `receive` with the stateKey & data as the payload
     - `.catch` dispatch `setErrored` for `stateKey` with the error response
     - `.then` dispatch `setLoading` for the `stateKey` with `false`
 - `create`
@@ -33,14 +33,6 @@
       - `stateKey` (String)
       - `data` (Object)
     - sends payload through to `data_reducer`, adding the corresponding data to correct substate.
-  - `buildTable` will send the initial state of the table to the Store
-    - Accepts:
-      - All the games for the current tournament.
-    - builds the table based on results of the games, and returns an action with a type of `INIT_TABLE`.
-  - `applyStats`
-    - Accepts a game (Object)
-    - dispatches an `update` for both players after getting the state for them, and adding the stats from the game.
-      - .then dispatch `updateStats`
 
 
 # Store design

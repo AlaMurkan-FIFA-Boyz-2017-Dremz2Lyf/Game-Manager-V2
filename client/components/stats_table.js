@@ -1,43 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Table, Panel } from 'react-bootstrap';
+import { Table, Panel, Tooltip, OverlayTrigger, Button } from 'react-bootstrap';
 
-export const StatsTable = ({players, label}) => {
+import TableRow from './stats_table_row';
 
-  let tableRows = Object.keys(players).map(id => {
-    let {
-      username,
-      wins,
-      losses,
-      draws,
-      goalsFor,
-      goalsAgainst,
-      shots,
-      onGoal,
-      reds,
-      yellows,
-      possession
-    } = players[id];
+export const StatsTable = ({players, label, current, headers}) => {
 
-    let goalDiff = goalsFor - goalsAgainst;
+  let tableRows = Object.values(players).sort((a, b) => {
+    if (a.points === b.points) {
+      return a.goalDiff < b.goalDiff;
+    }
+    return a.points < b.points;
+  }).map(player => (
+    <TableRow key={player.id} player={player} current={current}/>
+  ));
 
-    return (
-      <tr key={id}>
-        <td>{username}</td>
-        <td>{wins || '0'}</td>
-        <td>{losses || '0'}</td>
-        <td>{draws || '0'}</td>
-        <td>{goalsFor || '0'}</td>
-        <td>{goalsAgainst || '0'}</td>
-        <td>{goalDiff || '0'}</td>
-        <td>{shots || '0'}</td>
-        <td>{onGoal || '0'}</td>
-        <td>{reds || '0'}</td>
-        <td>{yellows || '0'}</td>
-        <td>{possession || '0'}</td>
-      </tr>
-    );
-  });
+  let currentHeaders = headers.map(header => <th key={header}>{header}</th>);
 
   return (
     <Panel>
@@ -45,18 +23,7 @@ export const StatsTable = ({players, label}) => {
       <Table bordered striped responsive>
         <thead>
           <tr>
-            <th>Player</th>
-            <th>W</th>
-            <th>L</th>
-            <th>D</th>
-            <th>GF</th>
-            <th>GA</th>
-            <th>GD</th>
-            <th>Shots</th>
-            <th>OnGoal</th>
-            <th>Yellow</th>
-            <th>Red</th>
-            <th>Poss.</th>
+            {currentHeaders}
           </tr>
         </thead>
         <tbody>
@@ -75,8 +42,10 @@ StatsTable.propTypes = {
 // This displayName lets Istanbul know the functional Component's name, and will prevent snapshots breaking between regular tests, and Coverage tests.
 StatsTable.displayName = 'StatsTable';
 
-export const mapStateToProps = ({data}) => ({
+export const mapPlayersToProps = ({data}) => ({
   players: data.players
 });
 
-export default connect(mapStateToProps)(StatsTable);
+
+
+export const OverallTable = connect(mapPlayersToProps)(StatsTable);

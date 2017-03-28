@@ -4,7 +4,7 @@ import { Panel, Tabs, Tab, Row, Col} from 'react-bootstrap';
 // Custom components
 import Tournaments from './tournaments';
 import PlayerList from './player_list';
-import StatsTable from './stats_table';
+import { OverallTable } from './stats_table';
 
 export default (props) => (
   <Row>
@@ -12,7 +12,7 @@ export default (props) => (
       <Tournaments />
     </Col>
     <Col xs={12} md={6}>
-      <StatsTable label={'All Time Table'}/>
+      <OverallTable label={'All Time Table'} headers={['Player', 'W', 'L', 'D', 'GF', 'GA', 'GD', 'S', 'OT', 'Y', 'R', 'Po']}/>
     </Col>
   </Row>
 );

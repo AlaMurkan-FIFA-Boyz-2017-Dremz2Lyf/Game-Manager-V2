@@ -54,7 +54,7 @@ export const fetch = (stateKey, data = {}) => {
   return dispatch => {
     dispatch(setLoading(stateKey, true));
 
-    return request.then(response => response.data).then(data => {
+    return request.then(response => normalize(response.data)).then(data => {
       dispatch(receive(stateKey, data));
     }).catch(error => {
       // This should handle any response errors, but more than likely not anything else.... D:
@@ -118,6 +118,7 @@ export const update = (stateKey, data) => {
     }).catch(error => {
 
       // If there was an error in the put, we grab the response from the server and pass it along to our setErrored action creator.
+
       let data = error.response;
       return dispatch(setErrored(stateKey, data));
     }).then(dis =>
