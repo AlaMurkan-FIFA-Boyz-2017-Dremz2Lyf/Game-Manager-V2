@@ -29,11 +29,21 @@ router.post('/', (req, res) => {
 });
 
 
-// NOTE: These Methods will be implimented as needed, and as a solution to the delete problem is found.
-// router.put('/', (req, res) => {
-//
-// });
-//
+router.put('/', (req, res) => {
+  // Build an array of the queries based on the request body, players key <Array>
+  let queries = req.body.players.map(player => players.updateOne(player) );
+  // Wait for all those queries to finish
+  Promise.all(queries).then(players => {
+    // updateOne returns an array of a player object
+    let combined = players[0].concat(players[1]);
+    res.status(202).send(combined);
+  }).catch(err => {
+    res.status(400).send(err);
+  });
+
+});
+
+// NOTE: Delete is a problem, PSQL has some restrictions that we need to work through with foreign keys.
 // router.delete('/', (req, res) => {
 //   if (req.query.id) {
 //     players.delete(req.query.id).then(res => {

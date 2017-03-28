@@ -24,9 +24,9 @@ export class Tournaments extends Component {
   renderList(finished) {
     let { tournaments = {} } = this.props;
 
-    return Object.keys(tournaments).reduce((list, id) => {
-      if (!!tournaments[id].winner === finished) {
-        list.push(<Tournament key={id} tournament={tournaments[id]}/>);
+    return Object.values(tournaments).reduce((list, tournament) => {
+      if (!!tournament.winner === finished) {
+        list.push(<Tournament key={tournament.id} tournament={tournament}/>);
       }
       return list;
     }, []);
@@ -56,11 +56,8 @@ export class Tournaments extends Component {
   }
 }
 
-export const mapStateToProps = ({data}) => {
-
-  return {
-    tournaments: data.tournaments
-  };
-};
+export const mapStateToProps = ({data}) => ({
+  tournaments: data.tournaments
+});
 
 export default connect(mapStateToProps, { fetch })(Tournaments);

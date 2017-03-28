@@ -24,6 +24,9 @@ export const renderField = ({ input, label, type, meta: { valid, pristine } }) =
   </FormGroup>
 );
 
+// displayName for coverage testing
+renderField.displayName = 'renderField';
+
 export const popover = (
   <Popover id='popover-trigger-hover-focus'>
     Select this to make a doubles team.
@@ -35,8 +38,8 @@ export class PlayerForm extends Component {
   notTaken(value) {
     let { allPlayers } = this.props;
 
-    return Object.keys(allPlayers).reduce((error, id) => (
-      allPlayers[id].username.toLowerCase() === value.toLowerCase() ? 'Tough luck, someone beat you to it.' : error
+    return Object.values(allPlayers).reduce((error, player) => (
+      player.username.toLowerCase() === value.toLowerCase() ? 'Tough luck, someone beat you to it.' : error
     ), undefined);
   }
 

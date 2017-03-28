@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  ListGroup
+  ListGroup,
+  Panel
 } from 'react-bootstrap';
 
 import Game from './game';
 
-import { fetch } from '../actions';
-
 export class Games extends Component {
-
-  componentDidMount() {
-    this.props.fetch('games', {type: 'tournament', id: this.props.tournament});
-  }
 
   renderGames() {
     let { games = {} } = this.props;
@@ -23,19 +18,14 @@ export class Games extends Component {
 
   render() {
     return (
-      <ListGroup>
-        {this.renderGames()}
-      </ListGroup>
+      <Panel>
+        <h4>Select a game below to play!</h4>
+        <ListGroup>
+          {this.renderGames()}
+        </ListGroup>
+      </Panel>
     );
   }
 }
 
-export const mapStateToProps = ({ data }) => ({
-  games: data.games
-});
-
-export default connect(mapStateToProps, { fetch })(Games);
-
-Games.propTypes = {
-  tournament: React.PropTypes.string
-};
+export default Games;

@@ -69,7 +69,7 @@ exports.create = function (modelName, options = {}) {
       Arguments:
         - attrs <Object>
       Returns:
-        - the new row with the new 'id' and passed attrs <Object>
+        - the new row with all columns <Object>
     */
     create: function (attrs) {
       return db(tableName).insert(attrs).returning('*').then(rows => rows);
@@ -80,7 +80,7 @@ exports.create = function (modelName, options = {}) {
       Arguments:
         - attrs <Object>
       Returns:
-        - the passed attrs <Object>
+        - the updated row with all columns<Object>
     */
     updateOne: function (attrs) {
       if (! attrs[idColumn]) {
@@ -88,7 +88,7 @@ exports.create = function (modelName, options = {}) {
       }
       attrs.updatedAt = new Date();
       return db(tableName).update(attrs).where({ [idColumn]: attrs[idColumn] }).returning('*')
-        .then((updatedRow) =>
+        .then(updatedRow =>
           (updatedRow.length === 0) ? Promise.reject(new Model.NotFound) : updatedRow
         );
     },

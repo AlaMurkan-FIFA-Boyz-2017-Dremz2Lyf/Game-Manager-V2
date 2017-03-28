@@ -28,7 +28,7 @@ const middlewares = [ thunk ];
 const mockStore = configureStore(middlewares);
 let store;
 
-describe('Actions', () => {
+describe('Actions Creators', () => {
 
   beforeEach(() => {
     store = mockStore({
@@ -104,7 +104,7 @@ describe('Actions', () => {
 
   });
 
-  describe('Data actions', () => {
+  describe('Data Actions', () => {
 
     test('fetch with parameters', () => {
       let expectedGames = mockData.games.filter(game => game.tournament === 1);
@@ -147,7 +147,7 @@ describe('Actions', () => {
       expect(store.getActions()).toEqual([expected]);
     });
 
-    it('receive should handle objects as well as arrays', () => {
+    test('receive should handle objects as well as arrays', () => {
       let data = normalize(mockData.tournaments.slice());
       let action = receive('tournaments', data);
       let expected = {
@@ -176,14 +176,14 @@ describe('Actions', () => {
       );
     });
 
-    test('update something here should make it easier to know this is the failing test', () => {
-      let updatedGame = mockData.games.slice(0, 1);
-      updatedGame[0].p1Score = 3;
-      updatedGame[0].p2Score = 2;
+    test('update', () => {
+      let updatedGame = {...mockData.games.slice(0, 1)[0]};
+      updatedGame.p1Score = 3;
+      updatedGame.p2Score = 2;
 
       let expected = [
         setLoading('games', true),
-        receive('games', normalize(updatedGame.slice())),
+        receive('games', normalize([updatedGame])),
         setLoading('games', false)
       ];
 
@@ -193,5 +193,4 @@ describe('Actions', () => {
     });
 
   });
-
 });

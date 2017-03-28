@@ -35,7 +35,7 @@ describe('API "/players"', function() {
       });
     });
 
-    it('should respond with just one player when an "id" is passed as a param/query', function * () {
+    test('should respond with just one player when an "id" is passed as a param/query', function * () {
 
       yield request(app)
       .get('/players?id=2')
@@ -58,8 +58,8 @@ describe('API "/players"', function() {
       .send(newPlayer)
       .expect(201)
       .expect(res => {
-        expect(res.body).to.have.all.keys('id', 'username');
-        expect(res.body.username).to.equal('Agustin');
+        expect(res.body[0]).to.have.any.keys('id', 'username', 'createdAt', 'updatedAt', 'isTeam');
+        expect(res.body[0].username).to.equal('Agustin');
       });
     });
 
@@ -79,40 +79,50 @@ describe('API "/players"', function() {
 
   });
 
+  describe('PUT', () => {
 
-  /*
-    NOTE:
-    Currently have no need for a put method for players, there is nothing to change on the player's profile currently.
-  */
-  // describe('PUT', () => {
-  //
-  //   it_('should accept an updated tournament. Respond with 202 and the updated properties', function * () {
-  //     let updatedPlayer = mockData.players.slice(2, 3)[0];
-  //
-  //     yield request(app)
-  //     .put('/tournaments')
-  //     .send(updatedPlayer)
-  //     .expect(202)
-  //     .expect(res => {
-  //       expect(res.body).to.be.an('object');
-  //       expect(res.body.id).to.equal(3);
-  //       expect(res.body.name).to.equal('Bob');
-  //     });
-  //   });
-  //
-  //   it_('should error if there is no "id" given for the update', function * () {
-  //     let noId = mockData.players.slice(2, 3)[0];
-  //     delete noId.id;
-  //
-  //     yield request(app)
-  //     .put('/players')
-  //     .send(noId)
-  //     .expect(400)
-  //     .expect(res => {
-  //       expect(res.error.text).to.equal('invalid_argument');
-  //     });
-  //   });
-  // });
+    it_('should accept a single player object. Respond with 202 and the updated player', function * () {
+      let players = mockData.players.slice(2, 3);
+      let body = {players};
+
+      yield request(app)
+      .put('/players')
+      .send(body)
+      .expect(202)
+      .expect(({body}) => {
+        expect(body).to.be.an('array');
+        expect(body[0].id).to.equal(3);
+        expect(body[0].username).to.equal('Bob');
+      });
+    });
+
+    it_('should accept two player objects. Respond with 202 and the updated player', function * () {
+      let players = mockData.players.slice(1, 3);
+      let body = {players};
+
+      yield request(app)
+      .put('/players')
+      .send(body)
+      .expect(202)
+      .expect(({body}) => {
+        expect(body).to.be.an('array');
+      });
+    });
+
+    it_('should error if there is no "id" given for the update', function * () {
+      let players = mockData.players.slice(2, 3);
+      delete players[0].id;
+      let body = {players};
+
+      yield request(app)
+      .put('/players')
+      .send(body)
+      .expect(400)
+      .expect(({error}) => {
+        expect(error.text).to.equal('{"type":"invalid_argument","meta":{"model":"players"}}');
+      });
+    });
+  });
 
 
   /*

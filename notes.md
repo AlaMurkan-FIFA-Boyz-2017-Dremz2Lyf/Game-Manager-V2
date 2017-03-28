@@ -1,26 +1,41 @@
 
-# Actions
+# Async Action Creators
 
-- `FETCH` handles the async actions
-  - accepts optional `data` object
-  - dispatch `SET_LOADING` for the `stateKey` with `true`
+  **All Async creators accept a stateKey (String), and data (Object)**
+
+- `fetch` handles the async actions
+  - `data` param is optional
+    - If omitted, all items for that specific stateKey will be fetched.
+    - If included, the data object will be passed as parameters to the Knex request.
+  - dispatches `setLoading` for the `stateKey` with `true`
   - sends off the `get` request to the server for `stateKey` of that tournament
-    - `.then` dispatch `RECEIVE` with the stateKey's data as the payload
-    - `.catch` dispatch `SET_ERROR` for `stateKey` with the error response
-    - `.then` dispatch `SET_LOADING` for the `stateKey` with `false`
-- `RECEIVE`
-    - sends payload through to reducer, adding the data set to state
-- `CREATE`
-  - sends off the `post` request to the server with the specific data set
-    - `.then` dispatch `FETCH` with the id for the stateKey
-    - `.catch` dispatch `SET_ERROR` for `stateKey` with the error response
-- `UPDATE`
-  - sends off the `put` request to the server with a specific data set
-    - `.then` dispatch `FETCH` with the id for the stateKey
-    - `.catch` dispatch `SET_ERROR` for `stateKey` with the error response
+    - `.then` dispatch `receive` with the stateKey & data as the payload
+    - `.catch` dispatch `setErrored` for `stateKey` with the error response
+    - `.then` dispatch `setLoading` for the `stateKey` with `false`
+- `create`
+  - dispatches `setLoading` for the `stateKey` with `true`
+  - sends off the `post` request to the server with the data to be created
+    - `.then` dispatch `receive` with the `stateKey` and the created item(s)
+    - `.catch` dispatch `setErrored` for `stateKey` with the error response
+    - `.then` dispatch `setLoading` for the `stateKey` with `false`
+- `update`
+  - `data` param requires an ID for updating.
+  - dispatches `setLoading` for the `stateKey` with `true`
+  - sends off the `put` request to the server with the data to be updated
+    - `.then` dispatch `receive` with the `stateKey` and the updated item(s)
+    - `.catch` dispatch `setErrored` for `stateKey` with the error response
+    - `.then` dispatch `setLoading` for the `stateKey` with `false`
+
+# Sync Action Creators
+
+  - `receive`
+    - Accepts:
+      - `stateKey` (String)
+      - `data` (Object)
+    - sends payload through to `data_reducer`, adding the corresponding data to correct substate.
+
 
 # Store design
-
 
 store = {
   isLoading: {
@@ -60,21 +75,13 @@ store = {
 
   Renders
     - a table based on props in.
+      - For Home component, we pass all players from the store in. The compenent renders that table.
+      - For PlayTournament component, we pass currentTable in.
+        - when the PlayTournament component renders, we build the table based on the games and dispatch that to the store.
 
 
-## Dominance Bar
+# General notes
 
-  Combine data from the game to calculate someone's level of dominance in the game.
-
-  - Total the each combined stat for the game
-  - apply the weight to each stat for each player
-  - Find the percent each person
-  - Talk to tally and figure this out.... haha
-  | stat | weight |
-  |-----------|--------|
-  | possesion |  |
-  | shots on target |  |
-  | goals |  |
-  | reds |  |
-  |  |  |
-  |  |  |
+  - Denormalization has panned out less awesome than I thought it would.
+  - For the Home page Stats Table, The players denormalization should be fine.
+    - Still need to decide on how to handle updates to that. Right now, in theory, it will be easier to update the players in the DB when the tournament finishes. Rather than on every single update of a game, update everything.

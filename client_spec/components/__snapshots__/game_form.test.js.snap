@@ -10,7 +10,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
     }
   }>
   <ReduxForm>
-    <Connect(Form(Component))
+    <Connect(Form(GameForm))
       destroyOnUnmount={true}
       enableReinitialize={false}
       forceUnregisterOnUnmount={false}
@@ -23,7 +23,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
       shouldValidate={[Function]}
       touchOnBlur={true}
       touchOnChange={false}>
-      <Form(Component)
+      <Form(GameForm)
         anyTouched={false}
         array={
           Object {
@@ -166,7 +166,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
         valid={false}
         validExceptSubmit={false}
         values={Object {}}>
-        <Component
+        <GameForm
           anyTouched={false}
           array={
             Object {
@@ -430,7 +430,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                           pristine={true}
                           syncError="Required"
                           validate={[Function]}>
-                          <Component
+                          <gameField
                             input={
                               Object {
                                 "name": "p1Score",
@@ -571,7 +571,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 </FormControl>
                               </div>
                             </FormGroup>
-                          </Component>
+                          </gameField>
                         </ConnectedField>
                       </Connect(ConnectedField)>
                     </Field>
@@ -776,7 +776,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                           pristine={true}
                           syncError="Required"
                           validate={[Function]}>
-                          <Component
+                          <gameField
                             input={
                               Object {
                                 "name": "p2Score",
@@ -917,7 +917,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 </FormControl>
                               </div>
                             </FormGroup>
-                          </Component>
+                          </gameField>
                         </ConnectedField>
                       </Connect(ConnectedField)>
                     </Field>
@@ -1160,7 +1160,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                           normalize={[Function]}
                           pristine={true}
                           validate={null}>
-                          <Component
+                          <gameField
                             input={
                               Object {
                                 "name": "p1Shots",
@@ -1301,7 +1301,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 </FormControl>
                               </div>
                             </FormGroup>
-                          </Component>
+                          </gameField>
                         </ConnectedField>
                       </Connect(ConnectedField)>
                     </Field>
@@ -1505,7 +1505,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                           normalize={[Function]}
                           pristine={true}
                           validate={null}>
-                          <Component
+                          <gameField
                             input={
                               Object {
                                 "name": "p2Shots",
@@ -1646,7 +1646,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 </FormControl>
                               </div>
                             </FormGroup>
-                          </Component>
+                          </gameField>
                         </ConnectedField>
                       </Connect(ConnectedField)>
                     </Field>
@@ -1889,7 +1889,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                           normalize={[Function]}
                           pristine={true}
                           validate={null}>
-                          <Component
+                          <gameField
                             input={
                               Object {
                                 "name": "p1OnGoal",
@@ -2030,7 +2030,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 </FormControl>
                               </div>
                             </FormGroup>
-                          </Component>
+                          </gameField>
                         </ConnectedField>
                       </Connect(ConnectedField)>
                     </Field>
@@ -2234,7 +2234,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                           normalize={[Function]}
                           pristine={true}
                           validate={null}>
-                          <Component
+                          <gameField
                             input={
                               Object {
                                 "name": "p2OnGoal",
@@ -2375,7 +2375,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 </FormControl>
                               </div>
                             </FormGroup>
-                          </Component>
+                          </gameField>
                         </ConnectedField>
                       </Connect(ConnectedField)>
                     </Field>
@@ -2618,7 +2618,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                           normalize={[Function]}
                           pristine={true}
                           validate={null}>
-                          <Component
+                          <gameField
                             input={
                               Object {
                                 "name": "p1Reds",
@@ -2759,7 +2759,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 </FormControl>
                               </div>
                             </FormGroup>
-                          </Component>
+                          </gameField>
                         </ConnectedField>
                       </Connect(ConnectedField)>
                     </Field>
@@ -2963,7 +2963,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                           normalize={[Function]}
                           pristine={true}
                           validate={null}>
-                          <Component
+                          <gameField
                             input={
                               Object {
                                 "name": "p2Reds",
@@ -3104,7 +3104,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 </FormControl>
                               </div>
                             </FormGroup>
-                          </Component>
+                          </gameField>
                         </ConnectedField>
                       </Connect(ConnectedField)>
                     </Field>
@@ -3347,7 +3347,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                           normalize={[Function]}
                           pristine={true}
                           validate={null}>
-                          <Component
+                          <gameField
                             input={
                               Object {
                                 "name": "p1Yellows",
@@ -3488,7 +3488,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 </FormControl>
                               </div>
                             </FormGroup>
-                          </Component>
+                          </gameField>
                         </ConnectedField>
                       </Connect(ConnectedField)>
                     </Field>
@@ -3692,7 +3692,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                           normalize={[Function]}
                           pristine={true}
                           validate={null}>
-                          <Component
+                          <gameField
                             input={
                               Object {
                                 "name": "p2Yellows",
@@ -3833,7 +3833,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 </FormControl>
                               </div>
                             </FormGroup>
-                          </Component>
+                          </gameField>
                         </ConnectedField>
                       </Connect(ConnectedField)>
                     </Field>
@@ -3856,8 +3856,8 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                 </Col>
               </div>
             </Row>
-            <Connect(Component)>
-              <Component
+            <Connect(Possession)>
+              <Possession
                 dispatch={[Function]}
                 errors={
                   Object {
@@ -4088,7 +4088,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               pristine={true}
                               type="text"
                               validate={[Function]}>
-                              <Component
+                              <PossessionField
                                 input={
                                   Object {
                                     "name": "p1Poss",
@@ -4151,7 +4151,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     </FormControl>
                                   </div>
                                 </FormGroup>
-                              </Component>
+                              </PossessionField>
                             </ConnectedField>
                           </Connect(ConnectedField)>
                         </Field>
@@ -4358,7 +4358,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               pristine={true}
                               type="text"
                               validate={[Function]}>
-                              <Component
+                              <PossessionField
                                 input={
                                   Object {
                                     "name": "p2Poss",
@@ -4421,7 +4421,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     </FormControl>
                                   </div>
                                 </FormGroup>
-                              </Component>
+                              </PossessionField>
                             </ConnectedField>
                           </Connect(ConnectedField)>
                         </Field>
@@ -4442,8 +4442,8 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     </Col>
                   </div>
                 </Row>
-              </Component>
-            </Connect(Component)>
+              </Possession>
+            </Connect(Possession)>
             <Button
               active={false}
               block={false}
@@ -4459,9 +4459,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
               </button>
             </Button>
           </form>
-        </Component>
-      </Form(Component)>
-    </Connect(Form(Component))>
+        </GameForm>
+      </Form(GameForm)>
+    </Connect(Form(GameForm))>
   </ReduxForm>
 </Provider>
 `;

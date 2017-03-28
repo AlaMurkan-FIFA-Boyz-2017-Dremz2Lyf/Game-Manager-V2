@@ -1,19 +1,27 @@
 exports[`PlayTournament Component should match the snapshot 1`] = `
-<Row
-  bsClass="row"
-  componentClass="div">
-  <Col
-    bsClass="col"
-    componentClass="div"
-    md={6}
-    xs={12}>
-    <Connect(Games)
-      tournament="1" />
-  </Col>
-  <Col
-    bsClass="col"
-    componentClass="div"
-    md={6}
-    xs={12} />
-</Row>
+<div>
+  <Row
+    bsClass="row"
+    componentClass="div">
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}>
+      <StatsTable
+        label="Current Table"
+        players={Object {}} />
+    </Col>
+  </Row>
+  <Row
+    bsClass="row"
+    componentClass="div">
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}>
+      <Connect(Games)
+        tournament="1" />
+    </Col>
+  </Row>
+</div>
 `;

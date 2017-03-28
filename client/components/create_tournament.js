@@ -50,7 +50,7 @@ export class CreateTournament extends Component {
     });
   }
 
-  // handles the submittion of the tournament, and creates it with a post to the database.
+  // handles the submit of the tournament
   handleSubmit(e) {
     e.preventDefault();
     let { rounds, added, name } = this.state;
@@ -133,7 +133,7 @@ export class CreateTournament extends Component {
               value={playerSearch}
               name='playerSearch'
               type='text'
-              placeholder='Who do you want to play with?'
+              placeholder='Search here for players to play with.'
             />
           </div>
           </Col>

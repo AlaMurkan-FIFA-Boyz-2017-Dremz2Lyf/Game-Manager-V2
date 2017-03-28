@@ -24,6 +24,9 @@ export const gameField = ({input, meta: {touched, error, valid, pristine}}) => (
   </FormGroup>
 );
 
+// displayName for coverage testing
+gameField.displayName = 'gameField';
+
 export const generateOptions = (num) => (
   new Array(21).fill(1).map((item, index) => (
     <option key={index} value={index}>{index}</option>
@@ -36,6 +39,9 @@ export const PossessionField = ({input, type, meta: {touched, error, valid}}) =>
   </FormGroup>
 );
 
+// displayName for coverage testing
+PossessionField.displayName = 'PossessionField';
+
 export const Possession = ({errors = {}}) => (
   <Row className='game-field'>
     <Col xs={3}>
@@ -47,6 +53,7 @@ export const Possession = ({errors = {}}) => (
         component={PossessionField}
         type='text'
         validate={possValidation}
+        normalize={Number}
       />
     </Col>
     <Col xs={2}>
@@ -55,6 +62,7 @@ export const Possession = ({errors = {}}) => (
         component={PossessionField}
         type='text'
         validate={possValidation}
+        normalize={Number}
       />
     </Col>
     <Col xs={5}>
@@ -62,6 +70,9 @@ export const Possession = ({errors = {}}) => (
     </Col>
   </Row>
 );
+
+// displayName for coverage testing
+Possession.displayName = 'Possession';
 
 const ConnectedPossession = connect(
   (state) => ({
@@ -79,6 +90,7 @@ export const gameFieldRows = (names) => names.map((name) => (
         name={`p1${name}`}
         component={gameField}
         validate={name === 'Score' ? required : null}
+        normalize={Number}
       />
     </Col>
     <Col xs={2}>
@@ -86,6 +98,7 @@ export const gameFieldRows = (names) => names.map((name) => (
         name={`p2${name}`}
         component={gameField}
         validate={name === 'Score' ? required : null}
+        normalize={Number}
       />
     </Col>
     <Col xs={5}>
@@ -101,6 +114,9 @@ export const GameForm = (props) => (
     <Button disabled={props.invalid} type='submit'>Finish this game!</Button>
   </form>
 );
+
+// displayName for coverage testing
+GameForm.displayName = 'GameForm';
 
 export default reduxForm({
   form: 'gameForm'

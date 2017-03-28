@@ -5,7 +5,8 @@ import {
   getValidationState,
   required,
   possValidation,
-  helpMessage
+  helpMessage,
+  buildTable
 } from '../client/utilities';
 
 
@@ -127,6 +128,28 @@ describe('Utilities', () => {
       expect(helpMessage('Shots')).toBe(expected);
     });
 
+  });
+
+  describe('buildTable', () => {
+    test('should take in games and return a table', () => {
+      let input = normalize(mockData.games.slice(0, 3));
+      input[1].p1Score = 3;
+      input[1].p2Score = 2;
+      input[1].p1Poss = .75;
+      input[1].p2Poss = .25;
+      input[2].p1Score = 1;
+      input[2].p2Score = 2;
+      input[2].p1Poss = .50;
+      input[2].p2Poss = .50;
+
+      let expected = {
+        1: {wins: 1, losses: 1, draws: 0, goalsFor: 4, goalsAgainst: 4, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: .625},
+        2: {wins: 0, losses: 1, draws: 0, goalsFor: 2, goalsAgainst: 3, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: .25},
+        3: {wins: 1, losses: 0, draws: 0, goalsFor: 2, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: .50}
+      };
+
+      expect(buildTable(input)).toEqual(expected);
+    });
   });
 
 });

@@ -25,22 +25,22 @@ describe('Games Component', () => {
     </Provider>
   );
 
-  it('should match the snapshot', () => {
+  test('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should not fail with no props', () => {
+  test('should not fail with no props', () => {
     let empty = shallow(<Games />);
 
     expect(empty).toMatchSnapshot();
   });
 
-  it('should render a list of Game components', () => {
+  test('should render a list of Game components', () => {
 
     expect(wrapper.find('Connect(Game)').length).toBe(3);
   });
 
-  it('should call fetch when it\'s mounted', () => {
+  test('should call fetch when it\'s mounted', () => {
 
     expect(mockFetch).toHaveBeenCalled();
     expect(mockFetch.mock.calls[0]).toEqual(['games', {type: 'tournament', id: '1'}]);
