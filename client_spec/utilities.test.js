@@ -6,9 +6,11 @@ import {
   required,
   possValidation,
   helpMessage,
-  buildTable
+  buildTable,
+  applyGame
 } from '../client/utilities';
 
+import { mockData } from './mockData';
 
 describe('Utilities', () => {
 
@@ -88,10 +90,10 @@ describe('Utilities', () => {
 
   describe('possValidation', () => {
 
-    test('should return undefined if both possession values are undefined', () => {
+    test('should require the current field', () => {
       let both = {};
 
-      expect(possValidation({}, both)).toBeUndefined();
+      expect(possValidation({}, both)).toBe('Possession is required.');
     });
 
     test('should return undefined if just one possession value is defined', () => {
@@ -132,24 +134,43 @@ describe('Utilities', () => {
 
   describe('buildTable', () => {
     test('should take in games and return a table', () => {
-      let input = normalize(mockData.games.slice(0, 3));
-      input[1].p1Score = 3;
-      input[1].p2Score = 2;
-      input[1].p1Poss = .75;
-      input[1].p2Poss = .25;
-      input[2].p1Score = 1;
-      input[2].p2Score = 2;
-      input[2].p1Poss = .50;
-      input[2].p2Poss = .50;
+      let game1 = {...mockData.games[0]};
+      let game2 = {...mockData.games[1]};
+      let games = normalize([game1, game2]);
+      let players = normalize(mockData.players.slice(0));
+      let expected = {...mockData.table};
 
-      let expected = {
-        1: {wins: 1, losses: 1, draws: 0, goalsFor: 4, goalsAgainst: 4, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: .625},
-        2: {wins: 0, losses: 1, draws: 0, goalsFor: 2, goalsAgainst: 3, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: .25},
-        3: {wins: 1, losses: 0, draws: 0, goalsFor: 2, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: .50}
-      };
+      games[1].p1Score = 3;
+      games[1].p2Score = 2;
+      games[1].p1Poss = 75;
+      games[1].p2Poss = 25;
+      games[2].p1Score = 1;
+      games[2].p2Score = 2;
+      games[2].p1Poss = 50;
+      games[2].p2Poss = 50;
 
-      expect(buildTable(input)).toEqual(expected);
+      expect(buildTable(games, players)).toEqual(expected);
     });
   });
 
+  describe('applyGame', () => {
+
+    test('should handle draws', () => {
+      let game = {...mockData.games[0]};
+      game.p1Score = 1;
+      game.p2Score = 1;
+      let table = {
+        1: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 0, goalDiff: 0},
+        2: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 0, goalDiff: 0}
+      };
+
+      let expected = {
+        1: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 1, goalDiff: 0},
+        2: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 1, goalDiff: 0}
+      };
+
+      expect(applyGame(table, game)).toEqual(expected);
+    });
+
+  });
 });

@@ -40,7 +40,7 @@ export const getValidationState = (valid, pristine) => pristine ? null : (valid 
 
 /**
   * required - another validation check for redux-form
-  * @param {string} value - from redux-form, returns an alert if the user has not entered required info. Also deals with the number 0 as that is falsey value. 
+  * @param {string} value - from redux-form, returns an alert if the user has not entered required info. Also deals with the number 0 as that is falsey value.
 */
 export const required = value => value === 0 || value ? undefined : 'Required';
 
@@ -110,7 +110,6 @@ export const applyGame = (table, game) => {
 
   let { p1, p2, p1Score, p2Score, p1Shots, p2Shots, p1Poss, p2Poss, p1OnGoal, p2OnGoal, p1Reds, p1Yellows, p2Reds, p2Yellows } = game;
 
-
   let player1 = table[p1];
   let player2 = table[p2];
 
@@ -139,46 +138,11 @@ export const applyGame = (table, game) => {
     player1.yellows += p1Yellows;
     player2.yellows += p2Yellows;
     player1.poss = player1.poss === null ? p1Poss : (player1.poss + p1Poss) / (player1.wins + player1.losses + player1.draws);
-    player2.poss = player2.poss === null ? p2Poss : (player1.poss + p1Poss) / (player1.wins + player1.losses + player1.draws);
+    player2.poss = player2.poss === null ? p2Poss : (player2.poss + p1Poss) / (player2.wins + player2.losses + player2.draws);
     player1.points = (player1.wins * 3 + player1.draws);
     player2.points = (player2.wins * 3 + player2.draws);
     player1.goalDiff = (player1.goalsFor - player1.goalsAgainst);
     player2.goalDiff = (player2.goalsFor - player2.goalsAgainst);
   }
   return table;
-};
-
-
-// NOTE: Currently not being used:
-  // Need to figure out how to get the react-bootstrap - tooltips to work.
-  // Seemingly I need to build a component wrapped in a <th>... but the first attempt didn't work.
-export const mapHeaders = (header) => {
-  switch (header) {
-  case 'P':
-    return 'Points';
-  case 'W':
-    return 'Wins';
-  case 'L':
-    return 'Losses';
-  case 'D':
-    return 'Draws';
-  case 'GF':
-    return 'Goals For';
-  case 'GA':
-    return 'Goals Against';
-  case 'GD':
-    return 'Goal Differencial';
-  case 'S':
-    return 'Shots';
-  case 'OT':
-    return 'Shots On Target';
-  case 'Y':
-    return 'Yellows';
-  case 'R':
-    return 'Reds';
-  case 'Po':
-    return 'Possession';
-  default:
-    return 'Player';
-  }
 };

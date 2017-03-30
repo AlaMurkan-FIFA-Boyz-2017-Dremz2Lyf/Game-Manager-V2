@@ -5,6 +5,9 @@ import { store } from '../../client/store';
 import Connected, { PlayerForm, getValidationState, popover } from '../../client/components/player_form';
 import { normalize, required } from '../../client/utilities';
 
+import { mockData } from '../mockData';
+
+
 describe('Connected PlayerForm', () => {
   let mounted = mount(
     <Provider store={store}>
@@ -44,6 +47,7 @@ describe('Shallow PlayerForm with mocks', () => {
     wrapper.find('form').simulate('submit');
 
     expect(submitMock).toHaveBeenCalled();
+    submitMock.mockClear();
   });
 
   test('should add a HelpBlock if there was an error', () => {

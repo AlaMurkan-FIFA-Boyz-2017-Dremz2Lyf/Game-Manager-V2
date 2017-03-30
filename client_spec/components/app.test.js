@@ -23,5 +23,6 @@ describe('Shallow App', () => {
     );
     expect(mockFetch).toHaveBeenCalled();
     expect(mockFetch.mock.calls[0]).toEqual(['players']);
+    mockFetch.mockClear();
   });
 });

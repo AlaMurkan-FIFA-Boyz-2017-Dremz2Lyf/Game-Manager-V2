@@ -17,6 +17,9 @@ exports[`Stats Table should match the snapshot 1`] = `
           Player
         </th>
         <th>
+          P
+        </th>
+        <th>
           W
         </th>
         <th>
@@ -35,137 +38,80 @@ exports[`Stats Table should match the snapshot 1`] = `
           GD
         </th>
         <th>
-          Shots
+          S
         </th>
         <th>
-          OnGoal
+          OT
         </th>
         <th>
-          Yellow
+          Y
         </th>
         <th>
-          Red
+          R
         </th>
         <th>
-          Poss.
+          Po
         </th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>
-          Alice
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-      </tr>
-      <tr>
-        <td>
-          Gilbert
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-      </tr>
-      <tr>
-        <td>
-          Bob
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-        <td>
-          0
-        </td>
-      </tr>
+      <StatsTableRow
+        player={
+          Object {
+            "draws": 0,
+            "goalDiff": 1,
+            "goalsAgainst": 1,
+            "goalsFor": 2,
+            "id": 3,
+            "losses": 0,
+            "onGoal": 0,
+            "points": 3,
+            "poss": 50,
+            "reds": 0,
+            "shots": 0,
+            "username": "Bob",
+            "wins": 1,
+            "yellows": 0,
+          }
+        } />
+      <StatsTableRow
+        player={
+          Object {
+            "draws": 0,
+            "goalDiff": 0,
+            "goalsAgainst": 4,
+            "goalsFor": 4,
+            "id": 1,
+            "losses": 1,
+            "onGoal": 0,
+            "points": 3,
+            "poss": 62.5,
+            "reds": 0,
+            "shots": 0,
+            "username": "Alice",
+            "wins": 1,
+            "yellows": 0,
+          }
+        } />
+      <StatsTableRow
+        player={
+          Object {
+            "draws": 0,
+            "goalDiff": -1,
+            "goalsAgainst": 3,
+            "goalsFor": 2,
+            "id": 2,
+            "losses": 1,
+            "onGoal": 0,
+            "points": 0,
+            "poss": 25,
+            "reds": 0,
+            "shots": 0,
+            "username": "Gilbert",
+            "wins": 0,
+            "yellows": 0,
+          }
+        } />
     </tbody>
   </Table>
 </Panel>

@@ -78,10 +78,12 @@
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "/jestsetup.js"
+      "/jestsetup.js",
+      "/mockData.js"
     ],
     "snapshotSerializers": [
       "./node_modules/enzyme-to-json/serializer"
-    ]
+    ],
+    "clearMocks": true
   }
 }

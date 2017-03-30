@@ -2,6 +2,8 @@ import React from 'react';
 
 import GameDetails from '../../client/components/game_details';
 
+import { mockData } from '../mockData';
+
 describe('GameDetails', () => {
   let players = mockData.players.slice(1);
   let wrapper = shallow(
