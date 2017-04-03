@@ -11,20 +11,10 @@ exports[`PlayerList should render Components correctly based on props 1`] = `
     player={
       Object {
         "createdAt": "2016-12-25T19:31:48",
-        "draws": 0,
-        "goalsAgainst": 0,
-        "goalsFor": 0,
         "id": 1,
         "isTeam": 0,
-        "losses": 0,
-        "onGoal": 0,
-        "possession": 0,
-        "reds": 0,
-        "shots": 0,
         "updatedAt": null,
         "username": "Alice",
-        "wins": 0,
-        "yellows": 0,
       }
     } />
   <PlayerListItem
@@ -32,20 +22,10 @@ exports[`PlayerList should render Components correctly based on props 1`] = `
     player={
       Object {
         "createdAt": "2016-12-25T19:31:48",
-        "draws": 0,
-        "goalsAgainst": 0,
-        "goalsFor": 0,
         "id": 2,
         "isTeam": 0,
-        "losses": 0,
-        "onGoal": 0,
-        "possession": 0,
-        "reds": 0,
-        "shots": 0,
         "updatedAt": null,
         "username": "Gilbert",
-        "wins": 0,
-        "yellows": 0,
       }
     } />
   <PlayerListItem
@@ -53,20 +33,10 @@ exports[`PlayerList should render Components correctly based on props 1`] = `
     player={
       Object {
         "createdAt": "2016-12-25T19:31:48",
-        "draws": 0,
-        "goalsAgainst": 0,
-        "goalsFor": 0,
         "id": 3,
         "isTeam": 0,
-        "losses": 0,
-        "onGoal": 0,
-        "possession": 0,
-        "reds": 0,
-        "shots": 0,
         "updatedAt": null,
         "username": "Bob",
-        "wins": 0,
-        "yellows": 0,
       }
     } />
   <Connect(CreatePlayer) />

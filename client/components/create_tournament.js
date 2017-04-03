@@ -60,12 +60,12 @@ export class CreateTournament extends Component {
 
   // added takes boolean dictating if the list renders the players added to the tournament (true) or all the others (false).
   added(includeAdded) {
-    let { players = {} } = this.props;
+    let { players = {}, table = {} } = this.props;
     let { added } = this.state;
 
     return Object.keys(players).filter(id =>
       added.includes(id) === includeAdded
-    ).map(id => players[id]);
+    ).map(id => ({...players[id], ...table[id]}));
   }
 
   // move will check the local state to see if the id is in the added Array
@@ -163,10 +163,9 @@ export class CreateTournament extends Component {
   }
 }
 
-export const mapStateToProps = ({data}) => {
-  return {
-    players: data.players
-  };
-};
+export const mapStateToProps = ({data}) => ({
+  players: data.players,
+  table: data.table
+});
 
 export default connect(mapStateToProps, { create })(CreateTournament);

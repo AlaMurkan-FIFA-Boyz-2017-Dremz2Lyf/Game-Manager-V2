@@ -21,7 +21,7 @@ describe('Stats Table', () => {
   test('should mapStateToProps', () => {
     let state = {
       data: {
-        allTime: {}
+        table: {}
       }
     };
     let props = mapTableToProps(state);

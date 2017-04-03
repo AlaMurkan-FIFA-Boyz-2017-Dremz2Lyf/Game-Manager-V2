@@ -9,24 +9,6 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
       md={6}
       xs={12}>
       <StatsTable
-        current={true}
-        headers={
-          Array [
-            "Player",
-            "P",
-            "W",
-            "L",
-            "D",
-            "GF",
-            "GA",
-            "GD",
-            "S",
-            "OT",
-            "Y",
-            "R",
-            "Po",
-          ]
-        }
         label="Current Table"
         table={
           Object {
@@ -38,8 +20,9 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
               "id": 1,
               "losses": 0,
               "onGoal": 0,
+              "passAcc": 0,
               "points": 0,
-              "poss": null,
+              "poss": 0,
               "reds": 0,
               "shots": 0,
               "username": "Alice",
@@ -54,8 +37,9 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
               "id": 2,
               "losses": 0,
               "onGoal": 0,
+              "passAcc": 0,
               "points": 0,
-              "poss": null,
+              "poss": 0,
               "reds": 0,
               "shots": 0,
               "username": "Gilbert",
@@ -70,8 +54,9 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
               "id": 3,
               "losses": 0,
               "onGoal": 0,
+              "passAcc": 0,
               "points": 0,
-              "poss": null,
+              "poss": 0,
               "reds": 0,
               "shots": 0,
               "username": "Bob",
@@ -94,6 +79,7 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
               "id": 1,
               "p1": 1,
               "p1OnGoal": null,
+              "p1PassAcc": null,
               "p1Poss": null,
               "p1Reds": 0,
               "p1Score": null,
@@ -101,6 +87,7 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
               "p1Yellows": 0,
               "p2": 2,
               "p2OnGoal": null,
+              "p2PassAcc": null,
               "p2Poss": null,
               "p2Reds": 0,
               "p2Score": null,
@@ -115,6 +102,7 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
               "id": 2,
               "p1": 1,
               "p1OnGoal": null,
+              "p1PassAcc": null,
               "p1Poss": null,
               "p1Reds": 0,
               "p1Score": null,
@@ -122,6 +110,7 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
               "p1Yellows": 0,
               "p2": 3,
               "p2OnGoal": null,
+              "p2PassAcc": null,
               "p2Poss": null,
               "p2Reds": 0,
               "p2Score": null,
@@ -136,6 +125,7 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
               "id": 3,
               "p1": 2,
               "p1OnGoal": null,
+              "p1PassAcc": null,
               "p1Poss": null,
               "p1Reds": 0,
               "p1Score": null,
@@ -143,6 +133,7 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
               "p1Yellows": 0,
               "p2": 3,
               "p2OnGoal": null,
+              "p2PassAcc": null,
               "p2Poss": null,
               "p2Reds": 0,
               "p2Score": null,

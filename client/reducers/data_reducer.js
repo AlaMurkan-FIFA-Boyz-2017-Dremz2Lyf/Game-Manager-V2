@@ -10,7 +10,7 @@ const init = {
   tournaments: {},
   players: {},
   games: {},
-  allTime: {}
+  table: {}
 };
 
 const data = (state = init, action) => {

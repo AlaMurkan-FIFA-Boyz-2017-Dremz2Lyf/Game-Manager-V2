@@ -160,13 +160,13 @@ describe('Utilities', () => {
       game.p1Score = 1;
       game.p2Score = 1;
       let table = {
-        1: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 0, goalDiff: 0},
-        2: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 0, goalDiff: 0}
+        1: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 0, goalDiff: 0, passAcc: 0},
+        2: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 0, goalDiff: 0, passAcc: 0}
       };
 
       let expected = {
-        1: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 1, goalDiff: 0},
-        2: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 1, goalDiff: 0}
+        1: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 1, goalDiff: 0, passAcc: 0},
+        2: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 1, goalDiff: 0, passAcc: 0}
       };
 
       expect(applyGame(table, game)).toEqual(expected);

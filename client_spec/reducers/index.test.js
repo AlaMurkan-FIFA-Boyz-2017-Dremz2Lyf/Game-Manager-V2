@@ -71,7 +71,7 @@ describe('Reducers', () => {
 
     test('should return the initialState', () => {
 
-      expect(data(undefined, {})).toEqual({games: {}, players: {}, tournaments: {}, allTime: {}});
+      expect(data(undefined, {})).toEqual({games: {}, players: {}, tournaments: {}, table: {}});
     });
 
     test('should return normalized state', () => {

@@ -18,7 +18,9 @@ export class PlayTournament extends Component {
   }
 
   componentWillUnmount() {
-    this.props.receive('games', []);
+    let { fetch, receive } = this.props;
+    receive('games', []);
+    fetch('table');
   }
 
   render() {
@@ -26,13 +28,11 @@ export class PlayTournament extends Component {
 
     let table = buildTable(games, players);
 
-    let tableHeaders = ['Player', 'P', 'W', 'L', 'D', 'GF', 'GA', 'GD', 'S', 'OT', 'Y', 'R', 'Po'];
-
     return (
       <div>
         <Row>
           <Col xs={12} md={6}>
-            <StatsTable table={table} current={true} headers={tableHeaders}label={'Current Table'}/>
+            <StatsTable table={table} label={'Current Table'}/>
           </Col>
           <Col xs={12} md={6}>
             <Games games={games}/>
@@ -47,9 +47,9 @@ PlayTournament.propTypes = {
   params: React.PropTypes.object.isRequired
 };
 
-export const mapGamesToProps = ({data: {games, players}}) => ({
+export const mapStateToProps = ({data: {games, players}}) => ({
   games,
   players
 });
 
-export default connect(mapGamesToProps, { receive, fetch })(PlayTournament);
+export default connect(mapStateToProps, { receive, fetch })(PlayTournament);
