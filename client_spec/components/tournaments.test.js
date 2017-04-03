@@ -8,6 +8,8 @@ import { Tournaments, mapStateToProps } from '../../client/components/tournament
 // Grab our store and our action to prePopulate
 import { store } from '../../client/store';
 
+import { mockData } from '../mockData';
+
 describe('Tournaments Component', () => {
   let wrapper = shallow(<Tournaments tournaments={mockData.tournaments}/>);
   let panel = wrapper.find('Panel');
@@ -36,6 +38,7 @@ describe('Tournaments Component', () => {
     );
 
     expect(mockFetch.mock.calls[0]).toEqual(['tournaments']);
+    mockFetch.mockClear();
   });
 
   test('should have a mapStateToProps', () => {

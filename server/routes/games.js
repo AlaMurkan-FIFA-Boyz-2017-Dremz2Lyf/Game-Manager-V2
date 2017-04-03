@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     games.find(gameId).then(game => {
       res.send(game);
     }).catch(err => {
-      res.status(500).send('Something went wrong fetching the game by id', err);
+      res.status(500).send(err);
     });
   } else if (req.query.type === 'tournament') {
     let id = req.query.id;
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
     games.findBy({tournament: id}).then(games => {
       res.send(games);
     }).catch(err => {
-      res.status(500).send('Something went wrong fetching the games by tournament id', err);
+      res.status(500).send(err);
     });
   } else {
     games.all().then(games => {
@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
     games.create(newGames).then(createdGames => {
       res.status(201).send(createdGames);
     }).catch(err => {
-      res.status(500).send('Error in saving the games to database', err);
+      res.status(500).send(err);
     });
   } else {
     res.status(400).send('Games must have at least two players');
@@ -59,7 +59,7 @@ router.put('/', (req, res) => {
   games.updateOne(game).then(updatedGame => {
     res.status(202).send(updatedGame);
   }).catch(err => {
-    res.status(500).send('Error in updateding the game in the database', err);
+    res.status(500).send(err);
   });
 });
 

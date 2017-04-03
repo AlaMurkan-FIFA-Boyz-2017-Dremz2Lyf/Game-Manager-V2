@@ -4,20 +4,27 @@ const routes = require(__server + '/index.js');
 const _ = require(__server + '/utilities.js');
 const sinon = require('sinon');
 const db = require(__server + '/db.js');
+const games = require(__server + '/models/games');
 
 
 describe('API "/games"', function() {
-
+  let sandbox;
   let app = TestHelper.createApp();
   app.use('/', routes);
   app.testReady();
 
-  beforeEach(function() {
+  beforeEach(() => {
+    sandbox = sinon.sandbox.create();
+
     return db.migrate.rollback().then(res => {
       return db.migrate.latest();
     }).then(res => {
       return db.seed.run();
     });
+  });
+
+  afterEach(() => {
+    sandbox.restore();
   });
 
   describe('GET', () => {
@@ -56,6 +63,36 @@ describe('API "/games"', function() {
       });
     });
 
+    it_('should return a 500 if the game doesn\'t exist', function * () {
+      yield request(app)
+      .get('/games?id=10&type=game')
+      .expect(500)
+      .expect(({error}) => {
+        expect(error.text).to.equal('{"type":"not_found","meta":{"model":"games"}}');
+      });
+    });
+
+    it_('should return a 500 if the tournament doesn\'t exist', function * () {
+      yield request(app)
+      .get('/games?id=10&type=tournament')
+      .expect(500)
+      .expect(({error}) => {
+        expect(error.text).to.equal('{"type":"not_found","meta":{"model":"games"}}');
+      });
+    });
+
+    it_('should return a 500 if there was an error fetching all games from the db', function * () {
+      sandbox.stub(games, 'all').rejects();
+
+      yield request(app)
+      .get('/games')
+      .expect(500)
+      .expect(({error}) => {
+        expect(error.text).to.equal('{}');
+        expect(error.path).to.equal('/games');
+      });
+    });
+
   });
 
 
@@ -66,11 +103,9 @@ describe('API "/games"', function() {
       tournament: 1
     };
 
-    it_('should receive an array of player Ids, save new games in the database, and respond with the games created', function * () {
+    it_('should receive an array of player Ids, and respond with the games created', function * () {
 
       let newTourney = _.createGames(tournament.players, tournament.tournament);
-
-      let lastId = mockData.games.length;
 
       let gamesCopy = mockData.games.concat(newTourney);
 
@@ -83,13 +118,6 @@ describe('API "/games"', function() {
         expect(res.body[0].id).to.equal(10);
         expect(res.body[1].id).to.equal(11);
         expect(res.body[2].id).to.equal(12);
-      })
-      .then(function * (res) {
-        yield request(app)
-        .get('/games')
-        .expect(res => {
-          expect(res.body).to.deep.equal(gamesCopy);
-        });
       });
     });
 
@@ -122,15 +150,28 @@ describe('API "/games"', function() {
       });
     });
 
+    it_('should respond with 500 there is an error with creating the games in the db', function * () {
+      sandbox.stub(games, 'create').rejects();
+
+      yield request(app)
+      .post('/games')
+      .send(tournament)
+      .expect(500)
+      .expect(({error}) => {
+        expect(error.text).to.equal('{}');
+        expect(error.path).to.equal('/games');
+      });
+    });
+
   });
 
   describe('PUT', () => {
+    let finishedGame = Object.assign({}, mockData.games[2]);
+    finishedGame.p1Score = 3;
+    finishedGame.p2Score = 2;
 
-    it_('should update the game in the database and respond with 202, and the updated game', function * () {
+    it_('should accept an updatedGame, respond with 202, and the game', function * () {
 
-      let finishedGame = Object.assign({}, mockData.games[2]);
-      finishedGame.p1Score = 3;
-      finishedGame.p2Score = 2;
 
       yield request(app)
       .put('/games')
@@ -139,17 +180,20 @@ describe('API "/games"', function() {
       .expect(res => {
         expect(res.accepted).to.equal(true);
         expect(res.body[0].id).to.equal(finishedGame.id);
-      })
-      .then(res =>
-        request(app)
-        .get('/games')
-        .expect(200)
-        .expect(res => {
-          let theGame = res.body.filter(game => game.id === 3)[0];
-          expect(theGame.p2Score).to.equal(2);
-          expect(theGame.p1Score).to.equal(3);
-        })
-      );
+      });
+    });
+
+    it_('should respond with 500 there is an error with creating the games in the db', function * () {
+      sandbox.stub(games, 'updateOne').rejects();
+
+      yield request(app)
+      .put('/games')
+      .send(finishedGame)
+      .expect(500)
+      .expect(({error}) => {
+        expect(error.text).to.equal('{}');
+        expect(error.path).to.equal('/games');
+      });
     });
   });
 

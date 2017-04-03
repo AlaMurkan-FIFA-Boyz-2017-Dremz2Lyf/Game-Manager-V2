@@ -15,6 +15,7 @@ import {
   receive
 } from '../../client/actions/index';
 
+import { mockData } from '../mockData';
 
 describe('Reducers', () => {
   let store;
@@ -26,8 +27,10 @@ describe('Reducers', () => {
   describe('root reducer', () => {
 
     test('should return the initialState', () => {
+      let expected = rootReducer(undefined, {});
+      let initialState = store.getState();
 
-      expect(store.getState().data).toEqual(data(undefined, {}));
+      expect(initialState).toEqual(expected);
     });
 
   });
@@ -68,7 +71,7 @@ describe('Reducers', () => {
 
     test('should return the initialState', () => {
 
-      expect(data(undefined, {})).toEqual({games: {}, players: {}, tournaments: {}});
+      expect(data(undefined, {})).toEqual({games: {}, players: {}, tournaments: {}, allTime: {}});
     });
 
     test('should return normalized state', () => {

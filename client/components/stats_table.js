@@ -4,9 +4,9 @@ import { Table, Panel, Tooltip, OverlayTrigger, Button } from 'react-bootstrap';
 
 import TableRow from './stats_table_row';
 
-export const StatsTable = ({players, label, current, headers}) => {
+export const StatsTable = ({table, label, current, headers}) => {
 
-  let tableRows = Object.values(players).sort((a, b) => {
+  let tableRows = Object.values(table).sort((a, b) => {
     if (a.points === b.points) {
       return a.goalDiff < b.goalDiff;
     }
@@ -35,17 +35,17 @@ export const StatsTable = ({players, label, current, headers}) => {
 };
 
 StatsTable.propTypes = {
-  players: React.PropTypes.object.isRequired,
+  table: React.PropTypes.object.isRequired,
   label: React.PropTypes.string
 };
 
 // This displayName lets Istanbul know the functional Component's name, and will prevent snapshots breaking between regular tests, and Coverage tests.
 StatsTable.displayName = 'StatsTable';
 
-export const mapPlayersToProps = ({data}) => ({
-  players: data.players
+export const mapTableToProps = ({data}) => ({
+  table: data.allTime
 });
 
 
 
-export const OverallTable = connect(mapPlayersToProps)(StatsTable);
+export const OverallTable = connect(mapTableToProps)(StatsTable);

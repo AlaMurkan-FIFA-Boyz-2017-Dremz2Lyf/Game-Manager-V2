@@ -55,6 +55,7 @@ exports[`Connected PlayerForm should match the snapshot 1`] = `
         change={[Function]}
         clearAsyncError={[Function]}
         clearSubmit={[Function]}
+        clearSubmitErrors={[Function]}
         destroy={[Function]}
         destroyOnUnmount={true}
         dirty={false}
@@ -138,6 +139,7 @@ exports[`Connected PlayerForm should match the snapshot 1`] = `
           change={[Function]}
           clearAsyncError={[Function]}
           clearSubmit={[Function]}
+          clearSubmitErrors={[Function]}
           destroy={[Function]}
           dirty={false}
           dispatch={[Function]}
@@ -180,6 +182,7 @@ exports[`Connected PlayerForm should match the snapshot 1`] = `
             change={[Function]}
             clearAsyncError={[Function]}
             clearSubmit={[Function]}
+            clearSubmitErrors={[Function]}
             destroy={[Function]}
             dirty={false}
             dispatch={[Function]}
@@ -238,7 +241,6 @@ exports[`Connected PlayerForm should match the snapshot 1`] = `
                         ]
                       }>
                       <InputGroupAddon
-                        aria-describedby="popover-trigger-hover-focus"
                         bsClass="input-group-addon"
                         onBlur={[Function]}
                         onClick={null}
@@ -246,7 +248,6 @@ exports[`Connected PlayerForm should match the snapshot 1`] = `
                         onMouseOut={[Function]}
                         onMouseOver={[Function]}>
                         <span
-                          aria-describedby="popover-trigger-hover-focus"
                           className="input-group-addon"
                           onBlur={[Function]}
                           onClick={null}
@@ -293,6 +294,7 @@ exports[`Connected PlayerForm should match the snapshot 1`] = `
                                   "change": [Function],
                                   "clearAsyncError": [Function],
                                   "clearSubmit": [Function],
+                                  "clearSubmitErrors": [Function],
                                   "destroy": [Function],
                                   "destroyOnUnmount": true,
                                   "dirty": false,
@@ -387,6 +389,7 @@ exports[`Connected PlayerForm should match the snapshot 1`] = `
                                     "change": [Function],
                                     "clearAsyncError": [Function],
                                     "clearSubmit": [Function],
+                                    "clearSubmitErrors": [Function],
                                     "destroy": [Function],
                                     "destroyOnUnmount": true,
                                     "dirty": false,
@@ -514,6 +517,7 @@ exports[`Connected PlayerForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -626,6 +630,7 @@ exports[`Connected PlayerForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,

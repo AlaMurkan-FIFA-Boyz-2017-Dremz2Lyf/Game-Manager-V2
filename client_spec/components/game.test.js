@@ -3,6 +3,8 @@ import React from 'react';
 import { Game, mapStateToProps } from '../../client/components/game';
 import { normalize } from '../../client/utilities';
 
+import { mockData } from '../mockData';
+
 describe('Game Component', () => {
   let mockUpdate = jest.fn();
   let mockGame = mockData.games.slice(1, 2)[0];
@@ -64,7 +66,7 @@ describe('Game Component', () => {
     // expect the correct values to have been passed to the mock
       // we do not simulate any change events for input, because those are handled by redux-form, and we trust that library has done the testing of that.
     expect(mockUpdate.mock.calls[0]).toEqual(['tournaments', {id: 1, gamesPlayed: 2}]);
-    expect(mockUpdate.mock.calls[1]).toEqual(['games', {id: 2, status: 'finished'}]);
+    expect(mockUpdate.mock.calls[1]).toEqual(['games', {status: 'finished'}]);
     // and finally we expect the modal to have been hidden.
     expect(wrapper.state().showModal).toBe(false);
 
@@ -84,7 +86,7 @@ describe('Game Component', () => {
 
     // and simulate our submit
     wrapper.find('ReduxForm').simulate('submit');
-    expect(mockUpdate.mock.calls[0]).toEqual(['games', {id: 2, status: 'finished'}]);
+    expect(mockUpdate.mock.calls[0]).toEqual(['games', {status: 'finished'}]);
 
     // clear up the mock for further tests
     mockUpdate.mockClear();

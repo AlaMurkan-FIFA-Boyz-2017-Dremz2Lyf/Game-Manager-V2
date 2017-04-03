@@ -4,7 +4,7 @@ exports[`CreatePlayer Component should match the snapshot 1`] = `
     bsClass="list-group-item"
     listItem={false}
     onClick={[Function]}>
-    Couldn't find who you were looking for? Click here to add a new player
+    Couldn\'t find who you were looking for? Click here to add a new player
   </ListGroupItem>
   <Modal
     animation={true}
@@ -25,6 +25,7 @@ exports[`CreatePlayer Component should match the snapshot 1`] = `
     }
     onHide={[Function]}
     renderBackdrop={[Function]}
+    restoreFocus={true}
     show={false}>
     <ModalHeader
       aria-label="Close"

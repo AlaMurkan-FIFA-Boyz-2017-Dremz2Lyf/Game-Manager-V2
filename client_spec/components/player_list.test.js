@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import PlayerList from '../../client/components/player_list';
 import { store } from '../../client/store';
 
+import { mockData } from '../mockData';
 
 describe('PlayerList', () => {
   let mockMove = jest.fn();

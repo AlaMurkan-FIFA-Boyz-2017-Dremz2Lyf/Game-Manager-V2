@@ -23,12 +23,15 @@ import {
 // Bring in our normalize utilities for equality testing.
 import { normalize } from '../../client/utilities';
 
+import { mockData, mockAxios } from '../mockData';
+
+
 // setup our mock store with thunk middleware to test actions dispatch other actions.
 const middlewares = [ thunk ];
 const mockStore = configureStore(middlewares);
-let store;
 
 describe('Actions Creators', () => {
+  let store;
 
   beforeEach(() => {
     store = mockStore({

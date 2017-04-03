@@ -46,6 +46,7 @@ describe('CreatePlayer Component', () => {
 
     expect(mockCreate.mock.calls[0]).toEqual(['players', undefined]);
     expect(shallowWrapper.state().showModal).toBe(false);
+    mockCreate.mockClear();
   });
 
 });

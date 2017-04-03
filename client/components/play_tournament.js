@@ -22,7 +22,7 @@ export class PlayTournament extends Component {
   }
 
   render() {
-    let { games, players } = this.props;
+    let { games = {}, players = {} } = this.props;
 
     let table = buildTable(games, players);
 
@@ -32,7 +32,7 @@ export class PlayTournament extends Component {
       <div>
         <Row>
           <Col xs={12} md={6}>
-            <StatsTable players={table} current={true} headers={tableHeaders}label={'Current Table'}/>
+            <StatsTable table={table} current={true} headers={tableHeaders}label={'Current Table'}/>
           </Col>
           <Col xs={12} md={6}>
             <Games games={games}/>

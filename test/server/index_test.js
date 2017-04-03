@@ -15,7 +15,7 @@ describe('The Server', function() {
     .expect(200)
     .expect((res) => {
       expect(res.text).to.be.a('string');
-      expect(TestHelper.checkForHtml(res.text)).to.equal('<html>');
+      expect(TestHelper.checkForHtml(res.text)).to.equal(true);
     });
   });
 

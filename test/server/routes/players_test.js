@@ -4,26 +4,35 @@ const routes = require(__server + '/index.js');
 const _ = require(__server + '/utilities.js');
 const sinon = require('sinon');
 const db = require(__server + '/db.js');
+const players = require(__server + '/models/players');
 
 describe('API "/players"', function() {
-
+  let sandbox;
   let app = TestHelper.createApp();
   app.use('/', routes);
   app.testReady();
 
-  beforeEach(() =>
-    db.migrate.rollback().then(res =>
-      db.migrate.latest()
-    ).then(res =>
-      db.seed.run()
-    )
-  );
+  beforeEach(() => {
+    sandbox = sinon.sandbox.create();
+
+    return db.migrate.rollback().then(res => {
+      return db.migrate.latest();
+    }).then(res => {
+      return db.seed.run();
+    });
+  });
+
+  afterEach(() => {
+    sandbox.restore();
+  });
+
 
   describe('GET', () => {
 
     it_('should respond with 200, and all players when no "id" is passed as a param/query', function * () {
 
       let expected = Object.keys(mockData.players[0]);
+
 
       yield request(app)
       .get('/players')
@@ -35,17 +44,35 @@ describe('API "/players"', function() {
       });
     });
 
-    test('should respond with just one player when an "id" is passed as a param/query', function * () {
+    it_('should respond with just one player when an "id" is passed as a param/query', function * () {
+
+      let expected = Object.keys(mockData.players[0]);
 
       yield request(app)
       .get('/players?id=2')
       .expect(200)
       .expect(res => {
         expect(res.body.length).to.equal(1);
-        expect(res.body[0]).to.have.all.keys('id', 'username');
+        expect(res.body[0]).to.have.all.keys(expected);
         expect(res.body[0].username).to.equal('Gilbert');
       });
     });
+
+    it_('should respond with 404 if the player was not found', function * () {
+      sandbox.stub(players, 'find').rejects();
+      yield request(app)
+      .get('/players?id=2')
+      .expect(404);
+    });
+
+    it_('should respond with 404 if no player was not found', function * () {
+      sandbox.stub(players, 'all').rejects();
+
+      yield request(app)
+      .get('/players')
+      .expect(404);
+    });
+
   });
 
   describe('POST', () => {
@@ -110,7 +137,7 @@ describe('API "/players"', function() {
     });
 
     it_('should error if there is no "id" given for the update', function * () {
-      let players = mockData.players.slice(2, 3);
+      let players = [Object.assign({}, mockData.players[2])];
       delete players[0].id;
       let body = {players};
 
@@ -122,6 +149,21 @@ describe('API "/players"', function() {
         expect(error.text).to.equal('{"type":"invalid_argument","meta":{"model":"players"}}');
       });
     });
+
+    it_('should error if the body doesn\'t have a players key holding an array', function * () {
+      let players = Object.assign({}, mockData.players[2]);
+
+      let body = {players};
+
+      yield request(app)
+      .put('/players')
+      .send(body)
+      .expect(400)
+      .expect(({error}) => {
+        expect(error.text).to.equal('PUT to /players requires the body to have a "players" key holding and Array');
+      });
+    });
+
   });
 
 

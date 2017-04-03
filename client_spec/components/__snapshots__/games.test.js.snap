@@ -4,7 +4,7 @@ exports[`Games Component should match the snapshot 1`] = `
   bsStyle="default"
   defaultExpanded={false}>
   <h4>
-    Click on a game below to play!
+    Select a game below to play!
   </h4>
   <ListGroup
     bsClass="list-group">
@@ -90,7 +90,7 @@ exports[`Games Component should not fail with no props 1`] = `
   bsStyle="default"
   defaultExpanded={false}>
   <h4>
-    Click on a game below to play!
+    Select a game below to play!
   </h4>
   <ListGroup
     bsClass="list-group" />

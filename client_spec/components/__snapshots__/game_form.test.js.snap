@@ -55,6 +55,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
         change={[Function]}
         clearAsyncError={[Function]}
         clearSubmit={[Function]}
+        clearSubmitErrors={[Function]}
         destroy={[Function]}
         destroyOnUnmount={true}
         dirty={false}
@@ -151,7 +152,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
         submitting={false}
         syncErrors={
           Object {
+            "p1Poss": "Possession is required.",
             "p1Score": "Required",
+            "p2Poss": "Possession is required.",
             "p2Score": "Required",
           }
         }
@@ -189,6 +192,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
           change={[Function]}
           clearAsyncError={[Function]}
           clearSubmit={[Function]}
+          clearSubmitErrors={[Function]}
           destroy={[Function]}
           dirty={false}
           dispatch={[Function]}
@@ -240,6 +244,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     <Field
                       component={[Function]}
                       name="p1Score"
+                      normalize={[Function]}
                       validate={[Function]}>
                       <Connect(ConnectedField)
                         _reduxForm={
@@ -275,6 +280,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -367,6 +373,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -486,7 +493,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -586,6 +595,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     <Field
                       component={[Function]}
                       name="p2Score"
+                      normalize={[Function]}
                       validate={[Function]}>
                       <Connect(ConnectedField)
                         _reduxForm={
@@ -621,6 +631,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -713,6 +724,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -832,7 +844,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -971,6 +985,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     <Field
                       component={[Function]}
                       name="p1Shots"
+                      normalize={[Function]}
                       validate={null}>
                       <Connect(ConnectedField)
                         _reduxForm={
@@ -1006,6 +1021,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -1098,6 +1114,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -1216,7 +1233,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -1316,6 +1335,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     <Field
                       component={[Function]}
                       name="p2Shots"
+                      normalize={[Function]}
                       validate={null}>
                       <Connect(ConnectedField)
                         _reduxForm={
@@ -1351,6 +1371,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -1443,6 +1464,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -1561,7 +1583,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -1700,6 +1724,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     <Field
                       component={[Function]}
                       name="p1OnGoal"
+                      normalize={[Function]}
                       validate={null}>
                       <Connect(ConnectedField)
                         _reduxForm={
@@ -1735,6 +1760,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -1827,6 +1853,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -1945,7 +1972,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -2045,6 +2074,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     <Field
                       component={[Function]}
                       name="p2OnGoal"
+                      normalize={[Function]}
                       validate={null}>
                       <Connect(ConnectedField)
                         _reduxForm={
@@ -2080,6 +2110,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -2172,6 +2203,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -2290,7 +2322,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -2429,6 +2463,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     <Field
                       component={[Function]}
                       name="p1Reds"
+                      normalize={[Function]}
                       validate={null}>
                       <Connect(ConnectedField)
                         _reduxForm={
@@ -2464,6 +2499,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -2556,6 +2592,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -2674,7 +2711,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -2774,6 +2813,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     <Field
                       component={[Function]}
                       name="p2Reds"
+                      normalize={[Function]}
                       validate={null}>
                       <Connect(ConnectedField)
                         _reduxForm={
@@ -2809,6 +2849,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -2901,6 +2942,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -3019,7 +3061,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -3158,6 +3202,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     <Field
                       component={[Function]}
                       name="p1Yellows"
+                      normalize={[Function]}
                       validate={null}>
                       <Connect(ConnectedField)
                         _reduxForm={
@@ -3193,6 +3238,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -3285,6 +3331,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -3403,7 +3450,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -3503,6 +3552,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     <Field
                       component={[Function]}
                       name="p2Yellows"
+                      normalize={[Function]}
                       validate={null}>
                       <Connect(ConnectedField)
                         _reduxForm={
@@ -3538,6 +3588,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -3630,6 +3681,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -3748,7 +3800,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -3861,7 +3915,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                 dispatch={[Function]}
                 errors={
                   Object {
+                    "p1Poss": "Possession is required.",
                     "p1Score": "Required",
+                    "p2Poss": "Possession is required.",
                     "p2Score": "Required",
                   }
                 }>
@@ -3896,6 +3952,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                         <Field
                           component={[Function]}
                           name="p1Poss"
+                          normalize={[Function]}
                           type="text"
                           validate={[Function]}>
                           <Connect(ConnectedField)
@@ -3932,6 +3989,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 "change": [Function],
                                 "clearAsyncError": [Function],
                                 "clearSubmit": [Function],
+                                "clearSubmitErrors": [Function],
                                 "destroy": [Function],
                                 "destroyOnUnmount": true,
                                 "dirty": false,
@@ -4025,6 +4083,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                   "change": [Function],
                                   "clearAsyncError": [Function],
                                   "clearSubmit": [Function],
+                                  "clearSubmitErrors": [Function],
                                   "destroy": [Function],
                                   "destroyOnUnmount": true,
                                   "dirty": false,
@@ -4086,6 +4145,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               name="p1Poss"
                               normalize={[Function]}
                               pristine={true}
+                              syncError="Possession is required."
                               type="text"
                               validate={[Function]}>
                               <PossessionField
@@ -4107,14 +4167,14 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     "autofilled": false,
                                     "dirty": false,
                                     "dispatch": [Function],
-                                    "error": undefined,
+                                    "error": "Possession is required.",
                                     "form": "gameForm",
-                                    "invalid": false,
+                                    "invalid": true,
                                     "pristine": true,
                                     "submitFailed": false,
                                     "submitting": false,
                                     "touched": false,
-                                    "valid": true,
+                                    "valid": false,
                                     "visited": false,
                                     "warning": undefined,
                                   }
@@ -4166,6 +4226,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                         <Field
                           component={[Function]}
                           name="p2Poss"
+                          normalize={[Function]}
                           type="text"
                           validate={[Function]}>
                           <Connect(ConnectedField)
@@ -4202,6 +4263,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 "change": [Function],
                                 "clearAsyncError": [Function],
                                 "clearSubmit": [Function],
+                                "clearSubmitErrors": [Function],
                                 "destroy": [Function],
                                 "destroyOnUnmount": true,
                                 "dirty": false,
@@ -4295,6 +4357,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                   "change": [Function],
                                   "clearAsyncError": [Function],
                                   "clearSubmit": [Function],
+                                  "clearSubmitErrors": [Function],
                                   "destroy": [Function],
                                   "destroyOnUnmount": true,
                                   "dirty": false,
@@ -4356,6 +4419,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               name="p2Poss"
                               normalize={[Function]}
                               pristine={true}
+                              syncError="Possession is required."
                               type="text"
                               validate={[Function]}>
                               <PossessionField
@@ -4377,14 +4441,14 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     "autofilled": false,
                                     "dirty": false,
                                     "dispatch": [Function],
-                                    "error": undefined,
+                                    "error": "Possession is required.",
                                     "form": "gameForm",
-                                    "invalid": false,
+                                    "invalid": true,
                                     "pristine": true,
                                     "submitFailed": false,
                                     "submitting": false,
                                     "touched": false,
-                                    "valid": true,
+                                    "valid": false,
                                     "visited": false,
                                     "warning": undefined,
                                   }
@@ -4436,7 +4500,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                         <HelpBlock
                           bsClass="help-block">
                           <span
-                            className="help-block" />
+                            className="help-block">
+                            Possession is required.
+                          </span>
                         </HelpBlock>
                       </div>
                     </Col>
@@ -4488,6 +4554,7 @@ exports[`Shallow Possession component should show a HelpBlock with an error mess
     <Field
       component={[Function]}
       name="p1Poss"
+      normalize={[Function]}
       type="text"
       validate={[Function]} />
   </Col>
@@ -4498,6 +4565,7 @@ exports[`Shallow Possession component should show a HelpBlock with an error mess
     <Field
       component={[Function]}
       name="p2Poss"
+      normalize={[Function]}
       type="text"
       validate={[Function]} />
   </Col>
@@ -4533,6 +4601,7 @@ exports[`Shallow Possession component should show a HelpBlock with an error mess
     <Field
       component={[Function]}
       name="p1Poss"
+      normalize={[Function]}
       type="text"
       validate={[Function]} />
   </Col>
@@ -4543,6 +4612,7 @@ exports[`Shallow Possession component should show a HelpBlock with an error mess
     <Field
       component={[Function]}
       name="p2Poss"
+      normalize={[Function]}
       type="text"
       validate={[Function]} />
   </Col>

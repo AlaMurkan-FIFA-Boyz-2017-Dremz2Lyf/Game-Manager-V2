@@ -4,16 +4,6 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('players', function(table) {
       table.increments('id').primary();
       table.string('username').unique().notNullable();
-      table.integer('wins').defaultTo(0);
-      table.integer('losses').defaultTo(0);
-      table.integer('draws').defaultTo(0);
-      table.integer('goalsFor').defaultTo(0);
-      table.integer('goalsAgainst').defaultTo(0);
-      table.integer('shots').defaultTo(0);
-      table.integer('onGoal').defaultTo(0);
-      table.integer('reds').defaultTo(0);
-      table.integer('yellows').defaultTo(0);
-      table.integer('possession').unsigned();
       table.boolean('isTeam').defaultTo(false);
       table.timestamp('createdAt').defaultTo(knex.fn.now());
       table.timestamp('updatedAt').defaultTo(knex.fn.now());
@@ -37,11 +27,13 @@ exports.up = function(knex, Promise) {
       table.integer('p2Shots').unsigned();
       table.integer('p1Poss').unsigned();
       table.integer('p2Poss').unsigned();
+      table.integer('p1PassAcc').unsigned();
+      table.integer('p2PassAcc').unsigned();
       table.integer('p1OnGoal').unsigned();
       table.integer('p2OnGoal').unsigned();
       table.integer('p1Reds').unsigned();
-      table.integer('p1Yellows').unsigned();
       table.integer('p2Reds').unsigned();
+      table.integer('p1Yellows').unsigned();
       table.integer('p2Yellows').unsigned();
       table.integer('tournament').references('id').inTable('tournaments');
       table.string('status').defaultTo('created');

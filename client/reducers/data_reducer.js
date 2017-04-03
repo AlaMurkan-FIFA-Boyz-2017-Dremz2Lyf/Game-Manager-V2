@@ -13,12 +13,13 @@ const init = {
   allTime: {}
 };
 
-export default function(state = init, action) {
+const data = (state = init, action) => {
   switch (action.type) {
   case RECEIVE:
     return applyAll(state, action);
   default:
     return state;
   }
+};
 
-}
+export default data;

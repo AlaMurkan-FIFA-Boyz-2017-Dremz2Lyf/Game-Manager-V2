@@ -6,21 +6,154 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
     <Col
       bsClass="col"
       componentClass="div"
+      md={6}
       xs={12}>
       <StatsTable
+        current={true}
+        headers={
+          Array [
+            "Player",
+            "P",
+            "W",
+            "L",
+            "D",
+            "GF",
+            "GA",
+            "GD",
+            "S",
+            "OT",
+            "Y",
+            "R",
+            "Po",
+          ]
+        }
         label="Current Table"
-        players={Object {}} />
+        table={
+          Object {
+            "1": Object {
+              "draws": 0,
+              "goalDiff": 0,
+              "goalsAgainst": 0,
+              "goalsFor": 0,
+              "id": 1,
+              "losses": 0,
+              "onGoal": 0,
+              "points": 0,
+              "poss": null,
+              "reds": 0,
+              "shots": 0,
+              "username": "Alice",
+              "wins": 0,
+              "yellows": 0,
+            },
+            "2": Object {
+              "draws": 0,
+              "goalDiff": 0,
+              "goalsAgainst": 0,
+              "goalsFor": 0,
+              "id": 2,
+              "losses": 0,
+              "onGoal": 0,
+              "points": 0,
+              "poss": null,
+              "reds": 0,
+              "shots": 0,
+              "username": "Gilbert",
+              "wins": 0,
+              "yellows": 0,
+            },
+            "3": Object {
+              "draws": 0,
+              "goalDiff": 0,
+              "goalsAgainst": 0,
+              "goalsFor": 0,
+              "id": 3,
+              "losses": 0,
+              "onGoal": 0,
+              "points": 0,
+              "poss": null,
+              "reds": 0,
+              "shots": 0,
+              "username": "Bob",
+              "wins": 0,
+              "yellows": 0,
+            },
+          }
+        } />
     </Col>
-  </Row>
-  <Row
-    bsClass="row"
-    componentClass="div">
     <Col
       bsClass="col"
       componentClass="div"
+      md={6}
       xs={12}>
-      <Connect(Games)
-        tournament="1" />
+      <Games
+        games={
+          Object {
+            "1": Object {
+              "createdAt": "2016-12-25T19:31:48",
+              "id": 1,
+              "p1": 1,
+              "p1OnGoal": null,
+              "p1Poss": null,
+              "p1Reds": 0,
+              "p1Score": null,
+              "p1Shots": null,
+              "p1Yellows": 0,
+              "p2": 2,
+              "p2OnGoal": null,
+              "p2Poss": null,
+              "p2Reds": 0,
+              "p2Score": null,
+              "p2Shots": null,
+              "p2Yellows": 0,
+              "status": "created",
+              "tournament": 1,
+              "updatedAt": null,
+            },
+            "2": Object {
+              "createdAt": "2016-12-25T19:31:48",
+              "id": 2,
+              "p1": 1,
+              "p1OnGoal": null,
+              "p1Poss": null,
+              "p1Reds": 0,
+              "p1Score": null,
+              "p1Shots": null,
+              "p1Yellows": 0,
+              "p2": 3,
+              "p2OnGoal": null,
+              "p2Poss": null,
+              "p2Reds": 0,
+              "p2Score": null,
+              "p2Shots": null,
+              "p2Yellows": 0,
+              "status": "created",
+              "tournament": 1,
+              "updatedAt": null,
+            },
+            "3": Object {
+              "createdAt": "2016-12-25T19:31:48",
+              "id": 3,
+              "p1": 2,
+              "p1OnGoal": null,
+              "p1Poss": null,
+              "p1Reds": 0,
+              "p1Score": null,
+              "p1Shots": null,
+              "p1Yellows": 0,
+              "p2": 3,
+              "p2OnGoal": null,
+              "p2Poss": null,
+              "p2Reds": 0,
+              "p2Score": null,
+              "p2Shots": null,
+              "p2Yellows": 0,
+              "status": "created",
+              "tournament": 1,
+              "updatedAt": null,
+            },
+          }
+        } />
     </Col>
   </Row>
 </div>

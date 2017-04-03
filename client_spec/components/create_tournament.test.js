@@ -1,5 +1,6 @@
 import React from 'react';
 import { CreateTournament, mapStateToProps } from '../../client/components/create_tournament';
+import { mockData } from '../mockData';
 
 describe('CreateTournament', () => {
   let mockCreate = jest.fn();
@@ -68,6 +69,8 @@ describe('CreateTournament', () => {
       added: ['1', '2']
     }]);
     expect(mockPrevent).toHaveBeenCalled();
+    mockPrevent.mockClear();
+    mockCreate.mockClear();
   });
 
   test('should call move when playerList item is clicked', () => {
