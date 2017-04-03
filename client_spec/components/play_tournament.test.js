@@ -51,4 +51,20 @@ describe('PlayTournament Component', () => {
     mockReceive.mockClear();
   });
 
+  test('mapStateToProps', () => {
+    let expected = {
+      players: {},
+      games: {}
+    };
+
+    let state = {
+      data: {
+        players: {},
+        games: {}
+      }
+    };
+
+    expect(mapStateToProps(state)).toEqual(expected);
+  });
+
 });

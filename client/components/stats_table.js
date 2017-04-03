@@ -4,7 +4,8 @@ import { Table, Panel, Tooltip, OverlayTrigger, Button } from 'react-bootstrap';
 
 import TableRow from './stats_table_row';
 
-export const StatsTable = ({table, label, current, headers}) => {
+export const StatsTable = ({table, label}) => {
+  let headers = ['Player', 'P', 'W', 'L', 'D', 'GF', 'GA', 'GD', 'S', 'OT', 'Y', 'R', 'Po'];
 
   let tableRows = Object.values(table).sort((a, b) => {
     if (a.points === b.points) {
@@ -12,7 +13,7 @@ export const StatsTable = ({table, label, current, headers}) => {
     }
     return a.points < b.points;
   }).map(player => (
-    <TableRow key={player.id} player={player} current={current}/>
+    <TableRow key={player.id} player={player} />
   ));
 
   let currentHeaders = headers.map(header => <th key={header}>{header}</th>);

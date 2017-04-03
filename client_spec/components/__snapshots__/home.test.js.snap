@@ -15,22 +15,6 @@ exports[`Home Component should match snapshot 1`] = `
     md={6}
     xs={12}>
     <Connect(StatsTable)
-      headers={
-        Array [
-          "Player",
-          "W",
-          "L",
-          "D",
-          "GF",
-          "GA",
-          "GD",
-          "S",
-          "OT",
-          "R",
-          "Y",
-          "Po",
-        ]
-      }
       label="All Time Table" />
   </Col>
 </Row>

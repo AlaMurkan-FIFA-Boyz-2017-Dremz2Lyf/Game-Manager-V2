@@ -1,0 +1,43 @@
+exports[`TableRow should match the snapshot 1`] = `
+<tr>
+  <td>
+    Alice
+  </td>
+  <td>
+    0
+  </td>
+  <td>
+    0
+  </td>
+  <td>
+    0
+  </td>
+  <td>
+    0
+  </td>
+  <td>
+    0
+  </td>
+  <td>
+    0
+  </td>
+  <td>
+    0
+  </td>
+  <td>
+    0
+  </td>
+  <td>
+    0
+  </td>
+  <td>
+    0
+  </td>
+  <td>
+    0
+  </td>
+  <td>
+    0%
+  </td>
+</tr>
+`;

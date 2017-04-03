@@ -77,7 +77,7 @@ exports.applyRounds = (gamesArray, rounds = 1) => {
 exports.createTable = (players, games) => {
 
   let trackedStats = {
-    wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 0, goalDiff: 0
+    wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 0, goalDiff: 0, passAcc: 0
   };
 
   let table = games.reduce((table, game) => {
@@ -133,6 +133,8 @@ exports.applyGame = (table, game) => {
     player2.yellows += p2Yellows;
     player1.poss = (player1.poss + p1Poss) / (player1.wins + player1.losses + player1.draws);
     player2.poss = (player2.poss + p2Poss) / (player2.wins + player2.losses + player2.draws);
+    player1.passAcc = (player1.passAcc + p1PassAcc) / (player1.wins + player1.losses + player1.draws);
+    player2.passAcc = (player2.passAcc + p2PassAcc) / (player2.wins + player2.losses + player2.draws);
     player1.points = (player1.wins * 3 + player1.draws);
     player2.points = (player2.wins * 3 + player2.draws);
     player1.goalDiff = (player1.goalsFor - player1.goalsAgainst);

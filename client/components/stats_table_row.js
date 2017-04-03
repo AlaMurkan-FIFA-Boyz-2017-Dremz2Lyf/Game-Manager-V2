@@ -1,6 +1,6 @@
 import React from 'react';
 
-const StatsTableRow = ({player, current}) => {
+const StatsTableRow = ({player}) => {
   let {
     username,
     wins,
@@ -21,7 +21,7 @@ const StatsTableRow = ({player, current}) => {
   return (
     <tr key={id}>
       <td>{username}</td>
-      {current ? <td>{points || '0'}</td> : null}
+      <td>{points || '0'}</td>
       <td>{wins || '0'}</td>
       <td>{losses || '0'}</td>
       <td>{draws || '0'}</td>
