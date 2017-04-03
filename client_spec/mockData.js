@@ -46,9 +46,9 @@ mockData.table = {
 
 // set a players key on the mock database
 mockData.players = [
-  {id: 1, username: 'Alice', wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, possession: 0, isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 2, username: 'Gilbert', wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, possession: 0, isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 3, username: 'Bob', wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, possession: 0, isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null}
+  {id: 1, username: 'Alice', isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 2, username: 'Gilbert', isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 3, username: 'Bob', isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null}
 ];
 
 // set a tournaments key on the mock database

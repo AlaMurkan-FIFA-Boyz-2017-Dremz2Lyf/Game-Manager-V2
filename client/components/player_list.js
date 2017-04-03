@@ -5,6 +5,7 @@ import PlayerListItem from './player_list_item';
 import CreatePlayer from './create_player';
 
 const PlayerList = ({players = [], searchValue, all, move, name}) => {
+
   let list = players.filter(player =>
     player.username.toLowerCase().indexOf(searchValue) !== -1
   ).map(player =>

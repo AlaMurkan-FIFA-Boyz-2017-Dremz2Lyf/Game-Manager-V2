@@ -47,8 +47,11 @@ describe('PlayTournament Component', () => {
     mounted.unmount();
 
     expect(mockReceive).toHaveBeenCalled();
+    expect(mockFetch).toHaveBeenCalled();
     expect(mockReceive.mock.calls[0]).toEqual(['games', []]);
+    expect(mockFetch.mock.calls[0]).toEqual(['table']);
     mockReceive.mockClear();
+    mockFetch.mockClear();
   });
 
   test('mapStateToProps', () => {

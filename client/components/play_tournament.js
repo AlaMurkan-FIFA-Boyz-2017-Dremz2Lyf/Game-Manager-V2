@@ -18,7 +18,9 @@ export class PlayTournament extends Component {
   }
 
   componentWillUnmount() {
-    this.props.receive('games', []);
+    let { fetch, receive } = this.props;
+    receive('games', []);
+    fetch('table');
   }
 
   render() {

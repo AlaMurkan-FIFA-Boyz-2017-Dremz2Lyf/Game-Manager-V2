@@ -102,7 +102,7 @@ exports.createTable = (players, games) => {
 
 exports.applyGame = (table, game) => {
 
-  let { p1, p2, p1Score, p2Score, p1Shots, p2Shots, p1Poss, p2Poss, p1OnGoal, p2OnGoal, p1Reds, p1Yellows, p2Reds, p2Yellows } = game;
+  let { p1, p2, p1Score, p2Score, p1Shots, p2Shots, p1Poss, p2Poss, p1OnGoal, p2OnGoal, p1Reds, p1Yellows, p2Reds, p2Yellows, p1PassAcc, p2PassAcc } = game;
 
   let player1 = table[p1];
   let player2 = table[p2];
