@@ -37,34 +37,25 @@ TestHelper.createdAt = '2016-12-25T19:31:48';
 TestHelper.updatedAt = '2016-12-26T19:31:48';
 
 
-mockData.test = {
-  existing: [
-    {
-      id: 1,
-      laborum: 'officia proident duis in commodo',
-      veniam: 'irure irure amet aliquip consectetur.'
-    },
-    {
-      id: 2,
-      laborum: 'Ea est eiusmod laborum elit ut amet id',
-      veniam: 'Esse minim irure eu occaecat veniam duis.'
-    }
-  ],
-  updated: [
-    {
-      id: 1,
-      laborum: 'Updated info',
-      veniam: 'Ya know it'
-    }
-  ]
-};
+mockData.test = [
+  {
+    id: 1,
+    laborum: 'officia proident duis in commodo',
+    veniam: 'irure irure amet aliquip consectetur.'
+  },
+  {
+    id: 2,
+    laborum: 'Ea est eiusmod laborum elit ut amet id',
+    veniam: 'Esse minim irure eu occaecat veniam duis.'
+  }
+];
 
 
 // set a players key on the mock database
 mockData.players = [
-  {id: 1, username: 'Alice', wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, possession: 0, isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 2, username: 'Gilbert', wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, possession: 0, isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 3, username: 'Bob', wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, possession: 0, isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null}
+  {id: 1, username: 'Alice', isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 2, username: 'Gilbert', isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null},
+  {id: 3, username: 'Bob', isTeam: 0, createdAt: '2016-12-25T19:31:48', updatedAt: null}
 ];
 
 // set a tournaments key on the mock database
@@ -82,7 +73,7 @@ mockData.games = [
     p1Poss: null, p2Poss: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 1, status: 'created',
-    p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0,
+    p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
     createdAt: TestHelper.createdAt, updatedAt: null
   },
   {
@@ -93,7 +84,7 @@ mockData.games = [
     p1Poss: null, p2Poss: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 1, status: 'created',
-    p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0,
+    p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
     createdAt: TestHelper.createdAt, updatedAt: null
   },
   {
@@ -104,11 +95,11 @@ mockData.games = [
     p1Poss: null, p2Poss: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 1, status: 'created',
-    p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0,
+    p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
     createdAt: TestHelper.createdAt, updatedAt: null
   },
   {
-    id: 1,
+    id: 4,
     p1: 1, p2: 2,
     p1Score: 3, p2Score: 2,
     p1Shots: 6, p2Shots: 10,
@@ -119,58 +110,58 @@ mockData.games = [
     createdAt: TestHelper.createdAt, updatedAt: TestHelper.updatedAt
   },
   {
-    id: 2,
+    id: 5,
     p1: 1, p2: 3,
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 2, status: 'created',
-    p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0,
+    p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
     createdAt: TestHelper.createdAt, updatedAt: null
   },
   {
-    id: 3,
+    id: 6,
     p1: 2, p2: 3,
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 2, status: 'created',
-    p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0,
+    p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
     createdAt: TestHelper.createdAt, updatedAt: null
   },
   {
-    id: 1,
+    id: 7,
     p1: 1, p2: 2,
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 2, status: 'created',
-    p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0,
+    p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
     createdAt: TestHelper.createdAt, updatedAt: null
   },
   {
-    id: 2,
+    id: 8,
     p1: 1, p2: 3,
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 2, status: 'created',
-    p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0,
+    p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
     createdAt: TestHelper.createdAt, updatedAt: null
   },
   {
-    id: 3,
+    id: 9,
     p1: 2, p2: 3,
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 2, status: 'created',
-    p1Reds: 0, p1Yellows: 0, p2Reds: 0, p2Yellows: 0,
+    p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
     createdAt: TestHelper.createdAt, updatedAt: null
   }
 ];
@@ -197,7 +188,7 @@ TestHelper.createApp = function (loader) {
   return app;
 };
 
-TestHelper.checkForHtml = (text) => text.slice(0, 6);
+TestHelper.checkForHtml = (text) => text.slice(0, 6) === '<html>';
 
 //
 // Mocha "helpers" to support coroutines tests

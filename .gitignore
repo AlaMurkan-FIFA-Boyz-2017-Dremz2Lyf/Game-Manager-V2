@@ -18,4 +18,7 @@ bundle.js
 npm-debug.log
 
 
+******* Coverage Reports ******
+.nyc_output/
+servCoverage/
 coverage/

@@ -55,6 +55,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
         change={[Function]}
         clearAsyncError={[Function]}
         clearSubmit={[Function]}
+        clearSubmitErrors={[Function]}
         destroy={[Function]}
         destroyOnUnmount={true}
         dirty={false}
@@ -191,6 +192,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
           change={[Function]}
           clearAsyncError={[Function]}
           clearSubmit={[Function]}
+          clearSubmitErrors={[Function]}
           destroy={[Function]}
           dirty={false}
           dispatch={[Function]}
@@ -278,6 +280,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -370,6 +373,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -489,7 +493,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -625,6 +631,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -717,6 +724,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -836,7 +844,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -1011,6 +1021,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -1103,6 +1114,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -1221,7 +1233,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -1357,6 +1371,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -1449,6 +1464,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -1567,7 +1583,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -1742,6 +1760,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -1834,6 +1853,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -1952,7 +1972,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -2088,6 +2110,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -2180,6 +2203,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -2298,7 +2322,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -2473,6 +2499,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -2565,6 +2592,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -2683,7 +2711,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -2819,6 +2849,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -2911,6 +2942,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -3029,7 +3061,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -3204,6 +3238,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -3296,6 +3331,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -3414,7 +3450,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -3550,6 +3588,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                             "change": [Function],
                             "clearAsyncError": [Function],
                             "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
                             "destroy": [Function],
                             "destroyOnUnmount": true,
                             "dirty": false,
@@ -3642,6 +3681,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               "change": [Function],
                               "clearAsyncError": [Function],
                               "clearSubmit": [Function],
+                              "clearSubmitErrors": [Function],
                               "destroy": [Function],
                               "destroyOnUnmount": true,
                               "dirty": false,
@@ -3760,7 +3800,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     onFocus={[Function]}
                                     value="">
                                     <option
-                                      value={0} />
+                                      value={0}>
+                                      0
+                                    </option>
                                     <option
                                       value={1}>
                                       1
@@ -3947,6 +3989,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 "change": [Function],
                                 "clearAsyncError": [Function],
                                 "clearSubmit": [Function],
+                                "clearSubmitErrors": [Function],
                                 "destroy": [Function],
                                 "destroyOnUnmount": true,
                                 "dirty": false,
@@ -4040,6 +4083,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                   "change": [Function],
                                   "clearAsyncError": [Function],
                                   "clearSubmit": [Function],
+                                  "clearSubmitErrors": [Function],
                                   "destroy": [Function],
                                   "destroyOnUnmount": true,
                                   "dirty": false,
@@ -4219,6 +4263,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                 "change": [Function],
                                 "clearAsyncError": [Function],
                                 "clearSubmit": [Function],
+                                "clearSubmitErrors": [Function],
                                 "destroy": [Function],
                                 "destroyOnUnmount": true,
                                 "dirty": false,
@@ -4312,6 +4357,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                   "change": [Function],
                                   "clearAsyncError": [Function],
                                   "clearSubmit": [Function],
+                                  "clearSubmitErrors": [Function],
                                   "destroy": [Function],
                                   "destroyOnUnmount": true,
                                   "dirty": false,

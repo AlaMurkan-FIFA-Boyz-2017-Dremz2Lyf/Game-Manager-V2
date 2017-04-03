@@ -1,7 +1,9 @@
 require(TEST_HELPER);
 
 let games = mockData.games.map(game => {
-  return {p1: game.p1, p2: game.p2, tournament: game.tournament, createdAt: TestHelper.createdAt};
+  let out = Object.assign({}, game, {createdAt: TestHelper.createdAt});
+  delete out.id;
+  return out;
 });
 
 exports.seed = function(knex, Promise) {

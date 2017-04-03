@@ -84,6 +84,7 @@ exports[`Game Component should match the snapshot 1`] = `
     }
     onHide={[Function]}
     renderBackdrop={[Function]}
+    restoreFocus={true}
     show={false}>
     <ModalHeader
       aria-label="Close"
@@ -264,6 +265,7 @@ exports[`Game Component should open the game modal when clicked 1`] = `
     }
     onHide={[Function]}
     renderBackdrop={[Function]}
+    restoreFocus={true}
     show={false}>
     <ModalHeader
       aria-label="Close"
@@ -444,6 +446,7 @@ exports[`Game Component should open the game modal when clicked 2`] = `
     }
     onHide={[Function]}
     renderBackdrop={[Function]}
+    restoreFocus={true}
     show={true}>
     <ModalHeader
       aria-label="Close"
