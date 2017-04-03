@@ -43,7 +43,7 @@ StatsTable.propTypes = {
 StatsTable.displayName = 'StatsTable';
 
 export const mapTableToProps = ({data}) => ({
-  table: data.allTime
+  table: data.table
 });
 
 

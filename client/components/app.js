@@ -12,7 +12,9 @@ import { fetch } from '../actions/index';
 export class App extends Component {
 
   componentDidMount() {
-    this.props.fetch('players');
+    let { fetch } = this.props;
+    fetch('players');
+    fetch('table');
   }
 
   render() {

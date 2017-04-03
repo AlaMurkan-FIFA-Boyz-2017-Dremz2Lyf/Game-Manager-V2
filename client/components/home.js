@@ -12,7 +12,7 @@ export default (props) => (
       <Tournaments />
     </Col>
     <Col xs={12} md={6}>
-      <OverallTable label={'All Time Table'} headers={['Player', 'W', 'L', 'D', 'GF', 'GA', 'GD', 'S', 'OT', 'Y', 'R', 'Po']}/>
+      <OverallTable label={'All Time Table'} headers={['Player', 'W', 'L', 'D', 'GF', 'GA', 'GD', 'S', 'OT', 'R', 'Y', 'Po']}/>
     </Col>
   </Row>
 );
