@@ -7,8 +7,9 @@
     "start:dev": "nodemon ./server/index.js",
     "start": "node ./server/index.js",
     "dev": "webpack-dev-server --config webpack.config.js --color --progress --watch",
+    "test": "npm run test:server && npm run test:client",
     "test:server": "./test/run.sh",
-    "test:client": "jest --watch",
+    "test:client": "jest",
     "client:coverage": "jest --coverage"
   },
   "repository": {
