@@ -54,7 +54,7 @@ export const receive = (stateKey, data) => {
 
 export const fetch = (stateKey, data = {}) => {
 
-  let request = axios.get(`${baseUrl}/${stateKey}`, {params: data});
+  let request = axios.get(`${baseUrl}${stateKey}`, {params: data});
 
   return dispatch => {
     dispatch(setLoading(stateKey, true));
@@ -74,7 +74,7 @@ export const fetch = (stateKey, data = {}) => {
 // In an effort to minimize request traffic, the server will respond with the updated or created data object we are currently working with. Instead of fetching all of that corresponding data we need after the post. We will just pass the updated data through to the receive action, by using getState from redux-thunk.
 
 export const create = (stateKey, data) => {
-  let post = axios.post(`${baseUrl}/${stateKey}`, data);
+  let post = axios.post(`${baseUrl}${stateKey}`, data);
 
   return (dispatch, getState) => {
     dispatch(setLoading(stateKey, true));
@@ -103,7 +103,7 @@ export const create = (stateKey, data) => {
 };
 
 export const update = (stateKey, data) => {
-  let put = axios.put(`${baseUrl}/${stateKey}`, data);
+  let put = axios.put(`${baseUrl}${stateKey}`, data);
 
   return (dispatch, getState) => {
     // Set our loading flag for the specific stateKey we are working with
