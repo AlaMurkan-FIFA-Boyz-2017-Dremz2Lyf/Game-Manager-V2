@@ -1,4 +1,4 @@
-import { Router, browserHistory, hashHistory } from 'react-router';
+import { Router, hashHistory } from 'react-router';
 import React from 'react';
 
 import Home from './components/home';
@@ -20,7 +20,7 @@ const routeConfigs = {
 };
 
 const Routes = () => (
-  <Router history={browserHistory} routes={routeConfigs}/>
+  <Router history={hashHistory} routes={routeConfigs}/>
 );
 
 export { Routes as default };
