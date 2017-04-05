@@ -1,13 +1,26 @@
-import { Route, IndexRoute } from 'react-router';
+import { Router, browserHistory, hashHistory } from 'react-router';
 import React from 'react';
 
 import Home from './components/home';
 import App from './components/app';
-import PlayTournament from './components/play_tournament';
 
-export default (
-  <Route path='/' component={App}>
-    <IndexRoute component={Home} />
-    <Route path='play/:id' component={PlayTournament}/>
-  </Route>
+
+const routeConfigs = {
+  component: App,
+  path: '/',
+  indexRoute: { component: Home },
+  childRoutes: [
+    {
+      path: '/play/:id',
+      getComponent(location, cb) {
+        System.import('./components/play_tournament').then(module => cb(null, module.default)).catch(err => cb(err, null));
+      }
+    }
+  ]
+};
+
+const Routes = () => (
+  <Router history={browserHistory} routes={routeConfigs}/>
 );
+
+export { Routes as default };

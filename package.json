@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon ./server/index.js",
-    "start": "node ./server/index.js",
+    "start": "node ./server/index.js && npm run build",
     "dev": "webpack-dev-server --config webpack.config.js --color --progress --watch",
+    "build": "npm run clean && webpack",
+    "clean": "rimraf ./public",
     "test": "npm run test:server && npm run test:client",
     "test:server": "./test/run.sh",
     "test:client": "jest",
@@ -21,7 +23,11 @@
     "express",
     "webpack",
     "redux",
-    "postgresql"
+    "postgresql",
+    "jest",
+    "enzyme",
+    "mocha",
+    "chai"
   ],
   "author": "Scott Charles Harris Horn <scotthorn0@gmail.com>",
   "license": "MIT",
@@ -41,9 +47,11 @@
     "babel-preset-stage-1": "^6.22.0",
     "bluebird": "^3.4.7",
     "chai": "^3.5.0",
+    "css-loader": "^0.28.0",
     "enzyme": "^2.7.1",
     "enzyme-to-json": "^1.4.5",
     "eslint": "^3.12.2",
+    "html-webpack-plugin": "^2.28.0",
     "jest": "^18.1.0",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
@@ -58,6 +66,7 @@
     "redux-mock-store": "^1.2.2",
     "redux-thunk": "^2.2.0",
     "sinon": "^2.1.0",
+    "style-loader": "^0.16.1",
     "supertest": "^2.0.1",
     "webpack": "^2.2.0-rc.0",
     "webpack-dev-server": "^2.2.0-rc.0"
@@ -72,7 +81,8 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "rimraf": "^2.6.1"
   },
   "jest": {
     "setupFiles": [
