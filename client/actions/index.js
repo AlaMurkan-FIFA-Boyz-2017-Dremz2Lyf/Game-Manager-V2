@@ -7,6 +7,10 @@ import { SET_ERRORED, SET_LOADING, RECEIVE } from './types';
 // Utilities
 import { normalize } from '../utilities';
 
+console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+let baseUrl = process.env.NODE_ENV === 'production' ? window.location.href : '';
+
+
 export const setErrored = (stateKey, data) => {
   // NOTE: Still not 100% sure if this is going to work for all errors.... but it might! :D
   let error = data.status ? {status: data.status, message: data.data} : {message: data.message, source: data.stack};
@@ -49,7 +53,8 @@ export const receive = (stateKey, data) => {
 };
 
 export const fetch = (stateKey, data = {}) => {
-  let request = axios.get(`/${stateKey}`, {params: data});
+
+  let request = axios.get(`${baseUrl}${stateKey}`, {params: data});
 
   return dispatch => {
     dispatch(setLoading(stateKey, true));
@@ -69,7 +74,7 @@ export const fetch = (stateKey, data = {}) => {
 // In an effort to minimize request traffic, the server will respond with the updated or created data object we are currently working with. Instead of fetching all of that corresponding data we need after the post. We will just pass the updated data through to the receive action, by using getState from redux-thunk.
 
 export const create = (stateKey, data) => {
-  let post = axios.post(`/${stateKey}`, data);
+  let post = axios.post(`${baseUrl}${stateKey}`, data);
 
   return (dispatch, getState) => {
     dispatch(setLoading(stateKey, true));
@@ -98,7 +103,7 @@ export const create = (stateKey, data) => {
 };
 
 export const update = (stateKey, data) => {
-  let put = axios.put(`/${stateKey}`, data);
+  let put = axios.put(`${baseUrl}${stateKey}`, data);
 
   return (dispatch, getState) => {
     // Set our loading flag for the specific stateKey we are working with

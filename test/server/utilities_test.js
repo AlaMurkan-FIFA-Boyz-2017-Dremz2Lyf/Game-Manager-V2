@@ -92,7 +92,7 @@ describe('Utilities', function() {
     });
 
     it('each object should have the relevent information', () => {
-      let keys = ['username', 'id', 'wins', 'losses', 'draws', 'goalsFor', 'goalsAgainst', 'shots', 'onGoal', 'reds', 'yellows', 'poss', 'points', 'goalDiff', ];
+      let keys = ['username', 'id', 'wins', 'losses', 'draws', 'goalsFor', 'goalsAgainst', 'shots', 'onGoal', 'reds', 'yellows', 'poss', 'points', 'goalDiff', 'passAcc'];
 
       expect(emptyTable[1]).to.have.all.keys(keys);
       expect(emptyTable[2]).to.have.all.keys(keys);
