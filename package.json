@@ -49,7 +49,6 @@
     "nodemon": "^1.11.0",
     "nyc": "^10.2.0",
     "react-addons-test-utils": "^15.4.2",
-    "react-hot-loader": "^3.0.0-beta.2",
     "react-test-renderer": "^15.4.2",
     "redux-logger": "^2.8.1",
     "redux-mock-store": "^1.2.2",
@@ -58,6 +57,7 @@
     "webpack-dev-server": "^2.2.0-rc.0"
   },
   "dependencies": {
+    "react-hot-loader": "^3.0.0-beta.2",
     "babel": "^6.5.2",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
