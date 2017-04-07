@@ -7,19 +7,26 @@ import {
   possValidation,
   helpMessage,
   buildTable,
-  applyGame
+  applyGame,
+  getAverage
 } from '../client/utilities';
 
 import { mockData } from './mockData';
 
 describe('Utilities', () => {
 
-  describe('Normalize', () => {
+  describe('normalize', () => {
 
     test('should normalize an array into an object with numeric keys', () => {
       let input = mockData.tournaments.slice();
       let output = normalize(input);
       expect(Object.keys(output)).toEqual(expect.arrayContaining(['1', '2', '3', '4', '5']).sample);
+    });
+
+    test('should make copies of the objects, to avoid mutation', () => {
+      let input = mockData.tournaments.slice(0, 1);
+      let normalized = normalize(input);
+      expect(input[0]).not.toEqual(normalize[1]);
     });
 
     test('should return an empty object if passed an empty array', () => {
@@ -174,6 +181,22 @@ describe('Utilities', () => {
       };
 
       expect(applyGame(table, game)).toEqual(expected);
+    });
+
+  });
+
+  describe('getAverage', () => {
+
+    test('should take in an array of numbers and return the average', () => {
+      expect(getAverage([40, 50, 60])).toEqual(50);
+    });
+
+    test('should round, at most, to two decimal places in an array of numbers and return the average', () => {
+      expect(getAverage([25, 50, 25])).toEqual(33.33);
+    });
+
+    test('should return 0 if the array is empty', () => {
+      expect(getAverage([])).toEqual(0);
     });
 
   });

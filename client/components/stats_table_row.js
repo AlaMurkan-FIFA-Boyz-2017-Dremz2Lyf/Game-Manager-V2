@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { getAverage } from '../utilities';
+
 const StatsTableRow = ({player}) => {
   let {
     username,
@@ -18,9 +20,6 @@ const StatsTableRow = ({player}) => {
     goalDiff,
     points
   } = player;
-  let gamesPlayed = (wins + losses + draws);
-  let averagedPoss = poss.reduce((total, current) => total += current, 0) / gamesPlayed;
-  let averagedPassing = passAcc.reduce((total, current) => total += current, 0) / gamesPlayed;
 
   return (
     <tr key={id}>
@@ -36,7 +35,7 @@ const StatsTableRow = ({player}) => {
       <td>{onGoal || '0'}</td>
       <td>{reds || '0'}</td>
       <td>{yellows || '0'}</td>
-      <td>{(averagedPoss || '0') + '%'}</td>
+      <td>{getAverage(poss) + '%'}</td>
     </tr>
   );
 };

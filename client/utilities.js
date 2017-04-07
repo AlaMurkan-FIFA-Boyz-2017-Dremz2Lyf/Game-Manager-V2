@@ -148,3 +148,15 @@ export const applyGame = (table, game) => {
   }
   return table;
 };
+
+/**
+  * getAverage - used by StatsTableRow to get the average of all percentage based stats
+  * @param {array} array - an array of percentages
+*/
+
+export const getAverage = (array) => {
+  let count = array.length || 1;
+  let average = array.reduce((total, current) => total += current, 0) / count;
+
+  return Math.round(average * 100) / 100;
+};
