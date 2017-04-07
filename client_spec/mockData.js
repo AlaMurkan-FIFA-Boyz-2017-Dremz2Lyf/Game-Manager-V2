@@ -38,9 +38,57 @@ mockData.test = {
 };
 
 mockData.table = {
-  1: {id: 1, username: 'Alice', points: 3, wins: 1, losses: 1, draws: 0, goalsFor: 4, goalsAgainst: 4, goalDiff: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, passAcc: 0, poss: 62.5},
-  2: {id: 2, username: 'Gilbert', points: 0, wins: 0, losses: 1, draws: 0, goalsFor: 2, goalsAgainst: 3, goalDiff: -1, shots: 0, onGoal: 0, reds: 0, yellows: 0, passAcc: 0, poss: 25},
-  3: {id: 3, username: 'Bob', points: 3, wins: 1, losses: 0, draws: 0, goalsFor: 2, goalsAgainst: 1, goalDiff: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, passAcc: 0, poss: 50}
+  1: {
+    id: 1,
+    username: 'Alice',
+    points: 3,
+    wins: 1,
+    losses: 1,
+    draws: 0,
+    goalsFor: 4,
+    goalsAgainst: 4,
+    goalDiff: 0,
+    shots: 0,
+    onGoal: 0,
+    reds: 0,
+    yellows: 0,
+    passAcc: [75, 75],
+    poss: [75, 50]
+  },
+  2: {
+    id: 2,
+    username: 'Gilbert',
+    points: 0,
+    wins: 0,
+    losses: 1,
+    draws: 0,
+    goalsFor: 2,
+    goalsAgainst: 3,
+    goalDiff: -1,
+    shots: 0,
+    onGoal: 0,
+    reds: 0,
+    yellows: 0,
+    passAcc: [85],
+    poss: [25]
+  },
+  3: {
+    id: 3,
+    username: 'Bob',
+    points: 3,
+    wins: 1,
+    losses: 0,
+    draws: 0,
+    goalsFor: 2,
+    goalsAgainst: 1,
+    goalDiff: 1,
+    shots: 0,
+    onGoal: 0,
+    reds: 0,
+    yellows: 0,
+    passAcc: [95],
+    poss: [50]
+  }
 };
 
 

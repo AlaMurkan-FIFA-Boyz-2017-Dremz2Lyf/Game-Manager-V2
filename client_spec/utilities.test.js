@@ -144,10 +144,14 @@ describe('Utilities', () => {
       games[1].p2Score = 2;
       games[1].p1Poss = 75;
       games[1].p2Poss = 25;
+      games[1].p1PassAcc = 75;
+      games[1].p2PassAcc = 85;
       games[2].p1Score = 1;
       games[2].p2Score = 2;
       games[2].p1Poss = 50;
       games[2].p2Poss = 50;
+      games[2].p1PassAcc = 75;
+      games[2].p2PassAcc = 95;
 
       expect(buildTable(games, players)).toEqual(expected);
     });
@@ -160,13 +164,13 @@ describe('Utilities', () => {
       game.p1Score = 1;
       game.p2Score = 1;
       let table = {
-        1: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 0, goalDiff: 0, passAcc: 0},
-        2: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 0, goalDiff: 0, passAcc: 0}
+        1: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: [], points: 0, goalDiff: 0, passAcc: []},
+        2: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: [], points: 0, goalDiff: 0, passAcc: []}
       };
 
       let expected = {
-        1: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 1, goalDiff: 0, passAcc: 0},
-        2: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 1, goalDiff: 0, passAcc: 0}
+        1: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: [null], points: 1, goalDiff: 0, passAcc: [null]},
+        2: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: [null], points: 1, goalDiff: 0, passAcc: [null]}
       };
 
       expect(applyGame(table, game)).toEqual(expected);

@@ -13,12 +13,14 @@ const StatsTableRow = ({player}) => {
     reds,
     yellows,
     poss,
+    passAcc,
     id,
     goalDiff,
     points
   } = player;
-
-  let averagedPoss = poss.reduce((total, current) => total += current, 0) / (wins + losses + draws);
+  let gamesPlayed = (wins + losses + draws);
+  let averagedPoss = poss.reduce((total, current) => total += current, 0) / gamesPlayed;
+  let averagedPassing = passAcc.reduce((total, current) => total += current, 0) / gamesPlayed;
 
   return (
     <tr key={id}>

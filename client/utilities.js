@@ -137,10 +137,10 @@ export const applyGame = (table, game) => {
     player2.reds += p2Reds;
     player1.yellows += p1Yellows;
     player2.yellows += p2Yellows;
-    player1.poss = (player1.poss + p1Poss) / (player1.wins + player1.losses + player1.draws);
-    player2.poss = (player2.poss + p2Poss) / (player2.wins + player2.losses + player2.draws);
-    player1.passAcc = (player1.passAcc + p1PassAcc) / (player1.wins + player1.losses + player1.draws);
-    player2.passAcc = (player2.passAcc + p2PassAcc) / (player2.wins + player2.losses + player2.draws);
+    player1.poss.push(p1Poss);
+    player2.poss.push(p2Poss);
+    player1.passAcc.push(p1PassAcc);
+    player2.passAcc.push(p2PassAcc);
     player1.points = (player1.wins * 3 + player1.draws);
     player2.points = (player2.wins * 3 + player2.draws);
     player1.goalDiff = (player1.goalsFor - player1.goalsAgainst);

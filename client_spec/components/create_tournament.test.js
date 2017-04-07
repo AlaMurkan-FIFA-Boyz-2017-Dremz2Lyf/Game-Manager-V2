@@ -4,6 +4,7 @@ import { mockData } from '../mockData';
 
 describe('CreateTournament', () => {
   let mockCreate = jest.fn();
+  mockCreate.mockReturnValue(Promise.resolve({id: '1'}));
   let wrapper = shallow(<CreateTournament players={mockData.players} create={mockCreate}/>);
 
   afterEach(() => {
