@@ -15,7 +15,7 @@ const table = require('./routes/table');
 const wildcard = require('./routes/wildcard');
 
 // Normalized path for our public/static files
-const PUBLIC = path.normalize(__dirname + '/../public');
+const PUBLIC = process.env.NODE_ENV === 'production' ? path.normalize(__dirname + '/../public') : path.normalize(__dirname + '/../devStatics');
 
 // And give them to our middleware with express.static
 routes.use(express.static(PUBLIC));

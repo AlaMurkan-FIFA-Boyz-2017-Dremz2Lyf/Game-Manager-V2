@@ -7,9 +7,7 @@ import { SET_ERRORED, SET_LOADING, RECEIVE } from './types';
 // Utilities
 import { normalize } from '../utilities';
 
-console.log('process.env.NODE_ENV', process.env.NODE_ENV);
-let baseUrl = process.env.NODE_ENV === 'production' ? window.location.href : '';
-
+let baseUrl = process.env.NODE_ENV === 'production' ? window.location.href : '/';
 
 export const setErrored = (stateKey, data) => {
   // NOTE: Still not 100% sure if this is going to work for all errors.... but it might! :D
@@ -53,7 +51,6 @@ export const receive = (stateKey, data) => {
 };
 
 export const fetch = (stateKey, data = {}) => {
-
   let request = axios.get(`${baseUrl}${stateKey}`, {params: data});
 
   return dispatch => {

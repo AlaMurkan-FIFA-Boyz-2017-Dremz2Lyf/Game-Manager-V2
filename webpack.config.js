@@ -81,6 +81,7 @@ const prodConfig = {
 const config = {};
 
 const TARGET = process.env.NODE_ENV;
+console.log('*******NODE_ENV********', TARGET);
 switch (TARGET) {
 case 'production' :
   Object.assign(config, commonConfig, prodConfig);

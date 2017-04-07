@@ -18,6 +18,8 @@ const StatsTableRow = ({player}) => {
     points
   } = player;
 
+  let averagedPoss = poss.reduce((total, current) => total += current, 0) / (wins + losses + draws);
+
   return (
     <tr key={id}>
       <td>{username}</td>
@@ -32,7 +34,7 @@ const StatsTableRow = ({player}) => {
       <td>{onGoal || '0'}</td>
       <td>{reds || '0'}</td>
       <td>{yellows || '0'}</td>
-      <td>{(poss || '0') + '%'}</td>
+      <td>{(averagedPoss || '0') + '%'}</td>
     </tr>
   );
 };
