@@ -38,9 +38,10 @@ export class PlayerForm extends Component {
   notTaken(value) {
     let { allPlayers } = this.props;
 
-    return Object.values(allPlayers).reduce((error, player) => (
-      player.username.toLowerCase() === value.toLowerCase() ? 'Tough luck, someone beat you to it.' : error
-    ), undefined);
+    return Object.keys(allPlayers).reduce((error, id) => {
+      let player = allPlayers[id];
+      return player.username.toLowerCase() === value.toLowerCase() ? 'Tough luck, someone beat you to it.' : error;
+    }, undefined);
   }
 
 

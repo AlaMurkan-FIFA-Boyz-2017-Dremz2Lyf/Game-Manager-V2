@@ -86,8 +86,8 @@ export const buildTable = (games, players) => {
     wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, points: 0, goalDiff: 0
   };
 
-  return Object.values(games).reduce((table, game) => {
-
+  return Object.keys(games).reduce((table, id) => {
+    let game = games[id];
     let { p1, p2 } = game;
 
     table[p1] = table[p1] ? table[p1] : { ...trackedStats, id: p1, username: players[p1].username, poss: [], passAcc: []};

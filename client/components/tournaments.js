@@ -24,7 +24,8 @@ export class Tournaments extends Component {
   renderList(finished) {
     let { tournaments = {} } = this.props;
 
-    return Object.values(tournaments).reduce((list, tournament) => {
+    return Object.keys(tournaments).reduce((list, id) => {
+      let tournament = tournaments[id];
       if (!!tournament.winner === finished) {
         list.push(<Tournament key={tournament.id} tournament={tournament}/>);
       }

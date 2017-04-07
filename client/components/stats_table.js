@@ -7,7 +7,7 @@ import TableRow from './stats_table_row';
 export const StatsTable = ({table, label}) => {
   let headers = ['Player', 'P', 'W', 'L', 'D', 'GF', 'GA', 'GD', 'S', 'OT', 'Y', 'R', 'Po'];
 
-  let tableRows = Object.values(table).sort((a, b) => {
+  let tableRows = Object.keys(table).map(id => tableRows[id]).sort((a, b) => {
     if (a.points === b.points) {
       return a.goalDiff < b.goalDiff;
     }
