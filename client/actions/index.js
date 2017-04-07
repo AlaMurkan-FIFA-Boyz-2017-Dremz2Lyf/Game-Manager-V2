@@ -76,26 +76,28 @@ export const create = (stateKey, data) => {
   return (dispatch, getState) => {
     dispatch(setLoading(stateKey, true));
 
-    return post.then(response => normalize(response.data)).then(updated => {
+    return post.then(response => normalize(response.data)).then(created => {
 
       // Grab the specific subState for the stateKey we are working with during this action
       let subState = getState().data[stateKey];
 
-      // Take the subState and the updated data and create a new object
-      let updatedSubState = {...subState, ...updated};
+      // Take the subState and the created data and create a new object
+      let updatedSubState = {...subState, ...created};
 
       // Pass that updated subState into the receive action
-      return dispatch(receive(stateKey, updatedSubState));
+      dispatch(receive(stateKey, updatedSubState));
+      return created;
     }).catch(error => {
 
       // If there was an error in the put, we grab the response from the server and pass it along to our setErrored action creator.
       let data = error.response;
       return dispatch(setErrored(stateKey, data));
-    }).then(dis =>
+    }).then(created => {
 
       // Once everything is done, we set our loading flag to false.
-      dispatch(setLoading(stateKey, false))
-    );
+      dispatch(setLoading(stateKey, false));
+      return created;
+    });
   };
 };
 

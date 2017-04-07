@@ -83,15 +83,15 @@ export const helpMessage = (field) => {
 export const buildTable = (games, players) => {
 
   let trackedStats = {
-    wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: 0, points: 0, goalDiff: 0, passAcc: 0
+    wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, points: 0, goalDiff: 0
   };
 
   return Object.values(games).reduce((table, game) => {
 
     let { p1, p2 } = game;
 
-    table[p1] = table[p1] ? table[p1] : { ...trackedStats, id: p1, username: players[p1].username};
-    table[p2] = table[p2] ? table[p2] : { ...trackedStats, id: p2, username: players[p2].username};
+    table[p1] = table[p1] ? table[p1] : { ...trackedStats, id: p1, username: players[p1].username, poss: [], passAcc: []};
+    table[p2] = table[p2] ? table[p2] : { ...trackedStats, id: p2, username: players[p2].username, poss: [], passAcc: []};
 
     return applyGame(table, game);
   }, {});

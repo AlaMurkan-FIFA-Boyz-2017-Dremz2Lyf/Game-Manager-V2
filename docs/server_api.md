@@ -13,7 +13,7 @@ _this will be the style guide for improvements to the existing api docs_
       - `id`: id corresponding to the requested tournament.
   - `post`:
     @body <Object>
-      - `added`: should be an <Object> of players participating in the tournament with their ids as the keys.
+      - `added`: should be an {Array} of players participating in the tournament with their ids as the keys.
       - `rounds`: should be a <Number> representing the number of round to be applied to the tournament. How many times every player will play every other player. Defaults to `1` if not provided.
       - `name`: A <String> for the tournament name
 

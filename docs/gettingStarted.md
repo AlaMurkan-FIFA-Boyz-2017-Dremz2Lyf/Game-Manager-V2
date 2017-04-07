@@ -14,33 +14,25 @@ First you will need to make sure you have PostgreSQL installed on your computer.
 
 [PostGres.app]: https://www.postgresql.org/download/macosx/
 
-## Testing
+## Testing:
 
-### Front End
-This application uses Jest with enzyme for front end testing:
+This application uses Jest with enzyme for client, mocha and chai for server testing:
 
-  - To run the tests in watch mode use:
-
-```
-npm run test:client
-```
-
-  - To do a coverage check use:
-  _If you have made changes to the UI you will need to update the snapshots, add '-- -u' do to so._
+  - All tests are now in one script:
 
 ```
-npm run test:coverage
+npm test
 ```
 
-### Backend
-Mocha & chai are used for server and database testing.
-_Remember to have your database up and running first._
+### Coverage
+  - Server coverage is checked running tests, to get the client coverage run:  
 
 ```
-npm run test:server
+npm run client:coverage
 ```
 
-## Firing it up!
+
+## Development:
 
 Webpack 2.0 is the tool of choice for bundling. The devServer runs on port `8080` and proxies the server running on `4040`. To fire up the devServer use:
 
@@ -55,5 +47,17 @@ npm run start:dev
 ```
 
 And you should be good to go!
+
+## Production:  
+Using Heroku to deploy this app, but if you want to check that everything is running right in production:  
+First set your environment as `NODE_ENV`;  
+```
+export NODE_ENV=production
+```
+
+Then go ahead and fire everything up!  
+```
+npm start
+```
 
 Please put in a PR if you have any questions or recommendations for improving this guide!

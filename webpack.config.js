@@ -34,7 +34,8 @@ const devConfig = {
     './client/index.js'
   ],
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
   ],
   devtool: 'inline-source-maps',
   devServer: {

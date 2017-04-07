@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { hashHistory } from 'react-router';
 
 import {
   Row,
@@ -55,7 +56,11 @@ export class CreateTournament extends Component {
     e.preventDefault();
     let { rounds, added, name } = this.state;
     rounds = rounds.slice(0, 1);
-    this.props.create('tournaments', { name, rounds, added });
+    this.props.create('tournaments', { name, rounds, added }).then((res) => {
+      let id = Object.keys(res)[0];
+      hashHistory.push(`/play/${id}`);
+    });
+
   }
 
   // added takes boolean dictating if the list renders the players added to the tournament (true) or all the others (false).
