@@ -72,7 +72,7 @@ describe('Utilities', function() {
 
     before(() => {
       spy = sinon.spy(_, 'applyGame');
-      emptyTable = _.createTable(mockData.players, mockData.games);
+      table = _.createTable(mockData.players, mockData.games);
     });
 
     after(() => {
@@ -85,25 +85,25 @@ describe('Utilities', function() {
 
     it('should return an object of nested objects', () => {
 
-      expect(emptyTable).to.be.an('object');
-      expect(emptyTable[1]).to.be.an('object');
-      expect(emptyTable[2]).to.be.an('object');
-      expect(emptyTable[3]).to.be.an('object');
+      expect(table).to.be.an('object');
+      expect(table[1]).to.be.an('object');
+      expect(table[2]).to.be.an('object');
+      expect(table[3]).to.be.an('object');
     });
 
     it('each object should have the relevent information', () => {
       let keys = ['username', 'id', 'wins', 'losses', 'draws', 'goalsFor', 'goalsAgainst', 'shots', 'onGoal', 'reds', 'yellows', 'poss', 'points', 'goalDiff', 'passAcc'];
 
-      expect(emptyTable[1]).to.have.all.keys(keys);
-      expect(emptyTable[2]).to.have.all.keys(keys);
+      expect(table[1]).to.have.all.keys(keys);
+      expect(table[2]).to.have.all.keys(keys);
     });
 
     it('each object should have the player username and id', () => {
 
-      expect(emptyTable[1].username).to.not.be.undefined;
-      expect(emptyTable[1].username).to.equal('Alice');
-      expect(emptyTable[2].username).to.not.be.undefined;
-      expect(emptyTable[2].username).to.equal('Gilbert');
+      expect(table[1].username).to.not.be.undefined;
+      expect(table[1].username).to.equal('Alice');
+      expect(table[2].username).to.not.be.undefined;
+      expect(table[2].username).to.equal('Gilbert');
     });
 
     it('should call applyGame once for every game', () => {
@@ -114,4 +114,34 @@ describe('Utilities', function() {
 
   });
 
+  describe('applyGame', () => {
+
+    it('should handle draws', () => {
+      let game = Object.assign({}, mockData.games[0]);
+      game.p1Score = 1;
+      game.p2Score = 1;
+
+      let table = {
+        1: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: [], points: 0, goalDiff: 0, passAcc: []},
+        2: {wins: 0, losses: 0, draws: 0, goalsFor: 0, goalsAgainst: 0, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: [], points: 0, goalDiff: 0, passAcc: []}
+      };
+
+      let expected = {
+        1: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: [null], points: 1, goalDiff: 0, passAcc: [null]},
+        2: {wins: 0, losses: 0, draws: 1, goalsFor: 1, goalsAgainst: 1, shots: 0, onGoal: 0, reds: 0, yellows: 0, poss: [null], points: 1, goalDiff: 0, passAcc: [null]}
+      };
+
+      expect(_.applyGame(table, game)).to.deep.equal(expected);
+    });
+
+  });
+
+  describe('envStaticPath', () => {
+
+    it('should return the correct path base for different NODE_ENVs', () => {
+      expect(_.envStaticPath('production')).to.equal('public');
+      expect(_.envStaticPath('anything else')).to.equal('devPublic');
+    });
+
+  });
 });

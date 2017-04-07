@@ -18,12 +18,13 @@ describe('knex_model', () => {
   });
 
   it('findBy should reject with a NotFound if the row doesn\'t exist', () => {
-    return games.findBy({id: 150}).then(res =>
-      res
-    ).catch(err => {
+    return games.findBy({id: 150}).catch(err => {
       expect(err.type).to.equal('not_found');
       expect(err.meta).to.deep.equal({model: 'games'});
-    });
+      return 'continue';
+    }).then(res =>
+      expect(res).to.equal('continue')
+    );
   });
 
   it('should call "create" if "save" is passed no id attribute', () => {
@@ -39,12 +40,13 @@ describe('knex_model', () => {
   it('should call "create" if "save" is passed no id attribute', () => {
     let game = {id: 150, p1: 1, p2: 2};
 
-    return games.updateOne(game).then(res =>
-      res
-    ).catch(err => {
+    return games.updateOne(game).catch(err => {
       expect(err.type).to.equal('not_found');
       expect(err.meta).to.deep.equal({model: 'games'});
-    });
+      return 'continue';
+    }).then(res =>
+      expect(res).to.equal('continue')
+    );
   });
 
 });

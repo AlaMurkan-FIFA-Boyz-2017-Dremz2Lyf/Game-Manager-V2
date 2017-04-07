@@ -61,7 +61,7 @@ mockData.players = [
 // set a tournaments key on the mock database
 mockData.tournaments = [
   {id: 1, gamesPlayed: 0, totalGames: 3, name: 'Super Tourney!', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null},
-  {id: 2, gamesPlayed: 1, totalGames: 6, name: '2 Rounds', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null}
+  {id: 2, gamesPlayed: 2, totalGames: 6, name: '2 Rounds', winner: null, createdAt: '2016-12-25T19:31:48', updatedAt: null}
 ];
 // set a games key on the mock database
 mockData.games = [
@@ -71,6 +71,7 @@ mockData.games = [
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
+    p1PassAcc: null, p2PassAcc: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 1, status: 'created',
     p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
@@ -82,6 +83,7 @@ mockData.games = [
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
+    p1PassAcc: null, p2PassAcc: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 1, status: 'created',
     p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
@@ -93,6 +95,7 @@ mockData.games = [
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
+    p1PassAcc: null, p2PassAcc: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 1, status: 'created',
     p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
@@ -104,6 +107,7 @@ mockData.games = [
     p1Score: 3, p2Score: 2,
     p1Shots: 6, p2Shots: 10,
     p1Poss: 55, p2Poss: 45,
+    p1PassAcc: 75, p2PassAcc: 70,
     p1OnGoal: 5, p2OnGoal: 6,
     tournament: 2, status: 'finished',
     p1Reds: 0, p1Yellows: 1, p2Reds: 0, p2Yellows: 2,
@@ -115,6 +119,7 @@ mockData.games = [
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
+    p1PassAcc: null, p2PassAcc: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 2, status: 'created',
     p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
@@ -123,13 +128,14 @@ mockData.games = [
   {
     id: 6,
     p1: 2, p2: 3,
-    p1Score: null, p2Score: null,
-    p1Shots: null, p2Shots: null,
-    p1Poss: null, p2Poss: null,
-    p1OnGoal: null, p2OnGoal: null,
-    tournament: 2, status: 'created',
+    p1Score: 1, p2Score: 3,
+    p1Shots: 5, p2Shots: 8,
+    p1Poss: 25, p2Poss: 75,
+    p1PassAcc: 65, p2PassAcc: 85,
+    p1OnGoal: 1, p2OnGoal: 7,
+    tournament: 2, status: 'finished',
     p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
-    createdAt: TestHelper.createdAt, updatedAt: null
+    createdAt: TestHelper.createdAt, updatedAt: TestHelper.updatedAt
   },
   {
     id: 7,
@@ -137,6 +143,7 @@ mockData.games = [
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
+    p1PassAcc: null, p2PassAcc: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 2, status: 'created',
     p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
@@ -148,6 +155,7 @@ mockData.games = [
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
+    p1PassAcc: null, p2PassAcc: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 2, status: 'created',
     p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,
@@ -159,6 +167,7 @@ mockData.games = [
     p1Score: null, p2Score: null,
     p1Shots: null, p2Shots: null,
     p1Poss: null, p2Poss: null,
+    p1PassAcc: null, p2PassAcc: null,
     p1OnGoal: null, p2OnGoal: null,
     tournament: 2, status: 'created',
     p1Reds: null, p1Yellows: null, p2Reds: null, p2Yellows: null,

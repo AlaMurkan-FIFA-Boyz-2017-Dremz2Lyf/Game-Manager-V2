@@ -14,11 +14,13 @@ const tournaments = require('./routes/tournaments');
 const table = require('./routes/table');
 const wildcard = require('./routes/wildcard');
 
-// Normalized path for our public/static files
-const PUBLIC = process.env.NODE_ENV === 'production' ? path.normalize(__dirname + '/../public') : path.normalize(__dirname + '/../devStatics');
+const _ = require('./utilities');
 
-// And give them to our middleware with express.static
-routes.use(express.static(PUBLIC));
+// get the correct directory for the assets based on our NODE_ENV
+const assets = _.envStaticPath(process.env.NODE_ENV);
+
+// And give that to our middleware with express.static
+routes.use(express.static(path.resolve(assets)));
 
 // drop in some bodyParser here.
 routes.use(bodyParser.json());

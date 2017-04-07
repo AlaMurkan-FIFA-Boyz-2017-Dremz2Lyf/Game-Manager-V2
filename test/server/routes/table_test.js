@@ -32,7 +32,7 @@ describe('API "/table"', () => {
       .expect(200)
       .expect(res => {
         expect(res.body).to.be.an('object');
-        expect(res.body).to.have.all.keys(['1', '2']);
+        expect(res.body).to.have.all.keys(['1', '2', '3']);
         expect(createSpy.called).to.equal(true);
         expect(modelSpy.called).to.equal(true);
         _.createTable.restore();
