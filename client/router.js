@@ -1,4 +1,4 @@
-import { Router, hashHistory } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 import React from 'react';
 
 import Home from './components/home';
@@ -11,7 +11,7 @@ const routeConfigs = {
   indexRoute: { component: Home },
   childRoutes: [
     {
-      path: '/play/:id',
+      path: 'play/:id',
       getComponent(location, cb) {
         System.import('./components/play_tournament').then(module => cb(null, module.default)).catch(err => cb(err, null));
       }
@@ -20,7 +20,7 @@ const routeConfigs = {
 };
 
 const Routes = () => (
-  <Router history={hashHistory} routes={routeConfigs}/>
+  <Router history={browserHistory} routes={routeConfigs}/>
 );
 
 export { Routes as default };

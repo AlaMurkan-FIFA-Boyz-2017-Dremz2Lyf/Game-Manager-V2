@@ -6,6 +6,7 @@ node_modules/
 ######Bundle######
 
 public/
+devPublic/
 
 
 ######Merge Files#######

@@ -51,6 +51,7 @@ export const receive = (stateKey, data) => {
 };
 
 export const fetch = (stateKey, data = {}) => {
+
   let request = axios.get(`${baseUrl}${stateKey}`, {params: data});
 
   return dispatch => {

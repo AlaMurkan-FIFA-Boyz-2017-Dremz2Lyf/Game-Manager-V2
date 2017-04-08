@@ -7,11 +7,6 @@ const VENDOR_LIBS = [
 ];
 
 const commonConfig = {
-  output: {
-    path: path.join(__dirname, 'public'),
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
   module: {
     rules: [
       {
@@ -28,6 +23,11 @@ const commonConfig = {
 };
 
 const devConfig = {
+  output: {
+    path: path.join(__dirname, 'devPublic'),
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
@@ -55,6 +55,7 @@ const prodConfig = {
   },
   output: {
     path: path.join(__dirname, 'public'),
+    publicPath: '/',
     filename: '[name].[chunkhash].js'
   },
   plugins: [
