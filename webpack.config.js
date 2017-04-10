@@ -34,6 +34,7 @@ const devConfig = {
   ],
   output: {
     path: path.join(__dirname, 'devPublic'),
+    publicPath: '/',
     filename: 'bundle.js'
   },
   plugins: [

@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .games, .stats {
-  height: 480px;
+  max-height: 480px;
   overflow: scroll;
 }
 
@@ -52,12 +52,13 @@ body {
 }
 
 .player-list {
-  height: 350px;
+  max-height: 350px;
   overflow: scroll;
 }
 
 .tournament-list {
-  height: 480px;
+  min-height: 200px;
+  max-height: 480px;
   overflow: scroll;
   margin-bottom: 10px;
 }
@@ -77,6 +78,7 @@ body {
 
 .panel-default {
   background-color: rgba(74, 77, 86, 0.75);
+  border: none;
   border-radius: 0px;
 }
 
