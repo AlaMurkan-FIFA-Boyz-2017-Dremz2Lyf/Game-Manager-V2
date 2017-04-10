@@ -31,11 +31,11 @@ export class PlayTournament extends Component {
     return (
       <div>
         <Row>
-          <Col xs={12} md={6}>
-            <StatsTable table={table} label={'Current Table'}/>
-          </Col>
-          <Col xs={12} md={6}>
+          <Col xs={12} md={4}>
             <Games games={games}/>
+          </Col>
+          <Col xs={12} md={8}>
+            <StatsTable table={table} label={'Current Table'}/>
           </Col>
         </Row>
       </div>

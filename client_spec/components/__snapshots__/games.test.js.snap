@@ -1,104 +1,188 @@
 exports[`Games Component should match the snapshot 1`] = `
-<Panel
-  bsClass="panel"
-  bsStyle="default"
-  defaultExpanded={false}>
-  <h4>
-    Select a game below to play!
-  </h4>
-  <ListGroup
-    bsClass="list-group">
-    <Connect(Game)
-      game={
-        Object {
-          "createdAt": "2016-12-25T19:31:48",
-          "id": 1,
-          "p1": 1,
-          "p1OnGoal": null,
-          "p1PassAcc": null,
-          "p1Poss": null,
-          "p1Reds": 0,
-          "p1Score": null,
-          "p1Shots": null,
-          "p1Yellows": 0,
-          "p2": 2,
-          "p2OnGoal": null,
-          "p2PassAcc": null,
-          "p2Poss": null,
-          "p2Reds": 0,
-          "p2Score": null,
-          "p2Shots": null,
-          "p2Yellows": 0,
-          "status": "created",
-          "tournament": 1,
-          "updatedAt": null,
-        }
-      } />
-    <Connect(Game)
-      game={
-        Object {
-          "createdAt": "2016-12-25T19:31:48",
-          "id": 2,
-          "p1": 1,
-          "p1OnGoal": null,
-          "p1PassAcc": null,
-          "p1Poss": null,
-          "p1Reds": 0,
-          "p1Score": null,
-          "p1Shots": null,
-          "p1Yellows": 0,
-          "p2": 3,
-          "p2OnGoal": null,
-          "p2PassAcc": null,
-          "p2Poss": null,
-          "p2Reds": 0,
-          "p2Score": null,
-          "p2Shots": null,
-          "p2Yellows": 0,
-          "status": "created",
-          "tournament": 1,
-          "updatedAt": null,
-        }
-      } />
-    <Connect(Game)
-      game={
-        Object {
-          "createdAt": "2016-12-25T19:31:48",
-          "id": 3,
-          "p1": 2,
-          "p1OnGoal": null,
-          "p1PassAcc": null,
-          "p1Poss": null,
-          "p1Reds": 0,
-          "p1Score": null,
-          "p1Shots": null,
-          "p1Yellows": 0,
-          "p2": 3,
-          "p2OnGoal": null,
-          "p2PassAcc": null,
-          "p2Poss": null,
-          "p2Reds": 0,
-          "p2Score": null,
-          "p2Shots": null,
-          "p2Yellows": 0,
-          "status": "created",
-          "tournament": 1,
-          "updatedAt": null,
-        }
-      } />
-  </ListGroup>
-</Panel>
+<Carousel
+  activeIndex={0}
+  bsClass="carousel"
+  controls={true}
+  direction={null}
+  indicators={true}
+  interval={5000}
+  nextIcon={
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="chevron-right" />
+  }
+  nextLabel="Next"
+  onSelect={[Function]}
+  pauseOnHover={true}
+  prevIcon={
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="chevron-left" />
+  }
+  prevLabel="Previous"
+  slide={true}
+  wrap={true}>
+  <CarouselItem
+    active={false}
+    animateIn={false}
+    animateOut={false}>
+    <div
+      className="games">
+      <Connect(Game)
+        game={
+          Object {
+            "createdAt": "2016-12-25T19:31:48",
+            "id": 1,
+            "p1": 1,
+            "p1OnGoal": null,
+            "p1PassAcc": null,
+            "p1Poss": null,
+            "p1Reds": 0,
+            "p1Score": null,
+            "p1Shots": null,
+            "p1Yellows": 0,
+            "p2": 2,
+            "p2OnGoal": null,
+            "p2PassAcc": null,
+            "p2Poss": null,
+            "p2Reds": 0,
+            "p2Score": null,
+            "p2Shots": null,
+            "p2Yellows": 0,
+            "status": "created",
+            "tournament": 1,
+            "updatedAt": null,
+          }
+        } />
+      <Connect(Game)
+        game={
+          Object {
+            "createdAt": "2016-12-25T19:31:48",
+            "id": 2,
+            "p1": 1,
+            "p1OnGoal": null,
+            "p1PassAcc": null,
+            "p1Poss": null,
+            "p1Reds": 0,
+            "p1Score": null,
+            "p1Shots": null,
+            "p1Yellows": 0,
+            "p2": 3,
+            "p2OnGoal": null,
+            "p2PassAcc": null,
+            "p2Poss": null,
+            "p2Reds": 0,
+            "p2Score": null,
+            "p2Shots": null,
+            "p2Yellows": 0,
+            "status": "created",
+            "tournament": 1,
+            "updatedAt": null,
+          }
+        } />
+      <Connect(Game)
+        game={
+          Object {
+            "createdAt": "2016-12-25T19:31:48",
+            "id": 3,
+            "p1": 2,
+            "p1OnGoal": null,
+            "p1PassAcc": null,
+            "p1Poss": null,
+            "p1Reds": 0,
+            "p1Score": null,
+            "p1Shots": null,
+            "p1Yellows": 0,
+            "p2": 3,
+            "p2OnGoal": null,
+            "p2PassAcc": null,
+            "p2Poss": null,
+            "p2Reds": 0,
+            "p2Score": null,
+            "p2Shots": null,
+            "p2Yellows": 0,
+            "status": "created",
+            "tournament": 1,
+            "updatedAt": null,
+          }
+        } />
+    </div>
+    <CarouselCaption
+      bsClass="carousel-caption"
+      componentClass="div">
+      <h3>
+        Click on a game to play!
+      </h3>
+    </CarouselCaption>
+  </CarouselItem>
+  <CarouselItem
+    active={false}
+    animateIn={false}
+    animateOut={false}>
+    <div
+      className="games" />
+    <CarouselCaption
+      bsClass="carousel-caption"
+      componentClass="div">
+      <h3>
+        Click on a finished game to view it
+      </h3>
+    </CarouselCaption>
+  </CarouselItem>
+</Carousel>
 `;
 
 exports[`Games Component should not fail with no props 1`] = `
-<Panel
-  bsClass="panel"
-  bsStyle="default"
-  defaultExpanded={false}>
-  <h4>
-    Select a game below to play!
-  </h4>
-  <ListGroup
-    bsClass="list-group" />
-</Panel>
+<Carousel
+  activeIndex={0}
+  bsClass="carousel"
+  controls={true}
+  direction={null}
+  indicators={true}
+  interval={5000}
+  nextIcon={
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="chevron-right" />
+  }
+  nextLabel="Next"
+  onSelect={[Function]}
+  pauseOnHover={true}
+  prevIcon={
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="chevron-left" />
+  }
+  prevLabel="Previous"
+  slide={true}
+  wrap={true}>
+  <CarouselItem
+    active={false}
+    animateIn={false}
+    animateOut={false}>
+    <div
+      className="games" />
+    <CarouselCaption
+      bsClass="carousel-caption"
+      componentClass="div">
+      <h3>
+        Click on a game to play!
+      </h3>
+    </CarouselCaption>
+  </CarouselItem>
+  <CarouselItem
+    active={false}
+    animateIn={false}
+    animateOut={false}>
+    <div
+      className="games" />
+    <CarouselCaption
+      bsClass="carousel-caption"
+      componentClass="div">
+      <h3>
+        Click on a finished game to view it
+      </h3>
+    </CarouselCaption>
+  </CarouselItem>
+</Carousel>
 `;

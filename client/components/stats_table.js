@@ -19,9 +19,9 @@ export const StatsTable = ({table, label}) => {
   let currentHeaders = headers.map(header => <th key={header}>{header}</th>);
 
   return (
-    <Panel>
+    <Panel className='stats'>
       <h4>{label}</h4>
-      <Table bordered striped responsive>
+      <Table bordered striped responsive fill>
         <thead>
           <tr>
             {currentHeaders}

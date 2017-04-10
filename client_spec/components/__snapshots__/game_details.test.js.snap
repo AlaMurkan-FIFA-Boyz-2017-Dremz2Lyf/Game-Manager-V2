@@ -1,6 +1,7 @@
 exports[`GameDetails should match the snapshot 1`] = `
 <Row
   bsClass="row"
+  className="lgi-inner-text"
   componentClass="div">
   <Col
     bsClass="col"

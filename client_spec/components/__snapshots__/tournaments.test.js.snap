@@ -1,127 +1,183 @@
 exports[`Tournaments Component should handle no props passed to it 1`] = `
-<div
-  className="tournaments">
-  <Panel
-    bsClass="panel"
-    bsStyle="default"
-    defaultExpanded={false}>
-    <Uncontrolled(Tabs)
-      defaultActiveKey={2}
-      id="tournaments">
-      <Tab
-        eventKey={1}
-        title="Finished">
-        <h4>
-          Finished Tournaments
-        </h4>
-      </Tab>
-      <Tab
-        eventKey={2}
-        title="OnGoing">
-        <h4>
-          OnGoing Tournaments
-        </h4>
-      </Tab>
-      <Tab
-        eventKey={3}
-        title="Create One">
-        <Connect(CreateTournament) />
-      </Tab>
-    </Uncontrolled(Tabs)>
-  </Panel>
-</div>
+<Carousel
+  activeIndex={1}
+  bsClass="carousel"
+  controls={true}
+  direction={null}
+  indicators={true}
+  interval={5000}
+  nextIcon={
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="chevron-right" />
+  }
+  nextLabel="Next"
+  onSelect={[Function]}
+  pauseOnHover={true}
+  prevIcon={
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="chevron-left" />
+  }
+  prevLabel="Previous"
+  slide={true}
+  wrap={true}>
+  <CarouselItem
+    active={false}
+    animateIn={false}
+    animateOut={false}>
+    <div
+      className="tournament-list" />
+    <CarouselCaption
+      bsClass="carousel-caption"
+      componentClass="div">
+      <h3>
+        Finished Tournaments
+      </h3>
+    </CarouselCaption>
+  </CarouselItem>
+  <CarouselItem
+    active={false}
+    animateIn={false}
+    animateOut={false}>
+    <div
+      className="tournament-list" />
+    <CarouselCaption
+      bsClass="carousel-caption"
+      componentClass="div">
+      <h3>
+        OnGoing Tournaments
+      </h3>
+    </CarouselCaption>
+  </CarouselItem>
+  <CarouselItem
+    active={false}
+    animateIn={false}
+    animateOut={false}>
+    <Connect(CreateTournament) />
+  </CarouselItem>
+</Carousel>
 `;
 
 exports[`Tournaments Component should match snapshot 1`] = `
-<div
-  className="tournaments">
-  <Panel
-    bsClass="panel"
-    bsStyle="default"
-    defaultExpanded={false}>
-    <Uncontrolled(Tabs)
-      defaultActiveKey={2}
-      id="tournaments">
-      <Tab
-        eventKey={1}
-        title="Finished">
-        <h4>
-          Finished Tournaments
-        </h4>
-        <Tournament
-          tournament={
-            Object {
-              "createdAt": "2016-12-25T19:31:48",
-              "gamesPlayed": 1,
-              "id": 2,
-              "name": "new",
-              "totalGames": 1,
-              "updatedAt": "2016-12-26T19:31:48",
-              "winner": 2,
-            }
-          } />
-      </Tab>
-      <Tab
-        eventKey={2}
-        title="OnGoing">
-        <h4>
-          OnGoing Tournaments
-        </h4>
-        <Tournament
-          tournament={
-            Object {
-              "createdAt": "2016-12-25T19:31:48",
-              "gamesPlayed": 0,
-              "id": 1,
-              "name": "Super Tourney!",
-              "totalGames": 3,
-              "updatedAt": null,
-              "winner": null,
-            }
-          } />
-        <Tournament
-          tournament={
-            Object {
-              "createdAt": "2016-12-25T19:31:48",
-              "gamesPlayed": 5,
-              "id": 3,
-              "name": "next",
-              "totalGames": 5,
-              "updatedAt": null,
-              "winner": null,
-            }
-          } />
-        <Tournament
-          tournament={
-            Object {
-              "createdAt": "2016-12-25T19:31:48",
-              "gamesPlayed": 1,
-              "id": 4,
-              "name": "hot",
-              "totalGames": 7,
-              "updatedAt": null,
-              "winner": null,
-            }
-          } />
-        <Tournament
-          tournament={
-            Object {
-              "createdAt": "2016-12-25T19:31:48",
-              "gamesPlayed": 2,
-              "id": 5,
-              "name": "fun",
-              "totalGames": 6,
-              "updatedAt": null,
-              "winner": null,
-            }
-          } />
-      </Tab>
-      <Tab
-        eventKey={3}
-        title="Create One">
-        <Connect(CreateTournament) />
-      </Tab>
-    </Uncontrolled(Tabs)>
-  </Panel>
-</div>
+<Carousel
+  activeIndex={1}
+  bsClass="carousel"
+  controls={true}
+  direction={null}
+  indicators={true}
+  interval={5000}
+  nextIcon={
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="chevron-right" />
+  }
+  nextLabel="Next"
+  onSelect={[Function]}
+  pauseOnHover={true}
+  prevIcon={
+    <Glyphicon
+      bsClass="glyphicon"
+      glyph="chevron-left" />
+  }
+  prevLabel="Previous"
+  slide={true}
+  wrap={true}>
+  <CarouselItem
+    active={false}
+    animateIn={false}
+    animateOut={false}>
+    <div
+      className="tournament-list">
+      <Tournament
+        tournament={
+          Object {
+            "createdAt": "2016-12-25T19:31:48",
+            "gamesPlayed": 1,
+            "id": 2,
+            "name": "new",
+            "totalGames": 1,
+            "updatedAt": "2016-12-26T19:31:48",
+            "winner": 2,
+          }
+        } />
+    </div>
+    <CarouselCaption
+      bsClass="carousel-caption"
+      componentClass="div">
+      <h3>
+        Finished Tournaments
+      </h3>
+    </CarouselCaption>
+  </CarouselItem>
+  <CarouselItem
+    active={false}
+    animateIn={false}
+    animateOut={false}>
+    <div
+      className="tournament-list">
+      <Tournament
+        tournament={
+          Object {
+            "createdAt": "2016-12-25T19:31:48",
+            "gamesPlayed": 0,
+            "id": 1,
+            "name": "Super Tourney!",
+            "totalGames": 3,
+            "updatedAt": null,
+            "winner": null,
+          }
+        } />
+      <Tournament
+        tournament={
+          Object {
+            "createdAt": "2016-12-25T19:31:48",
+            "gamesPlayed": 5,
+            "id": 3,
+            "name": "next",
+            "totalGames": 5,
+            "updatedAt": null,
+            "winner": null,
+          }
+        } />
+      <Tournament
+        tournament={
+          Object {
+            "createdAt": "2016-12-25T19:31:48",
+            "gamesPlayed": 1,
+            "id": 4,
+            "name": "hot",
+            "totalGames": 7,
+            "updatedAt": null,
+            "winner": null,
+          }
+        } />
+      <Tournament
+        tournament={
+          Object {
+            "createdAt": "2016-12-25T19:31:48",
+            "gamesPlayed": 2,
+            "id": 5,
+            "name": "fun",
+            "totalGames": 6,
+            "updatedAt": null,
+            "winner": null,
+          }
+        } />
+    </div>
+    <CarouselCaption
+      bsClass="carousel-caption"
+      componentClass="div">
+      <h3>
+        OnGoing Tournaments
+      </h3>
+    </CarouselCaption>
+  </CarouselItem>
+  <CarouselItem
+    active={false}
+    animateIn={false}
+    animateOut={false}>
+    <Connect(CreateTournament) />
+  </CarouselItem>
+</Carousel>
 `;

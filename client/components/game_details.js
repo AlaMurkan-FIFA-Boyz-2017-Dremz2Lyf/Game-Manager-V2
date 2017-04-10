@@ -3,7 +3,7 @@ import React from 'react';
 import { Row, Col, ProgressBar } from 'react-bootstrap';
 
 const GameDetails = ({ game, player1, player2 }) => (
-  <Row>
+  <Row className='lgi-inner-text'>
     <Col xs={5}>
       <span className='player1-name'>{player1.username}</span>
       <span className='player1-score'>{game.p1Score}</span>

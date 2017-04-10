@@ -41,11 +41,11 @@ export class CreateTournament extends Component {
 
   handleSearch(e) {
     this.setState({
-      playerSearch: e.target.value
+      playerSearch: e.target.value.toLowerCase()
     });
   }
 
-  handlerName(e) {
+  handleName(e) {
     this.setState({
       name: e.target.value
     });
@@ -107,14 +107,11 @@ export class CreateTournament extends Component {
               <ControlLabel>Tournament Name</ControlLabel>
                 <InputGroup>
 
-                <InputGroup.Button>
-                  <Button type='submit'>Go!</Button>
-                </InputGroup.Button>
                 <FormControl
                   name='name'
                   type='text'
                   placeholder='Tournament Name'
-                  onChange={this.handlerName.bind(this)}
+                  onChange={this.handleName.bind(this)}
                   value={name}
                 />
                 <DropdownButton
@@ -124,6 +121,9 @@ export class CreateTournament extends Component {
                 >
                   {this.renderOptions(13)}
                 </DropdownButton>
+                <InputGroup.Button>
+                  <Button type='submit'>Create</Button>
+                </InputGroup.Button>
                 </InputGroup>
               </FormGroup>
             </form>
@@ -138,7 +138,7 @@ export class CreateTournament extends Component {
               value={playerSearch}
               name='playerSearch'
               type='text'
-              placeholder='Search here for players to play with.'
+              placeholder='Search here for existing players to play with.'
             />
           </div>
           </Col>
@@ -146,7 +146,6 @@ export class CreateTournament extends Component {
         <Row>
           <Col xs={6}>
             <PlayerList
-              name='all-players'
               players={this.added(false)}
               move={this.move.bind(this)}
               searchValue={playerSearch}
@@ -155,7 +154,6 @@ export class CreateTournament extends Component {
           </Col>
           <Col xs={6}>
             <PlayerList
-              name='added-players'
               players={this.added(true)}
               move={this.move.bind(this)}
               searchValue={''}

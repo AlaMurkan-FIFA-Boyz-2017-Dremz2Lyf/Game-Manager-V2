@@ -19,17 +19,12 @@ describe('Tournaments Component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('should render a tournament element', () => {
-
-    expect(wrapper.is('.tournaments')).toBe(true);
-  });
-
   test('should default to onGoing', () => {
 
-    expect(wrapper.contains(<h4>OnGoing Tournaments</h4>)).toBe(true);
+    expect(wrapper.contains(<h3>OnGoing Tournaments</h3>)).toBe(true);
   });
 
-  test('should call componentDidMount', () => {
+  test('should call fetch on mount', () => {
     let mockFetch = jest.fn();
     let mounted = mount(
       <Provider store={store}>
@@ -63,34 +58,6 @@ describe('Tournaments Component', () => {
     let empty = shallow(<Tournaments/>);
 
     expect(empty).toMatchSnapshot();
-
-  });
-
-  describe('Panel Child Component', () => {
-
-    test('should exist', () => {
-
-      let count = panel.length;
-
-      expect(count).toBe(1);
-    });
-
-    test('should have three Tabs', () => {
-
-      expect(wrapper.find('Tab')).toHaveLength(3);
-    });
-
-    test('Tabs should have titles of "onGoing", "finished", & "create"', () => {
-      expect(wrapper.find('[title="OnGoing"]')).toHaveLength(1);
-      expect(wrapper.find('[title="Finished"]')).toHaveLength(1);
-      expect(wrapper.find('[title="Create One"]')).toHaveLength(1);
-    });
-
-    test('should render different content for the correct tab', () => {
-
-      wrapper.find('Tab').find('[title="Finished"]').simulate('click');
-      expect(wrapper.contains(<h4>Finished Tournaments</h4>)).toBe(true);
-    });
 
   });
 

@@ -13,7 +13,7 @@ const PlayerList = ({players = [], searchValue, all, move, name}) => {
   );
 
   return (
-    <ListGroup className={name}>
+    <ListGroup className='player-list'>
       {list}
       {all && <CreatePlayer />}
     </ListGroup>

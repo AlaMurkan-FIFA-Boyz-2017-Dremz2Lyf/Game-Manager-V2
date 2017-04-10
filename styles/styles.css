@@ -1,9 +1,28 @@
 .page-header {
+  font-family: 'PT Sans', sans-serif;
+  text-transform: uppercase;
   padding-left: 20px;
   padding-right: 20px;
   color: #1E2329;
   background: #FAD817;
   margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 800;
+}
+
+.games, .stats {
+  height: 480px;
+  overflow: scroll;
+}
+
+.home {
+  background-image: url(require("file-loader!./Liverpool-Anfield-Stadium-Wallpaper.jpg"));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 blockquote {
@@ -23,11 +42,8 @@ blockquote {
   float: left;
 }
 
-a {
-  color: black;
-}
 
-.created-at {
+.date {
   float: right;
 }
 
@@ -47,6 +63,10 @@ a {
   float: left;
 }
 
+.lgi-inner-text {
+  color: #d8d7d2;
+}
+
 .vs {
   text-align: center;
 }
@@ -54,6 +74,7 @@ a {
 
 h4 {
   text-align: center;
+  color: black;
 }
 
 .game-field {
@@ -62,4 +83,90 @@ h4 {
 
 .advice {
   text-align: center;
+}
+
+.player-list {
+  height: 350px;
+  overflow: scroll;
+}
+
+.tournament-list {
+  height: 480px;
+  overflow: scroll;
+  margin-bottom: 10px;
+}
+
+.tournament {
+  border-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.progress-bar {
+  background-color: #d6b915;
+  color: black;
+}
+
+.panel-default {
+  background-color: rgba(74, 77, 86, 0.75);
+  border-radius: 0px;
+}
+
+.nav-tabs {
+  border: none;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  background-color: #FAD817;
+  border: none;
+}
+
+.list-group-item:last-child, .list-group-item:first-child, .list-group-item {
+  font-family: 'PT Sans', sans-serif;
+  text-transform: capitalize;
+  background-color: #4A4D56;
+  border: none;
+  border-radius: 0px;
+}
+
+.list-group-item.odd {
+  background-color: #4A4D56;
+}
+
+.list-group-item.even {
+  background-color: rgba(35, 36, 40, 1)
+}
+
+.table {
+  border: 1px solid black;
+}
+
+.carousel-control.right {
+  background-image: linear-gradient(to top right,rgba(0,0,0, .0001) 40%,rgba(0,0,0,.5) 100%);
+}
+
+.carousel-control.left {
+  background-image: linear-gradient(to top left, rgba(0,0,0, .0001) 40%, rgba(0,0,0,.5) 100%);
+}
+
+.carousel-caption {
+  color: #FAD817;
+  text-shadow: 0px 1px 4px black;
+  bottom: 0%;
+  right: 0%;
+  left: 0%;
+  font-family: 'PT Sans', sans-serif;
+  text-transform: uppercase;
+  background-image: linear-gradient(to top, rgba(74, 77, 86, 1) 50%, rgba(74, 77, 86, 0.001) 100%) ;
+}
+
+.carousel-control {
+  width: 10%;
+  bottom: 21%;
+}
+
+.carousel-indicators {
+  bottom: 0px;
 }

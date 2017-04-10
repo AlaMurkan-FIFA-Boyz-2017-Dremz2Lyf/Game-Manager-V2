@@ -5,14 +5,14 @@ exports[`Home Component should match snapshot 1`] = `
   <Col
     bsClass="col"
     componentClass="div"
-    md={6}
+    md={5}
     xs={12}>
     <Connect(Tournaments) />
   </Col>
   <Col
     bsClass="col"
     componentClass="div"
-    md={6}
+    md={7}
     xs={12}>
     <Connect(StatsTable)
       label="All Time Table" />

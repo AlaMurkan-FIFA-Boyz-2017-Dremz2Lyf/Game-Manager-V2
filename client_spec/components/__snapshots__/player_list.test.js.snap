@@ -1,11 +1,13 @@
 exports[`PlayerList should match the snapshot 1`] = `
 <ListGroup
-  bsClass="list-group" />
+  bsClass="list-group"
+  className="player-list" />
 `;
 
 exports[`PlayerList should render Components correctly based on props 1`] = `
 <ListGroup
-  bsClass="list-group">
+  bsClass="list-group"
+  className="player-list">
   <PlayerListItem
     move={[Function]}
     player={

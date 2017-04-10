@@ -8,10 +8,10 @@ import { OverallTable } from './stats_table';
 
 export default (props) => (
   <Row>
-    <Col xs={12} md={6}>
+    <Col xs={12} md={5}>
       <Tournaments />
     </Col>
-    <Col xs={12} md={6}>
+    <Col xs={12} md={7}>
       <OverallTable label={'All Time Table'}/>
     </Col>
   </Row>

@@ -18,18 +18,6 @@ exports[`CreateTournament players should default to an empty object 1`] = `
           </ControlLabel>
           <InputGroup
             bsClass="input-group">
-            <InputGroupButton
-              bsClass="input-group-btn">
-              <Button
-                active={false}
-                block={false}
-                bsClass="btn"
-                bsStyle="default"
-                disabled={false}
-                type="submit">
-                Go!
-              </Button>
-            </InputGroupButton>
             <FormControl
               bsClass="form-control"
               componentClass="input"
@@ -105,6 +93,18 @@ exports[`CreateTournament players should default to an empty object 1`] = `
                  Rounds
               </MenuItem>
             </DropdownButton>
+            <InputGroupButton
+              bsClass="input-group-btn">
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                disabled={false}
+                type="submit">
+                Create
+              </Button>
+            </InputGroupButton>
           </InputGroup>
         </FormGroup>
       </form>
@@ -128,7 +128,7 @@ exports[`CreateTournament players should default to an empty object 1`] = `
           componentClass="input"
           name="playerSearch"
           onChange={[Function]}
-          placeholder="Search here for players to play with."
+          placeholder="Search here for existing players to play with."
           type="text"
           value="" />
       </div>
@@ -144,7 +144,6 @@ exports[`CreateTournament players should default to an empty object 1`] = `
       <PlayerList
         all={true}
         move={[Function]}
-        name="all-players"
         players={Array []}
         searchValue="" />
     </Col>
@@ -155,7 +154,6 @@ exports[`CreateTournament players should default to an empty object 1`] = `
       <PlayerList
         all={false}
         move={[Function]}
-        name="added-players"
         players={Array []}
         searchValue="" />
     </Col>
@@ -183,18 +181,6 @@ exports[`CreateTournament should match the snapshot 1`] = `
           </ControlLabel>
           <InputGroup
             bsClass="input-group">
-            <InputGroupButton
-              bsClass="input-group-btn">
-              <Button
-                active={false}
-                block={false}
-                bsClass="btn"
-                bsStyle="default"
-                disabled={false}
-                type="submit">
-                Go!
-              </Button>
-            </InputGroupButton>
             <FormControl
               bsClass="form-control"
               componentClass="input"
@@ -270,6 +256,18 @@ exports[`CreateTournament should match the snapshot 1`] = `
                  Rounds
               </MenuItem>
             </DropdownButton>
+            <InputGroupButton
+              bsClass="input-group-btn">
+              <Button
+                active={false}
+                block={false}
+                bsClass="btn"
+                bsStyle="default"
+                disabled={false}
+                type="submit">
+                Create
+              </Button>
+            </InputGroupButton>
           </InputGroup>
         </FormGroup>
       </form>
@@ -293,7 +291,7 @@ exports[`CreateTournament should match the snapshot 1`] = `
           componentClass="input"
           name="playerSearch"
           onChange={[Function]}
-          placeholder="Search here for players to play with."
+          placeholder="Search here for existing players to play with."
           type="text"
           value="" />
       </div>
@@ -309,7 +307,6 @@ exports[`CreateTournament should match the snapshot 1`] = `
       <PlayerList
         all={true}
         move={[Function]}
-        name="all-players"
         players={
           Array [
             Object {
@@ -344,7 +341,6 @@ exports[`CreateTournament should match the snapshot 1`] = `
       <PlayerList
         all={false}
         move={[Function]}
-        name="added-players"
         players={Array []}
         searchValue="" />
     </Col>

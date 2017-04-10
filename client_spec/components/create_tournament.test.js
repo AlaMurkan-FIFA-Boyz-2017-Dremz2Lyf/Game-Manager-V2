@@ -37,7 +37,7 @@ describe('CreateTournament', () => {
     wrapper.find('[name="playerSearch"]').simulate('change', {target: {value: 'Alice'}});
 
     // Expect our state to be correct
-    expect(wrapper.state('playerSearch')).toBe('Alice');
+    expect(wrapper.state('playerSearch')).toBe('alice');
   });
 
   test('tournament name should be controlled', () => {

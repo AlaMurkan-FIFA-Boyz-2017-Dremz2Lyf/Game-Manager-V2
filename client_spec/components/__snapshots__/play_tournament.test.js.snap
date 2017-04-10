@@ -6,70 +6,7 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
     <Col
       bsClass="col"
       componentClass="div"
-      md={6}
-      xs={12}>
-      <StatsTable
-        label="Current Table"
-        table={
-          Object {
-            "1": Object {
-              "draws": 0,
-              "goalDiff": 0,
-              "goalsAgainst": 0,
-              "goalsFor": 0,
-              "id": 1,
-              "losses": 0,
-              "onGoal": 0,
-              "passAcc": Array [],
-              "points": 0,
-              "poss": Array [],
-              "reds": 0,
-              "shots": 0,
-              "username": "Alice",
-              "wins": 0,
-              "yellows": 0,
-            },
-            "2": Object {
-              "draws": 0,
-              "goalDiff": 0,
-              "goalsAgainst": 0,
-              "goalsFor": 0,
-              "id": 2,
-              "losses": 0,
-              "onGoal": 0,
-              "passAcc": Array [],
-              "points": 0,
-              "poss": Array [],
-              "reds": 0,
-              "shots": 0,
-              "username": "Gilbert",
-              "wins": 0,
-              "yellows": 0,
-            },
-            "3": Object {
-              "draws": 0,
-              "goalDiff": 0,
-              "goalsAgainst": 0,
-              "goalsFor": 0,
-              "id": 3,
-              "losses": 0,
-              "onGoal": 0,
-              "passAcc": Array [],
-              "points": 0,
-              "poss": Array [],
-              "reds": 0,
-              "shots": 0,
-              "username": "Bob",
-              "wins": 0,
-              "yellows": 0,
-            },
-          }
-        } />
-    </Col>
-    <Col
-      bsClass="col"
-      componentClass="div"
-      md={6}
+      md={4}
       xs={12}>
       <Games
         games={
@@ -142,6 +79,69 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
               "status": "created",
               "tournament": 1,
               "updatedAt": null,
+            },
+          }
+        } />
+    </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      md={8}
+      xs={12}>
+      <StatsTable
+        label="Current Table"
+        table={
+          Object {
+            "1": Object {
+              "draws": 0,
+              "goalDiff": 0,
+              "goalsAgainst": 0,
+              "goalsFor": 0,
+              "id": 1,
+              "losses": 0,
+              "onGoal": 0,
+              "passAcc": Array [],
+              "points": 0,
+              "poss": Array [],
+              "reds": 0,
+              "shots": 0,
+              "username": "Alice",
+              "wins": 0,
+              "yellows": 0,
+            },
+            "2": Object {
+              "draws": 0,
+              "goalDiff": 0,
+              "goalsAgainst": 0,
+              "goalsFor": 0,
+              "id": 2,
+              "losses": 0,
+              "onGoal": 0,
+              "passAcc": Array [],
+              "points": 0,
+              "poss": Array [],
+              "reds": 0,
+              "shots": 0,
+              "username": "Gilbert",
+              "wins": 0,
+              "yellows": 0,
+            },
+            "3": Object {
+              "draws": 0,
+              "goalDiff": 0,
+              "goalsAgainst": 0,
+              "goalsFor": 0,
+              "id": 3,
+              "losses": 0,
+              "onGoal": 0,
+              "passAcc": Array [],
+              "points": 0,
+              "poss": Array [],
+              "reds": 0,
+              "shots": 0,
+              "username": "Bob",
+              "wins": 0,
+              "yellows": 0,
             },
           }
         } />

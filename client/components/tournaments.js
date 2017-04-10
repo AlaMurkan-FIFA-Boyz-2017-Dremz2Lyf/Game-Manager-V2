@@ -6,9 +6,9 @@ import { fetch } from '../actions/index';
 
 //Pre-built components from react bootstrap
 import {
-  Panel,
   Tabs,
-  Tab
+  Tab,
+  Carousel
 } from 'react-bootstrap';
 
 // Components
@@ -16,9 +16,20 @@ import { Tournament } from './tournament';
 import CreateTournament from './create_tournament';
 
 export class Tournaments extends Component {
+  constructor() {
+    super();
+    this.state = {
+      index: 1,
+      direction: null
+    };
+  }
 
   componentDidMount() {
     this.props.fetch('tournaments');
+  }
+
+  handleSelect(index, {direction}) {
+    this.setState({ index, direction });
   }
 
   renderList(finished) {
@@ -36,23 +47,31 @@ export class Tournaments extends Component {
   render() {
 
     return (
-      <div className="tournaments">
-        <Panel>
-          <Tabs defaultActiveKey={2} id='tournaments'>
-            <Tab eventKey={1} title='Finished'>
-              <h4>Finished Tournaments</h4>
-              {this.renderList(true)}
-            </Tab>
-            <Tab eventKey={2} title='OnGoing'>
-              <h4>OnGoing Tournaments</h4>
-              {this.renderList(false)}
-            </Tab>
-            <Tab eventKey={3} title='Create One'>
-              <CreateTournament />
-            </Tab>
-          </Tabs>
-        </Panel>
-      </div>
+      <Carousel
+        activeIndex={this.state.index}
+        direction={this.state.direction}
+        onSelect={this.handleSelect.bind(this)}
+      >
+        <Carousel.Item>
+          <div className='tournament-list'>
+            {this.renderList(true)}
+          </div>
+          <Carousel.Caption>
+            <h3>Finished Tournaments</h3>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <div className='tournament-list'>
+            {this.renderList(false)}
+          </div>
+          <Carousel.Caption>
+            <h3>OnGoing Tournaments</h3>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <CreateTournament />
+        </Carousel.Item>
+      </Carousel>
     );
   }
 }

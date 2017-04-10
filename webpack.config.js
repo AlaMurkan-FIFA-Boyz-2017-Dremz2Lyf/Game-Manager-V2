@@ -17,6 +17,10 @@ const commonConfig = {
       {
         use: ['style-loader', 'css-loader'],
         test: /\.css$/
+      },
+      {
+        use: 'file-loader',
+        test: /\.jpeg$/
       }
     ]
   }

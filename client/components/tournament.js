@@ -11,23 +11,28 @@ import {
 import { percentPlayed } from '../utilities';
 
 export const Tournament = ({ tournament = {} }) => {
-  let { name, createdAt, gamesPlayed, totalGames, id } = tournament;
+  let { name, createdAt, updatedAt, gamesPlayed, totalGames, id } = tournament;
   let played = percentPlayed(gamesPlayed, totalGames);
   let message = played > 25 ? `${gamesPlayed} out of ${totalGames} played` : null;
+  let style = tournament.id % 2 === 0 ? 'even' : 'odd';
+  let created = new Date(createdAt).toDateString();
+  let updated = new Date(updatedAt).toDateString();
   return (
     <Link to={`play/${id}`}>
-      <ListGroupItem className="tournament">
+      <ListGroupItem className={style}>
         <Row>
-          <Col xs={7} className="name">
-            <div>{name}</div>
+          <Col xs={4}>
+            <div className='lgi-inner-text'>{name}</div>
           </Col>
-          <Col xs={5} className="date">
-            <span className='created-at'>{createdAt}</span>
+          <Col xs={8} className='date'>
+            <span className='lgi-inner-text date'>{`Started: ${created}`}</span>
+            <br/>
+            <span className='lgi-inner-text date'>{`Last played: ${updated}`}</span>
           </Col>
         </Row>
         <Row>
           <Col xs={12}>
-            <ProgressBar active now={played} label={message}></ProgressBar>
+            <ProgressBar active bsStyle='success' now={played} label={message}></ProgressBar>
           </Col>
         </Row>
       </ListGroupItem>

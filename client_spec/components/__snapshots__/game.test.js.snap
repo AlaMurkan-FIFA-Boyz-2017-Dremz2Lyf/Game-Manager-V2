@@ -1,6 +1,7 @@
 exports[`Game Component should match the snapshot 1`] = `
 <ListGroupItem
   bsClass="list-group-item"
+  className="even"
   listItem={false}
   onClick={[Function]}>
   <GameDetails
@@ -166,6 +167,7 @@ exports[`Game Component should match the snapshot 1`] = `
 exports[`Game Component should open the game modal when clicked 1`] = `
 <ListGroupItem
   bsClass="list-group-item"
+  className="even"
   listItem={false}
   onClick={[Function]}>
   <GameDetails
@@ -331,6 +333,7 @@ exports[`Game Component should open the game modal when clicked 1`] = `
 exports[`Game Component should open the game modal when clicked 2`] = `
 <ListGroupItem
   bsClass="list-group-item"
+  className="even"
   listItem={false}
   onClick={[Function]}>
   <GameDetails

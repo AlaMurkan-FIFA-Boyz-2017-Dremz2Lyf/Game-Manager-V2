@@ -2,12 +2,14 @@ exports[`Stats Table should match the snapshot 1`] = `
 <Panel
   bsClass="panel"
   bsStyle="default"
+  className="stats"
   defaultExpanded={false}>
   <h4 />
   <Table
     bordered={true}
     bsClass="table"
     condensed={false}
+    fill={true}
     hover={false}
     responsive={true}
     striped={true}>
