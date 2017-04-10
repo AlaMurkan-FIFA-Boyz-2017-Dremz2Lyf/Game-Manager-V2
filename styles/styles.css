@@ -6,6 +6,7 @@
   color: #1E2329;
   background: #FAD817;
   margin-bottom: 10px;
+  margin-top: 0px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -17,16 +18,12 @@ h1, h2, h3, h4, h5 {
   overflow: scroll;
 }
 
-.home {
-  background-image: url(require("file-loader!./Liverpool-Anfield-Stadium-Wallpaper.jpg"));
+body {
+  background-image: url(/Liverpool-Anfield-Stadium-Wallpaper.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-}
-
-blockquote {
-  border-left: none;
 }
 
 .progress {
@@ -34,54 +31,23 @@ blockquote {
   margin-top: 5px;
 }
 
-.tournament-form {
-  margin: 0px;
-}
-
-.doubles {
+.player1-name, .player2-score {
   float: left;
 }
 
-
-.date {
+.player2-name, .player1-score, .date {
   float: right;
-}
-
-.player1-name {
-  float: left;
-}
-
-.player1-score {
-  float: right;
-}
-
-.player2-name {
-  float: right;
-}
-
-.player2-score {
-  float: left;
 }
 
 .lgi-inner-text {
   color: #d8d7d2;
 }
 
-.vs {
-  text-align: center;
-}
-
-
-h4 {
-  text-align: center;
-  color: black;
-}
-
 .game-field {
   text-align: right;
 }
 
-.advice {
+.advice, .vs, h4 {
   text-align: center;
 }
 
@@ -137,10 +103,6 @@ h4 {
 
 .list-group-item.even {
   background-color: rgba(35, 36, 40, 1)
-}
-
-.table {
-  border: 1px solid black;
 }
 
 .carousel-control.right {

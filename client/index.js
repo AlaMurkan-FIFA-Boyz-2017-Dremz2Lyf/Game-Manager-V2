@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 
 // css
 import '../styles/styles.css';
+import '../styles/Liverpool-Anfield-Stadium-Wallpaper.jpg';
 
 // Bring in our router
 import Routes from './router';

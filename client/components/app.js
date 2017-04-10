@@ -18,6 +18,7 @@ export class App extends Component {
   }
 
   render() {
+
     return (
       <div className="home">
         <Link to='/'><PageHeader>Game Manager</PageHeader></Link>

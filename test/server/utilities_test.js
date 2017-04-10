@@ -144,4 +144,5 @@ describe('Utilities', function() {
     });
 
   });
+
 });

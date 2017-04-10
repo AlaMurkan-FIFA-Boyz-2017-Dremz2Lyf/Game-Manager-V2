@@ -143,6 +143,10 @@ exports.applyGame = (table, game) => {
   return table;
 };
 
+
+/**
+  TODO: add jsdoc comments to this file.
+*/
 exports.envStaticPath = (env) => (
   env === 'production' ? 'public' : 'devPublic'
 );

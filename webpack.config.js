@@ -19,24 +19,23 @@ const commonConfig = {
         test: /\.css$/
       },
       {
-        use: 'file-loader',
-        test: /\.jpeg$/
+        use: 'file-loader?name=[name].[ext]',
+        test: /\.jpg$/
       }
     ]
   }
 };
 
 const devConfig = {
-  output: {
-    path: path.join(__dirname, 'devPublic'),
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './client/index.js'
   ],
+  output: {
+    path: path.join(__dirname, 'devPublic'),
+    filename: 'bundle.js'
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin()
