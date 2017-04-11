@@ -26,7 +26,8 @@ exports[`Tournaments Component should handle no props passed to it 1`] = `
     active={false}
     animateIn={false}
     animateOut={false}>
-    <div
+    <ListGroup
+      bsClass="list-group"
       className="tournament-list" />
     <CarouselCaption
       bsClass="carousel-caption"
@@ -40,7 +41,8 @@ exports[`Tournaments Component should handle no props passed to it 1`] = `
     active={false}
     animateIn={false}
     animateOut={false}>
-    <div
+    <ListGroup
+      bsClass="list-group"
       className="tournament-list" />
     <CarouselCaption
       bsClass="carousel-caption"
@@ -87,7 +89,8 @@ exports[`Tournaments Component should match snapshot 1`] = `
     active={false}
     animateIn={false}
     animateOut={false}>
-    <div
+    <ListGroup
+      bsClass="list-group"
       className="tournament-list">
       <Tournament
         tournament={
@@ -101,7 +104,7 @@ exports[`Tournaments Component should match snapshot 1`] = `
             "winner": 2,
           }
         } />
-    </div>
+    </ListGroup>
     <CarouselCaption
       bsClass="carousel-caption"
       componentClass="div">
@@ -114,7 +117,8 @@ exports[`Tournaments Component should match snapshot 1`] = `
     active={false}
     animateIn={false}
     animateOut={false}>
-    <div
+    <ListGroup
+      bsClass="list-group"
       className="tournament-list">
       <Tournament
         tournament={
@@ -164,7 +168,7 @@ exports[`Tournaments Component should match snapshot 1`] = `
             "winner": null,
           }
         } />
-    </div>
+    </ListGroup>
     <CarouselCaption
       bsClass="carousel-caption"
       componentClass="div">

@@ -15,7 +15,7 @@ describe('PlayerListItem', () => {
 
   test('should render the appropriate player', () => {
 
-    expect(wrapper.contains(<div className='player-name'>Alice</div>)).toBe(true);
+    expect(wrapper.contains(<span>Alice</span>)).toBe(true);
   });
 
   test('should pass the id to the move function', () => {

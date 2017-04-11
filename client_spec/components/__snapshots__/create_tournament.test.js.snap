@@ -1,12 +1,20 @@
 exports[`CreateTournament players should default to an empty object 1`] = `
-<div>
+<Panel
+  bsClass="panel"
+  bsStyle="default"
+  className="create-tournament"
+  defaultExpanded={false}>
   <Row
     bsClass="row"
     componentClass="div">
     <Col
       bsClass="col"
       componentClass="div"
-      xs={12}>
+      xs={1} />
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={10}>
       <form
         onSubmit={[Function]}>
         <FormGroup
@@ -14,7 +22,9 @@ exports[`CreateTournament players should default to an empty object 1`] = `
           <ControlLabel
             bsClass="control-label"
             srOnly={false}>
-            Tournament Name
+            <h4>
+              Tournament Name
+            </h4>
           </ControlLabel>
           <InputGroup
             bsClass="input-group">
@@ -109,6 +119,10 @@ exports[`CreateTournament players should default to an empty object 1`] = `
         </FormGroup>
       </form>
     </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={1} />
   </Row>
   <Row
     bsClass="row"
@@ -116,31 +130,34 @@ exports[`CreateTournament players should default to an empty object 1`] = `
     <Col
       bsClass="col"
       componentClass="div"
-      xs={12}>
+      xs={12} />
+  </Row>
+  <Row
+    bsClass="row"
+    componentClass="div">
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={1} />
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={5}>
       <ControlLabel
         bsClass="control-label"
         srOnly={false}>
-        Add Players!
+        <h4>
+          Add Players!
+        </h4>
       </ControlLabel>
-      <div>
-        <FormControl
-          bsClass="form-control"
-          componentClass="input"
-          name="playerSearch"
-          onChange={[Function]}
-          placeholder="Search here for existing players to play with."
-          type="text"
-          value="" />
-      </div>
-    </Col>
-  </Row>
-  <Row
-    bsClass="row"
-    componentClass="div">
-    <Col
-      bsClass="col"
-      componentClass="div"
-      xs={6}>
+      <FormControl
+        bsClass="form-control"
+        componentClass="input"
+        name="playerSearch"
+        onChange={[Function]}
+        placeholder="Search here for existing players to play with."
+        type="text"
+        value="" />
       <PlayerList
         all={true}
         move={[Function]}
@@ -150,26 +167,45 @@ exports[`CreateTournament players should default to an empty object 1`] = `
     <Col
       bsClass="col"
       componentClass="div"
-      xs={6}>
+      xs={5}>
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}>
+        <h4>
+          Added Players
+        </h4>
+      </ControlLabel>
       <PlayerList
         all={false}
         move={[Function]}
         players={Array []}
         searchValue="" />
     </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={1} />
   </Row>
-</div>
+</Panel>
 `;
 
 exports[`CreateTournament should match the snapshot 1`] = `
-<div>
+<Panel
+  bsClass="panel"
+  bsStyle="default"
+  className="create-tournament"
+  defaultExpanded={false}>
   <Row
     bsClass="row"
     componentClass="div">
     <Col
       bsClass="col"
       componentClass="div"
-      xs={12}>
+      xs={1} />
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={10}>
       <form
         onSubmit={[Function]}>
         <FormGroup
@@ -177,7 +213,9 @@ exports[`CreateTournament should match the snapshot 1`] = `
           <ControlLabel
             bsClass="control-label"
             srOnly={false}>
-            Tournament Name
+            <h4>
+              Tournament Name
+            </h4>
           </ControlLabel>
           <InputGroup
             bsClass="input-group">
@@ -272,6 +310,10 @@ exports[`CreateTournament should match the snapshot 1`] = `
         </FormGroup>
       </form>
     </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={1} />
   </Row>
   <Row
     bsClass="row"
@@ -279,31 +321,34 @@ exports[`CreateTournament should match the snapshot 1`] = `
     <Col
       bsClass="col"
       componentClass="div"
-      xs={12}>
+      xs={12} />
+  </Row>
+  <Row
+    bsClass="row"
+    componentClass="div">
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={1} />
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={5}>
       <ControlLabel
         bsClass="control-label"
         srOnly={false}>
-        Add Players!
+        <h4>
+          Add Players!
+        </h4>
       </ControlLabel>
-      <div>
-        <FormControl
-          bsClass="form-control"
-          componentClass="input"
-          name="playerSearch"
-          onChange={[Function]}
-          placeholder="Search here for existing players to play with."
-          type="text"
-          value="" />
-      </div>
-    </Col>
-  </Row>
-  <Row
-    bsClass="row"
-    componentClass="div">
-    <Col
-      bsClass="col"
-      componentClass="div"
-      xs={6}>
+      <FormControl
+        bsClass="form-control"
+        componentClass="input"
+        name="playerSearch"
+        onChange={[Function]}
+        placeholder="Search here for existing players to play with."
+        type="text"
+        value="" />
       <PlayerList
         all={true}
         move={[Function]}
@@ -337,13 +382,24 @@ exports[`CreateTournament should match the snapshot 1`] = `
     <Col
       bsClass="col"
       componentClass="div"
-      xs={6}>
+      xs={5}>
+      <ControlLabel
+        bsClass="control-label"
+        srOnly={false}>
+        <h4>
+          Added Players
+        </h4>
+      </ControlLabel>
       <PlayerList
         all={false}
         move={[Function]}
         players={Array []}
         searchValue="" />
     </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={1} />
   </Row>
-</div>
+</Panel>
 `;

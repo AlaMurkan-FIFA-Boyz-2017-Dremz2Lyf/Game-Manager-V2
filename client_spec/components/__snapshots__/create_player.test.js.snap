@@ -4,7 +4,10 @@ exports[`CreatePlayer Component should match the snapshot 1`] = `
     bsClass="list-group-item"
     listItem={false}
     onClick={[Function]}>
-    Couldn\'t find who you were looking for? Click here to add a new player
+    <div
+      className="inner-text hover">
+      Couldn\'t find who you were looking for? Click here to add a new player
+    </div>
   </ListGroupItem>
   <Modal
     animation={true}

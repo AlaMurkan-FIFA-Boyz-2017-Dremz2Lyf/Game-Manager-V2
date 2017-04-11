@@ -1,5 +1,6 @@
 exports[`TableRow should match the snapshot 1`] = `
-<tr>
+<tr
+  className="inner-text">
   <td>
     Alice
   </td>

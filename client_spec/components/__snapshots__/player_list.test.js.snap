@@ -18,7 +18,8 @@ exports[`PlayerList should render Components correctly based on props 1`] = `
         "updatedAt": null,
         "username": "Alice",
       }
-    } />
+    }
+    style="even" />
   <PlayerListItem
     move={[Function]}
     player={
@@ -29,7 +30,8 @@ exports[`PlayerList should render Components correctly based on props 1`] = `
         "updatedAt": null,
         "username": "Gilbert",
       }
-    } />
+    }
+    style="odd" />
   <PlayerListItem
     move={[Function]}
     player={
@@ -40,7 +42,9 @@ exports[`PlayerList should render Components correctly based on props 1`] = `
         "updatedAt": null,
         "username": "Bob",
       }
-    } />
-  <Connect(CreatePlayer) />
+    }
+    style="even" />
+  <Connect(CreatePlayer)
+    style="odd" />
 </ListGroup>
 `;

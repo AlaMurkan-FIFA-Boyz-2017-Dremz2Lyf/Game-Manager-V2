@@ -4,9 +4,9 @@ exports[`Stats Table should match the snapshot 1`] = `
   bsStyle="default"
   className="stats"
   defaultExpanded={false}>
-  <h4 />
+  <h2 />
   <Table
-    bordered={true}
+    bordered={false}
     bsClass="table"
     condensed={false}
     fill={true}
@@ -14,7 +14,8 @@ exports[`Stats Table should match the snapshot 1`] = `
     responsive={true}
     striped={true}>
     <thead>
-      <tr>
+      <tr
+        className="inner-text">
         <th>
           Player
         </th>
@@ -80,7 +81,8 @@ exports[`Stats Table should match the snapshot 1`] = `
             "wins": 1,
             "yellows": 0,
           }
-        } />
+        }
+        style="odd" />
       <StatsTableRow
         player={
           Object {
@@ -106,7 +108,8 @@ exports[`Stats Table should match the snapshot 1`] = `
             "wins": 1,
             "yellows": 0,
           }
-        } />
+        }
+        style="even" />
       <StatsTableRow
         player={
           Object {
@@ -130,7 +133,8 @@ exports[`Stats Table should match the snapshot 1`] = `
             "wins": 0,
             "yellows": 0,
           }
-        } />
+        }
+        style="odd" />
     </tbody>
   </Table>
 </Panel>

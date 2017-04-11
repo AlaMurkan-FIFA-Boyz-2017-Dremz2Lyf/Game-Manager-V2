@@ -1,12 +1,12 @@
 exports[`Tournament component should match the snapshot 1`] = `
-<Link
-  onlyActiveOnIndex={false}
-  style={Object {}}
-  to="play/undefined">
-  <ListGroupItem
-    bsClass="list-group-item"
-    className="odd"
-    listItem={false}>
+<ListGroupItem
+  bsClass="list-group-item"
+  className="odd"
+  listItem={false}>
+  <Link
+    onlyActiveOnIndex={false}
+    style={Object {}}
+    to="play/undefined">
     <Row
       bsClass="row"
       componentClass="div">
@@ -15,7 +15,7 @@ exports[`Tournament component should match the snapshot 1`] = `
         componentClass="div"
         xs={4}>
         <div
-          className="lgi-inner-text" />
+          className="inner-text" />
       </Col>
       <Col
         bsClass="col"
@@ -23,12 +23,12 @@ exports[`Tournament component should match the snapshot 1`] = `
         componentClass="div"
         xs={8}>
         <span
-          className="lgi-inner-text date">
+          className="inner-text date">
           Started: Invalid Date
         </span>
         <br />
         <span
-          className="lgi-inner-text date">
+          className="inner-text date">
           Last played: Invalid Date
         </span>
       </Col>
@@ -53,6 +53,6 @@ exports[`Tournament component should match the snapshot 1`] = `
           striped={false} />
       </Col>
     </Row>
-  </ListGroupItem>
-</Link>
+  </Link>
+</ListGroupItem>
 `;
