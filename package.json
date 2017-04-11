@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon ./server/index.js",
-    "start": "npm run build && node ./server/index.js",
+    "start": "node ./server/index.js",
     "dev": "webpack-dev-server --config webpack.config.js --color --progress --watch",
     "build": "npm run clean && webpack",
     "clean": "rimraf ./public",
