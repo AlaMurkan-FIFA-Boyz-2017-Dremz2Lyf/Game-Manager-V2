@@ -18,16 +18,16 @@ export const Tournament = ({ tournament = {} }) => {
   let created = new Date(createdAt).toDateString();
   let updated = new Date(updatedAt).toDateString();
   return (
-    <Link to={`play/${id}`}>
-      <ListGroupItem className={style}>
+    <ListGroupItem className={style}>
+      <Link to={`play/${id}`}>
         <Row>
           <Col xs={4}>
-            <div className='lgi-inner-text'>{name}</div>
+            <div className='inner-text'>{name}</div>
           </Col>
           <Col xs={8} className='date'>
-            <span className='lgi-inner-text date'>{`Started: ${created}`}</span>
+            <span className='inner-text date'>{`Started: ${created}`}</span>
             <br/>
-            <span className='lgi-inner-text date'>{`Last played: ${updated}`}</span>
+            <span className='inner-text date'>{`Last played: ${updated}`}</span>
           </Col>
         </Row>
         <Row>
@@ -35,8 +35,8 @@ export const Tournament = ({ tournament = {} }) => {
             <ProgressBar active bsStyle='success' now={played} label={message}></ProgressBar>
           </Col>
         </Row>
-      </ListGroupItem>
-    </Link>
+      </Link>
+    </ListGroupItem>
   );
 };
 

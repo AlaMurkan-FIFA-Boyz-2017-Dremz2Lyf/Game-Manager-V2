@@ -1,5 +1,4 @@
 .page-header {
-  font-family: 'PT Sans', sans-serif;
   text-transform: uppercase;
   padding-left: 20px;
   padding-right: 20px;
@@ -10,12 +9,28 @@
 }
 
 h1, h2, h3, h4, h5 {
+  font-family: 'PT Sans', sans-serif;
   font-weight: 800;
 }
 
-.games, .stats {
+h2 {
+  color: #d8d7d2;
+  margin: 10px;
+}
+
+.control-label {
+  color: #d8d7d2;
+}
+
+.stats {
   max-height: 480px;
   overflow: scroll;
+}
+
+.games {
+  height: 480px;
+  overflow: scroll;
+  margin-bottom: 0px;
 }
 
 body {
@@ -35,32 +50,37 @@ body {
   float: left;
 }
 
-.player2-name, .player1-score, .date {
+.player2-name, .player1-score, .date, .record {
   float: right;
 }
 
-.lgi-inner-text {
+.inner-text {
   color: #d8d7d2;
+}
+
+.inner-text.hover:hover {
+  color: rgba(35, 36, 40, 1);
+  text-decoration: none;
+  background-color: #f5f5f5;
 }
 
 .game-field {
   text-align: right;
 }
 
-.advice, .vs, h4 {
+.advice, .vs, h4, h2 {
   text-align: center;
 }
 
 .player-list {
-  max-height: 350px;
+  height: 280px;
   overflow: scroll;
 }
 
 .tournament-list {
-  min-height: 200px;
-  max-height: 480px;
+  height: 480px;
   overflow: scroll;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .tournament {
@@ -80,6 +100,11 @@ body {
   background-color: rgba(74, 77, 86, 0.75);
   border: none;
   border-radius: 0px;
+}
+
+.panel-default.create-tournament {
+  height: 500px;
+  margin-bottom: 0;
 }
 
 .nav-tabs {
@@ -104,7 +129,7 @@ body {
 }
 
 .list-group-item.even {
-  background-color: rgba(35, 36, 40, 1)
+  background-color: rgba(35, 36, 40, 1);
 }
 
 .carousel-control.right {
@@ -133,4 +158,34 @@ body {
 
 .carousel-indicators {
   bottom: 0px;
+}
+
+.table-striped>thead {
+  background-color: rgba(35, 36, 40, 1);
+}
+
+.table-striped>tbody>tr:nth-of-type(even) {
+  background-color: rgba(35, 36, 40, 1);
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #4A4D56;
+}
+
+.table>tbody>tr>td {
+  border-top: none;
+}
+
+.modal-content {
+  background-color: rgba(35, 36, 40, 1);
+  color: #d8d7d2;
+}
+
+.list-group-item:last-child {
+  margin-bottom: 80px;
+}
+
+.carousel-inner {
+  background-color: rgba(74, 77, 86, .7);
+  margin-bottom: 10px;
 }

@@ -12,7 +12,8 @@ import {
   InputGroup,
   DropdownButton,
   MenuItem,
-  Button
+  Button,
+  Panel
 } from 'react-bootstrap';
 
 import PlayerList from './player_list';
@@ -99,14 +100,14 @@ export class CreateTournament extends Component {
     let { rounds, name, playerSearch } = this.state;
 
     return (
-      <div>
+      <Panel className='create-tournament'>
         <Row>
-          <Col xs={12}>
-          <form onSubmit={this.handleSubmit.bind(this)}>
-            <FormGroup>
-              <ControlLabel>Tournament Name</ControlLabel>
+          <Col xs={1}></Col>
+          <Col xs={10}>
+            <form onSubmit={this.handleSubmit.bind(this)}>
+              <FormGroup>
+              <ControlLabel><h4>Tournament Name</h4></ControlLabel>
                 <InputGroup>
-
                 <FormControl
                   name='name'
                   type='text'
@@ -128,11 +129,16 @@ export class CreateTournament extends Component {
               </FormGroup>
             </form>
           </Col>
+          <Col xs={1}></Col>
         </Row>
         <Row>
           <Col xs={12}>
-          <ControlLabel>Add Players!</ControlLabel>
-          <div>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={1}></Col>
+          <Col xs={5}>
+            <ControlLabel><h4>Add Players!</h4></ControlLabel>
             <FormControl
               onChange={this.handleSearch.bind(this)}
               value={playerSearch}
@@ -140,11 +146,6 @@ export class CreateTournament extends Component {
               type='text'
               placeholder='Search here for existing players to play with.'
             />
-          </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={6}>
             <PlayerList
               players={this.added(false)}
               move={this.move.bind(this)}
@@ -152,7 +153,8 @@ export class CreateTournament extends Component {
               all={true}
             />
           </Col>
-          <Col xs={6}>
+          <Col xs={5}>
+            <ControlLabel><h4>Added Players</h4></ControlLabel>
             <PlayerList
               players={this.added(true)}
               move={this.move.bind(this)}
@@ -160,8 +162,9 @@ export class CreateTournament extends Component {
               all={false}
             />
           </Col>
+          <Col xs={1}></Col>
         </Row>
-      </div>
+      </Panel>
     );
   }
 }

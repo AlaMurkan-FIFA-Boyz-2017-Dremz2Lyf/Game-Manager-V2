@@ -8,7 +8,8 @@ import { fetch } from '../actions/index';
 import {
   Tabs,
   Tab,
-  Carousel
+  Carousel,
+  ListGroup
 } from 'react-bootstrap';
 
 // Components
@@ -53,17 +54,17 @@ export class Tournaments extends Component {
         onSelect={this.handleSelect.bind(this)}
       >
         <Carousel.Item>
-          <div className='tournament-list'>
+          <ListGroup className='tournament-list'>
             {this.renderList(true)}
-          </div>
+          </ListGroup>
           <Carousel.Caption>
             <h3>Finished Tournaments</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <div className='tournament-list'>
+          <ListGroup className='tournament-list'>
             {this.renderList(false)}
-          </div>
+          </ListGroup>
           <Carousel.Caption>
             <h3>OnGoing Tournaments</h3>
           </Carousel.Caption>

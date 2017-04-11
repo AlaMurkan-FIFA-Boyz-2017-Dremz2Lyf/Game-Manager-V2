@@ -12,18 +12,18 @@ export const StatsTable = ({table, label}) => {
       return a.goalDiff < b.goalDiff;
     }
     return a.points < b.points;
-  }).map(player => (
-    <TableRow key={player.id} player={player} />
+  }).map((player, index) => (
+    <TableRow style={index % 2 === 0 ? 'odd' : 'even'} key={player.id} player={player} />
   ));
 
   let currentHeaders = headers.map(header => <th key={header}>{header}</th>);
 
   return (
     <Panel className='stats'>
-      <h4>{label}</h4>
-      <Table bordered striped responsive fill>
+      <h2>{label}</h2>
+      <Table striped responsive fill>
         <thead>
-          <tr>
+          <tr className='inner-text'>
             {currentHeaders}
           </tr>
         </thead>

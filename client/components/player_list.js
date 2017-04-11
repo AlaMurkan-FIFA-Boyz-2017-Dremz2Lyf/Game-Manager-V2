@@ -8,14 +8,16 @@ const PlayerList = ({players = [], searchValue, all, move, name}) => {
 
   let list = players.filter(player =>
     player.username.toLowerCase().indexOf(searchValue) !== -1
-  ).map(player =>
-    <PlayerListItem key={player.id} player={player} move={move}/>
+  ).map((player, index) =>
+    <PlayerListItem style={index % 2 === 0 ? 'even' : 'odd'} key={player.id} player={player} move={move}/>
   );
+
+  let style = list.length % 2 !== 0 ? 'odd' : 'even';
 
   return (
     <ListGroup className='player-list'>
       {list}
-      {all && <CreatePlayer />}
+      {all && <CreatePlayer style={style}/>}
     </ListGroup>
   );
 };

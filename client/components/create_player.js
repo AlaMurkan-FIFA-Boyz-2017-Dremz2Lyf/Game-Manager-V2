@@ -37,8 +37,10 @@ export class CreatePlayer extends Component {
 
     return (
       <div>
-        <ListGroupItem onClick={this.open.bind(this)}>
-          Couldn't find who you were looking for? Click here to add a new player
+        <ListGroupItem className={this.props.style} onClick={this.open.bind(this)}>
+          <div className='inner-text hover'>
+            Couldn't find who you were looking for? Click here to add a new player
+          </div>
         </ListGroupItem>
         <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
           <Modal.Header>

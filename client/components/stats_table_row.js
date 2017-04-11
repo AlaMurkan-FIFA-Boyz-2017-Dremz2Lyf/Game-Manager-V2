@@ -22,7 +22,7 @@ const StatsTableRow = ({player}) => {
   } = player;
 
   return (
-    <tr key={id}>
+    <tr className='inner-text' key={id}>
       <td>{username}</td>
       <td>{points || '0'}</td>
       <td>{wins || '0'}</td>
