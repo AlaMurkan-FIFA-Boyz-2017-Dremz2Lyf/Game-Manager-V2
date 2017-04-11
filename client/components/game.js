@@ -59,8 +59,7 @@ export class Game extends Component {
   }
 
   render() {
-    let { game, players } = this.props;
-    let style = game.id % 2 === 0 ? 'even' : 'odd';
+    let { game, players, style } = this.props;
 
     return (
       <ListGroupItem className={style} onClick={this.open.bind(this)}>

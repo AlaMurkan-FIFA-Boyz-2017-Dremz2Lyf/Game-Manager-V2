@@ -24,6 +24,17 @@ describe('Tournaments Component', () => {
     expect(wrapper.contains(<h3>OnGoing Tournaments</h3>)).toBe(true);
   });
 
+  test('should control it\'s own state for the carousel', () => {
+    // Expect our initial state to be correct
+    expect(wrapper.state()).toEqual({index: 1, direction: null});
+
+    // find the Carousel and simulate a select event on it... hopefully that's easy.......
+    wrapper.find('Carousel').simulate('select', 2, {direction: 'next'});
+
+    // Expect the state to have correctly changed.
+    expect(wrapper.state()).toEqual({index: 2, direction: 'next'});
+  });
+
   test('should call fetch on mount', () => {
     let mockFetch = jest.fn();
     let mounted = mount(

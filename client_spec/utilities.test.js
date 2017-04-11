@@ -8,7 +8,8 @@ import {
   helpMessage,
   buildTable,
   applyGame,
-  getAverage
+  getAverage,
+  getEnvBaseUrl
 } from '../client/utilities';
 
 import { mockData } from './mockData';
@@ -199,5 +200,14 @@ describe('Utilities', () => {
       expect(getAverage([])).toEqual(0);
     });
 
+  });
+
+  describe('getEnvBaseUrl', () => {
+
+    test('should return the window href if in production, otherwise, should just return "/"', () => {
+
+      expect(getEnvBaseUrl('production')).toEqual('about:blank');
+      expect(getEnvBaseUrl('anything else')).toEqual('/');
+    });
   });
 });

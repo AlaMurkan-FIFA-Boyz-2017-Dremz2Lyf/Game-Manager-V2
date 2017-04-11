@@ -153,10 +153,17 @@ export const applyGame = (table, game) => {
   * getAverage - used by StatsTableRow to get the average of all percentage based stats
   * @param {array} array - an array of percentages
 */
-
 export const getAverage = (array) => {
   let count = array.length || 1;
   let average = array.reduce((total, current) => total += current, 0) / count;
 
   return Math.round(average * 100) / 100;
 };
+
+/**
+  * getEnvBaseUrl - used to determine the base url for ajax requests;
+  * @param {string} env - the process' environmental variable NODE_ENV
+*/
+export const getEnvBaseUrl = (env) => (
+  env === 'production' ? window.location.href : '/'
+);

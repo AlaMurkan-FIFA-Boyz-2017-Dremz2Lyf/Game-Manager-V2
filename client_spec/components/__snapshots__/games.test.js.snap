@@ -53,7 +53,8 @@ exports[`Games Component should match the snapshot 1`] = `
             "tournament": 1,
             "updatedAt": null,
           }
-        } />
+        }
+        style="even" />
       <Connect(Game)
         game={
           Object {
@@ -79,7 +80,8 @@ exports[`Games Component should match the snapshot 1`] = `
             "tournament": 1,
             "updatedAt": null,
           }
-        } />
+        }
+        style="odd" />
       <Connect(Game)
         game={
           Object {
@@ -105,7 +107,8 @@ exports[`Games Component should match the snapshot 1`] = `
             "tournament": 1,
             "updatedAt": null,
           }
-        } />
+        }
+        style="even" />
     </div>
     <CarouselCaption
       bsClass="carousel-caption"

@@ -26,8 +26,8 @@ export class Games extends Component {
 
     return Object.keys(games).filter(id => (
       games[id].status === status
-    )).map(id => (
-      <Game key={id} game={games[id]} />
+    )).map((id, index) => (
+      <Game style={index % 2 === 0 ? 'even' : 'odd'} key={id} game={games[id]} />
     ));
   }
 

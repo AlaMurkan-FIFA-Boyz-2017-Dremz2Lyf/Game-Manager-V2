@@ -5,9 +5,9 @@ import axios from 'axios';
 import { SET_ERRORED, SET_LOADING, RECEIVE } from './types';
 
 // Utilities
-import { normalize } from '../utilities';
+import { normalize, getEnvBaseUrl } from '../utilities';
 
-let baseUrl = process.env.NODE_ENV === 'production' ? window.location.href : '/';
+let baseUrl = getEnvBaseUrl(process.env.NODE_ENV);
 
 export const setErrored = (stateKey, data) => {
   // NOTE: Still not 100% sure if this is going to work for all errors.... but it might! :D
