@@ -14,7 +14,7 @@ import {
   HelpBlock
 } from 'react-bootstrap';
 
-import { getValidationState, required, possValidation, helpMessage } from '../utilities';
+import { getValidationState, required, possValidation, helpMessage, onlyNumbers, validPercentage } from '../utilities';
 
 export const gameField = ({input, meta: {touched, error, valid, pristine}}) => (
   <FormGroup validationState={getValidationState(valid, !touched)}>
@@ -33,54 +33,54 @@ export const generateOptions = (num) => (
   ))
 );
 
-export const PossessionField = ({input, type, meta: {touched, error, valid}}) => (
+export const PercentageField = ({input, type, meta: {touched, error, valid}}) => (
   <FormGroup validationState={getValidationState(valid, !touched)}>
     <FormControl {...input} type={type} placeholder='00'/>
   </FormGroup>
 );
 
 // displayName for coverage testing
-PossessionField.displayName = 'PossessionField';
+PercentageField.displayName = 'PercentageField';
 
-export const Possession = ({errors = {}}) => (
+export const Percentage = ({errors = {}, name, label}) => (
   <Row className='game-field'>
     <Col xs={3}>
-      <ControlLabel>Possession</ControlLabel>
+      <ControlLabel>{label}</ControlLabel>
     </Col>
     <Col xs={2}>
       <Field
-        name='p1Poss'
-        component={PossessionField}
+        name={`p1${name}`}
+        component={PercentageField}
         type='text'
-        validate={possValidation}
-        normalize={Number}
+        validate={name === 'Poss' ? possValidation : validPercentage}
+        normalize={onlyNumbers}
       />
     </Col>
     <Col xs={2}>
       <Field
-        name='p2Poss'
-        component={PossessionField}
+        name={`p2${name}`}
+        component={PercentageField}
         type='text'
-        validate={possValidation}
-        normalize={Number}
+        validate={name === 'Poss' ? possValidation : validPercentage}
+        normalize={onlyNumbers}
       />
     </Col>
     <Col xs={5}>
-      <HelpBlock>{errors.p1Poss ? errors.p1Poss : undefined}</HelpBlock>
+      <HelpBlock>{errors[`p1${name}`] ? errors[`p1${name}`] : undefined}</HelpBlock>
     </Col>
   </Row>
 );
 
 // displayName for coverage testing
-Possession.displayName = 'Possession';
+Percentage.displayName = 'Percentage';
 
-const ConnectedPossession = connect(
+const ConnectedPercentage = connect(
   (state) => ({
     errors: getFormSyncErrors('gameForm')(state)
   })
-)(Possession);
+)(Percentage);
 
-export const gameFieldRows = (names) => names.map((name) => (
+export const generateFields = (names) => names.map((name) => (
   <Row className='game-field' key={name}>
     <Col xs={3}>
       <ControlLabel>{name}</ControlLabel>
@@ -109,8 +109,9 @@ export const gameFieldRows = (names) => names.map((name) => (
 
 export const GameForm = (props) => (
   <form onSubmit={props.handleSubmit}>
-    {gameFieldRows(['Score', 'Shots', 'OnGoal', 'Reds', 'Yellows'])}
-    <ConnectedPossession />
+    {generateFields(['Score', 'Shots', 'OnGoal', 'Reds', 'Yellows'])}
+    <ConnectedPercentage name='Poss' label='Possession'/>
+    <ConnectedPercentage name='PassAcc' label='Passing Accuracy'/>
     <Button disabled={props.invalid} type='submit'>Finish this game!</Button>
   </form>
 );

@@ -6,7 +6,7 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
     <Col
       bsClass="col"
       componentClass="div"
-      md={4}
+      md={5}
       xs={12}>
       <Games
         games={
@@ -86,7 +86,7 @@ exports[`PlayTournament Component should match the snapshot 1`] = `
     <Col
       bsClass="col"
       componentClass="div"
-      md={8}
+      md={7}
       xs={12}>
       <StatsTable
         label="Current Table"

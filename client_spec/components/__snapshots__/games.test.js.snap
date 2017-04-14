@@ -128,7 +128,7 @@ exports[`Games Component should match the snapshot 1`] = `
       bsClass="carousel-caption"
       componentClass="div">
       <h3>
-        Click on a finished game to view it
+        Finished games
       </h3>
     </CarouselCaption>
   </CarouselItem>
@@ -183,7 +183,7 @@ exports[`Games Component should not fail with no props 1`] = `
       bsClass="carousel-caption"
       componentClass="div">
       <h3>
-        Click on a finished game to view it
+        Finished games
       </h3>
     </CarouselCaption>
   </CarouselItem>
