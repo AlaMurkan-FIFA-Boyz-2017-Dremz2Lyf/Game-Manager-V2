@@ -31,10 +31,10 @@ export class PlayTournament extends Component {
     return (
       <div>
         <Row>
-          <Col xs={12} md={4}>
+          <Col xs={12} md={5}>
             <Games games={games}/>
           </Col>
-          <Col xs={12} md={8}>
+          <Col xs={12} md={7}>
             <StatsTable table={table} label={'Current Table'}/>
           </Col>
         </Row>

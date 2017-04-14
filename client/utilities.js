@@ -165,5 +165,22 @@ export const getAverage = (array) => {
   * @param {string} env - the process' environmental variable NODE_ENV
 */
 export const getEnvBaseUrl = (env) => (
-  env === 'production' ? window.location.href : '/'
+  env === 'production' ? window.location.origin : '/'
+);
+
+/**
+  * onlyNumbers - will return a number from a string, if it is not NaN;
+  * @param {string} input - a string
+*/
+export const onlyNumbers = (input) => {
+  let number = Number(input);
+  return Number.isNaN(number) ? 0 : number;
+};
+
+/**
+  * validPercentage - validates percentage inputs;
+  * @param {string} value - a numberic value
+*/
+export const validPercentage = (value) => (
+  value > 100 || value < 0 ? 'This should be a valid percentage' : undefined
 );

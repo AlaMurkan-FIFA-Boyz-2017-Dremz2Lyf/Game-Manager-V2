@@ -9,7 +9,9 @@ import {
   buildTable,
   applyGame,
   getAverage,
-  getEnvBaseUrl
+  getEnvBaseUrl,
+  onlyNumbers,
+  validPercentage
 } from '../client/utilities';
 
 import { mockData } from './mockData';
@@ -210,4 +212,31 @@ describe('Utilities', () => {
       expect(getEnvBaseUrl('anything else')).toEqual('/');
     });
   });
+
+  describe('onlyNumbers', () => {
+
+    test('should return the number 0 if the input is NaN, the parsed number if it is.', () => {
+
+      expect(onlyNumbers('')).toEqual(0);
+      expect(onlyNumbers('ad')).toEqual(0);
+      expect(onlyNumbers('56')).toEqual(56);
+    });
+
+  });
+
+  describe('validPercentage', () => {
+
+    test('should return undefined if the input number is greater than 0 and <= 100', () => {
+
+      expect(validPercentage(1)).toBeUndefined();
+      expect(validPercentage(100)).toBeUndefined();
+    });
+
+    test('should return the error if the number is < 0 or >100', () => {
+
+      expect(validPercentage(-1)).toEqual('This should be a valid percentage');
+      expect(validPercentage(101)).toEqual('This should be a valid percentage');
+    });
+  });
+
 });

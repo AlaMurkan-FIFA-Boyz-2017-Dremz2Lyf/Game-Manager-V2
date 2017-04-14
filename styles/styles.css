@@ -54,16 +54,6 @@ body {
   float: right;
 }
 
-.inner-text {
-  color: #d8d7d2;
-}
-
-.inner-text.hover:hover {
-  color: rgba(35, 36, 40, 1);
-  text-decoration: none;
-  background-color: #f5f5f5;
-}
-
 .game-field {
   text-align: right;
 }
@@ -73,7 +63,7 @@ body {
 }
 
 .player-list {
-  height: 280px;
+  height: 260px;
   overflow: scroll;
 }
 
@@ -103,17 +93,8 @@ body {
 }
 
 .panel-default.create-tournament {
-  height: 500px;
+  height: 480px;
   margin-bottom: 0;
-}
-
-.nav-tabs {
-  border: none;
-}
-
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-  background-color: #FAD817;
-  border: none;
 }
 
 .list-group-item:last-child, .list-group-item:first-child, .list-group-item {
@@ -122,6 +103,7 @@ body {
   background-color: #4A4D56;
   border: none;
   border-radius: 0px;
+  color: #d8d7d2;
 }
 
 .list-group-item.odd {
@@ -130,6 +112,15 @@ body {
 
 .list-group-item.even {
   background-color: rgba(35, 36, 40, 1);
+}
+
+button.list-group-item, .table {
+  color: #d8d7d2;
+}
+
+button.list-group-item:active, .list-group-item:active {
+  right: 1px;
+  bottom: 1px;
 }
 
 .carousel-control.right {
@@ -188,4 +179,8 @@ body {
 .carousel-inner {
   background-color: rgba(74, 77, 86, .7);
   margin-bottom: 10px;
+}
+
+a, a:hover {
+  color: inherit;
 }

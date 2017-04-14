@@ -50,12 +50,21 @@ And you should be good to go!
 
 ## Production:  
 Using Heroku to deploy this app, but if you want to check that everything is running right in production:  
-First set your environment as `NODE_ENV`;  
+First set your `NODE_ENV` variable to production;  
 ```
 export NODE_ENV=production
-```
+```  
 
-Then go ahead and fire everything up!  
+When running production, you will need to set your DATABASE_URL variable. Contact:
+[scotthorn0]: https://github.com/Scotthorn0  
+To get it.
+
+Then go ahead and bundle everything with  
+```
+npm run build
+```  
+
+and fire up the server!  
 ```
 npm start
 ```

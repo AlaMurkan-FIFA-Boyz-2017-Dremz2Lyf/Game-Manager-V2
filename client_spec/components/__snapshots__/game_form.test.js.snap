@@ -80,6 +80,11 @@ exports[`Connected GameForm should match the snapshot 1`] = `
               "name": "p1OnGoal",
               "type": "Field",
             },
+            "p1PassAcc": Object {
+              "count": 1,
+              "name": "p1PassAcc",
+              "type": "Field",
+            },
             "p1Poss": Object {
               "count": 1,
               "name": "p1Poss",
@@ -108,6 +113,11 @@ exports[`Connected GameForm should match the snapshot 1`] = `
             "p2OnGoal": Object {
               "count": 1,
               "name": "p2OnGoal",
+              "type": "Field",
+            },
+            "p2PassAcc": Object {
+              "count": 1,
+              "name": "p2PassAcc",
               "type": "Field",
             },
             "p2Poss": Object {
@@ -3910,8 +3920,10 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                 </Col>
               </div>
             </Row>
-            <Connect(Possession)>
-              <Possession
+            <Connect(Percentage)
+              label="Possession"
+              name="Poss">
+              <Percentage
                 dispatch={[Function]}
                 errors={
                   Object {
@@ -3920,7 +3932,9 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     "p2Poss": "Possession is required.",
                     "p2Score": "Required",
                   }
-                }>
+                }
+                label="Possession"
+                name="Poss">
                 <Row
                   bsClass="row"
                   className="game-field"
@@ -4148,7 +4162,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               syncError="Possession is required."
                               type="text"
                               validate={[Function]}>
-                              <PossessionField
+                              <PercentageField
                                 input={
                                   Object {
                                     "name": "p1Poss",
@@ -4211,7 +4225,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     </FormControl>
                                   </div>
                                 </FormGroup>
-                              </PossessionField>
+                              </PercentageField>
                             </ConnectedField>
                           </Connect(ConnectedField)>
                         </Field>
@@ -4422,7 +4436,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                               syncError="Possession is required."
                               type="text"
                               validate={[Function]}>
-                              <PossessionField
+                              <PercentageField
                                 input={
                                   Object {
                                     "name": "p2Poss",
@@ -4485,7 +4499,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                                     </FormControl>
                                   </div>
                                 </FormGroup>
-                              </PossessionField>
+                              </PercentageField>
                             </ConnectedField>
                           </Connect(ConnectedField)>
                         </Field>
@@ -4508,8 +4522,608 @@ exports[`Connected GameForm should match the snapshot 1`] = `
                     </Col>
                   </div>
                 </Row>
-              </Possession>
-            </Connect(Possession)>
+              </Percentage>
+            </Connect(Percentage)>
+            <Connect(Percentage)
+              label="Passing Accuracy"
+              name="PassAcc">
+              <Percentage
+                dispatch={[Function]}
+                errors={
+                  Object {
+                    "p1Poss": "Possession is required.",
+                    "p1Score": "Required",
+                    "p2Poss": "Possession is required.",
+                    "p2Score": "Required",
+                  }
+                }
+                label="Passing Accuracy"
+                name="PassAcc">
+                <Row
+                  bsClass="row"
+                  className="game-field"
+                  componentClass="div">
+                  <div
+                    className="game-field row">
+                    <Col
+                      bsClass="col"
+                      componentClass="div"
+                      xs={3}>
+                      <div
+                        className="col-xs-3">
+                        <ControlLabel
+                          bsClass="control-label"
+                          srOnly={false}>
+                          <label
+                            className="control-label">
+                            Passing Accuracy
+                          </label>
+                        </ControlLabel>
+                      </div>
+                    </Col>
+                    <Col
+                      bsClass="col"
+                      componentClass="div"
+                      xs={2}>
+                      <div
+                        className="col-xs-2">
+                        <Field
+                          component={[Function]}
+                          name="p1PassAcc"
+                          normalize={[Function]}
+                          type="text"
+                          validate={[Function]}>
+                          <Connect(ConnectedField)
+                            _reduxForm={
+                              Object {
+                                "anyTouched": false,
+                                "array": Object {
+                                  "insert": [Function],
+                                  "move": [Function],
+                                  "pop": [Function],
+                                  "push": [Function],
+                                  "remove": [Function],
+                                  "removeAll": [Function],
+                                  "shift": [Function],
+                                  "splice": [Function],
+                                  "swap": [Function],
+                                  "unshift": [Function],
+                                },
+                                "arrayInsert": [Function],
+                                "arrayMove": [Function],
+                                "arrayPop": [Function],
+                                "arrayPush": [Function],
+                                "arrayRemove": [Function],
+                                "arrayRemoveAll": [Function],
+                                "arrayShift": [Function],
+                                "arraySplice": [Function],
+                                "arraySwap": [Function],
+                                "arrayUnshift": [Function],
+                                "asyncErrors": undefined,
+                                "asyncValidate": [Function],
+                                "asyncValidating": false,
+                                "autofill": [Function],
+                                "blur": [Function],
+                                "change": [Function],
+                                "clearAsyncError": [Function],
+                                "clearSubmit": [Function],
+                                "clearSubmitErrors": [Function],
+                                "destroy": [Function],
+                                "destroyOnUnmount": true,
+                                "dirty": false,
+                                "dispatch": [Function],
+                                "enableReinitialize": false,
+                                "error": undefined,
+                                "focus": [Function],
+                                "forceUnregisterOnUnmount": false,
+                                "form": "gameForm",
+                                "getFormState": [Function],
+                                "getValues": [Function],
+                                "initialValues": undefined,
+                                "initialize": [Function],
+                                "initialized": false,
+                                "invalid": false,
+                                "keepDirtyOnReinitialize": false,
+                                "persistentSubmitErrors": false,
+                                "pristine": true,
+                                "pure": true,
+                                "register": [Function],
+                                "registerField": [Function],
+                                "registerInnerOnSubmit": [Function],
+                                "registeredFields": undefined,
+                                "reset": [Function],
+                                "sectionPrefix": undefined,
+                                "setSubmitFailed": [Function],
+                                "setSubmitSucceeded": [Function],
+                                "shouldAsyncValidate": [Function],
+                                "shouldValidate": [Function],
+                                "startAsyncValidation": [Function],
+                                "startSubmit": [Function],
+                                "stopAsyncValidation": [Function],
+                                "stopSubmit": [Function],
+                                "submit": [Function],
+                                "submitFailed": false,
+                                "submitSucceeded": false,
+                                "submitting": false,
+                                "syncErrors": Object {},
+                                "syncWarnings": Object {},
+                                "touch": [Function],
+                                "touchOnBlur": true,
+                                "touchOnChange": false,
+                                "triggerSubmit": undefined,
+                                "unregister": [Function],
+                                "unregisterField": [Function],
+                                "untouch": [Function],
+                                "updateSyncErrors": [Function],
+                                "updateSyncWarnings": [Function],
+                                "valid": true,
+                                "validExceptSubmit": true,
+                                "values": Object {},
+                                "warning": undefined,
+                              }
+                            }
+                            component={[Function]}
+                            name="p1PassAcc"
+                            normalize={[Function]}
+                            type="text"
+                            validate={[Function]}>
+                            <ConnectedField
+                              _reduxForm={
+                                Object {
+                                  "anyTouched": false,
+                                  "array": Object {
+                                    "insert": [Function],
+                                    "move": [Function],
+                                    "pop": [Function],
+                                    "push": [Function],
+                                    "remove": [Function],
+                                    "removeAll": [Function],
+                                    "shift": [Function],
+                                    "splice": [Function],
+                                    "swap": [Function],
+                                    "unshift": [Function],
+                                  },
+                                  "arrayInsert": [Function],
+                                  "arrayMove": [Function],
+                                  "arrayPop": [Function],
+                                  "arrayPush": [Function],
+                                  "arrayRemove": [Function],
+                                  "arrayRemoveAll": [Function],
+                                  "arrayShift": [Function],
+                                  "arraySplice": [Function],
+                                  "arraySwap": [Function],
+                                  "arrayUnshift": [Function],
+                                  "asyncErrors": undefined,
+                                  "asyncValidate": [Function],
+                                  "asyncValidating": false,
+                                  "autofill": [Function],
+                                  "blur": [Function],
+                                  "change": [Function],
+                                  "clearAsyncError": [Function],
+                                  "clearSubmit": [Function],
+                                  "clearSubmitErrors": [Function],
+                                  "destroy": [Function],
+                                  "destroyOnUnmount": true,
+                                  "dirty": false,
+                                  "dispatch": [Function],
+                                  "enableReinitialize": false,
+                                  "error": undefined,
+                                  "focus": [Function],
+                                  "forceUnregisterOnUnmount": false,
+                                  "form": "gameForm",
+                                  "getFormState": [Function],
+                                  "getValues": [Function],
+                                  "initialValues": undefined,
+                                  "initialize": [Function],
+                                  "initialized": false,
+                                  "invalid": false,
+                                  "keepDirtyOnReinitialize": false,
+                                  "persistentSubmitErrors": false,
+                                  "pristine": true,
+                                  "pure": true,
+                                  "register": [Function],
+                                  "registerField": [Function],
+                                  "registerInnerOnSubmit": [Function],
+                                  "registeredFields": undefined,
+                                  "reset": [Function],
+                                  "sectionPrefix": undefined,
+                                  "setSubmitFailed": [Function],
+                                  "setSubmitSucceeded": [Function],
+                                  "shouldAsyncValidate": [Function],
+                                  "shouldValidate": [Function],
+                                  "startAsyncValidation": [Function],
+                                  "startSubmit": [Function],
+                                  "stopAsyncValidation": [Function],
+                                  "stopSubmit": [Function],
+                                  "submit": [Function],
+                                  "submitFailed": false,
+                                  "submitSucceeded": false,
+                                  "submitting": false,
+                                  "syncErrors": Object {},
+                                  "syncWarnings": Object {},
+                                  "touch": [Function],
+                                  "touchOnBlur": true,
+                                  "touchOnChange": false,
+                                  "triggerSubmit": undefined,
+                                  "unregister": [Function],
+                                  "unregisterField": [Function],
+                                  "untouch": [Function],
+                                  "updateSyncErrors": [Function],
+                                  "updateSyncWarnings": [Function],
+                                  "valid": true,
+                                  "validExceptSubmit": true,
+                                  "values": Object {},
+                                  "warning": undefined,
+                                }
+                              }
+                              asyncValidating={false}
+                              component={[Function]}
+                              dirty={false}
+                              dispatch={[Function]}
+                              name="p1PassAcc"
+                              normalize={[Function]}
+                              pristine={true}
+                              type="text"
+                              validate={[Function]}>
+                              <PercentageField
+                                input={
+                                  Object {
+                                    "name": "p1PassAcc",
+                                    "onBlur": [Function],
+                                    "onChange": [Function],
+                                    "onDragStart": [Function],
+                                    "onDrop": [Function],
+                                    "onFocus": [Function],
+                                    "value": "",
+                                  }
+                                }
+                                meta={
+                                  Object {
+                                    "active": false,
+                                    "asyncValidating": false,
+                                    "autofilled": false,
+                                    "dirty": false,
+                                    "dispatch": [Function],
+                                    "error": undefined,
+                                    "form": "gameForm",
+                                    "invalid": false,
+                                    "pristine": true,
+                                    "submitFailed": false,
+                                    "submitting": false,
+                                    "touched": false,
+                                    "valid": true,
+                                    "visited": false,
+                                    "warning": undefined,
+                                  }
+                                }
+                                type="text">
+                                <FormGroup
+                                  bsClass="form-group"
+                                  validationState={null}>
+                                  <div
+                                    className="form-group">
+                                    <FormControl
+                                      bsClass="form-control"
+                                      componentClass="input"
+                                      name="p1PassAcc"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onDragStart={[Function]}
+                                      onDrop={[Function]}
+                                      onFocus={[Function]}
+                                      placeholder="00"
+                                      type="text"
+                                      value="">
+                                      <input
+                                        className="form-control"
+                                        name="p1PassAcc"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onDragStart={[Function]}
+                                        onDrop={[Function]}
+                                        onFocus={[Function]}
+                                        placeholder="00"
+                                        type="text"
+                                        value="" />
+                                    </FormControl>
+                                  </div>
+                                </FormGroup>
+                              </PercentageField>
+                            </ConnectedField>
+                          </Connect(ConnectedField)>
+                        </Field>
+                      </div>
+                    </Col>
+                    <Col
+                      bsClass="col"
+                      componentClass="div"
+                      xs={2}>
+                      <div
+                        className="col-xs-2">
+                        <Field
+                          component={[Function]}
+                          name="p2PassAcc"
+                          normalize={[Function]}
+                          type="text"
+                          validate={[Function]}>
+                          <Connect(ConnectedField)
+                            _reduxForm={
+                              Object {
+                                "anyTouched": false,
+                                "array": Object {
+                                  "insert": [Function],
+                                  "move": [Function],
+                                  "pop": [Function],
+                                  "push": [Function],
+                                  "remove": [Function],
+                                  "removeAll": [Function],
+                                  "shift": [Function],
+                                  "splice": [Function],
+                                  "swap": [Function],
+                                  "unshift": [Function],
+                                },
+                                "arrayInsert": [Function],
+                                "arrayMove": [Function],
+                                "arrayPop": [Function],
+                                "arrayPush": [Function],
+                                "arrayRemove": [Function],
+                                "arrayRemoveAll": [Function],
+                                "arrayShift": [Function],
+                                "arraySplice": [Function],
+                                "arraySwap": [Function],
+                                "arrayUnshift": [Function],
+                                "asyncErrors": undefined,
+                                "asyncValidate": [Function],
+                                "asyncValidating": false,
+                                "autofill": [Function],
+                                "blur": [Function],
+                                "change": [Function],
+                                "clearAsyncError": [Function],
+                                "clearSubmit": [Function],
+                                "clearSubmitErrors": [Function],
+                                "destroy": [Function],
+                                "destroyOnUnmount": true,
+                                "dirty": false,
+                                "dispatch": [Function],
+                                "enableReinitialize": false,
+                                "error": undefined,
+                                "focus": [Function],
+                                "forceUnregisterOnUnmount": false,
+                                "form": "gameForm",
+                                "getFormState": [Function],
+                                "getValues": [Function],
+                                "initialValues": undefined,
+                                "initialize": [Function],
+                                "initialized": false,
+                                "invalid": false,
+                                "keepDirtyOnReinitialize": false,
+                                "persistentSubmitErrors": false,
+                                "pristine": true,
+                                "pure": true,
+                                "register": [Function],
+                                "registerField": [Function],
+                                "registerInnerOnSubmit": [Function],
+                                "registeredFields": undefined,
+                                "reset": [Function],
+                                "sectionPrefix": undefined,
+                                "setSubmitFailed": [Function],
+                                "setSubmitSucceeded": [Function],
+                                "shouldAsyncValidate": [Function],
+                                "shouldValidate": [Function],
+                                "startAsyncValidation": [Function],
+                                "startSubmit": [Function],
+                                "stopAsyncValidation": [Function],
+                                "stopSubmit": [Function],
+                                "submit": [Function],
+                                "submitFailed": false,
+                                "submitSucceeded": false,
+                                "submitting": false,
+                                "syncErrors": Object {},
+                                "syncWarnings": Object {},
+                                "touch": [Function],
+                                "touchOnBlur": true,
+                                "touchOnChange": false,
+                                "triggerSubmit": undefined,
+                                "unregister": [Function],
+                                "unregisterField": [Function],
+                                "untouch": [Function],
+                                "updateSyncErrors": [Function],
+                                "updateSyncWarnings": [Function],
+                                "valid": true,
+                                "validExceptSubmit": true,
+                                "values": Object {},
+                                "warning": undefined,
+                              }
+                            }
+                            component={[Function]}
+                            name="p2PassAcc"
+                            normalize={[Function]}
+                            type="text"
+                            validate={[Function]}>
+                            <ConnectedField
+                              _reduxForm={
+                                Object {
+                                  "anyTouched": false,
+                                  "array": Object {
+                                    "insert": [Function],
+                                    "move": [Function],
+                                    "pop": [Function],
+                                    "push": [Function],
+                                    "remove": [Function],
+                                    "removeAll": [Function],
+                                    "shift": [Function],
+                                    "splice": [Function],
+                                    "swap": [Function],
+                                    "unshift": [Function],
+                                  },
+                                  "arrayInsert": [Function],
+                                  "arrayMove": [Function],
+                                  "arrayPop": [Function],
+                                  "arrayPush": [Function],
+                                  "arrayRemove": [Function],
+                                  "arrayRemoveAll": [Function],
+                                  "arrayShift": [Function],
+                                  "arraySplice": [Function],
+                                  "arraySwap": [Function],
+                                  "arrayUnshift": [Function],
+                                  "asyncErrors": undefined,
+                                  "asyncValidate": [Function],
+                                  "asyncValidating": false,
+                                  "autofill": [Function],
+                                  "blur": [Function],
+                                  "change": [Function],
+                                  "clearAsyncError": [Function],
+                                  "clearSubmit": [Function],
+                                  "clearSubmitErrors": [Function],
+                                  "destroy": [Function],
+                                  "destroyOnUnmount": true,
+                                  "dirty": false,
+                                  "dispatch": [Function],
+                                  "enableReinitialize": false,
+                                  "error": undefined,
+                                  "focus": [Function],
+                                  "forceUnregisterOnUnmount": false,
+                                  "form": "gameForm",
+                                  "getFormState": [Function],
+                                  "getValues": [Function],
+                                  "initialValues": undefined,
+                                  "initialize": [Function],
+                                  "initialized": false,
+                                  "invalid": false,
+                                  "keepDirtyOnReinitialize": false,
+                                  "persistentSubmitErrors": false,
+                                  "pristine": true,
+                                  "pure": true,
+                                  "register": [Function],
+                                  "registerField": [Function],
+                                  "registerInnerOnSubmit": [Function],
+                                  "registeredFields": undefined,
+                                  "reset": [Function],
+                                  "sectionPrefix": undefined,
+                                  "setSubmitFailed": [Function],
+                                  "setSubmitSucceeded": [Function],
+                                  "shouldAsyncValidate": [Function],
+                                  "shouldValidate": [Function],
+                                  "startAsyncValidation": [Function],
+                                  "startSubmit": [Function],
+                                  "stopAsyncValidation": [Function],
+                                  "stopSubmit": [Function],
+                                  "submit": [Function],
+                                  "submitFailed": false,
+                                  "submitSucceeded": false,
+                                  "submitting": false,
+                                  "syncErrors": Object {},
+                                  "syncWarnings": Object {},
+                                  "touch": [Function],
+                                  "touchOnBlur": true,
+                                  "touchOnChange": false,
+                                  "triggerSubmit": undefined,
+                                  "unregister": [Function],
+                                  "unregisterField": [Function],
+                                  "untouch": [Function],
+                                  "updateSyncErrors": [Function],
+                                  "updateSyncWarnings": [Function],
+                                  "valid": true,
+                                  "validExceptSubmit": true,
+                                  "values": Object {},
+                                  "warning": undefined,
+                                }
+                              }
+                              asyncValidating={false}
+                              component={[Function]}
+                              dirty={false}
+                              dispatch={[Function]}
+                              name="p2PassAcc"
+                              normalize={[Function]}
+                              pristine={true}
+                              type="text"
+                              validate={[Function]}>
+                              <PercentageField
+                                input={
+                                  Object {
+                                    "name": "p2PassAcc",
+                                    "onBlur": [Function],
+                                    "onChange": [Function],
+                                    "onDragStart": [Function],
+                                    "onDrop": [Function],
+                                    "onFocus": [Function],
+                                    "value": "",
+                                  }
+                                }
+                                meta={
+                                  Object {
+                                    "active": false,
+                                    "asyncValidating": false,
+                                    "autofilled": false,
+                                    "dirty": false,
+                                    "dispatch": [Function],
+                                    "error": undefined,
+                                    "form": "gameForm",
+                                    "invalid": false,
+                                    "pristine": true,
+                                    "submitFailed": false,
+                                    "submitting": false,
+                                    "touched": false,
+                                    "valid": true,
+                                    "visited": false,
+                                    "warning": undefined,
+                                  }
+                                }
+                                type="text">
+                                <FormGroup
+                                  bsClass="form-group"
+                                  validationState={null}>
+                                  <div
+                                    className="form-group">
+                                    <FormControl
+                                      bsClass="form-control"
+                                      componentClass="input"
+                                      name="p2PassAcc"
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onDragStart={[Function]}
+                                      onDrop={[Function]}
+                                      onFocus={[Function]}
+                                      placeholder="00"
+                                      type="text"
+                                      value="">
+                                      <input
+                                        className="form-control"
+                                        name="p2PassAcc"
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onDragStart={[Function]}
+                                        onDrop={[Function]}
+                                        onFocus={[Function]}
+                                        placeholder="00"
+                                        type="text"
+                                        value="" />
+                                    </FormControl>
+                                  </div>
+                                </FormGroup>
+                              </PercentageField>
+                            </ConnectedField>
+                          </Connect(ConnectedField)>
+                        </Field>
+                      </div>
+                    </Col>
+                    <Col
+                      bsClass="col"
+                      componentClass="div"
+                      xs={5}>
+                      <div
+                        className="col-xs-5">
+                        <HelpBlock
+                          bsClass="help-block">
+                          <span
+                            className="help-block" />
+                        </HelpBlock>
+                      </div>
+                    </Col>
+                  </div>
+                </Row>
+              </Percentage>
+            </Connect(Percentage)>
             <Button
               active={false}
               block={false}
@@ -4532,7 +5146,7 @@ exports[`Connected GameForm should match the snapshot 1`] = `
 </Provider>
 `;
 
-exports[`Shallow Possession component should show a HelpBlock with an error message if there is an error 1`] = `
+exports[`Shallow Percentage component should show a HelpBlock with an error message if there is an error for PassAcc 1`] = `
 <Row
   bsClass="row"
   className="game-field"
@@ -4544,7 +5158,103 @@ exports[`Shallow Possession component should show a HelpBlock with an error mess
     <ControlLabel
       bsClass="control-label"
       srOnly={false}>
-      Possession
+      Passing Accuracy
+    </ControlLabel>
+  </Col>
+  <Col
+    bsClass="col"
+    componentClass="div"
+    xs={2}>
+    <Field
+      component={[Function]}
+      name="p1PassAcc"
+      normalize={[Function]}
+      type="text"
+      validate={[Function]} />
+  </Col>
+  <Col
+    bsClass="col"
+    componentClass="div"
+    xs={2}>
+    <Field
+      component={[Function]}
+      name="p2PassAcc"
+      normalize={[Function]}
+      type="text"
+      validate={[Function]} />
+  </Col>
+  <Col
+    bsClass="col"
+    componentClass="div"
+    xs={5}>
+    <HelpBlock
+      bsClass="help-block" />
+  </Col>
+</Row>
+`;
+
+exports[`Shallow Percentage component should show a HelpBlock with an error message if there is an error for PassAcc 2`] = `
+<Row
+  bsClass="row"
+  className="game-field"
+  componentClass="div">
+  <Col
+    bsClass="col"
+    componentClass="div"
+    xs={3}>
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}>
+      Passing Accuracy
+    </ControlLabel>
+  </Col>
+  <Col
+    bsClass="col"
+    componentClass="div"
+    xs={2}>
+    <Field
+      component={[Function]}
+      name="p1PassAcc"
+      normalize={[Function]}
+      type="text"
+      validate={[Function]} />
+  </Col>
+  <Col
+    bsClass="col"
+    componentClass="div"
+    xs={2}>
+    <Field
+      component={[Function]}
+      name="p2PassAcc"
+      normalize={[Function]}
+      type="text"
+      validate={[Function]} />
+  </Col>
+  <Col
+    bsClass="col"
+    componentClass="div"
+    xs={5}>
+    <HelpBlock
+      bsClass="help-block">
+      This should be a valid Percentage
+    </HelpBlock>
+  </Col>
+</Row>
+`;
+
+exports[`Shallow Percentage component should show a HelpBlock with an error message if there is an error for Poss 1`] = `
+<Row
+  bsClass="row"
+  className="game-field"
+  componentClass="div">
+  <Col
+    bsClass="col"
+    componentClass="div"
+    xs={3}>
+    <ControlLabel
+      bsClass="control-label"
+      srOnly={false}>
+      Percentage
     </ControlLabel>
   </Col>
   <Col
@@ -4579,7 +5289,7 @@ exports[`Shallow Possession component should show a HelpBlock with an error mess
 </Row>
 `;
 
-exports[`Shallow Possession component should show a HelpBlock with an error message if there is an error 2`] = `
+exports[`Shallow Percentage component should show a HelpBlock with an error message if there is an error for Poss 2`] = `
 <Row
   bsClass="row"
   className="game-field"
@@ -4591,7 +5301,7 @@ exports[`Shallow Possession component should show a HelpBlock with an error mess
     <ControlLabel
       bsClass="control-label"
       srOnly={false}>
-      Possession
+      Percentage
     </ControlLabel>
   </Col>
   <Col

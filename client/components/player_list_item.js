@@ -8,7 +8,7 @@ const PlayerListItem = ({player, move, stats, style}) => {
     <ListGroupItem className={`${style}`} onClick={() => { move(`${id}`); }}>
       <div className='inner-text hover'>
         <span>{username}</span>
-        <span className='record'>Record: {`${wins}-${losses}-${draws}`}</span>
+        <span className='record'>{`${wins}-${losses}-${draws}`}</span>
       </div>
     </ListGroupItem>
   );

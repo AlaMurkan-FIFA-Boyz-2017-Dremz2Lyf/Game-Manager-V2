@@ -51,7 +51,7 @@ export class Games extends Component {
             {this.renderGames('finished')}
           </div>
           <Carousel.Caption>
-            <h3>Click on a finished game to view it</h3>
+            <h3>Finished games</h3>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
