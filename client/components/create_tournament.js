@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 
 import {
   Row,
@@ -59,7 +59,7 @@ export class CreateTournament extends Component {
     rounds = rounds.slice(0, 1);
     this.props.create('tournaments', { name, rounds, added }).then((res) => {
       let id = Object.keys(res)[0];
-      hashHistory.push(`/play/${id}`);
+      browserHistory.push(`/play/${id}`);
     });
 
   }

@@ -113,7 +113,7 @@ export const applyGame = (table, game) => {
   let player1 = table[p1];
   let player2 = table[p2];
 
-  if (p1Score && p2Score) {
+  if (p1Score !== null && p2Score !== null) {
 
     p1Score === p2Score ? (
       player1.draws++,
@@ -165,7 +165,7 @@ export const getAverage = (array) => {
   * @param {string} env - the process' environmental variable NODE_ENV
 */
 export const getEnvBaseUrl = (env) => (
-  env === 'production' ? window.location.origin : '/'
+  env === 'production' ? window.location.origin : ''
 );
 
 /**

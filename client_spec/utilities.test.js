@@ -206,10 +206,10 @@ describe('Utilities', () => {
 
   describe('getEnvBaseUrl', () => {
 
-    test('should return the window href if in production, otherwise, should just return "/"', () => {
+    test('should return the window href if in production, otherwise, should just return an empty string', () => {
 
-      expect(getEnvBaseUrl('production')).toEqual('about:blank');
-      expect(getEnvBaseUrl('anything else')).toEqual('/');
+      expect(getEnvBaseUrl('production')).toEqual('null');
+      expect(getEnvBaseUrl('anything else')).toEqual('');
     });
   });
 
