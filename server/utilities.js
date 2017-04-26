@@ -60,20 +60,30 @@ exports.formatName = (string) => {
 
 
 // ApplyRounds takes the build games array and creates duplicates for the number of rounds asked.
-exports.applyRounds = (gamesArray, rounds) => {
+/**
+  * ApplyRounds takes the build games array and creates duplicates for the number of rounds asked.
+  * @param {array} games - list of created games
+  * @param {number} rounds - how many rounds to apply.
+*/
+exports.applyRounds = (games, rounds) => {
   // combined starts as the input array of games
-  let combined = gamesArray;
+  let combined = games;
 
   // for the number of rounds passed in, add the games array to the combined holder
     // and let combined be that result.
   for (let i = 1; i < rounds; i++) {
-    combined = combined.concat(gamesArray);
+    combined = combined.concat(games);
   }
 
   // return the result
   return combined;
 };
 
+/**
+  * createTable - Just like the client side buildTable. takes two
+  * @param {array} players - to have access to their usernames
+  * @param {array} games - a list of games to be applied.
+*/
 exports.createTable = (players, games) => {
 
   let trackedStats = {
@@ -99,6 +109,12 @@ exports.createTable = (players, games) => {
 
   return table;
 };
+
+/**
+  * applyGame - Again, just like the client side applyGame, used in creating the table, and applies the game to the table. See notes in 'client/utilities.js'.
+  * @param {object} table - the current table
+  * @param {object} game - the current game to be applied
+*/
 
 exports.applyGame = (table, game) => {
 
@@ -145,7 +161,8 @@ exports.applyGame = (table, game) => {
 
 
 /**
-  TODO: add jsdoc comments to this file.
+  * envStaticPath - takes the node environment and determines what directory to use for serving static files
+  * @param {string} env - the current NODE_ENV
 */
 exports.envStaticPath = (env) => (
   env === 'production' ? 'public' : 'devPublic'
