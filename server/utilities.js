@@ -1,7 +1,8 @@
-/*
-  createGames is a function that accepts two arguments
-    - players: a list of all the players to be created <Array>
-    - tournament: a number representing the tournament the games will be affiliated with. <Number>
+/**
+  * createGames - Creates the game pairing from a list of players for the tournament
+  * @param {array} players - a list of all the players to be created
+  * @param {number} tournament - the tournament id the games will be affiliated with.
+  * @param {number} rounds - how many rounds this tournament will play
 */
 exports.createGames = (players, tournament, rounds = 1) => {
 
@@ -47,19 +48,23 @@ exports.createGames = (players, tournament, rounds = 1) => {
   return exports.applyRounds(games, rounds);
 };
 
-exports.formatName = (string) => {
+/**
+  * formatName - Capitalizes any name passed to it.
+  * @param {string} name - the current table
+*/
+// Could probably one line this function, but might not be as pretty with comments
+exports.formatName = (name) => {
   // Handle validation here
-  if (typeof string !== 'string') {
+  if (typeof name !== 'string') {
     throw new TypeError('input must be a string', 'utilities.js', 49);
   }
   // then take care of the actual formatting here and return it. Capitalize the first letter of the string, and every other letter to lowercase.
-  return string.split('').map((char, index) => (
+  return name.split('').map((char, index) => (
     index === 0 ? char.toUpperCase() : char.toLowerCase()
   )).join('');
 };
 
 
-// ApplyRounds takes the build games array and creates duplicates for the number of rounds asked.
 /**
   * ApplyRounds takes the build games array and creates duplicates for the number of rounds asked.
   * @param {array} games - list of created games
